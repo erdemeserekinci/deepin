@@ -678,6 +678,59 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 .hero-note{margin-top:28px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
 .hero-note b{font-weight:500;color:var(--ink-2)}
 
+/* ---- today vs with deepin ---- */
+.xf-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+@media (max-width:900px){.xf-grid{grid-template-columns:1fr;gap:40px}}
+.xf-grid>*{min-width:0}
+.xf{display:grid;justify-items:center;padding:22px;border-radius:20px}
+.xf.today{border:1px dashed var(--line)}
+.xf.with{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.xf-head{justify-self:stretch;display:grid;gap:6px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.xf.with .xf-head .lbl{color:var(--accent)}
+.xf-role{font-size:14px;color:var(--ink-2);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.who-h,.who-d{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:3px 9px 3px 7px;border-radius:999px;white-space:nowrap}
+.who-h{background:var(--warn-soft);color:var(--warn)}
+.who-h svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.6}
+.who-d{background:var(--soft);color:var(--accent)}
+.who-d img{width:14px;height:14px}
+.xf-node{padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:500;font-size:14px;display:inline-flex;gap:10px;align-items:center}
+.xf-node.ev{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.xf-node.dec{border-color:var(--warn);}
+.xf-node.rec{background:var(--soft);border-color:var(--accent);color:var(--ink)}
+.xf-node.act{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.xf-arr{width:2px;height:20px;background:var(--line);position:relative}
+.xf-arr::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top:6px solid var(--line);border-bottom:0}
+.xf.with .xf-arr{background:rgba(var(--dot),.5)}
+.xf.with .xf-arr::after{border-top-color:var(--accent)}
+.xf-box{justify-self:stretch;border-radius:16px;padding:16px 16px 18px}
+.xf-box-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.xf-box.human{border:1.5px solid rgba(183,121,31,.45);background:repeating-linear-gradient(135deg,var(--warn-soft) 0 10px,transparent 10px 20px)}
+.xf-box.human .xf-box-h{color:var(--warn)}
+.xf-tasks{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.xf-tasks li{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:10px;border:1px dashed var(--line);background:var(--surface);font-size:14px;width:max-content;max-width:100%;position:relative}
+.xf-tasks li + li{margin-top:14px}
+.xf-tasks li + li::before{content:"";position:absolute;top:-15px;left:22px;width:1px;height:14px;background:var(--line)}
+.xf-tasks li:nth-child(4n+2){margin-left:10%}
+.xf-tasks li:nth-child(4n+3){margin-left:22%}
+.xf-tasks li:nth-child(4n+4){margin-left:8%}
+.xf-tasks b{font-weight:500;display:block;line-height:1.3}
+.xf-tasks small{font-size:12px;color:var(--muted)}
+.t-ic{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--warn-soft);color:var(--warn)}
+.t-ic svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.6}
+.xf-box.deepin{border:1.5px solid var(--accent);background:var(--soft)}
+.xf-box.deepin .xf-box-h{color:var(--accent)}
+.xf-chips{display:flex;flex-wrap:wrap;gap:6px}
+.xf-chips span{font-size:13px;padding:5px 11px;border-radius:8px;background:var(--surface);border:1px solid rgba(var(--dot),.35)}
+.xf-micro{margin-top:12px;font-size:13px;font-weight:600;color:var(--accent)}
+.xf-box.you{border:1.5px solid rgba(183,121,31,.45);background:var(--surface)}
+.xf-box.you .xf-box-h{color:var(--warn)}
+.xf-box.you .xf-micro{color:var(--warn)}
+.xf-you{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+.xf-you span{padding:7px 14px;border-radius:999px;border:1px solid var(--line)}
+.xf-you span:first-child{border-style:dashed}
+.xf-you .xf-ok{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
+@media (max-width:480px){.xf{padding:16px}.xf-tasks li:nth-child(n){margin-left:0}}
+
 </style>
 </head>
 <body>
@@ -778,21 +831,44 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">How Deepin works</p>
-      <h2 class="h2">From signal to <b>approved action.</b></h2>
-      <p class="lede">Deepin follows the same path your analysts already take. It does the searching and comparing, and it stops for a person before anything changes.</p>
+      <h2 class="h2">Keep the decision. <b>Lose the investigation work.</b></h2>
+      <p class="lede">Deepin does the searching, gathering, comparing and reasoning. Your team reviews the evidence and stays in control of the decision.</p>
     </div>
-    <div class="flow-wrap"><svg class="flow-line" aria-hidden="true"></svg>
-    <ol class="flow">
-      <li><h3>Observe</h3><p>Watch registries, transactions, logs and documents.</p></li>
-      <li><h3>Investigate</h3><p>Search across systems and gather what an analyst would.</p></li>
-      <li><h3>Reason</h3><p>Compare and link findings, check them against policy.</p></li>
-      <li><h3>Propose</h3><p>A recommendation with its sources and reasoning.</p></li>
-      <li class="human"><h3>Human approval</h3><p>Your team approves, edits or rejects.</p></li>
-      <li><h3>Act</h3><p>The decision goes back to your systems, fully audited.</p></li>
-    </ol></div>
-    <div class="compare">
-      <div class="compare-row"><span class="who">Your team today</span><span class="chain"><span>Observe</span><i>→</i><span>Search</span><i>→</i><span>Gather</span><i>→</i><span>Compare</span><i>→</i><span>Reason</span><i>→</i><span>Decide</span><i>→</i><span>Act</span></span></div>
-      <div class="compare-row dp"><span class="who">With Deepin</span><span class="chain"><span>Observe</span><i>→</i><span>Investigate</span><i>→</i><span>Reason</span><i>→</i><span>Propose</span><i>→</i><span><b>Human approval</b></span><i>→</i><span>Act</span></span></div>
+    <div class="xf-grid">
+      <div class="xf today" aria-label="Today: your team investigates and decides">
+        <div class="xf-head"><span class="lbl">Today</span><p class="xf-role"><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Your team</span> = investigator + decision maker</p></div>
+        <div class="xf-node ev">Event</div>
+        <div class="xf-arr" aria-hidden="true"></div>
+        <div class="xf-box human">
+          <div class="xf-box-h"><span>Hours of human investigation</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Your team</span></div>
+          <ol class="xf-tasks"><li><span class="t-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg></span><span><b>Search systems</b><small>Core banking · CRM · registry</small></span></li><li><span class="t-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg></span><span><b>Find documents</b><small>PDFs · email · shared drives</small></span></li><li><span class="t-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg></span><span><b>Gather evidence</b><small>Copy, paste, screenshot</small></span></li><li><span class="t-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg></span><span><b>Compare records</b><small>Spreadsheets side by side</small></span></li><li><span class="t-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg></span><span><b>Reconstruct history</b><small>What was true last year?</small></span></li><li><span class="t-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg></span><span><b>Trace relationships</b><small>Who is connected to whom?</small></span></li><li><span class="t-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg></span><span><b>Verify findings</b><small>Check it twice</small></span></li><li><span class="t-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg></span><span><b>Reason</b><small>Write it up for the file</small></span></li></ol>
+        </div>
+        <div class="xf-arr" aria-hidden="true"></div>
+        <div class="xf-node dec"><span>Decide</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Your team</span></div>
+        <div class="xf-arr" aria-hidden="true"></div>
+        <div class="xf-node">Act</div>
+      </div>
+
+      <div class="xf with" aria-label="With Deepin: Deepin investigates, your team decides">
+        <div class="xf-head"><span class="lbl">With Deepin</span><p class="xf-role"><span class="who-d"><img src="assets/favicon-64.png" alt="" width="14" height="14">Deepin</span> = investigator · <span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Your team</span> = decision owner</p></div>
+        <div class="xf-node ev">Event</div>
+        <div class="xf-arr" aria-hidden="true"></div>
+        <div class="xf-box deepin">
+          <div class="xf-box-h"><span>Deepin investigates</span><span class="who-d"><img src="assets/favicon-64.png" alt="" width="14" height="14">Deepin</span></div>
+          <div class="xf-chips"><span>Systems</span><span>Documents</span><span>Historical records</span><span>Relationships</span><span>External sources</span><span>Evidence</span><span>Policies</span></div>
+          <p class="xf-micro">Deepin does the investigation work.</p>
+        </div>
+        <div class="xf-arr" aria-hidden="true"></div>
+        <div class="xf-node rec">Evidence-backed recommendation</div>
+        <div class="xf-arr" aria-hidden="true"></div>
+        <div class="xf-box you">
+          <div class="xf-box-h"><span>Your team</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Decision owner</span></div>
+          <div class="xf-you"><span>Review evidence</span><span class="xf-ok">Approve</span><span>Reject</span></div>
+          <p class="xf-micro">You keep the judgment.</p>
+        </div>
+        <div class="xf-arr" aria-hidden="true"></div>
+        <div class="xf-node act">Action</div>
+      </div>
     </div>
   </div>
 </section>
