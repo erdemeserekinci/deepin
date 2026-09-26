@@ -667,6 +667,12 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 .band-steps li{padding:16px 18px}
 .h2{font-size:clamp(28px,3.3vw,40px)}
 
+[hidden]{display:none!important}
+.proof-grid.n4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.proof-grid.n4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.proof-grid.n4{grid-template-columns:1fr}}
+.proof-logo{height:28px;width:auto;max-width:160px;object-fit:contain;object-position:left}
+
 .hero{padding-block:52px 64px}
 .hero .lede{max-width:54ch}
 .hero-note{margin-top:28px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
@@ -697,10 +703,10 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
       <p class="hero-note"><span>In production at <b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> and <b>GreenChimney</b></span></p>
     </div>
 
-    <figure class="case" id="liveCase" style="margin:0" aria-label="Sample company investigation">
+    <figure class="case" data-live data-labels='["Trigger detected","Sources activating","Evidence arriving","Mapping relationships","Finding emerged","Recommendation ready","Awaiting approval"]' style="margin:0" aria-label="Sample company investigation">
       <div class="case-top">
         <span class="case-id">INV-2026-0418 · Company Investigation</span>
-        <span class="chip st-wait" id="liveStatus">Awaiting approval</span>
+        <span class="chip st-wait" data-live-status>Awaiting approval</span>
       </div>
       <ol class="live-bar" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
       <div class="case-body">
@@ -1033,29 +1039,51 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawFlows);
 
 
-  // hero: replay a live investigation, step by step (resting state = complete case)
-  (function(){
-    var card=document.getElementById('liveCase');if(!card||still)return;
-    var bar=[].slice.call(card.querySelectorAll('.live-bar li')),st=document.getElementById('liveStatus');
+  // live investigation replay (resting state = complete case); any figure with [data-live]
+  document.querySelectorAll('[data-live]').forEach(function(card){
+    if(still)return;
+    var bar=[].slice.call(card.querySelectorAll('.live-bar li')),st=card.querySelector('[data-live-status]');
     var parts=[].slice.call(card.querySelectorAll('[data-s]'));
-    var labels=['Trigger detected','Sources activating','Evidence arriving','Mapping relationships','Finding emerged','Recommendation ready','Awaiting approval'];
-    var step=-1,timer=null,visible=false;
+    var labels=[];try{labels=JSON.parse(card.getAttribute('data-labels')||'[]')}catch(e){}
+    var last=parts.reduce(function(m,p){return Math.max(m,+p.getAttribute('data-s'))},0);
+    var step=-1,timer=null,visible=false,restCls=st?st.className:'';
     function paint(){
       bar.forEach(function(b,i){b.className=i<step?'done':(i===step?'on':'')});
       parts.forEach(function(p){var s=+p.getAttribute('data-s');p.classList.toggle('later',s>step);p.classList.toggle('on',s===step)});
-      st.textContent=labels[Math.max(step,0)];
-      st.className='chip '+(step===6?'st-wait':'st-deploying');
+      if(st&&labels.length){st.textContent=labels[Math.min(step,labels.length-1)];st.className='chip '+(step===last?restCls.replace('chip ',''):'st-deploying')}
     }
-    function rest(){card.classList.remove('playing');parts.forEach(function(p){p.classList.remove('later','on')});st.textContent=labels[6];st.className='chip st-wait'}
+    function rest(){card.classList.remove('playing');parts.forEach(function(p){p.classList.remove('later','on')});bar.forEach(function(b){b.className=''});if(st&&labels.length){st.textContent=labels[labels.length-1];st.className=restCls}}
     function tick(){
-      if(!visible){timer=null;rest();return}
+      if(!visible){timer=null;rest();step=-1;return}
       step++;
-      if(step>6){rest();step=-1;timer=setTimeout(tick,5200);return}
+      if(step>last){rest();step=-1;timer=setTimeout(tick,5200);return}
       card.classList.add('playing');paint();
-      timer=setTimeout(tick,step===6?1600:1250);
+      timer=setTimeout(tick,step===last?1800:(last>7?900:1250));
     }
     new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible&&!timer)timer=setTimeout(tick,900)},{threshold:.35}).observe(card);
-  })();
+  });
+
+  // request form: two steps, then email (or POST to data-endpoint when configured)
+  document.querySelectorAll('form.rq').forEach(function(f){
+    var pages=[].slice.call(f.querySelectorAll('.rq-page')),dots=[].slice.call(f.querySelectorAll('.rq-steps li'));
+    function show(n){pages.forEach(function(p,i){p.hidden=i!==n});dots.forEach(function(d,i){d.className=i===n?'on':''})}
+    function valid(p){var ok=true;p.querySelectorAll('[required]').forEach(function(i){var bad=!i.value.trim()||(i.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value));i.setAttribute('aria-invalid',bad?'true':'false');if(bad&&ok){i.focus();ok=false}});return ok}
+    show(0);
+    f.querySelector('[data-next]').addEventListener('click',function(){if(valid(pages[0])){show(1);pages[1].querySelector('input').focus()}});
+    f.querySelector('[data-back]').addEventListener('click',function(){show(0)});
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();if(!valid(pages[1]))return;
+      var data={};new FormData(f).forEach(function(v,k){data[k]=v});
+      var done=f.querySelector('.rq-done'),ep=f.getAttribute('data-endpoint');
+      if(ep){fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){})}
+      else{
+        var lines=[].slice.call(f.querySelectorAll('label')).map(function(l){var i=l.querySelector('input,textarea');return l.querySelector('span').textContent.replace('*','').trim()+': '+(i.value||'-')});
+        location.href='mailto:info@deepin.space?subject='+encodeURIComponent(f.getAttribute('data-subject')+': '+(data.company||''))+'&body='+encodeURIComponent(lines.join('\n'));
+      }
+      pages.forEach(function(p){p.hidden=true});done.hidden=false;
+    });
+  });
+  document.querySelectorAll('a[href="#request"]').forEach(function(a){a.addEventListener('click',function(){setTimeout(function(){var i=document.getElementById('rq-company');if(i)i.focus({preventScroll:true})},450)})});
 
   // evidence UI: link each reason to its source
   document.querySelectorAll('.evui').forEach(function(ui){

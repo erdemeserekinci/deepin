@@ -82,15 +82,27 @@ def c_investigation_catalog(_arg=""):
 </div>'''
 
 
-def c_proof_grid(_arg=""):
+def c_proof_grid(arg=""):
+    show_logos = DATA.get("proof", {}).get("show_logos", False)
     cards = []
     for c in DATA["customers"]:
+        if arg and arg not in c.get("spaces", []):
+            continue
+        name = (f'<img class="proof-logo" src="{c["logo"]}" alt="{e(c["name"])}">'
+                if show_logos and c.get("logo") else f'<strong>{e(c["name"])}</strong>')
         cards.append(f'''<li class="proof-card">
-  <strong>{e(c["name"])}</strong>
+  {name}
   <span class="proof-inv">{e(c["investigation"])}</span>
   <span class="proof-st">{maturity(c["status"])}{status_chip(c["status"])}</span>
 </li>''')
-    return f'<ul class="proof-grid">{"".join(cards)}</ul>'
+    cls = " n4" if len(cards) == 4 else ""
+    return f'<ul class="proof-grid{cls}">{"".join(cards)}</ul>'
+
+
+def c_proof_legend(_arg=""):
+    return ('<div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Contracted</span>'
+            '<span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Embedded or deploying</span>'
+            '<span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>In production</span></div>')
 
 
 def c_space_growth(space_id, prefix=""):
@@ -123,27 +135,36 @@ def c_spaces_scene(_arg=""):
 <div class="spaces-explore"><span class="lbl">Exploring</span>{explore}</div>'''
 
 
-def c_enterprise_chips(_arg=""):
-    items = [
-        ("lock", "On-premise"), ("air", "Air-gapped deployment"), ("user", "Role-based access"),
-        ("doc", "Audit trail"), ("net", "Data lineage"), ("shield", "Policy enforcement"),
-        ("check", "Evaluations"), ("hand", "Human approval"),
-    ]
-    icons = {
-        "lock": '<rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/>',
-        "air": '<path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/>',
-        "user": '<circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/>',
-        "doc": '<path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/>',
-        "net": '<circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/>',
-        "shield": '<path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/>',
-        "check": '<path d="M3 9.5l3.5 3.5L15 5"/>',
-        "hand": '<path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/>',
-    }
-    li = "".join(f'<li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">{icons[k]}</svg>{e(t)}</li>' for k, t in items)
+ICONS = {
+    "lock": '<rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/>',
+    "air": '<path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/>',
+    "user": '<circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/>',
+    "doc": '<path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/>',
+    "net": '<circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/>',
+    "shield": '<path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/>',
+    "check": '<path d="M3 9.5l3.5 3.5L15 5"/>',
+    "hand": '<path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/>',
+}
+CHIP_ICON = {"on-premise": "lock", "air-gapped": "air", "air-gapped deployment": "air", "rbac": "user",
+             "role-based access": "user", "audit trail": "doc", "data lineage": "net",
+             "policy enforcement": "shield", "evaluations": "check", "human approval": "hand"}
+DEFAULT_CHIPS = ["On-premise", "Air-gapped deployment", "Role-based access", "Audit trail",
+                 "Data lineage", "Policy enforcement", "Evaluations", "Human approval"]
+
+
+def c_enterprise_chips(arg="", ctx=None):
+    labels = (ctx or {}).get("content", {}).get("enterprise") if arg == "content" else None
+    li = "".join(
+        f'<li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">{ICONS[CHIP_ICON[t.lower()]]}</svg>{e(t)}</li>'
+        for t in (labels or DEFAULT_CHIPS))
     return f'<ul class="ent-chips">{li}</ul>'
 
 
-def c_evidence_rail(arg=""):
+def c_evidence_rail(arg="", ctx=None):
+    if arg == "content":
+        steps = [tuple(x) for x in ctx["content"]["rail"]]
+        li = "".join(f'<li><span class="n">{n+1:02d}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for n, (t, d) in enumerate(steps))
+        return f'<ol class="evidence">{li}</ol>'
     steps = [("Source", "Each finding links to the record, document or system it came from."),
              ("Evidence", "The facts are collected, dated and kept with the case."),
              ("Reasoning", "The logic from evidence to conclusion is written out, with the policy it applies."),
@@ -170,6 +191,7 @@ def c_copy_email(_arg=""):
 COMPONENTS = {
     "investigation_catalog": c_investigation_catalog,
     "proof_grid": c_proof_grid,
+    "proof_legend": c_proof_legend,
     "spaces_scene": c_spaces_scene,
     "space_growth": c_space_growth,
     "enterprise_chips": c_enterprise_chips,
@@ -179,23 +201,31 @@ COMPONENTS = {
 }
 
 
+import sys
+sys.path.insert(0, SRC)
+import risk_components  # noqa: E402
+
+CTX_COMPONENTS = dict(risk_components.COMPONENTS)
+CTX_COMPONENTS["enterprise_chips"] = c_enterprise_chips
+CTX_COMPONENTS["evidence_rail"] = c_evidence_rail
+
 # ---------------------------------------------------------------- chrome
 def logo_imgs(prefix):
     return (f'<img class="logo-l" src="{prefix}assets/deepin-logo.png" alt="deepin" width="632" height="190">'
             f'<img class="logo-d" src="{prefix}assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">')
 
 
-def nav(page, prefix, sub, cta):
+def nav(page, prefix, sub, cta, cta_href="#contact", back_label="← deepin.space"):
     links = "".join(f'<a href="{h}">{e(t)}</a>' for t, h in DATA["nav"][page])
     home = "#top" if page == "home" else prefix
     subspan = f'<span class="sub">.{e(sub)}</span>' if sub else ""
-    back = "" if page == "home" else f'<a class="back" href="{prefix}">← deepin.space</a>'
+    back = "" if page == "home" else f'<a class="back" href="{prefix}">{e(back_label)}</a>'
     login = '<a class="login" href="https://platform.deepin.space">Log in</a>' if page == "home" else ""
     return f'''<header class="nav" id="top">
   <div class="wrap">
     <a class="brand" href="{home}" aria-label="Deepin home">{logo_imgs(prefix)}{subspan}</a>
     <nav class="nav-links" aria-label="Main">{links}</nav>
-    <div class="nav-cta">{back}{login}<a class="btn btn-primary btn-sm" href="#contact">{e(cta)}</a></div>
+    <div class="nav-cta">{back}{login}<a class="btn btn-primary btn-sm" href="{cta_href}">{e(cta)}</a></div>
   </div>
 </header>'''
 
@@ -224,12 +254,12 @@ def footer(page, prefix, sub):
 
 # ---------------------------------------------------------------- pages
 PAGES = [
-    # file, out path, nav key, sub-brand, cta label
-    ("home.html", "", "home", "", "Bring us an investigation"),
-    ("risk.html", "risk/", "risk", "risk", "Request a demo"),
-    ("finance.html", "finance/", "finance", "finance", "Request a demo"),
-    ("security.html", "security/", "security", "security", "Bring us a case"),
-    ("energy.html", "energy/", "energy", "energy", "Bring us a case"),
+    dict(src="home.html", out="", nav="home", sub="", cta="Bring us an investigation"),
+    dict(src="risk.html", out="risk/", nav="risk", sub="risk", cta="Run an Investigation", cta_href="#request",
+         back="Deepin →", content="risk.en.json"),
+    dict(src="finance.html", out="finance/", nav="finance", sub="finance", cta="Request a demo"),
+    dict(src="security.html", out="security/", nav="security", sub="security", cta="Bring us a case"),
+    dict(src="energy.html", out="energy/", nav="energy", sub="energy", cta="Bring us a case"),
 ]
 
 
@@ -242,9 +272,15 @@ def front_matter(txt):
     return meta, txt[m.end():]
 
 
-def render(body, prefix):
+def render(body, prefix, content=None):
+    ctx = {"prefix": prefix, "content": content or {}}
+    copy = ctx["content"].get("copy", {})
+    body = re.sub(r"\{\{(\w+)\}\}", lambda m: copy[m.group(1)], body)
+
     def rep(m):
         name, _, arg = m.group(1).partition(":")
+        if name in CTX_COMPONENTS and (arg == "content" or name in risk_components.COMPONENTS):
+            return CTX_COMPONENTS[name](arg, ctx)
         fn = COMPONENTS[name]
         return fn(arg, prefix) if name == "space_growth" else fn(arg)
     return re.sub(r"<!--@([\w:.-]+)-->", rep, body)
@@ -252,18 +288,22 @@ def render(body, prefix):
 
 def build():
     written = []
-    for src, out, key, sub, cta in PAGES:
+    for P in PAGES:
+        src, out, key, sub, cta = P["src"], P["out"], P["nav"], P["sub"], P["cta"]
         prefix = "../" * out.count("/")
+        content = json.load(open(os.path.join(SRC, "content", P["content"]), encoding="utf-8")) if P.get("content") else {}
+        lang = content.get("lang", "en")
         meta, body = front_matter(open(os.path.join(SRC, "pages", src), encoding="utf-8").read())
+        meta = {k: re.sub(r"\{\{(\w+)\}\}", lambda m: content["copy"][m.group(1)], v) for k, v in meta.items()}
         style = ""
         m = re.search(r"<style>(.*?)</style>\s*", body, re.S)
         if m:
             style, body = m.group(1), body[:m.start()] + body[m.end():]
-        body = render(body, prefix)
+        body = render(body, prefix, content)
         css = BASE_CSS.replace("url(\"assets/", f"url(\"{prefix}assets/") + style
         url = f"https://deepin.space/{out}"
         doc = f'''<!doctype html>
-<html lang="en">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -283,7 +323,7 @@ def build():
 </style>
 </head>
 <body>
-{nav(key, prefix, sub, cta)}
+{nav(key, prefix, sub, cta, P.get("cta_href", "#contact"), P.get("back", "← deepin.space"))}
 <main>
 {body.strip()}
 </main>

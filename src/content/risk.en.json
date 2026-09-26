@@ -1,0 +1,363 @@
+{
+  "lang": "en",
+  "copy": {
+    "title": "deepin.risk · Company & Third-Party Investigation",
+    "description": "Investigate every company you depend on. deepin.risk continuously investigates companies through official records, financial information and external sources, and shows the evidence behind every change.",
+    "demo_note": "Demo data with fictional companies.",
+    "hero_eyebrow": "Company & Third-Party Investigation",
+    "hero_h1": "Investigate every company <b>you depend on.</b>",
+    "hero_lede": "Companies change. Ownership changes. Authority changes. Relationships change. Financial conditions change. Deepin continuously investigates those changes, gathers the evidence and shows you what matters.",
+    "hero_cta": "Investigate a company",
+    "hero_cta2": "See how it works",
+    "mon_shift_from": "Static Risk Report",
+    "mon_shift_to": "Living Investigation",
+    "mon_h2": "A company doesn't stay the same. <b>Why should its risk report?</b>",
+    "mon_lede": "Traditional risk assessment is a snapshot. Deepin maintains a living investigation.",
+    "mon_explain": "When a material event is detected, Deepin reopens the investigation, compares the new state with the company's history, collects the evidence and updates the risk context.",
+    "dim_eyebrow": "Investigation",
+    "dim_h2": "What does <b>Deepin investigate?</b>",
+    "dim_lede": "Four questions, asked again every time something changes.",
+    "ev_eyebrow": "Evidence",
+    "ev_h2": "Don't just show me the risk. <b>Show me why.</b>",
+    "ev_lede": "deepin.risk is not a black-box score. Every change in risk context comes with its findings, its sources and the reasoning that connects them.",
+    "fit_eyebrow": "Where deepin.risk fits",
+    "fit_h2": "Go deeper than <b>a risk score.</b>",
+    "fit_lede": "Your TPRM or GRC system manages the process. Deepin investigates the company behind it.",
+    "fit_note": "Deepin works alongside your existing risk stack.",
+    "proof_eyebrow": "Customers",
+    "proof_h2": "Already investigating companies <b>in production.</b>",
+    "proof_lede": "The same Company Investigation capability runs for each of these customers. Each is shown at the maturity it has actually reached.",
+    "ent_eyebrow": "Enterprise",
+    "ent_h2": "Built for the data <b>you cannot send outside.</b>",
+    "ent_data_h": "Your company data stays yours.",
+    "ent_data_p": "Your watchlists, investigations and decisions remain yours. What improves across deployments is how Deepin investigates, never your records.",
+    "cta_eyebrow": "deepin.risk",
+    "cta_h2": "Investigate a company <b>with Deepin.</b>",
+    "cta_p": "Give us a company your team already knows. We'll show you what Deepin finds, how it found it and the evidence behind it.",
+    "cta_primary": "Run a Company Investigation",
+    "cta_secondary": "Talk to Deepin"
+  },
+  "live": {
+    "company": "Akdeniz Endüstri A.Ş.",
+    "mode": "Continuous monitoring",
+    "event": "New event detected",
+    "event_meta": "24 Sep 2026 · Trade Registry",
+    "started": "Investigation started",
+    "activity": [
+      "Registry history compared",
+      "Shareholders investigated",
+      "Representation authority checked",
+      "Related entities investigated",
+      "Financial context reviewed",
+      "External evidence collected"
+    ],
+    "findings_label": "3 material changes",
+    "findings": [
+      "Representation authority changed",
+      "New shareholder detected",
+      "Related entity entered restructuring"
+    ],
+    "link": "View investigation",
+    "status": [
+      "New event detected",
+      "Investigation started",
+      "Comparing registry history",
+      "Investigating shareholders",
+      "Checking authority",
+      "Investigating related entities",
+      "Reviewing financial context",
+      "Collecting external evidence",
+      "3 material changes"
+    ]
+  },
+  "timeline": {
+    "company": "Acme A.Ş.",
+    "ticks": [
+      "Jan",
+      "Mar",
+      "Jun",
+      "Sep"
+    ],
+    "start": {
+      "label": "Initial investigation",
+      "risk": "Low"
+    },
+    "events": [
+      {
+        "tick": 1,
+        "change": "Shareholder changed",
+        "date": "12 Mar",
+        "risk_from": "Low",
+        "risk_to": "Medium"
+      },
+      {
+        "tick": 2,
+        "change": "Authority changed",
+        "date": "18 Jun",
+        "risk_from": "Medium",
+        "risk_to": "Medium"
+      },
+      {
+        "tick": 3,
+        "change": "Related entity restructuring",
+        "date": "11 Sep",
+        "risk_from": "Medium",
+        "risk_to": "High"
+      }
+    ],
+    "reopened": "Investigation reopened",
+    "static_label": "Static risk report",
+    "static_text": "A January snapshot. It still says <b>Low</b> and has missed three material changes.",
+    "living_label": "Living investigation",
+    "living_text": "Reopened three times. It now says <b>High</b>, and every step has its evidence.",
+    "loop": [
+      "Material event detected",
+      "Investigation reopened",
+      "Compared with history",
+      "Evidence collected",
+      "Risk context updated"
+    ]
+  },
+  "dimensions": [
+    {
+      "key": "Ownership",
+      "question": "Who owns the company, and what changed?",
+      "items": [
+        "Shareholder changes",
+        "Ownership percentages",
+        "Capital movements",
+        "Ownership chains"
+      ],
+      "finding": {
+        "title": "New shareholder acquired 31.4%",
+        "meta": "Trade Registry Gazette · 18 Sep 2026",
+        "detail": "Previous owner's stake fell from 60% to 28.6%. Capital unchanged."
+      }
+    },
+    {
+      "key": "Authority",
+      "question": "Who can act on behalf of the company?",
+      "items": [
+        "Authorized representatives",
+        "Signature groups",
+        "Internal directives",
+        "Authority changes"
+      ],
+      "finding": {
+        "title": "Joint signature replaced by a sole signatory",
+        "meta": "Trade Registry Gazette · 24 Sep 2026",
+        "detail": "A newly appointed director can now sign alone, without limit."
+      }
+    },
+    {
+      "key": "Relationships",
+      "question": "Who is the company connected to?",
+      "items": [
+        "Related companies",
+        "Shared executives",
+        "Shared addresses",
+        "Multi-layer corporate structures"
+      ],
+      "tree": {
+        "root": "Akdeniz Endüstri A.Ş.",
+        "branches": [
+          {
+            "label": "M. Yılmaz · director",
+            "children": [
+              "Liman Lojistik Ltd. · director",
+              "Ege Yapı A.Ş. · shareholder 50%",
+              "Toros Ticaret Ltd. · in restructuring"
+            ]
+          },
+          {
+            "label": "Registered address",
+            "children": [
+              "Shared with 14 companies"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "Change",
+      "question": "What changed since the last investigation?",
+      "items": [
+        "Corporate events",
+        "Capital movements",
+        "Branch changes",
+        "Management changes",
+        "External signals"
+      ],
+      "finding": {
+        "title": "3 branches closed in 60 days",
+        "meta": "Trade Registry Gazette · News · Sep 2026",
+        "detail": "Closures follow the capital reduction registered in July."
+      }
+    }
+  ],
+  "rail": [
+    [
+      "Source",
+      "Registry announcements, court records and external sources, each with its date."
+    ],
+    [
+      "Evidence",
+      "The facts that changed, kept with the company's history."
+    ],
+    [
+      "Finding",
+      "What is materially different since the last investigation."
+    ],
+    [
+      "Reasoning",
+      "Why the findings matter together, against your policies."
+    ],
+    [
+      "Recommendation",
+      "A suggested next step that your team approves or adjusts."
+    ]
+  ],
+  "context": {
+    "company": "Akdeniz Endüstri A.Ş.",
+    "label": "Risk context updated",
+    "from": "Medium",
+    "to": "High",
+    "why": [
+      {
+        "title": "Representation authority changed",
+        "date": "24 Sep 2026",
+        "ref": 1
+      },
+      {
+        "title": "New shareholder acquired 31.4%",
+        "date": "18 Sep 2026",
+        "ref": 2
+      },
+      {
+        "title": "Related company entered restructuring",
+        "date": "11 Sep 2026",
+        "ref": 3
+      }
+    ],
+    "evidence": [
+      {
+        "ref": 1,
+        "source": "Trade Registry Gazette",
+        "kind": "Official record",
+        "excerpt": "Board resolution registered: joint signature authority revoked; director appointed with sole authority to represent the company."
+      },
+      {
+        "ref": 2,
+        "source": "Trade Registry Gazette",
+        "kind": "Official record",
+        "excerpt": "Share transfer registered: 31.4% of shares transferred to a newly incorporated holding company."
+      },
+      {
+        "ref": 3,
+        "source": "Official Court Record",
+        "kind": "Court record",
+        "excerpt": "Restructuring application accepted for Toros Ticaret Ltd., a company sharing a director with Akdeniz Endüstri A.Ş."
+      }
+    ],
+    "reasoning": "Three material changes occurred within 13 days across ownership, authority and related-company structure.",
+    "recommendation": "Review counterparty exposure.",
+    "button": "View full investigation"
+  },
+  "fit": [
+    {
+      "name": "Corporate Intelligence",
+      "role": "Provides the data",
+      "items": [
+        "Company information",
+        "Registry data",
+        "Financial information",
+        "External sources"
+      ]
+    },
+    {
+      "name": "deepin.risk",
+      "role": "Investigates the company",
+      "items": [
+        "Company Investigation",
+        "Continuous Monitoring",
+        "Relationship Intelligence",
+        "Historical Change Analysis",
+        "Evidence",
+        "Reasoning"
+      ],
+      "self": true
+    },
+    {
+      "name": "Third-Party Risk / GRC",
+      "role": "Manages the process",
+      "items": [
+        "Risk workflows",
+        "Assessments",
+        "Questionnaires",
+        "Controls",
+        "Governance processes"
+      ]
+    }
+  ],
+  "enterprise": [
+    "On-premise",
+    "Air-gapped",
+    "RBAC",
+    "Audit trail",
+    "Data lineage",
+    "Policy enforcement",
+    "Human approval"
+  ],
+  "form": {
+    "endpoint": "",
+    "step1": "The company",
+    "step2": "About you",
+    "fields1": [
+      {
+        "id": "company",
+        "label": "Company name",
+        "required": true,
+        "placeholder": "e.g. Akdeniz Endüstri A.Ş."
+      },
+      {
+        "id": "website",
+        "label": "Company website",
+        "placeholder": "example.com"
+      },
+      {
+        "id": "country",
+        "label": "Country",
+        "placeholder": "Türkiye"
+      },
+      {
+        "id": "question",
+        "label": "What are you trying to understand?",
+        "type": "textarea",
+        "placeholder": "e.g. Has anything material changed since onboarding?"
+      }
+    ],
+    "fields2": [
+      {
+        "id": "name",
+        "label": "Name",
+        "required": true
+      },
+      {
+        "id": "org",
+        "label": "Organization",
+        "required": true
+      },
+      {
+        "id": "email",
+        "label": "Business email",
+        "required": true,
+        "type": "email"
+      }
+    ],
+    "next": "Continue",
+    "back": "Back",
+    "submit": "Run a Company Investigation",
+    "done": "Your email app should open with the request filled in. If it doesn't, write to info@deepin.space and we will take it from there.",
+    "email_subject": "Company Investigation request"
+  }
+}

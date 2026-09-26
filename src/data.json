@@ -140,32 +140,57 @@
     {
       "name": "Hayat Finans",
       "investigation": "Company Investigation",
-      "status": "production"
+      "status": "production",
+      "spaces": [
+        "risk"
+      ],
+      "logo": ""
     },
     {
       "name": "PayTR",
       "investigation": "Company Investigation",
-      "status": "production"
+      "status": "production",
+      "spaces": [
+        "risk"
+      ],
+      "logo": ""
     },
     {
       "name": "SOCAR",
       "investigation": "Company Investigation",
-      "status": "production"
+      "status": "production",
+      "spaces": [
+        "risk"
+      ],
+      "logo": ""
     },
     {
       "name": "DGPays",
       "investigation": "Company + Financial Investigation",
-      "status": "embedded"
+      "status": "embedded",
+      "spaces": [
+        "risk",
+        "finance"
+      ],
+      "logo": ""
     },
     {
       "name": "Visa / Ziraat Bankası",
       "investigation": "Chargeback Investigation",
-      "status": "contracted"
+      "status": "contracted",
+      "spaces": [
+        "finance"
+      ],
+      "logo": ""
     },
     {
       "name": "GreenChimney",
       "investigation": "Operational Investigation",
-      "status": "production"
+      "status": "production",
+      "spaces": [
+        "energy"
+      ],
+      "logo": ""
     }
   ],
   "status": {
@@ -219,7 +244,7 @@
     ],
     "risk": [
       [
-        "Company Investigation",
+        "Investigation",
         "#investigation"
       ],
       [
@@ -227,12 +252,16 @@
         "#monitoring"
       ],
       [
-        "Where it fits",
-        "#fit"
+        "Evidence",
+        "#evidence"
       ],
       [
-        "Evidence",
-        "#trust"
+        "Customers",
+        "#customers"
+      ],
+      [
+        "Enterprise",
+        "#enterprise"
       ]
     ],
     "finance": [
@@ -273,5 +302,9 @@
         "#status"
       ]
     ]
+  },
+  "proof": {
+    "show_logos": false,
+    "_note": "Set show_logos to true and fill each customer logo path (e.g. assets/logos/paytr.svg) once logo use is approved."
   }
 }
