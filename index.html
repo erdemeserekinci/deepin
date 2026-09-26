@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Deepin automates enterprise investigations: agents gather evidence across your systems, reason over it and propose decisions for human approval.">
+<meta property="og:title" content="Deepin · Enterprise Investigation & Decision Automation">
+<meta property="og:description" content="Deepin automates enterprise investigations: agents gather evidence across your systems, reason over it and propose decisions for human approval.">
+<meta property="og:url" content="https://deepin.space/">
+<meta property="og:image" content="https://deepin.space/assets/waves.jpg">
+<meta name="theme-color" content="#F7FAF9">
+<link rel="canonical" href="https://deepin.space/">
+<link rel="icon" type="image/png" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<title>Deepin · Enterprise Investigation & Decision Automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --font: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --bg: #F7FAF9;
+  --surface: #FFFFFF;
+  --soft: #EAF6F1;
+  --soft-2: #F1F7F5;
+  --line: #DCE7E3;
+  --ink: #022D26;
+  --ink-2: #3E5A52;
+  --muted: #6B8079;
+  --accent: #158867;
+  --accent-ink: #FFFFFF;
+  --mint: #28DCA8;
+  --mint-ink: #0B5A43;
+  --warn: #B7791F;
+  --warn-soft: #FBF1DF;
+  --band: #022D26;
+  --band-ink: #E7F5F0;
+  --shadow: 0 1px 2px rgba(2,45,38,.04), 0 12px 32px -12px rgba(2,45,38,.14);
+  --logo-l: block;
+  --logo-d: none;
+  --dot: 21,136,103;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg: #061A16; --surface: #0B241E; --soft: #0F2F27; --soft-2: #0A211B; --line: #1C3C33;
+    --ink: #E6F3EE; --ink-2: #B3CBC3; --muted: #86A298;
+    --accent: #28DCA8; --accent-ink: #022D26; --mint: #28DCA8; --mint-ink: #7FEBCB;
+    --warn: #E9B45A; --warn-soft: #2E2716;
+    --band: #03130F; --band-ink: #E7F5F0;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.5);
+    --logo-l: none; --logo-d: block; --dot: 40,220,168;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg: #061A16; --surface: #0B241E; --soft: #0F2F27; --soft-2: #0A211B; --line: #1C3C33;
+  --ink: #E6F3EE; --ink-2: #B3CBC3; --muted: #86A298;
+  --accent: #28DCA8; --accent-ink: #022D26; --mint: #28DCA8; --mint-ink: #7FEBCB;
+  --warn: #E9B45A; --warn-soft: #2E2716;
+  --band: #03130F; --band-ink: #E7F5F0;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.5);
+  --logo-l: none; --logo-d: block; --dot: 40,220,168;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.12}
+p{margin:0}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:24px}
+@media (max-width:560px){.wrap{padding-inline:18px}}
+
+/* type */
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.h2{font-size:clamp(28px,3.6vw,42px);font-weight:300}
+.h2 b{font-weight:700;color:var(--accent)}
+.lede{font-size:18px;color:var(--ink-2);max-width:62ch}
+.sec{padding-block:clamp(72px,9vw,120px)}
+.sec-head{display:grid;gap:16px;margin-bottom:48px;max-width:760px}
+.sec + .sec{border-top:1px solid var(--line)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand img{height:26px;width:auto}
+.logo-l{display:var(--logo-l)}
+.logo-d{display:var(--logo-d)}
+.nav-links{display:flex;gap:28px;font-size:14px}
+.nav-links a{text-decoration:none;color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+@media (max-width:900px){.nav-links{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 15px/1 var(--font);padding:14px 20px;border-radius:999px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .15s,border-color .15s;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--accent)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.btn svg{width:16px;height:16px}
+@media (max-width:480px){.nav .btn-ghost{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-block:64px 88px}
+.hero canvas{position:absolute;left:0;right:0;bottom:0;width:100%;height:62%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr;gap:48px}}
+.hero h1{font-size:clamp(38px,5.4vw,64px);font-weight:300;margin-top:20px}
+.hero h1 b{font-weight:700;color:var(--accent)}
+.hero .lede{margin-top:24px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+
+/* case card */
+.case{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;font-size:14px}
+.case-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--soft-2)}
+.case-id{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--soft);color:var(--mint-ink);white-space:nowrap}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.tag.wait{background:var(--warn-soft);color:var(--warn)}
+.tag.plain::before{display:none}
+.case-body{padding:20px;display:grid;gap:18px}
+.case-subject{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.case-subject strong{font-size:17px;font-weight:600}
+.case-subject span{color:var(--muted);font-size:13px}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.finds{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.finds li{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px}
+.finds .k{font-family:var(--mono);font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.finds .src{grid-column:2;font-size:12px;color:var(--muted)}
+.reason{color:var(--ink-2);line-height:1.55}
+.propose{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;border-radius:12px;background:var(--soft)}
+.propose p{font-weight:500}
+.propose p s{color:var(--muted);text-decoration:none;font-weight:400}
+.propose .acts{display:flex;gap:8px}
+.propose .acts span{font-size:13px;font-weight:500;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.propose .acts span.ok{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.case-note{font-size:12px;color:var(--muted);padding:0 20px 16px}
+
+/* proof strip */
+.strip{border-block:1px solid var(--line);background:var(--surface)}
+.strip .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 40px;padding-block:26px}
+.strip p{font-size:14px;color:var(--muted);max-width:30ch}
+.names{display:flex;flex-wrap:wrap;gap:12px 36px;font-size:18px;font-weight:600;color:var(--ink-2);letter-spacing:-.01em}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:s;list-style:none;margin:0;padding:0}
+.flow li{position:relative;padding:22px 20px 24px;border-top:2px solid var(--line)}
+.flow li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--muted);display:block;margin-bottom:14px}
+.flow li::after{content:"";position:absolute;top:-6px;left:20px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.flow h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.flow p{font-size:14px;color:var(--ink-2);line-height:1.6}
+.flow li.human{border-top-color:var(--accent);background:linear-gradient(var(--soft),transparent 80%)}
+.flow li.human::after{background:var(--accent)}
+.flow li.human h3{color:var(--accent)}
+@media (max-width:1000px){.flow{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:620px){.flow{grid-template-columns:1fr}}
+
+.compare{margin-top:48px;display:grid;gap:10px;font-size:14px}
+.compare-row{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:14px 18px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.compare-row.dp{background:var(--soft);border-color:transparent}
+.compare-row .who{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.compare-row.dp .who{color:var(--accent)}
+.chain{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center}
+.chain span{padding:3px 0}
+.chain i{font-style:normal;color:var(--muted);padding-inline:6px}
+@media (max-width:560px){.compare-row{grid-template-columns:1fr;gap:6px}}
+
+/* fit grid */
+.fit{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.fit div{background:var(--surface);padding:28px 24px 30px;display:grid;gap:10px;align-content:start}
+.fit svg{width:28px;height:28px;color:var(--accent);margin-bottom:6px}
+.fit h3{font-size:18px;font-weight:600}
+.fit p{font-size:14px;color:var(--ink-2)}
+@media (max-width:960px){.fit{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.fit{grid-template-columns:1fr}}
+
+/* spaces */
+.anatomy{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:40px;font-size:14px}
+.anatomy span{padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink-2)}
+.anatomy .eq{color:var(--muted);padding-inline:4px;border:0;background:none}
+.anatomy .out{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
+.spaces{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1000px){.spaces{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.spaces{grid-template-columns:1fr}}
+.space{display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;padding:24px;border-radius:16px;border:1px solid var(--line);background:var(--surface);text-decoration:none;transition:border-color .15s,transform .15s}
+a.space:hover{border-color:var(--accent);transform:translateY(-2px)}
+.space .nm{font-size:24px;font-weight:300;letter-spacing:-.02em}
+.space .nm b{font-weight:700;color:var(--accent)}
+.space .what{font-size:14px;font-weight:500}
+.space p{font-size:14px;color:var(--ink-2)}
+.space .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.space.live{background:linear-gradient(160deg,var(--soft),var(--surface) 70%)}
+.space .go{color:var(--accent);font-weight:500}
+.tag.next{background:var(--soft-2);color:var(--muted)}
+
+/* spotlight */
+.spot{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.spot + .spot{margin-top:96px}
+@media (max-width:960px){.spot{grid-template-columns:1fr;gap:32px}}
+.spot h3{font-size:clamp(24px,2.8vw,32px);font-weight:300}
+.spot h3 b{font-weight:700;color:var(--accent)}
+.spot .txt{display:grid;gap:18px}
+.spot .txt p{color:var(--ink-2)}
+.meta{display:grid;gap:12px;font-size:14px;margin-top:6px}
+.meta div{display:grid;grid-template-columns:96px 1fr;gap:12px}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.meta dd{margin:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:24px}
+.steps{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.steps span{padding:6px 11px;border-radius:8px;background:var(--soft-2);border:1px solid var(--line)}
+.steps span.hl{background:var(--soft);border-color:transparent;color:var(--mint-ink);font-weight:500}
+.steps i{font-style:normal;color:var(--muted)}
+.tri{display:grid;grid-template-columns:1fr 1.1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+.tri > div{padding:16px;display:grid;gap:8px;align-content:start}
+.tri > div + div{border-left:1px solid var(--line)}
+.tri .mid{background:var(--soft)}
+.tri h4{margin:0 0 4px;font-size:12px;font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.tri .mid h4{color:var(--accent)}
+.tri p{color:var(--ink-2);line-height:1.45}
+.tri .mid p{color:var(--ink)}
+@media (max-width:620px){.tri{grid-template-columns:1fr}.tri > div + div{border-left:0;border-top:1px solid var(--line)}}
+.equation{font-size:15px;font-weight:500;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.equation span{padding:8px 14px;border-radius:999px;border:1px solid var(--line)}
+.equation span:last-child{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.equation i{font-style:normal;color:var(--muted)}
+.path{font-size:14px;color:var(--ink-2)}
+.path b{color:var(--ink);font-weight:600}
+
+/* trust */
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media (max-width:960px){.trust{grid-template-columns:1fr;gap:36px}}
+.evidence{display:grid;gap:0;list-style:none;margin:0;padding:0}
+.evidence li{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.evidence li:first-child{padding-top:0}
+.evidence .n{font-family:var(--mono);font-size:12px;color:var(--accent);padding-top:4px}
+.evidence h3{font-size:18px;font-weight:600;margin-bottom:4px}
+.evidence p{font-size:14px;color:var(--ink-2)}
+.gov{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gov div{display:flex;gap:10px;align-items:center;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:14px;font-weight:500}
+.gov svg{flex:none;width:18px;height:18px;color:var(--accent)}
+@media (max-width:480px){.gov{grid-template-columns:1fr}}
+.datanote{margin-top:16px;padding:20px;border-radius:14px;background:var(--soft);display:grid;gap:6px}
+.datanote strong{font-weight:600}
+.datanote p{font-size:14px;color:var(--ink-2)}
+
+/* proof table */
+.proof{width:100%;border-collapse:collapse;font-size:15px;min-width:680px}
+.proof-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.proof th{text-align:left;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:16px 20px;border-bottom:1px solid var(--line)}
+.proof td{padding:20px;border-bottom:1px solid var(--line);vertical-align:top}
+.proof tr:last-child td{border-bottom:0}
+.proof td:first-child{font-weight:600;white-space:nowrap}
+.proof td:nth-child(2){color:var(--ink-2)}
+.proof .sp{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.proof-note{margin-top:16px;font-size:14px;color:var(--muted)}
+
+/* engagement */
+.engage{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0;counter-reset:e}
+@media (max-width:900px){.engage{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.engage{grid-template-columns:1fr}}
+.engage li{padding:24px;border-radius:16px;border:1px solid var(--line);background:var(--surface);display:grid;gap:8px;align-content:start}
+.engage li::before{counter-increment:e;content:"Step " counter(e);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.engage h3{font-size:18px;font-weight:600}
+.engage p{font-size:14px;color:var(--ink-2)}
+.model{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;padding:22px 24px;border-radius:16px;background:var(--soft)}
+.model .equation span{background:var(--surface)}
+.model .equation span:last-child{background:var(--accent)}
+.model p{font-size:14px;color:var(--ink-2);max-width:44ch}
+
+/* alternatives */
+.alt{display:grid;gap:0;border-top:1px solid var(--line)}
+.alt div{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);font-size:15px}
+.alt div.hd{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-block:14px}
+.alt span:first-child{font-weight:600}
+.alt span:nth-child(2){color:var(--muted)}
+.alt span:last-child{color:var(--ink)}
+.alt div:not(.hd) span:last-child::before{content:"→ ";color:var(--accent)}
+@media (max-width:700px){.alt div{grid-template-columns:1fr;gap:4px}.alt div.hd{display:none}}
+
+/* closing band */
+.band{position:relative;background:var(--band);color:var(--band-ink);overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;background:url("assets/waves.jpg") center bottom/cover no-repeat;opacity:.9}
+.band .wrap{position:relative;padding-block:clamp(80px,10vw,128px);display:grid;gap:28px;justify-items:start}
+.band h2{max-width:22ch}
+.band .eyebrow{color:#28DCA8}
+.band h2{font-size:clamp(28px,4vw,46px);font-weight:300}
+.band h2 b{font-weight:600;color:#28DCA8}
+.band p{color:#B9D3CA;max-width:56ch;font-size:17px}
+.band .btn-primary{background:#28DCA8;color:#022D26}
+.mail{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mail code{font-family:var(--mono);font-size:15px;color:#E7F5F0;padding:12px 16px;border:1px solid rgba(231,245,240,.25);border-radius:999px;user-select:all}
+.copy{font:500 14px/1 var(--font);color:#022D26;background:#28DCA8;border:0;border-radius:999px;padding:13px 18px;cursor:pointer}
+
+/* footer */
+footer{padding-block:40px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+footer nav{display:flex;flex-wrap:wrap;gap:24px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .brand img{height:22px}
+
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.btn,.space{transition:none}}
+
+/* shared: sub-brand + space pages */
+.brand{gap:2px}
+.brand .sub{font-size:23px;font-weight:300;letter-spacing:-.02em;color:var(--ink);line-height:1;transform:translateY(-1px)}
+footer .brand .sub{font-size:19px}
+.back{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.back:hover{color:var(--ink)}
+@media (max-width:560px){.back{display:none}}
+.nav .brand{flex:none}
+.hero .status{display:inline-flex;margin-top:20px}
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (max-width:760px){.caps{grid-template-columns:1fr}}
+.cap{padding:28px;border-radius:16px;border:1px solid var(--line);background:var(--surface);display:grid;gap:14px;align-content:start}
+.cap h3{font-size:20px;font-weight:600}
+.cap > p{font-size:14px;color:var(--ink-2)}
+.cap ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px}
+.cap li{display:grid;grid-template-columns:16px 1fr;gap:10px;color:var(--ink-2)}
+.cap li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px;margin-left:4px}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.modes{grid-template-columns:1fr}}
+.mode{padding:28px;border-radius:16px;background:var(--soft);display:grid;gap:10px;align-content:start}
+.mode .k{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.mode h3{font-size:22px;font-weight:300}
+.mode h3 b{font-weight:700}
+.mode p{font-size:14px;color:var(--ink-2)}
+.uses{display:grid;gap:0;border-top:1px solid var(--line)}
+.uses div{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
+.uses dt{font-weight:600}
+.uses dd{margin:0;color:var(--ink-2)}
+@media (max-width:700px){.uses div{grid-template-columns:1fr;gap:4px}}
+.graph-wrap{overflow-x:auto}
+.graph{width:100%;min-width:480px;height:auto;display:block}
+.graph .edge{stroke:var(--line);stroke-width:1.5;fill:none}
+.graph .edge.hot{stroke:var(--accent);stroke-width:2}
+.graph .edge.dash{stroke-dasharray:4 4}
+.graph .node{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.graph .node.subj{fill:var(--soft);stroke:var(--accent);stroke-width:2}
+.graph .node.watch{fill:var(--warn-soft);stroke:var(--warn)}
+.graph .node.person{fill:var(--surface);stroke:var(--accent)}
+.graph text{fill:var(--ink);font-family:var(--font);font-size:12px}
+.graph text.t{font-weight:600;font-size:13px}
+.graph text.s{fill:var(--muted);font-size:11px}
+.graph text.e{fill:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:.03em}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted);margin-top:12px}
+.legend span{display:inline-flex;gap:8px;align-items:center}
+.legend i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface)}
+.legend i.subj{background:var(--soft);border-color:var(--accent)}
+.legend i.watch{background:var(--warn-soft);border-color:var(--warn)}
+.legend i.person{border-color:var(--accent)}
+.roadmap{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;list-style:none;margin:0;padding:0}
+@media (max-width:1000px){.roadmap{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.roadmap{grid-template-columns:1fr 1fr}}
+.roadmap li{padding:18px;border-radius:14px;border:1px dashed var(--line);display:grid;gap:8px;align-content:start}
+.roadmap li.now{border:1px solid var(--accent);background:var(--soft)}
+.roadmap h3{font-size:16px;font-weight:600}
+.roadmap p{font-size:13px;color:var(--ink-2)}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media (max-width:900px){.metrics{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.metrics{grid-template-columns:1fr}}
+.metrics div{background:var(--surface);padding:22px;display:grid;gap:6px;align-content:start}
+.metrics strong{font-size:16px;font-weight:600}
+.metrics span{font-size:13px;color:var(--ink-2)}
+.addr{font-size:13px;color:var(--muted);line-height:1.6}
+.roadmap .tag{justify-self:start}
+.spot>*,.trust>*,.netgrid>*,.hero .wrap>*{min-width:0}
+
+</style>
+</head>
+<body>
+
+
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Deepin home">
+      <img class="logo-l" src="assets/deepin-logo.png" alt="deepin" width="632" height="190">
+      <img class="logo-d" src="assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#spaces">Spaces</a>
+      <a href="#trust">Trust</a>
+      <a href="#customers">Customers</a>
+      <a href="#engage">Working with us</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="https://platform.deepin.space">Log in</a>
+      <a class="btn btn-primary btn-sm" href="#contact">Talk to us</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Enterprise Investigation &amp; Decision Automation</p>
+      <h1>Every decision starts with an investigation. <b>Deepin runs it.</b></h1>
+      <p class="lede">Before a risk, fraud or compliance decision, your people search several systems, read documents and compare records. Deepin agents do that work, show the evidence behind every finding and propose the decision for a person to approve.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Bring us an investigation
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+    </div>
+
+    <figure class="case" style="margin:0" aria-label="Sample company investigation">
+      <div class="case-top">
+        <span class="case-id">INV-2026-0418 · Company investigation</span>
+        <span class="tag wait">Awaiting approval</span>
+      </div>
+      <div class="case-body">
+        <div class="case-subject">
+          <strong>Northwind Lojistik A.Ş.</strong>
+          <span>Supplier · monitored since 2024</span>
+        </div>
+        <div>
+          <div class="lbl">Changes detected · 3</div>
+          <ul class="finds">
+            <li><span class="k">Capital</span><span>Share capital reduced by 40%</span><span class="src">Source: Trade Registry Gazette, 12 Sep</span></li>
+            <li><span class="k">Authority</span><span>New authorized signatory registered</span><span class="src">Source: Trade Registry Gazette, 18 Sep</span></li>
+            <li><span class="k">Network</span><span>New shareholder is a partner in 2 watched companies</span><span class="src">Source: relationship graph</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">Reasoning</div>
+          <p class="reason">A capital reduction and a signatory change within 30 days, linked to entities already on watch, matches your policy for elevated supplier risk.</p>
+        </div>
+        <div class="propose">
+          <p>Risk tier <s>Low</s> → Elevated</p>
+          <div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div>
+        </div>
+      </div>
+      <figcaption class="case-note">Sample case with a fictional company, for illustration.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <p>In production with banks, payment institutions and energy companies.</p>
+    <div class="names" aria-label="Customers">
+      <span>Hayat Finans</span><span>PayTR</span><span>SOCAR</span><span>DGPays</span><span>GreenChimney</span>
+    </div>
+  </div>
+</div>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2">From signal to <b>approved action.</b></h2>
+      <p class="lede">Deepin follows the same path your analysts already take. It does the searching and comparing, and it stops for a person before anything changes.</p>
+    </div>
+    <ol class="flow">
+      <li><h3>Observe</h3><p>Watch the sources that matter: registries, transactions, logs and documents.</p></li>
+      <li><h3>Investigate</h3><p>Agents search across your systems and collect what an analyst would gather by hand.</p></li>
+      <li><h3>Reason</h3><p>Findings are compared, linked and checked against your policies.</p></li>
+      <li><h3>Propose</h3><p>A recommendation arrives with its sources and the reasoning behind it.</p></li>
+      <li class="human"><h3>Human approval</h3><p>Your team approves, edits or rejects. Nothing acts on its own.</p></li>
+      <li><h3>Act</h3><p>The approved decision goes back into your systems with a full audit trail.</p></li>
+    </ol>
+    <div class="compare">
+      <div class="compare-row"><span class="who">Today</span><span class="chain"><span>Observe</span><i>→</i><span>Search</span><i>→</i><span>Gather</span><i>→</i><span>Compare</span><i>→</i><span>Reason</span><i>→</i><span>Decide</span><i>→</i><span>Act</span></span></div>
+      <div class="compare-row dp"><span class="who">With Deepin</span><span class="chain"><span>Observe</span><i>→</i><span>Investigate</span><i>→</i><span>Reason</span><i>→</i><span>Propose</span><i>→</i><span><b>Human approval</b></span><i>→</i><span>Act</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="fit">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Where Deepin fits</p>
+      <h2 class="h2">Built for investigations that <b>cost you time and money.</b></h2>
+      <p class="lede">We look for work where four things are true at once. If they are, Deepin can take most of the effort out of it.</p>
+    </div>
+    <div class="fit">
+      <div>
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="14" cy="14" r="10"/><path d="M9.5 14.5l3 3 6-7"/></svg>
+        <h3>The work already exists</h3><p>People do this investigation today. The problem is real, not theoretical.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="14" cy="9" r="4"/><path d="M5 24c1.5-5 5-7 9-7s7.5 2 9 7"/></svg>
+        <h3>It takes people's time</h3><p>Searching data, reading documents, comparing records and preparing cases eats analyst hours.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="8" height="8" rx="2"/><rect x="16" y="4" width="8" height="8" rx="2"/><rect x="4" y="16" width="8" height="8" rx="2"/><rect x="16" y="16" width="8" height="8" rx="2" stroke-dasharray="2 2"/></svg>
+        <h3>The information is scattered</h3><p>Databases, documents, APIs, official records, logs and outside sources all hold part of the answer.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l6-6 5 4 9-10"/><path d="M18 8h6v6"/></svg>
+        <h3>Mistakes are expensive</h3><p>A wrong or late decision means financial loss, fraud, regulatory exposure or lost customers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="spaces">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Deepin Spaces</p>
+      <h2 class="h2">Go deep into <b>your business.</b></h2>
+      <p class="lede">A Space is a ready-made investigation system for one business domain. Each one grows out of investigations we have already delivered for real customers, so new deployments start close to production.</p>
+    </div>
+    <div class="anatomy" aria-label="What a Space contains">
+      <span>Agents</span><span>Tools</span><span>Data</span><span>Knowledge</span><span>Policies</span><span>Evaluations</span><span class="eq">=</span><span class="out">Investigations</span>
+    </div>
+    <div class="spaces">
+      <a class="space live" href="risk/">
+        <span class="nm">deep<b>in</b>.risk</span>
+        <span class="what">Corporate risk &amp; company investigation</span>
+        <p>Know the company, understand the risk and monitor every change in ownership, authority and relationships.</p>
+        <span class="foot"><span class="tag">Live</span><span class="go">deepin.space/risk →</span></span>
+      </a>
+      <a class="space" href="finance/">
+        <span class="nm">deep<b>in</b>.finance</span>
+        <span class="what">Financial operations &amp; investigation</span>
+        <p>Starting with chargeback investigation, then fraud, merchant risk, KYC/KYB, AML and complaints.</p>
+        <span class="foot"><span class="tag">In deployment</span><span class="go">deepin.space/finance →</span></span>
+      </a>
+      <div class="space">
+        <span class="nm">deep<b>in</b>.security</span>
+        <span class="what">Security investigation</span>
+        <p>Investigate alerts and incidents across logs, assets and threat intelligence before your team acts.</p>
+        <span class="foot"><span class="tag next">Coming next</span></span>
+      </div>
+      <div class="space">
+        <span class="nm">deep<b>in</b>.energy</span>
+        <span class="what">Energy &amp; operational investigation</span>
+        <p>Investigate operational events across plants, sensors and field records.</p>
+        <span class="foot"><span class="tag next">Coming next</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="risk">
+  <div class="wrap">
+    <div class="spot">
+      <div class="txt">
+        <p class="eyebrow"><a href="risk/" style="text-decoration:none">deepin.risk →</a></p>
+        <h3>Know the company. Understand the risk. <b>Monitor the change.</b></h3>
+        <p>deepin.risk reads trade registry records and other outside sources to spot the changes that matter in the companies you work with, and keeps their risk context up to date.</p>
+        <p>It works alongside your third-party risk and GRC tools. Vendor lifecycle, questionnaires and attestations stay where they are. Deepin adds deeper intelligence and continuous investigation.</p>
+        <dl class="meta">
+          <div><dt>Built for</dt><dd>Banks, payment institutions, fintechs and large enterprises</dd></div>
+          <div><dt>Teams</dt><dd>Risk, compliance, procurement, merchant operations, credit and commercial risk</dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <div>
+          <div class="lbl">Investigation path</div>
+          <div class="steps"><span>Company</span><i>→</i><span>Official records</span><i>→</i><span>Relationships</span><i>→</i><span class="hl">Change detection</span><i>→</i><span>Evidence</span><i>→</i><span class="hl">Risk context</span></div>
+        </div>
+        <div>
+          <div class="lbl">Where it sits</div>
+          <div class="tri">
+            <div><h4>Corporate intelligence</h4><p>Know the company</p><p>Ownership, executives, authority</p><p>Financial and external data</p></div>
+            <div class="mid"><h4>deepin.risk</h4><p>Investigate what changed</p><p>Evidence and reasoning</p><p>Continuous investigation</p></div>
+            <div><h4>Third-party risk</h4><p>Manage relationship risk</p><p>Onboarding and monitoring decisions</p><p>Governance and vendor lifecycle</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spot" id="finance">
+      <div class="txt">
+        <p class="eyebrow"><a href="finance/" style="text-decoration:none">deepin.finance →</a></p>
+        <h3>Chargeback investigation, <b>with the evidence attached.</b></h3>
+        <p>Dispute teams collect transaction data, merchant details and documents for every case. deepin.finance assembles the case, applies your rules and scheme policies, and prepares a decision your team can approve.</p>
+        <p>Many financial cases need both the transaction and the company behind it. Deepin looks at the merchant, its partners, related companies, signatories, past changes and financial condition in the same case.</p>
+        <dl class="meta">
+          <div><dt>Built for</dt><dd>Banks, issuers, acquirers, payment institutions and fintechs</dd></div>
+          <div><dt>Teams</dt><dd>Cards, payment operations and dispute operations, with fraud, risk and compliance</dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <div>
+          <div class="lbl">Case path</div>
+          <div class="steps"><span>Transaction</span><i>→</i><span>Case data</span><i>→</i><span>Evidence</span><i>→</i><span>Rules &amp; policies</span><i>→</i><span class="hl">Investigation</span><i>→</i><span class="hl">Human approval</span><i>→</i><span>Action</span></div>
+        </div>
+        <div>
+          <div class="lbl">One case, four parts</div>
+          <div class="equation"><span>Transaction</span><i>+</i><span>Entity</span><i>+</i><span>Evidence</span><i>=</i><span>Decision</span></div>
+        </div>
+        <div>
+          <div class="lbl">What comes after chargebacks</div>
+          <p class="path"><b>Chargeback</b> → Fraud → Merchant risk → KYC/KYB → AML → Complaints</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Trust</p>
+      <h2 class="h2">Evidence <b>before decision.</b></h2>
+      <p class="lede">Every recommendation can be traced back to where it came from. Your team sees what Deepin found, why it matters and what it suggests, before anyone signs off.</p>
+    </div>
+    <div class="trust">
+      <ol class="evidence">
+        <li><span class="n">01</span><div><h3>Source</h3><p>Each finding links to the record, document or system it came from.</p></div></li>
+        <li><span class="n">02</span><div><h3>Evidence</h3><p>Relevant facts are collected and kept with the case.</p></div></li>
+        <li><span class="n">03</span><div><h3>Reasoning</h3><p>The logic connecting evidence to a conclusion is written out, including the policy it applies.</p></div></li>
+        <li><span class="n">04</span><div><h3>Recommendation</h3><p>A proposed decision that a person approves, edits or rejects.</p></div></li>
+      </ol>
+      <div>
+        <div class="gov">
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg>On-prem &amp; air-gapped</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Role-based access</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Audit trail</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Data lineage</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Policy enforcement</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Evaluations &amp; human approval</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="6.5"/><path d="M6.5 9l2 2 3-3.5"/></svg>ISO/IEC 27001 ISMS</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 3h7l3 3v9H4z"/><path d="M7 9h4M7 12h4"/></svg>KVKK compliant processing</div>
+        </div>
+        <div class="datanote">
+          <strong>Your data stays yours.</strong>
+          <p>Customer records remain customer-owned. What we carry from one deployment to the next are investigation templates, connectors, evaluations and workflows, never your data.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="customers">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Customers</p>
+      <h2 class="h2">Start where the <b>evidence is.</b></h2>
+      <p class="lede">We describe each reference by what it proves. These are running deployments, not pilots on a slide.</p>
+    </div>
+    <div class="proof-scroll">
+      <table class="proof">
+        <thead><tr><th>Customer</th><th>What runs</th><th>Space</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Hayat Finans · PayTR · SOCAR</td><td>The same company investigation service, used by three enterprises on monthly subscriptions</td><td class="sp">deepin.risk</td><td><span class="tag">Production</span></td></tr>
+          <tr><td>DGPays</td><td>Company intelligence extended with financial statement scoring, embedded in DGPays' own product</td><td class="sp">risk · finance</td><td><span class="tag">Embedded</span></td></tr>
+          <tr><td>GreenChimney</td><td>SEÖS, a vertical solution with production users, approaching its second year</td><td class="sp">SEÖS</td><td><span class="tag">Production</span></td></tr>
+          <tr><td>A card network and a national bank</td><td>Chargeback investigation for card dispute operations</td><td class="sp">deepin.finance</td><td><span class="tag wait">In development</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="engage">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Working with us</p>
+      <h2 class="h2">One investigation first. <b>Then the next.</b></h2>
+      <p class="lede">We start with a single operational problem, get it to production quickly and measure the result. The platform shows up through the work.</p>
+    </div>
+    <ol class="engage">
+      <li><h3>Find the investigation</h3><p>Where do your people search across systems before making a decision?</p></li>
+      <li><h3>Size the effort</h3><p>Case volume, time per investigation, systems touched, analyst cost and the losses at stake.</p></li>
+      <li><h3>Run a real case</h3><p>We demonstrate on one of your actual cases, not a generic product tour.</p></li>
+      <li><h3>Deploy</h3><p>Our forward deployed engineers work with your team to reach production quickly.</p></li>
+      <li><h3>Measure</h3><p>Investigation time, cases per analyst, turnaround and how much of the evidence is gathered automatically.</p></li>
+      <li><h3>Expand</h3><p>Then we ask: what should Deepin investigate next?</p></li>
+    </ol>
+    <div class="model">
+      <div class="equation"><span>Deployment</span><i>→</i><span>Subscription</span><i>→</i><span>Expansion</span></div>
+      <p>Pilots are small, time-boxed and measurable. We price on the value of the investigation: more cases handled, faster, with less manual effort and better evidence.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Why Deepin</p>
+      <h2 class="h2">You can build agents. <b>Deepin gives you the investigation system around them.</b></h2>
+    </div>
+    <div class="alt" role="table" aria-label="Deepin compared with alternatives">
+      <div class="hd" role="row"><span role="columnheader">Instead of</span><span role="columnheader">Why teams choose it</span><span role="columnheader">What Deepin adds</span></div>
+      <div role="row"><span role="cell">Manual operations</span><span role="cell">It works and needs no change</span><span role="cell">Automates the repetitive investigation work</span></div>
+      <div role="row"><span role="cell">Existing case, risk or fraud platform</span><span role="cell">Embedded and trusted</span><span role="cell">An investigation layer across systems, without replacing yours</span></div>
+      <div role="row"><span role="cell">In-house AI development</span><span role="cell">Control and an existing team</span><span role="cell">Production-ready investigation architecture, governance and reusable assets</span></div>
+      <div role="row"><span role="cell">Consulting or custom software</span><span role="cell">A bespoke solution</span><span role="cell">A productized investigation that keeps improving</span></div>
+      <div role="row"><span role="cell">Generic agent platform</span><span role="cell">Flexible infrastructure</span><span role="cell">Domain-ready investigation workflows</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Start a conversation</p>
+    <h2>Which of your operations make people gather information from <b>several systems</b> before they can decide?</h2>
+    <p>That is the investigation to start with. Tell us about it and we will show you how Deepin would run it on one of your real cases.</p>
+    <div class="mail">
+      <code id="email">info@deepin.space</code>
+      <button class="copy" id="copyBtn" type="button">Copy email</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:grid;gap:10px">
+      <a class="brand" href="#top" aria-label="Deepin home">
+        <img class="logo-l" src="assets/deepin-logo.png" alt="deepin" width="632" height="190">
+        <img class="logo-d" src="assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">
+      </a>
+      <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
+    </div>
+    <nav aria-label="Footer">
+      <a href="risk/">deepin.risk</a>
+      <a href="finance/">deepin.finance</a>
+      <a href="https://platform.deepin.space">Log in</a>
+      <a href="https://www.linkedin.com/company/93368167">LinkedIn</a>
+      <a href="https://www.youtube.com/@deepin--space">YouTube</a>
+    </nav>
+    <span>© 2026 Deepin · info@deepin.space</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Outside the live domain (local file, preview), folder links need an explicit index.html
+  if(!/(^|\.)deepin\.space$/.test(location.hostname)){
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
+    });
+  }
+  // sticky nav border
+  var nav=document.querySelector('.nav');
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // copy email
+  var btn=document.getElementById('copyBtn'),em=document.getElementById('email');
+  if(btn&&em)btn.addEventListener('click',function(){
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1800)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';};
+    try{navigator.clipboard.writeText(em.textContent).then(done,fallback)}catch(e){fallback()}
+  });
+
+  // dotted wave field, echoing the brand's hero texture
+  var c=document.getElementById('field');if(!c||!c.getContext)return;
+  var ctx=c.getContext('2d'),w,h,dpr,t=0,raf;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rgb(){return getComputedStyle(document.documentElement).getPropertyValue('--dot').trim()||'21,136,103'}
+  var col=rgb();
+  function size(){dpr=Math.min(window.devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    var rows=34,cols=Math.round(w/9);
+    for(var r=0;r<rows;r++){
+      var z=r/(rows-1);                    // 0 far, 1 near
+      var p=0.35+z*0.65;                   // perspective
+      var baseY=h*0.12+Math.pow(z,1.35)*h*0.95;
+      for(var i=0;i<cols;i++){
+        var u=i/(cols-1);
+        var x=(u-0.5)*w*(0.9+p*0.6)+w/2;
+        var y=baseY
+          +Math.sin(u*6.2+z*2.4+t)*14*p
+          +Math.sin(u*2.1-z*3.3+t*0.6)*22*p;
+        var a=(0.08+0.55*z)*(0.25+0.75*u);
+        ctx.fillStyle='rgba('+col+','+a.toFixed(3)+')';
+        var s=0.6+p*1.1;
+        ctx.fillRect(x,y,s,s);
+      }
+    }
+  }
+  function loop(){t+=0.006;draw();raf=requestAnimationFrame(loop)}
+  size();draw();
+  window.addEventListener('resize',function(){size();draw()});
+  if(window.matchMedia){matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){col=rgb();draw()})}
+  new MutationObserver(function(){col=rgb();draw()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  if(!reduce){
+    var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){if(!raf)loop()}else{cancelAnimationFrame(raf);raf=null}});
+    io.observe(c);
+  }
+})();
+</script>
+
+</body>
+</html>

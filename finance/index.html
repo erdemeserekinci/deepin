@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="deepin.finance assembles chargeback cases, applies your rules and policies and prepares decisions for your dispute team to approve.">
+<meta property="og:title" content="deepin.finance · Chargeback & Financial Investigation">
+<meta property="og:description" content="deepin.finance assembles chargeback cases, applies your rules and policies and prepares decisions for your dispute team to approve.">
+<meta property="og:url" content="https://deepin.space/finance/">
+<meta property="og:image" content="https://deepin.space/assets/waves.jpg">
+<meta name="theme-color" content="#F7FAF9">
+<link rel="canonical" href="https://deepin.space/finance/">
+<link rel="icon" type="image/png" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<title>deepin.finance · Chargeback & Financial Investigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --font: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --bg: #F7FAF9;
+  --surface: #FFFFFF;
+  --soft: #EAF6F1;
+  --soft-2: #F1F7F5;
+  --line: #DCE7E3;
+  --ink: #022D26;
+  --ink-2: #3E5A52;
+  --muted: #6B8079;
+  --accent: #158867;
+  --accent-ink: #FFFFFF;
+  --mint: #28DCA8;
+  --mint-ink: #0B5A43;
+  --warn: #B7791F;
+  --warn-soft: #FBF1DF;
+  --band: #022D26;
+  --band-ink: #E7F5F0;
+  --shadow: 0 1px 2px rgba(2,45,38,.04), 0 12px 32px -12px rgba(2,45,38,.14);
+  --logo-l: block;
+  --logo-d: none;
+  --dot: 21,136,103;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg: #061A16; --surface: #0B241E; --soft: #0F2F27; --soft-2: #0A211B; --line: #1C3C33;
+    --ink: #E6F3EE; --ink-2: #B3CBC3; --muted: #86A298;
+    --accent: #28DCA8; --accent-ink: #022D26; --mint: #28DCA8; --mint-ink: #7FEBCB;
+    --warn: #E9B45A; --warn-soft: #2E2716;
+    --band: #03130F; --band-ink: #E7F5F0;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.5);
+    --logo-l: none; --logo-d: block; --dot: 40,220,168;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg: #061A16; --surface: #0B241E; --soft: #0F2F27; --soft-2: #0A211B; --line: #1C3C33;
+  --ink: #E6F3EE; --ink-2: #B3CBC3; --muted: #86A298;
+  --accent: #28DCA8; --accent-ink: #022D26; --mint: #28DCA8; --mint-ink: #7FEBCB;
+  --warn: #E9B45A; --warn-soft: #2E2716;
+  --band: #03130F; --band-ink: #E7F5F0;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.5);
+  --logo-l: none; --logo-d: block; --dot: 40,220,168;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.12}
+p{margin:0}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:24px}
+@media (max-width:560px){.wrap{padding-inline:18px}}
+
+/* type */
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.h2{font-size:clamp(28px,3.6vw,42px);font-weight:300}
+.h2 b{font-weight:700;color:var(--accent)}
+.lede{font-size:18px;color:var(--ink-2);max-width:62ch}
+.sec{padding-block:clamp(72px,9vw,120px)}
+.sec-head{display:grid;gap:16px;margin-bottom:48px;max-width:760px}
+.sec + .sec{border-top:1px solid var(--line)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand img{height:26px;width:auto}
+.logo-l{display:var(--logo-l)}
+.logo-d{display:var(--logo-d)}
+.nav-links{display:flex;gap:28px;font-size:14px}
+.nav-links a{text-decoration:none;color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+@media (max-width:900px){.nav-links{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 15px/1 var(--font);padding:14px 20px;border-radius:999px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .15s,border-color .15s;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--accent)}
+.btn-sm{padding:10px 16px;font-size:14px}
+.btn svg{width:16px;height:16px}
+@media (max-width:480px){.nav .btn-ghost{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-block:64px 88px}
+.hero canvas{position:absolute;left:0;right:0;bottom:0;width:100%;height:62%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr;gap:48px}}
+.hero h1{font-size:clamp(38px,5.4vw,64px);font-weight:300;margin-top:20px}
+.hero h1 b{font-weight:700;color:var(--accent)}
+.hero .lede{margin-top:24px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+
+/* case card */
+.case{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;font-size:14px}
+.case-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--soft-2)}
+.case-id{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--soft);color:var(--mint-ink);white-space:nowrap}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.tag.wait{background:var(--warn-soft);color:var(--warn)}
+.tag.plain::before{display:none}
+.case-body{padding:20px;display:grid;gap:18px}
+.case-subject{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.case-subject strong{font-size:17px;font-weight:600}
+.case-subject span{color:var(--muted);font-size:13px}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.finds{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.finds li{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px}
+.finds .k{font-family:var(--mono);font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.finds .src{grid-column:2;font-size:12px;color:var(--muted)}
+.reason{color:var(--ink-2);line-height:1.55}
+.propose{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;border-radius:12px;background:var(--soft)}
+.propose p{font-weight:500}
+.propose p s{color:var(--muted);text-decoration:none;font-weight:400}
+.propose .acts{display:flex;gap:8px}
+.propose .acts span{font-size:13px;font-weight:500;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.propose .acts span.ok{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.case-note{font-size:12px;color:var(--muted);padding:0 20px 16px}
+
+/* proof strip */
+.strip{border-block:1px solid var(--line);background:var(--surface)}
+.strip .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 40px;padding-block:26px}
+.strip p{font-size:14px;color:var(--muted);max-width:30ch}
+.names{display:flex;flex-wrap:wrap;gap:12px 36px;font-size:18px;font-weight:600;color:var(--ink-2);letter-spacing:-.01em}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:s;list-style:none;margin:0;padding:0}
+.flow li{position:relative;padding:22px 20px 24px;border-top:2px solid var(--line)}
+.flow li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--muted);display:block;margin-bottom:14px}
+.flow li::after{content:"";position:absolute;top:-6px;left:20px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.flow h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.flow p{font-size:14px;color:var(--ink-2);line-height:1.6}
+.flow li.human{border-top-color:var(--accent);background:linear-gradient(var(--soft),transparent 80%)}
+.flow li.human::after{background:var(--accent)}
+.flow li.human h3{color:var(--accent)}
+@media (max-width:1000px){.flow{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:620px){.flow{grid-template-columns:1fr}}
+
+.compare{margin-top:48px;display:grid;gap:10px;font-size:14px}
+.compare-row{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:14px 18px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.compare-row.dp{background:var(--soft);border-color:transparent}
+.compare-row .who{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.compare-row.dp .who{color:var(--accent)}
+.chain{display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center}
+.chain span{padding:3px 0}
+.chain i{font-style:normal;color:var(--muted);padding-inline:6px}
+@media (max-width:560px){.compare-row{grid-template-columns:1fr;gap:6px}}
+
+/* fit grid */
+.fit{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.fit div{background:var(--surface);padding:28px 24px 30px;display:grid;gap:10px;align-content:start}
+.fit svg{width:28px;height:28px;color:var(--accent);margin-bottom:6px}
+.fit h3{font-size:18px;font-weight:600}
+.fit p{font-size:14px;color:var(--ink-2)}
+@media (max-width:960px){.fit{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.fit{grid-template-columns:1fr}}
+
+/* spaces */
+.anatomy{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:40px;font-size:14px}
+.anatomy span{padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink-2)}
+.anatomy .eq{color:var(--muted);padding-inline:4px;border:0;background:none}
+.anatomy .out{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
+.spaces{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1000px){.spaces{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.spaces{grid-template-columns:1fr}}
+.space{display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;padding:24px;border-radius:16px;border:1px solid var(--line);background:var(--surface);text-decoration:none;transition:border-color .15s,transform .15s}
+a.space:hover{border-color:var(--accent);transform:translateY(-2px)}
+.space .nm{font-size:24px;font-weight:300;letter-spacing:-.02em}
+.space .nm b{font-weight:700;color:var(--accent)}
+.space .what{font-size:14px;font-weight:500}
+.space p{font-size:14px;color:var(--ink-2)}
+.space .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.space.live{background:linear-gradient(160deg,var(--soft),var(--surface) 70%)}
+.space .go{color:var(--accent);font-weight:500}
+.tag.next{background:var(--soft-2);color:var(--muted)}
+
+/* spotlight */
+.spot{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.spot + .spot{margin-top:96px}
+@media (max-width:960px){.spot{grid-template-columns:1fr;gap:32px}}
+.spot h3{font-size:clamp(24px,2.8vw,32px);font-weight:300}
+.spot h3 b{font-weight:700;color:var(--accent)}
+.spot .txt{display:grid;gap:18px}
+.spot .txt p{color:var(--ink-2)}
+.meta{display:grid;gap:12px;font-size:14px;margin-top:6px}
+.meta div{display:grid;grid-template-columns:96px 1fr;gap:12px}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.meta dd{margin:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:24px}
+.steps{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.steps span{padding:6px 11px;border-radius:8px;background:var(--soft-2);border:1px solid var(--line)}
+.steps span.hl{background:var(--soft);border-color:transparent;color:var(--mint-ink);font-weight:500}
+.steps i{font-style:normal;color:var(--muted)}
+.tri{display:grid;grid-template-columns:1fr 1.1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+.tri > div{padding:16px;display:grid;gap:8px;align-content:start}
+.tri > div + div{border-left:1px solid var(--line)}
+.tri .mid{background:var(--soft)}
+.tri h4{margin:0 0 4px;font-size:12px;font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.tri .mid h4{color:var(--accent)}
+.tri p{color:var(--ink-2);line-height:1.45}
+.tri .mid p{color:var(--ink)}
+@media (max-width:620px){.tri{grid-template-columns:1fr}.tri > div + div{border-left:0;border-top:1px solid var(--line)}}
+.equation{font-size:15px;font-weight:500;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.equation span{padding:8px 14px;border-radius:999px;border:1px solid var(--line)}
+.equation span:last-child{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.equation i{font-style:normal;color:var(--muted)}
+.path{font-size:14px;color:var(--ink-2)}
+.path b{color:var(--ink);font-weight:600}
+
+/* trust */
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media (max-width:960px){.trust{grid-template-columns:1fr;gap:36px}}
+.evidence{display:grid;gap:0;list-style:none;margin:0;padding:0}
+.evidence li{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.evidence li:first-child{padding-top:0}
+.evidence .n{font-family:var(--mono);font-size:12px;color:var(--accent);padding-top:4px}
+.evidence h3{font-size:18px;font-weight:600;margin-bottom:4px}
+.evidence p{font-size:14px;color:var(--ink-2)}
+.gov{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gov div{display:flex;gap:10px;align-items:center;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:14px;font-weight:500}
+.gov svg{flex:none;width:18px;height:18px;color:var(--accent)}
+@media (max-width:480px){.gov{grid-template-columns:1fr}}
+.datanote{margin-top:16px;padding:20px;border-radius:14px;background:var(--soft);display:grid;gap:6px}
+.datanote strong{font-weight:600}
+.datanote p{font-size:14px;color:var(--ink-2)}
+
+/* proof table */
+.proof{width:100%;border-collapse:collapse;font-size:15px;min-width:680px}
+.proof-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.proof th{text-align:left;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:16px 20px;border-bottom:1px solid var(--line)}
+.proof td{padding:20px;border-bottom:1px solid var(--line);vertical-align:top}
+.proof tr:last-child td{border-bottom:0}
+.proof td:first-child{font-weight:600;white-space:nowrap}
+.proof td:nth-child(2){color:var(--ink-2)}
+.proof .sp{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.proof-note{margin-top:16px;font-size:14px;color:var(--muted)}
+
+/* engagement */
+.engage{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0;counter-reset:e}
+@media (max-width:900px){.engage{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.engage{grid-template-columns:1fr}}
+.engage li{padding:24px;border-radius:16px;border:1px solid var(--line);background:var(--surface);display:grid;gap:8px;align-content:start}
+.engage li::before{counter-increment:e;content:"Step " counter(e);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.engage h3{font-size:18px;font-weight:600}
+.engage p{font-size:14px;color:var(--ink-2)}
+.model{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;padding:22px 24px;border-radius:16px;background:var(--soft)}
+.model .equation span{background:var(--surface)}
+.model .equation span:last-child{background:var(--accent)}
+.model p{font-size:14px;color:var(--ink-2);max-width:44ch}
+
+/* alternatives */
+.alt{display:grid;gap:0;border-top:1px solid var(--line)}
+.alt div{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);font-size:15px}
+.alt div.hd{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-block:14px}
+.alt span:first-child{font-weight:600}
+.alt span:nth-child(2){color:var(--muted)}
+.alt span:last-child{color:var(--ink)}
+.alt div:not(.hd) span:last-child::before{content:"→ ";color:var(--accent)}
+@media (max-width:700px){.alt div{grid-template-columns:1fr;gap:4px}.alt div.hd{display:none}}
+
+/* closing band */
+.band{position:relative;background:var(--band);color:var(--band-ink);overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;background:url("../assets/waves.jpg") center bottom/cover no-repeat;opacity:.9}
+.band .wrap{position:relative;padding-block:clamp(80px,10vw,128px);display:grid;gap:28px;justify-items:start}
+.band h2{max-width:22ch}
+.band .eyebrow{color:#28DCA8}
+.band h2{font-size:clamp(28px,4vw,46px);font-weight:300}
+.band h2 b{font-weight:600;color:#28DCA8}
+.band p{color:#B9D3CA;max-width:56ch;font-size:17px}
+.band .btn-primary{background:#28DCA8;color:#022D26}
+.mail{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mail code{font-family:var(--mono);font-size:15px;color:#E7F5F0;padding:12px 16px;border:1px solid rgba(231,245,240,.25);border-radius:999px;user-select:all}
+.copy{font:500 14px/1 var(--font);color:#022D26;background:#28DCA8;border:0;border-radius:999px;padding:13px 18px;cursor:pointer}
+
+/* footer */
+footer{padding-block:40px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+footer nav{display:flex;flex-wrap:wrap;gap:24px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .brand img{height:22px}
+
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.btn,.space{transition:none}}
+
+/* shared: sub-brand + space pages */
+.brand{gap:2px}
+.brand .sub{font-size:23px;font-weight:300;letter-spacing:-.02em;color:var(--ink);line-height:1;transform:translateY(-1px)}
+footer .brand .sub{font-size:19px}
+.back{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.back:hover{color:var(--ink)}
+@media (max-width:560px){.back{display:none}}
+.nav .brand{flex:none}
+.hero .status{display:inline-flex;margin-top:20px}
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (max-width:760px){.caps{grid-template-columns:1fr}}
+.cap{padding:28px;border-radius:16px;border:1px solid var(--line);background:var(--surface);display:grid;gap:14px;align-content:start}
+.cap h3{font-size:20px;font-weight:600}
+.cap > p{font-size:14px;color:var(--ink-2)}
+.cap ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px}
+.cap li{display:grid;grid-template-columns:16px 1fr;gap:10px;color:var(--ink-2)}
+.cap li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px;margin-left:4px}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.modes{grid-template-columns:1fr}}
+.mode{padding:28px;border-radius:16px;background:var(--soft);display:grid;gap:10px;align-content:start}
+.mode .k{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.mode h3{font-size:22px;font-weight:300}
+.mode h3 b{font-weight:700}
+.mode p{font-size:14px;color:var(--ink-2)}
+.uses{display:grid;gap:0;border-top:1px solid var(--line)}
+.uses div{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
+.uses dt{font-weight:600}
+.uses dd{margin:0;color:var(--ink-2)}
+@media (max-width:700px){.uses div{grid-template-columns:1fr;gap:4px}}
+.graph-wrap{overflow-x:auto}
+.graph{width:100%;min-width:480px;height:auto;display:block}
+.graph .edge{stroke:var(--line);stroke-width:1.5;fill:none}
+.graph .edge.hot{stroke:var(--accent);stroke-width:2}
+.graph .edge.dash{stroke-dasharray:4 4}
+.graph .node{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.graph .node.subj{fill:var(--soft);stroke:var(--accent);stroke-width:2}
+.graph .node.watch{fill:var(--warn-soft);stroke:var(--warn)}
+.graph .node.person{fill:var(--surface);stroke:var(--accent)}
+.graph text{fill:var(--ink);font-family:var(--font);font-size:12px}
+.graph text.t{font-weight:600;font-size:13px}
+.graph text.s{fill:var(--muted);font-size:11px}
+.graph text.e{fill:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:.03em}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted);margin-top:12px}
+.legend span{display:inline-flex;gap:8px;align-items:center}
+.legend i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface)}
+.legend i.subj{background:var(--soft);border-color:var(--accent)}
+.legend i.watch{background:var(--warn-soft);border-color:var(--warn)}
+.legend i.person{border-color:var(--accent)}
+.roadmap{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;list-style:none;margin:0;padding:0}
+@media (max-width:1000px){.roadmap{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.roadmap{grid-template-columns:1fr 1fr}}
+.roadmap li{padding:18px;border-radius:14px;border:1px dashed var(--line);display:grid;gap:8px;align-content:start}
+.roadmap li.now{border:1px solid var(--accent);background:var(--soft)}
+.roadmap h3{font-size:16px;font-weight:600}
+.roadmap p{font-size:13px;color:var(--ink-2)}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media (max-width:900px){.metrics{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.metrics{grid-template-columns:1fr}}
+.metrics div{background:var(--surface);padding:22px;display:grid;gap:6px;align-content:start}
+.metrics strong{font-size:16px;font-weight:600}
+.metrics span{font-size:13px;color:var(--ink-2)}
+.addr{font-size:13px;color:var(--muted);line-height:1.6}
+.roadmap .tag{justify-self:start}
+.spot>*,.trust>*,.netgrid>*,.hero .wrap>*{min-width:0}
+
+.amt{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.amt strong{font-size:26px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.amt span{font-size:13px;color:var(--muted)}
+.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.kv div{background:var(--surface);padding:10px 12px;display:grid;gap:2px}
+.kv dt{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.kv dd{margin:0;font-size:13px;font-weight:500}
+@media (max-width:420px){.kv{grid-template-columns:1fr 1fr}}
+.chk{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
+.chk li{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center}
+.chk li::before{content:"✓";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--soft);color:var(--accent);font-size:11px;font-weight:700}
+.chk li.no::before{content:"–";background:var(--warn-soft);color:var(--warn)}
+.chk li span:last-child{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:960px){.pains{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.pains{grid-template-columns:1fr}}
+.pains div{padding:24px;border-top:2px solid var(--accent);background:var(--surface);border-radius:0 0 14px 14px;display:grid;gap:8px;align-content:start}
+.pains h3{font-size:17px;font-weight:600}
+.pains p{font-size:14px;color:var(--ink-2)}
+.flow.seven{grid-template-columns:repeat(7,1fr)}
+@media (max-width:1100px){.flow.seven{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:760px){.flow.seven{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.flow.seven{grid-template-columns:1fr}}
+.entity{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:700px){.entity{grid-template-columns:1fr 1fr}}
+.entity span{padding:12px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-size:14px}
+</style>
+</head>
+<body>
+
+
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Deepin home">
+      <img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190">
+      <img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">
+      <span class="sub">.finance</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#chargeback">Chargebacks</a>
+      <a href="#how">How it works</a>
+      <a href="#merchant">Merchant context</a>
+      <a href="#next">What's next</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="back" href="../">← deepin.space</a>
+      <a class="btn btn-primary btn-sm" href="#contact">Talk to us</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Financial Operations &amp; Investigation</p>
+      <h1>Chargeback investigation, <b>with the evidence attached.</b></h1>
+      <p class="lede">Dispute teams pull transaction data, authentication records, merchant details and documents for every case, against scheme deadlines. deepin.finance assembles the case, applies your rules and policies, and prepares a decision your team can approve.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Talk to us
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#how">See the case path</a>
+      </div>
+      <span class="tag status">First deployment underway with a national bank</span>
+    </div>
+
+    <figure class="case" style="margin:0" aria-label="Sample chargeback case">
+      <div class="case-top">
+        <span class="case-id">CB-2026-07731 · Card dispute</span>
+        <span class="tag wait">Response due in 6 days</span>
+      </div>
+      <div class="case-body">
+        <div class="amt"><strong>₺4,850.00</strong><span>Reason: goods not received</span></div>
+        <dl class="kv" style="margin:0">
+          <div><dt>Merchant</dt><dd>Kestrel Elektronik</dd></div>
+          <div><dt>Channel</dt><dd>E-commerce</dd></div>
+          <div><dt>Txn date</dt><dd>02 Sep 2026</dd></div>
+        </dl>
+        <div>
+          <div class="lbl">Evidence gathered</div>
+          <ul class="chk">
+            <li><span>Authorization and clearing records</span><span>card system</span></li>
+            <li><span>3-D Secure authentication</span><span>ACS log</span></li>
+            <li class="no"><span>Proof of delivery</span><span>not provided</span></li>
+            <li><span>Merchant profile: 3 signatory changes this year</span><span>deepin.risk</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">Reasoning</div>
+          <p class="reason">The cardholder authenticated the purchase, but the merchant has not supplied proof of delivery within the response window. Under your policy the dispute is valid, and the merchant's recent authority changes justify a review.</p>
+        </div>
+        <div class="propose">
+          <p>Accept dispute · flag merchant</p>
+          <div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div>
+        </div>
+      </div>
+      <figcaption class="case-note">Sample case with a fictional merchant, for illustration.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="chargeback">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The problem</p>
+      <h2 class="h2">Every dispute is <b>a small investigation.</b></h2>
+      <p class="lede">A single chargeback can touch the card system, core banking, the acquirer, the merchant and a pile of documents. Multiply that by thousands of cases a month.</p>
+    </div>
+    <div class="pains">
+      <div><h3>High volume</h3><p>Cases arrive every day and the queue rarely empties.</p></div>
+      <div><h3>Hard deadlines</h3><p>Scheme timeframes leave little room for slow evidence collection.</p></div>
+      <div><h3>Scattered data</h3><p>Transaction, authentication, merchant and document data live in different systems.</p></div>
+      <div><h3>Real losses</h3><p>A missed deadline or a wrong call becomes a write-off, a fee or a complaint.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2">The case path, <b>end to end.</b></h2>
+      <p class="lede">deepin.finance follows the steps your dispute analysts already take, and stops for a person before any action is taken.</p>
+    </div>
+    <ol class="flow seven">
+      <li><h3>Transaction</h3><p>A dispute is raised on a card transaction.</p></li>
+      <li><h3>Case data</h3><p>Authorization, clearing and cardholder data are pulled in.</p></li>
+      <li><h3>Evidence</h3><p>Authentication logs, merchant responses and documents are collected.</p></li>
+      <li><h3>Rules &amp; policies</h3><p>Scheme rules and your internal policies are applied.</p></li>
+      <li><h3>Investigation</h3><p>Findings are weighed and a decision is proposed with its reasoning.</p></li>
+      <li class="human"><h3>Human approval</h3><p>Your analyst approves, edits or rejects the proposal.</p></li>
+      <li><h3>Action</h3><p>The decision goes back to your systems with a full audit trail.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="merchant">
+  <div class="wrap">
+    <div class="spot">
+      <div class="txt">
+        <p class="eyebrow">Merchant context</p>
+        <h3>Look at the transaction <b>and the company behind it.</b></h3>
+        <p>Many financial cases need both. While a merchant's transaction is being investigated, deepin.finance can check the merchant company itself using <a href="../risk/">deepin.risk</a>, in the same case.</p>
+        <dl class="meta">
+          <div><dt>Built for</dt><dd>Banks, issuers, acquirers, payment institutions and fintechs</dd></div>
+          <div><dt>Teams</dt><dd>Cards, payment operations and dispute operations</dd></div>
+          <div><dt>With</dt><dd>Fraud, risk, compliance, IT and information security</dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <div>
+          <div class="lbl">One case, four parts</div>
+          <div class="equation"><span>Transaction</span><i>+</i><span>Entity</span><i>+</i><span>Evidence</span><i>=</i><span>Decision</span></div>
+        </div>
+        <div>
+          <div class="lbl">What Deepin checks about the merchant</div>
+          <div class="entity">
+            <span>The company</span><span>Partners</span><span>Related companies</span>
+            <span>Signatories</span><span>Past changes</span><span>Financial condition</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="measure">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What we measure</p>
+      <h2 class="h2">Results you can <b>put a number on.</b></h2>
+      <p class="lede">We agree on the metrics before deployment and measure them on your own cases.</p>
+    </div>
+    <div class="metrics">
+      <div><strong>Investigation time</strong><span>Minutes from case opened to decision ready</span></div>
+      <div><strong>Human touch</strong><span>Manual steps left per case</span></div>
+      <div><strong>Cases per analyst</strong><span>Capacity of the same team</span></div>
+      <div><strong>Turnaround</strong><span>Time to respond within scheme deadlines</span></div>
+      <div><strong>Evidence automation</strong><span>Share of evidence gathered without a person</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="next">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What's next</p>
+      <h2 class="h2">Chargebacks first. <b>Then the rest of financial operations.</b></h2>
+      <p class="lede">Each new investigation reuses the connectors, policies and evaluations built for the last one, so it reaches production faster.</p>
+    </div>
+    <ol class="roadmap">
+      <li class="now"><span class="tag">Now</span><h3>Chargeback</h3><p>Card dispute investigation</p></li>
+      <li><span class="tag next">Next</span><h3>Fraud</h3><p>Suspicious transaction review</p></li>
+      <li><span class="tag next">Next</span><h3>Merchant risk</h3><p>Onboarding and monitoring</p></li>
+      <li><span class="tag next">Next</span><h3>KYC / KYB</h3><p>Customer and business verification</p></li>
+      <li><span class="tag next">Next</span><h3>AML</h3><p>Alert investigation</p></li>
+      <li><span class="tag next">Next</span><h3>Complaints</h3><p>Case review and response</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Trust</p>
+      <h2 class="h2">Built for <b>regulated finance.</b></h2>
+      <p class="lede">Deepin runs where your data is allowed to run, and every decision can be traced from source to approval.</p>
+    </div>
+    <div class="trust">
+      <ol class="evidence">
+        <li><span class="n">01</span><div><h3>Source</h3><p>Every piece of evidence links to the system and record it came from.</p></div></li>
+        <li><span class="n">02</span><div><h3>Evidence</h3><p>Collected, time-stamped and kept with the case file.</p></div></li>
+        <li><span class="n">03</span><div><h3>Reasoning</h3><p>The rule or policy applied is written out with the conclusion.</p></div></li>
+        <li><span class="n">04</span><div><h3>Recommendation</h3><p>A proposed decision that your analyst approves, edits or rejects.</p></div></li>
+      </ol>
+      <div>
+        <div class="gov">
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg>On-prem &amp; air-gapped</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="6.5"/><path d="M6.5 9l2 2 3-3.5"/></svg>ISO/IEC 27001 ISMS</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Role-based access</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Audit trail</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Data lineage</div>
+          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Policy enforcement</div>
+        </div>
+        <div class="datanote">
+          <strong>Cardholder and transaction data stay yours.</strong>
+          <p>Customer records remain customer-owned. What we reuse across deployments are investigation templates, connectors, evaluations and workflows, never your data.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="engage">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Getting started</p>
+      <h2 class="h2">Start with <b>your own cases.</b></h2>
+    </div>
+    <ol class="engage">
+      <li><h3>Size the queue</h3><p>Monthly case volume, time per case, systems touched and the losses at stake.</p></li>
+      <li><h3>Run real cases</h3><p>A small, time-boxed pilot on your own disputes, not a product tour.</p></li>
+      <li><h3>Go to production</h3><p>Our forward deployed engineers connect Deepin to your systems and policies, then we measure and expand.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">deepin.finance</p>
+    <h2>How many disputes does your team <b>investigate each month?</b></h2>
+    <p>Tell us about your dispute operation. We will show you how deepin.finance would handle one of your real cases.</p>
+    <div class="mail">
+      <code id="email">info@deepin.space</code>
+      <button class="copy" id="copyBtn" type="button">Copy email</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:grid;gap:10px">
+      <a class="brand" href="../" aria-label="Deepin home">
+        <img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190">
+        <img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">
+        <span class="sub">.finance</span>
+      </a>
+      <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../">deepin.space</a>
+      <a href="../risk/">deepin.risk</a>
+      <a href="https://platform.deepin.space">Log in</a>
+      <a href="https://www.linkedin.com/company/93368167">LinkedIn</a>
+    </nav>
+    <span>© 2026 Deepin · info@deepin.space</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Outside the live domain (local file, preview), folder links need an explicit index.html
+  if(!/(^|\.)deepin\.space$/.test(location.hostname)){
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
+    });
+  }
+  // sticky nav border
+  var nav=document.querySelector('.nav');
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // copy email
+  var btn=document.getElementById('copyBtn'),em=document.getElementById('email');
+  if(btn&&em)btn.addEventListener('click',function(){
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1800)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';};
+    try{navigator.clipboard.writeText(em.textContent).then(done,fallback)}catch(e){fallback()}
+  });
+
+  // dotted wave field, echoing the brand's hero texture
+  var c=document.getElementById('field');if(!c||!c.getContext)return;
+  var ctx=c.getContext('2d'),w,h,dpr,t=0,raf;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rgb(){return getComputedStyle(document.documentElement).getPropertyValue('--dot').trim()||'21,136,103'}
+  var col=rgb();
+  function size(){dpr=Math.min(window.devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    var rows=34,cols=Math.round(w/9);
+    for(var r=0;r<rows;r++){
+      var z=r/(rows-1);                    // 0 far, 1 near
+      var p=0.35+z*0.65;                   // perspective
+      var baseY=h*0.12+Math.pow(z,1.35)*h*0.95;
+      for(var i=0;i<cols;i++){
+        var u=i/(cols-1);
+        var x=(u-0.5)*w*(0.9+p*0.6)+w/2;
+        var y=baseY
+          +Math.sin(u*6.2+z*2.4+t)*14*p
+          +Math.sin(u*2.1-z*3.3+t*0.6)*22*p;
+        var a=(0.08+0.55*z)*(0.25+0.75*u);
+        ctx.fillStyle='rgba('+col+','+a.toFixed(3)+')';
+        var s=0.6+p*1.1;
+        ctx.fillRect(x,y,s,s);
+      }
+    }
+  }
+  function loop(){t+=0.006;draw();raf=requestAnimationFrame(loop)}
+  size();draw();
+  window.addEventListener('resize',function(){size();draw()});
+  if(window.matchMedia){matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){col=rgb();draw()})}
+  new MutationObserver(function(){col=rgb();draw()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  if(!reduce){
+    var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){if(!raf)loop()}else{cancelAnimationFrame(raf);raf=null}});
+    io.observe(c);
+  }
+})();
+</script>
+
+</body>
+</html>
