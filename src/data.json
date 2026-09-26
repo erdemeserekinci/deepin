@@ -144,7 +144,10 @@
       "spaces": [
         "risk"
       ],
-      "logo": ""
+      "logo": "",
+      "context": {
+        "risk": "Financial / company risk"
+      }
     },
     {
       "name": "PayTR",
@@ -153,7 +156,10 @@
       "spaces": [
         "risk"
       ],
-      "logo": ""
+      "logo": "",
+      "context": {
+        "risk": "Merchant / company risk"
+      }
     },
     {
       "name": "SOCAR",
@@ -162,7 +168,10 @@
       "spaces": [
         "risk"
       ],
-      "logo": ""
+      "logo": "",
+      "context": {
+        "risk": "Third-party / company risk"
+      }
     },
     {
       "name": "DGPays",
@@ -172,7 +181,10 @@
         "risk",
         "finance"
       ],
-      "logo": ""
+      "logo": "",
+      "context": {
+        "risk": "Embedded solution"
+      }
     },
     {
       "name": "Visa / Ziraat Bankası",
@@ -254,6 +266,10 @@
       [
         "Evidence",
         "#evidence"
+      ],
+      [
+        "Use Cases",
+        "#uses"
       ],
       [
         "Customers",

@@ -22,7 +22,7 @@ python3 build.py
 - `src/data.json`: Investigation, Space ve müşteri bilgileri (durum/olgunluk dahil). Kartlar, müşteri kanıt ızgarası ve Space bölümleri buradan üretilir.
 - `src/pages/*.html`: Sayfa içerikleri. `<!--@bilesen-->` işaretleri `build.py` içindeki bileşenlerle doldurulur (investigation_catalog, proof_grid, spaces_scene, evidence_rail, enterprise_chips, data_note, copy_email).
 - `src/content/risk.en.json`: deepin.risk sayfasının tüm metinleri ve demo verileri. Türkçe sürüm için `risk.tr.json` oluşturup `build.py` içindeki PAGES listesine bir satır eklemek yeterli.
-- `src/risk_components.py`: deepin.risk bileşenleri (canlı şirket incelemesi, şirket zaman çizelgesi, inceleme boyutları, risk bağlamı değişikliği, konumlandırma katmanları, talep formu).
+- `src/risk_components.py`: deepin.risk bileşenleri: canlı şirket incelemesi, statik rapor ve canlı inceleme zaman çizelgesi, What changed? boyutları (sahiplik, yetki, ilişki grafiği, finansal bağlam), izleme ve inceleme farkı, kanıt kartı (onay, ret, derinleştirme), risk yığını, tek inceleme ile çoklu karar, talep formu (mobilde alt sayfa olarak açılır).
 - `src/base.css`, `src/base.js`: Ortak tasarım sistemi ve etkileşimler.
 - Müşteri logoları: `src/data.json` içinde `proof.show_logos` true yapılıp her müşteriye `logo` yolu girilirse isimler yerine logolar gösterilir.
 - Talep formu şu an e-posta uygulamasını açar. Bir form servisi bağlanırsa `risk.en.json` içindeki `form.endpoint` alanına adresi yazmak yeterli.

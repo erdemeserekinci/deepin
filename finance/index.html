@@ -1029,6 +1029,48 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
     new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible&&!timer)timer=setTimeout(tick,900)},{threshold:.35}).observe(card);
   });
 
+  // deepin.risk demo interactions
+  document.querySelectorAll('.liv-tl').forEach(function(tl){
+    var btns=[].slice.call(tl.querySelectorAll('.lt-btn')),panels=[].slice.call(tl.querySelectorAll('.lt-panel'));
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      var i=b.getAttribute('data-ev');
+      btns.forEach(function(x){var on=x===b;x.classList.toggle('sel',on);x.setAttribute('aria-pressed',on?'true':'false')});
+      panels.forEach(function(p){p.hidden=p.getAttribute('data-panel')!==i});
+    })});
+  });
+  document.querySelectorAll('.rgraph').forEach(function(g){
+    var info=g.querySelector('.rg-info'),nodes=[].slice.call(g.querySelectorAll('.gn'));
+    function pick(n){nodes.forEach(function(x){x.classList.toggle('sel',x===n)});info.textContent=n.getAttribute('aria-label')+': '+n.getAttribute('data-info')}
+    nodes.forEach(function(n){
+      n.addEventListener('click',function(){pick(n)});
+      n.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();pick(n)}});
+    });
+  });
+  document.querySelectorAll('details.ev-d').forEach(function(d){
+    var s=d.querySelector('summary');
+    d.addEventListener('toggle',function(){s.textContent=d.open?s.getAttribute('data-hide'):s.getAttribute('data-view')});
+  });
+  document.querySelectorAll('[data-decision]').forEach(function(box){
+    var res=box.querySelector('.rcx-result'),steps=[].slice.call(box.querySelectorAll('.rcx-further li'));
+    box.querySelectorAll('[data-act]').forEach(function(b){b.addEventListener('click',function(){
+      var a=b.getAttribute('data-act');
+      if(a==='further'){
+        b.disabled=true;res.hidden=true;
+        steps.forEach(function(li,i){setTimeout(function(){li.hidden=false;li.classList.add('in')},still?0:i*700)});
+      }else{res.textContent=b.getAttribute('data-msg');res.hidden=false;res.className='rcx-result '+a}
+    })});
+  });
+  // request form as a sheet on small screens
+  (function(){
+    var sheet=document.getElementById('request-sheet');if(!sheet)return;
+    var mq=window.matchMedia('(max-width:760px)');
+    function open(){sheet.classList.add('open');document.documentElement.classList.add('noscroll');setTimeout(function(){var i=document.getElementById('rq-company');if(i)i.focus()},60)}
+    function close(){sheet.classList.remove('open');document.documentElement.classList.remove('noscroll')}
+    document.querySelectorAll('a[href="#request"],[data-open-request]').forEach(function(a){a.addEventListener('click',function(ev){if(mq.matches){ev.preventDefault();open()}})});
+    sheet.querySelector('[data-close]').addEventListener('click',close);
+    document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&sheet.classList.contains('open'))close()});
+  })();
+
   // request form: two steps, then email (or POST to data-endpoint when configured)
   document.querySelectorAll('form.rq').forEach(function(f){
     var pages=[].slice.call(f.querySelectorAll('.rq-page')),dots=[].slice.call(f.querySelectorAll('.rq-steps li'));

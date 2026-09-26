@@ -92,7 +92,7 @@ def c_proof_grid(arg=""):
                 if show_logos and c.get("logo") else f'<strong>{e(c["name"])}</strong>')
         cards.append(f'''<li class="proof-card">
   {name}
-  <span class="proof-inv">{e(c["investigation"])}</span>
+  <span class="proof-inv">{e(c["investigation"])}</span>{f'<span class="proof-ctx">{e(c["context"][arg])}</span>' if arg and c.get("context", {}).get(arg) else ""}
   <span class="proof-st">{maturity(c["status"])}{status_chip(c["status"])}</span>
 </li>''')
     cls = " n4" if len(cards) == 4 else ""
