@@ -1,0 +1,277 @@
+{
+  "investigations": [
+    {
+      "id": "company",
+      "name": "Company Investigation",
+      "space": "risk",
+      "status": "production",
+      "headline": "Know every company you work with, and every change that matters.",
+      "sources": [
+        "Ownership",
+        "Shareholders",
+        "Executives",
+        "Representation authority",
+        "Related entities",
+        "Financial condition",
+        "Historical changes",
+        "Material company events"
+      ],
+      "outputs": [
+        "Company risk file with sources",
+        "Change alerts",
+        "Risk recommendation for approval"
+      ],
+      "cta": "Explore Company Investigation",
+      "href": "risk/",
+      "weight": "primary"
+    },
+    {
+      "id": "chargeback",
+      "name": "Chargeback Investigation",
+      "space": "finance",
+      "status": "deploying",
+      "headline": "Every card dispute arrives as a case, with the evidence already attached.",
+      "sources": [
+        "Transaction",
+        "Dispute case",
+        "Evidence",
+        "Scheme rules",
+        "Policies",
+        "Historical information",
+        "Merchant and entity context"
+      ],
+      "outputs": [
+        "Evidence package",
+        "Reasoning",
+        "Recommendation",
+        "Human approval",
+        "Action preparation"
+      ],
+      "cta": "Explore Chargeback Investigation",
+      "href": "finance/",
+      "weight": "primary"
+    },
+    {
+      "id": "security",
+      "name": "Security Investigation",
+      "space": "security",
+      "status": "exploring",
+      "headline": "Turn security alerts into evidence-backed investigations.",
+      "cta": "Explore",
+      "href": "security/",
+      "weight": "secondary"
+    },
+    {
+      "id": "operational",
+      "name": "Operational Investigation",
+      "space": "energy",
+      "status": "exploring",
+      "headline": "Investigate anomalies, deviations and operational root causes.",
+      "cta": "Explore",
+      "href": "energy/",
+      "weight": "secondary"
+    }
+  ],
+  "spaces": [
+    {
+      "id": "risk",
+      "name": "risk",
+      "title": "Company & third-party investigation",
+      "status": "production",
+      "primary": "Company Investigation",
+      "note": "Sits between corporate intelligence and your third-party risk and GRC tools.",
+      "growth": [
+        [
+          "Company Investigation"
+        ],
+        [
+          "Company Investigation",
+          "Supplier Investigation"
+        ],
+        [
+          "Company Investigation",
+          "Supplier Investigation",
+          "Merchant Investigation",
+          "Continuous Monitoring"
+        ]
+      ],
+      "href": "risk/"
+    },
+    {
+      "id": "finance",
+      "name": "finance",
+      "title": "Financial operations & investigation",
+      "status": "deploying",
+      "primary": "Chargeback Investigation",
+      "note": "Starts with card disputes, then grows into adjacent financial investigations.",
+      "growth": [
+        [
+          "Chargeback"
+        ],
+        [
+          "Chargeback",
+          "Fraud"
+        ],
+        [
+          "Chargeback",
+          "Fraud",
+          "Merchant Risk",
+          "KYC / KYB"
+        ]
+      ],
+      "href": "finance/"
+    },
+    {
+      "id": "security",
+      "name": "security",
+      "title": "Security investigation",
+      "status": "exploring",
+      "href": "security/"
+    },
+    {
+      "id": "energy",
+      "name": "energy",
+      "title": "Energy & operational investigation",
+      "status": "exploring",
+      "href": "energy/"
+    }
+  ],
+  "customers": [
+    {
+      "name": "Hayat Finans",
+      "investigation": "Company Investigation",
+      "status": "production"
+    },
+    {
+      "name": "PayTR",
+      "investigation": "Company Investigation",
+      "status": "production"
+    },
+    {
+      "name": "SOCAR",
+      "investigation": "Company Investigation",
+      "status": "production"
+    },
+    {
+      "name": "DGPays",
+      "investigation": "Company + Financial Investigation",
+      "status": "embedded"
+    },
+    {
+      "name": "Visa / Ziraat Bankası",
+      "investigation": "Chargeback Investigation",
+      "status": "contracted"
+    },
+    {
+      "name": "GreenChimney",
+      "investigation": "Operational Investigation",
+      "status": "production"
+    }
+  ],
+  "status": {
+    "production": {
+      "label": "Production",
+      "level": 3
+    },
+    "embedded": {
+      "label": "Embedded",
+      "level": 2
+    },
+    "deploying": {
+      "label": "Deploying",
+      "level": 2
+    },
+    "contracted": {
+      "label": "Contracted · In development",
+      "level": 1
+    },
+    "exploring": {
+      "label": "Exploring",
+      "level": 0
+    }
+  },
+  "nav": {
+    "home": [
+      [
+        "Investigations",
+        "#investigations"
+      ],
+      [
+        "Spaces",
+        "#spaces"
+      ],
+      [
+        "Customers",
+        "#customers"
+      ],
+      [
+        "How Deepin Works",
+        "#how"
+      ],
+      [
+        "Enterprise",
+        "#enterprise"
+      ],
+      [
+        "Company",
+        "#company"
+      ]
+    ],
+    "risk": [
+      [
+        "Company Investigation",
+        "#investigation"
+      ],
+      [
+        "Continuous Monitoring",
+        "#monitoring"
+      ],
+      [
+        "Where it fits",
+        "#fit"
+      ],
+      [
+        "Evidence",
+        "#trust"
+      ]
+    ],
+    "finance": [
+      [
+        "Chargeback Investigation",
+        "#chargeback"
+      ],
+      [
+        "Case path",
+        "#how"
+      ],
+      [
+        "Merchant context",
+        "#merchant"
+      ],
+      [
+        "Evidence",
+        "#trust"
+      ]
+    ],
+    "security": [
+      [
+        "What it investigates",
+        "#investigation"
+      ],
+      [
+        "Status",
+        "#status"
+      ]
+    ],
+    "energy": [
+      [
+        "What it investigates",
+        "#investigation"
+      ],
+      [
+        "Status",
+        "#status"
+      ]
+    ]
+  }
+}

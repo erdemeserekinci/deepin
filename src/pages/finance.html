@@ -1,0 +1,235 @@
+<!--
+title: deepin.finance · Chargeback Investigation
+description: Chargeback investigation with the evidence attached. deepin.finance assembles the dispute case, applies scheme rules and your policies and prepares a recommendation for human approval.
+-->
+<style>
+.amt{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.amt strong{font-size:26px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.amt span{font-size:13px;color:var(--muted)}
+.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.kv div{background:var(--surface);padding:10px 12px;display:grid;gap:2px}
+.kv dt{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.kv dd{margin:0;font-size:13px;font-weight:500}
+@media (max-width:420px){.kv{grid-template-columns:1fr 1fr}}
+.chk{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
+.chk li{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center}
+.chk li::before{content:"✓";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--soft);color:var(--accent);font-size:11px;font-weight:700}
+.chk li.no::before{content:"–";background:var(--warn-soft);color:var(--warn)}
+.chk li span:last-child{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:960px){.pains{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.pains{grid-template-columns:1fr}}
+.pains div{padding:24px;border-top:2px solid var(--accent);background:var(--surface);border-radius:0 0 14px 14px;display:grid;gap:8px;align-content:start}
+.pains h3{font-size:17px;font-weight:600}
+.pains p{font-size:14px;color:var(--ink-2)}
+.flow.eight{grid-template-columns:repeat(8,1fr)}
+.flow.eight li{padding-inline:14px}
+.flow.eight h3{font-size:16px}
+@media (max-width:1100px){.flow.eight{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:760px){.flow.eight{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.flow.eight{grid-template-columns:1fr}}
+.equation.plain span:last-child{background:none;color:inherit;border-color:var(--line)}
+.equation .dr{background:var(--soft);border-color:var(--accent);color:var(--ink)}
+.eq-down{height:26px;margin:4px 0 4px 60px;border-left:2px dashed rgba(var(--dot),.55)}
+.iso{font-size:13px;color:var(--muted);margin:12px 0}
+.entity{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:700px){.entity{grid-template-columns:1fr 1fr}}
+.entity span{padding:12px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-size:14px}
+</style>
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Financial Operations &amp; Investigation</p>
+      <h1>Chargeback investigation, <b>with the evidence attached.</b></h1>
+      <p class="lede">Dispute teams pull transaction data, authentication records, merchant details and documents for every case, against scheme deadlines. deepin.finance assembles the case, applies your rules and policies, and prepares a decision your team can approve.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Request a demo
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#how">See the case path</a>
+      </div>
+      <span class="chip st-contracted status">Visa / Ziraat Bankası · contracted, in development</span>
+    </div>
+
+    <figure class="case" style="margin:0" aria-label="Sample chargeback case">
+      <div class="case-top">
+        <span class="case-id">CB-2026-07731 · Card dispute</span>
+        <span class="tag wait">Response due in 6 days</span>
+      </div>
+      <div class="case-body">
+        <div class="amt"><strong>₺4,850.00</strong><span>Reason: goods not received</span></div>
+        <dl class="kv" style="margin:0">
+          <div><dt>Merchant</dt><dd>Kestrel Elektronik</dd></div>
+          <div><dt>Channel</dt><dd>E-commerce</dd></div>
+          <div><dt>Txn date</dt><dd>02 Sep 2026</dd></div>
+        </dl>
+        <div>
+          <div class="lbl">Evidence gathered</div>
+          <ul class="chk">
+            <li><span>Authorization and clearing records</span><span>card system</span></li>
+            <li><span>3-D Secure authentication</span><span>ACS log</span></li>
+            <li class="no"><span>Proof of delivery</span><span>not provided</span></li>
+            <li><span>Merchant profile: 3 signatory changes this year</span><span>deepin.risk</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">Reasoning</div>
+          <p class="reason">The cardholder authenticated the purchase, but the merchant has not supplied proof of delivery within the response window. Under your policy the dispute is valid, and the merchant's recent authority changes justify a review.</p>
+        </div>
+        <div class="propose">
+          <p>Accept dispute · flag merchant</p>
+          <div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div>
+        </div>
+      </div>
+      <figcaption class="case-note">Sample case with a fictional merchant, for illustration.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="chargeback">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The problem</p>
+      <h2 class="h2">Every dispute is <b>a small investigation.</b></h2>
+      <p class="lede">A single chargeback can touch the card system, core banking, the acquirer, the merchant and a pile of documents. Multiply that by thousands of cases a month.</p>
+    </div>
+    <div class="pains">
+      <div><h3>High volume</h3><p>Cases arrive every day and the queue rarely empties.</p></div>
+      <div><h3>Hard deadlines</h3><p>Scheme timeframes leave little room for slow evidence collection.</p></div>
+      <div><h3>Scattered data</h3><p>Transaction, authentication, merchant and document data live in different systems.</p></div>
+      <div><h3>Real losses</h3><p>A missed deadline or a wrong call becomes a write-off, a fee or a complaint.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2">The case path, <b>end to end.</b></h2>
+      <p class="lede">deepin.finance follows the steps your dispute analysts already take, and stops for a person before any action is taken.</p>
+    </div>
+    <div class="flow-wrap"><svg class="flow-line" aria-hidden="true"></svg>
+    <ol class="flow eight">
+      <li><h3>Transaction</h3><p>A dispute is raised on a card transaction.</p></li>
+      <li><h3>Case</h3><p>Authorization, clearing and cardholder data form the case.</p></li>
+      <li><h3>Evidence collection</h3><p>Authentication logs, merchant responses and documents.</p></li>
+      <li><h3>Rules &amp; policies</h3><p>Scheme rules and your internal policies.</p></li>
+      <li><h3>Investigation</h3><p>Findings are weighed with the merchant's context.</p></li>
+      <li><h3>Recommen&shy;dation</h3><p>A proposed outcome with its reasoning.</p></li>
+      <li class="human"><h3>Human approval</h3><p>Your analyst approves, edits or rejects.</p></li>
+      <li><h3>Action</h3><p>Prepared for your systems, fully audited.</p></li>
+    </ol></div>
+  </div>
+</section>
+
+<section class="sec" id="merchant">
+  <div class="wrap">
+    <div class="spot">
+      <div class="txt">
+        <p class="eyebrow">Merchant context</p>
+        <h3>Look at the transaction <b>and the company behind it.</b></h3>
+        <p>Many financial cases need both. While a merchant's transaction is being investigated, deepin.finance can check the merchant company itself using <a href="../risk/">deepin.risk</a>, in the same case.</p>
+        <dl class="meta">
+          <div><dt>Built for</dt><dd>Banks, issuers, acquirers, payment institutions and fintechs</dd></div>
+          <div><dt>Teams</dt><dd>Cards, payment operations and dispute operations</dd></div>
+          <div><dt>With</dt><dd>Fraud, risk, compliance, IT and information security</dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <div>
+          <div class="lbl">From case to decision-ready</div>
+          <div class="equation plain"><span>Transaction</span><i>+</i><span>Entity</span><i>+</i><span>Evidence</span></div>
+          <div class="eq-down" aria-hidden="true"></div>
+          <div class="equation"><span class="dr">Decision-ready case</span><i>→</i><span>Human approval</span></div>
+        </div>
+        <div>
+          <div class="lbl">What Deepin checks about the merchant</div>
+          <div class="entity">
+            <span>The company</span><span>Partners</span><span>Related companies</span>
+            <span>Signatories</span><span>Past changes</span><span>Financial condition</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="measure">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What we measure</p>
+      <h2 class="h2">Results you can <b>put a number on.</b></h2>
+      <p class="lede">We agree on the metrics before deployment and measure them on your own cases.</p>
+    </div>
+    <div class="metrics">
+      <div><strong>Investigation time</strong><span>Minutes from case opened to decision ready</span></div>
+      <div><strong>Human touch</strong><span>Manual steps left per case</span></div>
+      <div><strong>Cases per analyst</strong><span>Capacity of the same team</span></div>
+      <div><strong>Turnaround</strong><span>Time to respond within scheme deadlines</span></div>
+      <div><strong>Evidence automation</strong><span>Share of evidence gathered without a person</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="next">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What's next</p>
+      <h2 class="h2">Chargebacks first. <b>Then the rest of financial operations.</b></h2>
+      <p class="lede">Each new investigation reuses the connectors, policies and evaluations built for the last one, so it reaches production faster.</p>
+    </div>
+    <ol class="roadmap">
+      <li class="now"><span class="tag">Now</span><h3>Chargeback</h3><p>Card dispute investigation</p></li>
+      <li><span class="tag next">Next</span><h3>Fraud</h3><p>Suspicious transaction review</p></li>
+      <li><span class="tag next">Next</span><h3>Merchant risk</h3><p>Onboarding and monitoring</p></li>
+      <li><span class="tag next">Next</span><h3>KYC / KYB</h3><p>Customer and business verification</p></li>
+      <li><span class="tag next">Next</span><h3>AML</h3><p>Alert investigation</p></li>
+      <li><span class="tag next">Next</span><h3>Complaints</h3><p>Case review and response</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec tone" id="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Trust</p>
+      <h2 class="h2">Built for <b>regulated finance.</b></h2>
+      <p class="lede">Deepin runs where your data is allowed to run, and every decision can be traced from source to approval.</p>
+    </div>
+    <div class="trust">
+      <!--@evidence_rail-->
+      <div>
+        <!--@enterprise_chips-->
+        <p class="iso">Information security runs under an ISO/IEC 27001-based management system, with KVKK-compliant processing.</p>
+        <div class="datanote">
+          <strong>Cardholder and transaction data stay yours.</strong>
+          <p>Customer records remain customer-owned. What we reuse across deployments are investigation templates, connectors, evaluations and workflows, never your data.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="engage">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Getting started</p>
+      <h2 class="h2">Start with <b>your own cases.</b></h2>
+    </div>
+    <ol class="engage">
+      <li><h3>Size the queue</h3><p>Monthly case volume, time per case, systems touched and the losses at stake.</p></li>
+      <li><h3>Run real cases</h3><p>Your own disputes, your systems and success criteria agreed up front.</p></li>
+      <li><h3>Put it into production</h3><p>Deploy into your dispute operation, with human approval on every outcome.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">deepin.finance</p>
+    <h2>How many disputes does your team <b>investigate each month?</b></h2>
+    <p>Tell us about your dispute operation. We will show you how deepin.finance would handle one of your real cases.</p>
+    <!--@copy_email-->
+  </div>
+</section>

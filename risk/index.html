@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="deepin.risk watches trade registry records and public sources for the companies you work with and investigates every material change.">
-<meta property="og:title" content="deepin.risk · Company Investigation & Continuous Monitoring">
-<meta property="og:description" content="deepin.risk watches trade registry records and public sources for the companies you work with and investigates every material change.">
+<title>deepin.risk · Company Investigation &amp; Continuous Monitoring</title>
+<meta name="description" content="Investigate every company you depend on. deepin.risk reads official records and public sources and opens a new investigation whenever something material changes.">
+<meta property="og:title" content="deepin.risk · Company Investigation &amp; Continuous Monitoring">
+<meta property="og:description" content="Investigate every company you depend on. deepin.risk reads official records and public sources and opens a new investigation whenever something material changes.">
 <meta property="og:url" content="https://deepin.space/risk/">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
 <link rel="canonical" href="https://deepin.space/risk/">
 <link rel="icon" type="image/png" href="../assets/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
-<title>deepin.risk · Company Investigation & Continuous Monitoring</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -421,10 +421,251 @@ footer .brand .sub{font-size:19px}
 .evidence .n{position:relative;z-index:1;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:10px;background:var(--sec-bg);border:2px solid rgba(var(--dot),.35);color:var(--accent)}
 .evidence li:nth-child(2) .n{border-color:rgba(var(--dot),.6)}
 .evidence li:nth-child(3) .n{border-color:var(--accent)}
-.evidence li:nth-child(4) .n{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 6px rgba(var(--dot),.14)}
+.evidence li:nth-child(n+4) .n{border-color:var(--accent)}
+.evidence li:last-child .n{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 6px rgba(var(--dot),.14)}
 .evidence h3{margin-top:2px}
 
 @media (prefers-reduced-motion: reduce){.flow-line .pulse{display:none}}
+
+
+/* =================================================================== V2 components */
+
+/* nav */
+.nav-links{gap:24px}
+@media (max-width:1120px){.nav-links{display:none}}
+.login{font-size:14px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.login:hover{color:var(--ink)}
+@media (max-width:560px){.login{display:none}}
+.nav-cta{gap:18px}
+
+/* status chips + maturity pips */
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap;line-height:1.3;flex:none}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.st-production{background:var(--soft);color:var(--mint-ink)}
+.st-embedded,.st-deploying{background:var(--soft-2);color:var(--accent);box-shadow:inset 0 0 0 1px rgba(var(--dot),.35)}
+.st-contracted,.st-wait{background:var(--warn-soft);color:var(--warn)}
+.st-exploring{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+.st-exploring::before{background:transparent;border:1px solid currentColor;width:4px;height:4px}
+.pips{display:inline-flex;gap:3px}
+.pips i{width:14px;height:4px;border-radius:2px;background:var(--line)}
+.pips i.on{background:var(--accent)}
+.nm{font-size:26px;font-weight:300;letter-spacing:-.02em;color:var(--ink)}
+.nm b,.nm-sm b{font-weight:700;color:var(--accent)}
+.nm-sm{font-size:15px;font-weight:300;color:var(--muted)}
+.go{color:var(--accent);font-weight:500;font-size:14px}
+
+/* hero: live investigation */
+.live-bar{display:flex;gap:4px;list-style:none;margin:0;padding:12px 20px 0}
+.live-bar li{flex:1;height:3px;border-radius:2px;background:var(--accent)}
+.case.playing .live-bar li{background:var(--line);transition:background .3s}
+.case.playing .live-bar li.done{background:var(--accent)}
+.case.playing .live-bar li.on{background:var(--mint)}
+.case [data-s]{transition:opacity .45s ease,box-shadow .45s ease}
+.case.playing [data-s].later{opacity:.25}
+.case.playing [data-s].on{box-shadow:0 0 0 2px rgba(var(--dot),.4)}
+.trigger{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;padding:10px 12px;border-radius:10px;background:var(--soft-2);border:1px solid var(--line)}
+.trigger .k{font-family:var(--mono);font-size:11px;color:var(--warn);text-transform:uppercase;letter-spacing:.04em;padding-top:1px}
+.trigger small{grid-column:2;color:var(--muted);font-size:12px}
+.srcs{display:flex;flex-wrap:wrap;gap:6px;border-radius:10px}
+.srcs span{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);background:var(--surface)}
+.finds li,.reason,.propose{border-radius:10px}
+
+/* investigation catalog */
+.catalog{display:grid;gap:16px}
+.catalog-primary,.catalog-secondary{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:860px){.catalog-primary,.catalog-secondary{grid-template-columns:1fr}}
+.inv{border:1px solid var(--line);border-radius:18px;display:grid;gap:16px;align-content:start}
+.inv-primary{padding:28px;background:var(--surface);box-shadow:var(--shadow)}
+.inv-secondary{padding:20px 24px;border-style:dashed;grid-template-columns:1fr auto;align-items:end;gap:8px 24px}
+.inv-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.inv-secondary .inv-head{grid-column:1/-1;align-items:center}
+.inv h3{font-size:22px;font-weight:600}
+.inv-secondary h3{font-size:17px}
+.inv-space{margin-top:4px}
+.inv-lede{color:var(--ink-2);font-size:15px}
+.inv-secondary .inv-lede{font-size:14px}
+.inv-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;padding-top:18px;border-top:1px solid var(--line)}
+@media (max-width:480px){.inv-cols{grid-template-columns:1fr}}
+.inv-list{list-style:none;margin:0;padding:0;display:grid;gap:5px;font-size:14px}
+.inv-list li{display:flex;gap:10px;align-items:baseline;color:var(--ink-2)}
+.inv-list li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;border:1.5px solid var(--accent);transform:translateY(-1px)}
+.inv-list.out li{color:var(--ink)}
+.inv-list.out li::before{background:var(--accent)}
+.inv-cta{font-weight:500;color:var(--accent);text-decoration:none;font-size:15px;justify-self:start}
+.inv-cta:hover{text-decoration:underline;text-underline-offset:4px}
+.inv-secondary .inv-cta{font-size:14px;white-space:nowrap}
+.catalog-more{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;padding:18px 24px;border-radius:14px;background:var(--soft);text-decoration:none;font-size:15px;color:var(--ink-2)}
+.catalog-more strong{color:var(--ink);font-weight:600}
+
+/* evidence UI */
+.ev-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+@media (max-width:960px){.ev-grid{grid-template-columns:1fr;gap:36px}}
+.ev-grid>*{min-width:0}
+.evui{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;font-size:14px}
+.evui-top{display:flex;justify-content:space-between;align-items:center;gap:8px 12px;flex-wrap:wrap;padding:14px 22px;border-bottom:1px solid var(--line);background:var(--soft-2)}
+.evui-top span:first-child{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.evui-body{padding:22px;display:grid;gap:20px}
+.rec{display:grid;gap:2px}
+.rec strong{font-size:22px;font-weight:600;letter-spacing:-.01em}
+.rec span{color:var(--muted);font-size:14px}
+.why{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.why li,.srcstack li{transition:border-color .2s,background .2s}
+.why li{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;border:1px solid var(--line)}
+.why .n{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.why .ref{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.srcstack{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.srcstack li{display:grid;grid-template-columns:24px 1fr auto;gap:12px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line)}
+.srcstack li:last-child{border-bottom:0}
+.srcstack .n{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-family:var(--mono);font-size:11px;background:var(--soft);color:var(--accent)}
+.srcstack strong{font-weight:500;display:block}
+.srcstack small{color:var(--muted);font-size:12px}
+.srcstack .kind{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.evui .lit{border-color:var(--accent);background:var(--soft)}
+.evui-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.evui-actions p{font-size:13px;color:var(--muted)}
+.evui-actions div{display:flex;gap:8px}
+.evui-actions span{font-size:13px;font-weight:500;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.evui-actions .ok{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* customer proof */
+.proof-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+@media (max-width:900px){.proof-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.proof-grid{grid-template-columns:1fr}}
+.proof-card{background:var(--surface);padding:24px;display:grid;gap:4px;align-content:start}
+.proof-card strong{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.proof-inv{font-size:14px;color:var(--ink-2)}
+.proof-st{display:flex;align-items:center;gap:10px;margin-top:12px}
+.proof-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--muted)}
+.proof-legend span{display:inline-flex;align-items:center;gap:8px}
+
+/* investigation -> space */
+.layers{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-bottom:48px;font-size:13px}
+.layers .caps-row{display:flex;flex-wrap:wrap;gap:6px}
+.layers .caps-row span{padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2)}
+.layers .via{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+.layers .via::before,.layers .via::after{content:"";width:18px;height:1px;background:rgba(var(--dot),.6)}
+.layers .obj{padding:7px 14px;border-radius:999px;font-weight:600;background:var(--soft);color:var(--accent)}
+.layers .obj.sp{background:var(--accent);color:var(--accent-ink)}
+.spaces-proven{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media (max-width:900px){.spaces-proven{grid-template-columns:1fr;gap:56px}}
+.spaces-proven>*{min-width:0}
+.g-stages{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.g-stages li{display:grid;grid-template-columns:118px 1fr;gap:14px;align-items:center}
+.g-lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.g-chips{display:flex;flex-wrap:wrap;gap:6px}
+.g-chips span{font-size:13px;padding:5px 11px;border-radius:8px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
+.g-chips span.new{border-color:var(--accent);color:var(--ink);font-weight:500;background:var(--soft)}
+.g-down{height:36px;margin-left:152px;border-left:2px dashed rgba(var(--dot),.55);position:relative}
+.g-down::after{content:"";position:absolute;bottom:-2px;left:-7px;border:6px solid transparent;border-top:7px solid var(--accent);border-bottom:0}
+.g-space{display:grid;gap:8px;padding:24px;border-radius:18px;background:var(--surface);border:1px solid var(--accent);box-shadow:var(--shadow);text-decoration:none;transition:transform .15s}
+.g-space:hover{transform:translateY(-2px)}
+.g-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.g-title{font-weight:500}
+.g-meta{display:flex;flex-wrap:wrap;gap:4px 8px;font-size:13px;color:var(--muted)}
+.g-meta b{color:var(--ink);font-weight:500}
+.g-note{font-size:14px;color:var(--ink-2)}
+@media (max-width:560px){.g-stages li{grid-template-columns:1fr;gap:6px}.g-down{margin-left:24px}}
+.spaces-explore{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-top:48px;padding-top:24px;border-top:1px dashed var(--line)}
+.spaces-explore .lbl{margin:0 8px 0 0}
+.x-space{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:10px 16px;border-radius:12px;border:1px dashed var(--line);text-decoration:none;font-size:13px;color:var(--muted)}
+.x-space:hover{border-color:var(--accent)}
+.x-space .nm{font-size:17px;color:var(--ink-2)}
+
+/* harness + enterprise */
+.harness{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+@media (max-width:960px){.harness{grid-template-columns:1fr;gap:32px}}
+.harness>*{min-width:0}
+.h-box{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:22px;box-shadow:var(--shadow)}
+.h-box .lbl{display:flex;justify-content:space-between;margin-bottom:14px}
+.h-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.h-grid span{padding:12px 8px;border-radius:10px;background:var(--soft-2);border:1px solid var(--line);font-size:14px;text-align:center}
+.h-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
+.h-flow span{padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-weight:500;font-size:14px}
+.h-flow i{font-style:normal;color:var(--muted)}
+.h-flow .hum{background:var(--soft);border-color:var(--accent);color:var(--accent)}
+.h-flow .act{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ent-chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ent-chips li{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:14px;font-weight:500}
+.ent-chips svg{flex:none;width:18px;height:18px;color:var(--accent)}
+@media (max-width:420px){.ent-chips{grid-template-columns:1fr}}
+.datanote .assets{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.datanote .assets li{font-size:12.5px;padding:4px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
+.quote{font-size:clamp(20px,2.2vw,26px);font-weight:300;line-height:1.35;letter-spacing:-.01em;max-width:34ch}
+.quote b{font-weight:600;color:var(--accent)}
+
+/* closing band steps */
+.band-steps{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;counter-reset:b}
+@media (max-width:760px){.band-steps{grid-template-columns:1fr}}
+.band-steps li{padding:20px;border-radius:14px;border:1px solid rgba(231,245,240,.16);background:rgba(2,45,38,.55);display:grid;gap:6px;align-content:start}
+.band-steps li::before{counter-increment:b;content:counter(b,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:#28DCA8}
+.band-steps h3{font-size:18px;font-weight:600;color:#E7F5F0}
+.band-steps p{font-size:14px;color:#B9D3CA}
+.band .next{font-size:clamp(20px,2.4vw,26px);font-weight:300;color:#E7F5F0}
+.band .next b{font-weight:600;color:#28DCA8}
+
+/* footer */
+footer{padding-block:48px}
+footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align-items:start;justify-content:stretch}
+@media (max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .wrap{grid-template-columns:1fr}}
+.f-about{display:grid;gap:12px;max-width:42ch}
+.f-about p{font-size:14px;color:var(--ink-2)}
+.f-col{display:grid;gap:8px;font-size:14px;align-content:start}
+.f-col .lbl{margin-bottom:4px}
+.f-copy{margin-top:8px}
+
+/* V2 density */
+.sec{padding-block:clamp(56px,6.5vw,92px)}
+.sec-head{margin-bottom:40px}
+.inv-list.in{display:flex;flex-wrap:wrap;gap:6px}
+.inv-list.in li{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--soft-2)}
+.inv-list.in li::before{display:none}
+.growth{display:grid;grid-template-rows:1fr auto auto}
+.g-stages{align-content:start}
+.g-down{height:30px}
+.layers{margin-bottom:40px}
+
+.sec{padding-block:clamp(48px,5.6vw,80px)}
+.sec-head{gap:12px;margin-bottom:36px}
+.band .wrap{padding-block:clamp(64px,7vw,96px);gap:22px}
+.evidence li,.evidence li:first-child{padding-bottom:12px}
+.evidence h3{font-size:16px}
+.evidence p{font-size:13px}
+.inv-primary{padding:24px}
+.flow li{padding-bottom:12px}
+.h-grid span{padding:9px 8px}
+.g-space{gap:6px;padding:22px}
+
+.catalog-secondary{grid-template-columns:1fr 1fr 1fr}
+@media (max-width:1000px){.catalog-secondary{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.catalog-secondary{grid-template-columns:1fr}}
+.inv-secondary{grid-template-columns:1fr;align-items:start}
+.catalog-more{display:grid;gap:6px;align-content:start;justify-content:stretch;padding:20px 24px;font-size:14px}
+.catalog-more strong{font-size:17px}
+.ent-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ent-chips li{padding:8px 14px 8px 12px;border-radius:999px;font-size:13.5px}
+.ent-chips svg{width:16px;height:16px}
+.evui-body{padding:20px;gap:16px}
+.why li{padding:8px 12px}
+.srcstack li{padding:8px 14px}
+.case-body{gap:14px}
+.finds li{padding:8px 12px}
+
+.sec-head{max-width:980px}
+.flow li p{font-size:13px}
+
+.inv-cols{grid-template-columns:1fr;gap:14px}
+.inv-list.out{display:flex;flex-wrap:wrap;gap:6px 18px}
+.inv-list.out li{align-items:center}
+.layers{font-size:12.5px;gap:8px 10px}
+.layers .caps-row span{padding:4px 8px}
+
+.compare{margin-top:28px}
+.compare-row{padding:11px 18px}
+.proof-card{padding:20px 22px}
+.spaces-explore{margin-top:32px}
+.band-steps li{padding:16px 18px}
+.h2{font-size:clamp(28px,3.3vw,40px)}
 
 /* watchlist */
 .watch{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;font-size:14px}
@@ -445,43 +686,60 @@ footer .brand .sub{font-size:19px}
 @media (max-width:960px){.netgrid{grid-template-columns:1fr;gap:32px}}
 .netgrid .txt{display:grid;gap:18px}
 .netgrid .txt p{color:var(--ink-2)}
+
+/* living investigation timeline */
+.tl{display:grid;gap:22px}
+.tl-row{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:start}
+.tl-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.tl-track{position:relative;height:78px;margin-inline:6px}
+.tl-track::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;border-radius:2px}
+.tl-track.static::before{background:linear-gradient(90deg,var(--muted),var(--line) 25%,transparent 90%)}
+.tl-track.live::before{background:linear-gradient(90deg,rgba(var(--dot),.35),var(--accent))}
+.tl-ev{position:absolute;top:0;left:var(--x);transform:translateX(-50%);width:150px;display:grid;justify-items:center;text-align:center;gap:1px}
+.tl-ev.start{transform:none;justify-items:start;text-align:left}
+.tl-ev.end{transform:translateX(-100%);justify-items:end;text-align:right}
+.tl-ev i{width:14px;height:14px;border-radius:50%;background:var(--sec-bg);border:2px solid var(--muted);margin:2px 0 8px}
+.live .tl-ev i{border-color:var(--accent)}
+.tl-ev.hot i{background:var(--accent);box-shadow:0 0 0 5px rgba(var(--dot),.18)}
+.tl-ev b{font-size:14px;font-weight:600}
+.tl-ev small{font-size:12px;color:var(--muted)}
+.tl-stale{position:absolute;top:0;left:var(--x);transform:translateX(-50%);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--warn);background:var(--warn-soft);padding:3px 9px;border-radius:999px;white-space:nowrap}
+.tl-axis{margin-left:196px;margin-right:6px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+@media (max-width:760px){
+  .tl-row{grid-template-columns:1fr;gap:10px}
+  .tl-track{height:auto;display:grid;gap:14px;padding-left:24px;margin:0}
+  .tl-track::before{left:6px;right:auto;top:4px;bottom:4px;width:2px;height:auto}
+  .tl-track.static::before{background:linear-gradient(var(--muted),transparent)}
+  .tl-track.live::before{background:linear-gradient(rgba(var(--dot),.35),var(--accent))}
+  .tl-ev,.tl-ev.start,.tl-ev.end,.tl-stale{position:relative;left:auto;transform:none;width:auto;justify-items:start;text-align:left}
+  .tl-ev i{position:absolute;left:-24px;top:2px;margin:0}
+  .tl-stale{justify-self:start}
+  .tl-axis{display:none}
+}
+.iso{font-size:13px;color:var(--muted);margin:12px 0}
+
 </style>
 </head>
 <body>
-
-
 <header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Deepin home">
-      <img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190">
-      <img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">
-      <span class="sub">.risk</span>
-    </a>
-    <nav class="nav-links" aria-label="Main">
-      <a href="#watch">What it watches</a>
-      <a href="#how">How it works</a>
-      <a href="#use">Use cases</a>
-      <a href="#trust">Trust</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="back" href="../">← deepin.space</a>
-      <a class="btn btn-primary btn-sm" href="#contact">Request a demo</a>
-    </div>
+    <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.risk</span></a>
+    <nav class="nav-links" aria-label="Main"><a href="#investigation">Company Investigation</a><a href="#monitoring">Continuous Monitoring</a><a href="#fit">Where it fits</a><a href="#trust">Evidence</a></nav>
+    <div class="nav-cta"><a class="back" href="../">← deepin.space</a><a class="btn btn-primary btn-sm" href="#contact">Request a demo</a></div>
   </div>
 </header>
-
 <main>
 <section class="hero">
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
       <p class="eyebrow">Company Investigation &amp; Continuous Monitoring</p>
-      <h1>Know the company. Understand the risk. <b>Monitor the change.</b></h1>
-      <p class="lede">deepin.risk watches trade registry records, official announcements and outside sources for every company you work with. When ownership, capital, authority or relationships change, it investigates, shows the evidence and updates the risk picture for your team.</p>
+      <h1>Investigate every company <b>you depend on.</b></h1>
+      <p class="lede">Know the company. Understand the risk. Monitor the change. deepin.risk reads trade registry records, official announcements and outside sources for every supplier, merchant, borrower and counterparty, and opens a new investigation whenever something material changes.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#contact">Request a demo
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn btn-ghost" href="#watch">What it watches</a>
+        <a class="btn btn-ghost" href="#monitoring">See a living investigation</a>
       </div>
     </div>
 
@@ -506,11 +764,41 @@ footer .brand .sub{font-size:19px}
   </div>
 </div>
 
-<section class="sec" id="watch">
+<section class="sec tone" id="monitoring">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">What it watches</p>
-      <h2 class="h2">The signals that come <b>before the problem.</b></h2>
+      <p class="eyebrow">Continuous Monitoring</p>
+      <h2 class="h2">Static reports get old. <b>Investigations stay alive.</b></h2>
+      <p class="lede">A company should not be analyzed once and filed away. deepin.risk keeps watching, and every material change opens a new investigation with its own evidence.</p>
+    </div>
+    <div class="tl" aria-label="Static risk report compared with a living investigation of the same company, January to May">
+      <div class="tl-row">
+        <span class="tl-lbl">Static risk report</span>
+        <div class="tl-track static">
+          <span class="tl-ev start" style="--x:0%"><i></i><b>Onboarding report</b><small>Jan · never updated</small></span>
+          <span class="tl-stale" style="--x:62%">3 material changes missed</span>
+        </div>
+      </div>
+      <div class="tl-row">
+        <span class="tl-lbl">Living investigation</span>
+        <div class="tl-track live">
+          <span class="tl-ev start" style="--x:0%"><i></i><b>Onboarding investigation</b><small>Jan</small></span>
+          <span class="tl-ev hot" style="--x:25%"><i></i><b>New shareholder</b><small>Feb · investigation opened</small></span>
+          <span class="tl-ev hot" style="--x:66%"><i></i><b>Authority changed</b><small>Apr · investigation opened</small></span>
+          <span class="tl-ev hot end" style="--x:100%"><i></i><b>Financial event</b><small>May · investigation opened</small></span>
+        </div>
+      </div>
+      <div class="tl-axis" aria-hidden="true"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" id="investigation">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Company Investigation</p>
+      <h2 class="h2">What a Company Investigation <b>looks at.</b></h2>
       <p class="lede">Most company risk shows up first in official records and public sources. deepin.risk reads them continuously and tells you which changes matter.</p>
     </div>
     <div class="caps">
@@ -617,25 +905,7 @@ footer .brand .sub{font-size:19px}
   </div>
 </section>
 
-<section class="sec" id="how">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">How it works</p>
-      <h2 class="h2">From a registry entry to <b>an updated risk picture.</b></h2>
-    </div>
-    <div class="flow-wrap"><svg class="flow-line" aria-hidden="true"></svg>
-    <ol class="flow">
-      <li><h3>Company</h3><p>Add the companies you work with: suppliers, merchants, borrowers or counterparties.</p></li>
-      <li><h3>Official records</h3><p>Trade registry announcements and public sources are read for each one.</p></li>
-      <li><h3>Relationships</h3><p>Partners, officers, signatories, addresses and group links are mapped.</p></li>
-      <li class="human"><h3>Change detection</h3><p>Material changes are flagged against your thresholds and policies.</p></li>
-      <li><h3>Evidence</h3><p>Each finding is kept with its source, date and the records it touches.</p></li>
-      <li><h3>Risk context</h3><p>The risk level and reasoning are updated for your team to review and act on.</p></li>
-    </ol></div>
-  </div>
-</section>
-
-<section class="sec tone" id="modes">
+<section class="sec" id="modes">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Ways to use it</p>
@@ -649,11 +919,11 @@ footer .brand .sub{font-size:19px}
   </div>
 </section>
 
-<section class="sec" id="use">
+<section class="sec tone" id="fit">
   <div class="wrap">
     <div class="spot">
       <div class="txt">
-        <p class="eyebrow">Use cases</p>
+        <p class="eyebrow">Where it fits</p>
         <h3>Built for teams that <b>decide about companies.</b></h3>
         <p>deepin.risk works alongside your third-party risk and GRC tools. Vendor lifecycle, questionnaires and attestations stay where they are. Deepin adds deeper intelligence and continuous investigation.</p>
         <dl class="meta">
@@ -679,7 +949,7 @@ footer .brand .sub{font-size:19px}
   </div>
 </section>
 
-<section class="sec tone" id="trust">
+<section class="sec" id="trust">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Trust</p>
@@ -687,21 +957,10 @@ footer .brand .sub{font-size:19px}
       <p class="lede">Every alert links to the record it came from. Your analysts see what changed, why it matters and what Deepin suggests, and they make the call.</p>
     </div>
     <div class="trust">
-      <ol class="evidence">
-        <li><span class="n">01</span><div><h3>Source</h3><p>Registry announcement, news article or web page, with its date.</p></div></li>
-        <li><span class="n">02</span><div><h3>Evidence</h3><p>The facts that changed, kept with the company's history.</p></div></li>
-        <li><span class="n">03</span><div><h3>Reasoning</h3><p>Why the change matters, against your thresholds and policies.</p></div></li>
-        <li><span class="n">04</span><div><h3>Recommendation</h3><p>A suggested risk level that your team approves or adjusts.</p></div></li>
-      </ol>
+      <ol class="evidence"><li><span class="n">01</span><div><h3>Source</h3><p>Each finding links to the record, document or system it came from.</p></div></li><li><span class="n">02</span><div><h3>Evidence</h3><p>The facts are collected, dated and kept with the case.</p></div></li><li><span class="n">03</span><div><h3>Reasoning</h3><p>The logic from evidence to conclusion is written out, with the policy it applies.</p></div></li><li><span class="n">04</span><div><h3>Recommendation</h3><p>A proposed decision, never a silent one.</p></div></li><li><span class="n">05</span><div><h3>Human approval</h3><p>A person approves, edits or rejects before anything changes.</p></div></li></ol>
       <div>
-        <div class="gov">
-          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="6.5"/><path d="M6.5 9l2 2 3-3.5"/></svg>ISO/IEC 27001 ISMS</div>
-          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 3h7l3 3v9H4z"/><path d="M7 9h4M7 12h4"/></svg>KVKK compliant processing</div>
-          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg>On-prem &amp; air-gapped</div>
-          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Role-based access</div>
-          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Audit trail</div>
-          <div><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Data lineage</div>
-        </div>
+        <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg>On-premise</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg>Air-gapped deployment</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Role-based access</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Audit trail</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Data lineage</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Policy enforcement</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Evaluations</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>Human approval</li></ul>
+        <p class="iso">Information security runs under an ISO/IEC 27001-based management system, with KVKK-compliant processing.</p>
         <div class="datanote">
           <strong>Your data stays yours.</strong>
           <p>Your watchlists and decisions remain yours. What improves across deployments is how Deepin investigates, never your records.</p>
@@ -716,35 +975,28 @@ footer .brand .sub{font-size:19px}
     <p class="eyebrow">deepin.risk</p>
     <h2>See risks <b>before they become problems.</b></h2>
     <p>Send us a list of companies you already work with. We will show you what changed in them, with the evidence.</p>
-    <div class="mail">
-      <code id="email">info@deepin.space</code>
-      <button class="copy" id="copyBtn" type="button">Copy email</button>
-    </div>
+    <div class="mail"><code id="email">info@deepin.space</code><button class="copy" id="copyBtn" type="button">Copy email</button></div>
   </div>
 </section>
 </main>
-
-<footer>
+<footer id="company">
   <div class="wrap">
-    <div style="display:grid;gap:10px">
-      <a class="brand" href="../" aria-label="Deepin home">
-        <img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190">
-        <img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">
-        <span class="sub">.risk</span>
-      </a>
+    <div class="f-about">
+      <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.risk</span></a>
+      <p>Deepin builds Enterprise Investigation &amp; Decision Automation: agents that investigate business cases, show the evidence and wait for a person to approve.</p>
       <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
     </div>
-    <nav aria-label="Footer">
-      <a href="../">deepin.space</a>
-      <a href="../finance/">deepin.finance</a>
+    <nav class="f-col" aria-label="Spaces"><span class="lbl">Spaces</span><a href="../risk/">deepin.risk</a><a href="../finance/">deepin.finance</a><a href="../security/">deepin.security</a><a href="../energy/">deepin.energy</a></nav>
+    <nav class="f-col" aria-label="Company"><span class="lbl">Company</span>
+      <a href="../#customers">Customers</a><a href="../#enterprise">Enterprise</a>
       <a href="https://platform.deepin.space">Log in</a>
-      <a href="https://www.linkedin.com/company/93368167">LinkedIn</a>
+      <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
-    <span>© 2026 Deepin · info@deepin.space</span>
+    <div class="f-col"><span class="lbl">Contact</span><span>info@deepin.space</span><span class="f-copy">© 2026 Deepin</span></div>
   </div>
 </footer>
-
 <script>
+
 (function(){
   // Outside the live domain (local file, preview), folder links need an explicit index.html
   if(!/(^|\.)deepin\.space$/.test(location.hostname)){
@@ -816,6 +1068,41 @@ footer .brand .sub{font-size:19px}
   var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawFlows,120)});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawFlows);
 
+
+  // hero: replay a live investigation, step by step (resting state = complete case)
+  (function(){
+    var card=document.getElementById('liveCase');if(!card||still)return;
+    var bar=[].slice.call(card.querySelectorAll('.live-bar li')),st=document.getElementById('liveStatus');
+    var parts=[].slice.call(card.querySelectorAll('[data-s]'));
+    var labels=['Trigger detected','Sources activating','Evidence arriving','Mapping relationships','Finding emerged','Recommendation ready','Awaiting approval'];
+    var step=-1,timer=null,visible=false;
+    function paint(){
+      bar.forEach(function(b,i){b.className=i<step?'done':(i===step?'on':'')});
+      parts.forEach(function(p){var s=+p.getAttribute('data-s');p.classList.toggle('later',s>step);p.classList.toggle('on',s===step)});
+      st.textContent=labels[Math.max(step,0)];
+      st.className='chip '+(step===6?'st-wait':'st-deploying');
+    }
+    function rest(){card.classList.remove('playing');parts.forEach(function(p){p.classList.remove('later','on')});st.textContent=labels[6];st.className='chip st-wait'}
+    function tick(){
+      if(!visible){timer=null;rest();return}
+      step++;
+      if(step>6){rest();step=-1;timer=setTimeout(tick,5200);return}
+      card.classList.add('playing');paint();
+      timer=setTimeout(tick,step===6?1600:1250);
+    }
+    new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible&&!timer)timer=setTimeout(tick,900)},{threshold:.35}).observe(card);
+  })();
+
+  // evidence UI: link each reason to its source
+  document.querySelectorAll('.evui').forEach(function(ui){
+    var items=[].slice.call(ui.querySelectorAll('[data-ref]'));
+    function lit(r){items.forEach(function(x){x.classList.toggle('lit',r!==null&&x.getAttribute('data-ref')===r)})}
+    items.forEach(function(x){
+      x.addEventListener('mouseenter',function(){lit(x.getAttribute('data-ref'))});
+      x.addEventListener('mouseleave',function(){lit(null)});
+    });
+  });
+
   // dotted wave field, echoing the brand's hero texture
   var c=document.getElementById('field');if(!c||!c.getContext)return;
   var ctx=c.getContext('2d'),w,h,dpr,t=0,raf;
@@ -853,7 +1140,7 @@ footer .brand .sub{font-size:19px}
     io.observe(c);
   }
 })();
-</script>
 
+</script>
 </body>
 </html>

@@ -1,0 +1,77 @@
+<!--
+title: deepin.energy · Operational Investigation
+description: Investigate anomalies, deviations and operational root causes. deepin.energy is an exploration area at Deepin.
+-->
+<style>
+.statusbox{display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:start;padding:28px;border-radius:18px;border:1px dashed var(--line);background:var(--surface)}
+@media (max-width:620px){.statusbox{grid-template-columns:1fr}}
+.statusbox p{color:var(--ink-2);max-width:62ch}
+.statusbox p + p{margin-top:10px}
+.inv-panel{max-width:860px}
+</style>
+
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Operational Investigation</p>
+      <h1>Investigate anomalies, deviations and <b>operational root causes.</b></h1>
+      <p class="lede">When output drops or a reading drifts, engineers compare sensor data, maintenance logs and past events to find the cause. Deepin can run that investigation and propose the next step for a person to approve.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Bring us a case <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#status">Where we are</a>
+      </div>
+      <span class="chip st-exploring status">Exploring</span>
+    </div>
+    <figure class="case" style="margin:0" aria-label="Sample case">
+      <div class="case-top"><span class="case-id">OPS-2026-0602 · Output deviation</span><span class="chip st-wait">Awaiting approval</span></div>
+      <div class="case-body">
+        <div class="trigger"><span class="k">Trigger</span><span>Unit 3 output 7% below expected for six hours</span><small>Plant monitoring · 21 Sep 2026</small></div>
+        <div class="srcs" aria-label="Sources"><span>Sensor data</span><span>Maintenance log</span><span>Weather data</span><span>Past events</span></div>
+        <ul class="finds"><li><span class="k">Sensors</span><span>Inlet pressure drop began after 04:10</span><span class="src">Sensor data</span></li><li><span class="k">Maintenance</span><span>Inlet filter replaced two days earlier</span><span class="src">Maintenance log</span></li><li><span class="k">History</span><span>Two similar events followed filter work in 2025</span><span class="src">Past events</span></li></ul>
+        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Finding</span>The deviation is not explained by weather or load. It matches earlier cases where a newly fitted filter restricted flow.</p>
+        <div class="propose"><p>Schedule inspection of Unit 3 inlet</p><div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div></div>
+      </div>
+      <figcaption class="case-note">Illustrative case. This investigation is still being explored.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="investigation">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What it investigates</p>
+      <h2 class="h2">From a deviation to <b>a likely root cause.</b></h2>
+    </div>
+    <div class="inv inv-primary inv-panel">
+      <div class="inv-cols" style="border-top:0;padding-top:0">
+        <div><div class="lbl">Investigates</div><ul class="inv-list in"><li>Sensor and SCADA readings</li><li>Maintenance and work orders</li><li>Operating conditions</li><li>Weather and external data</li><li>Past incidents</li><li>Operating procedures</li></ul></div>
+        <div><div class="lbl">Delivers</div><ul class="inv-list out"><li>Evidence package</li><li>Likely root cause with reasoning</li><li>Recommended next step</li><li>Human approval</li><li>Audit trail</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="status">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Where we are</p>
+      <h2 class="h2">Exploring, <b>not yet a Space.</b></h2>
+    </div>
+    <div class="statusbox">
+      <span class="chip st-exploring">Exploring</span>
+      <div><p>Our operational work started with SEÖS, a vertical solution in production at GreenChimney and approaching its second year. It shows that an operational investigation can run beyond the pilot stage.</p><p>deepin.energy is not a Space yet. We are looking for the investigation that repeats across energy and industrial operators.</p>
+        <p><a class="go" href="../#spaces">How a Space is earned →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">deepin.energy</p>
+    <h2>What does your team investigate <b>after something goes wrong?</b></h2>
+    <p>Tell us about the anomaly or deviation that costs you most. We will show you how Deepin would investigate it.</p>
+    <!--@copy_email-->
+  </div>
+</section>

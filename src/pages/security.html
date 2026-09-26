@@ -1,0 +1,77 @@
+<!--
+title: deepin.security · Security Investigation
+description: Turn security alerts into evidence-backed investigations. deepin.security is an exploration area at Deepin.
+-->
+<style>
+.statusbox{display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:start;padding:28px;border-radius:18px;border:1px dashed var(--line);background:var(--surface)}
+@media (max-width:620px){.statusbox{grid-template-columns:1fr}}
+.statusbox p{color:var(--ink-2);max-width:62ch}
+.statusbox p + p{margin-top:10px}
+.inv-panel{max-width:860px}
+</style>
+
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Security Investigation</p>
+      <h1>Turn security alerts into <b>evidence-backed investigations.</b></h1>
+      <p class="lede">Analysts jump between the SIEM, identity, endpoint and asset tools to decide whether an alert matters. Deepin can gather that context into one case, reason over it and propose a response for a person to approve.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Bring us a case <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#status">Where we are</a>
+      </div>
+      <span class="chip st-exploring status">Exploring</span>
+    </div>
+    <figure class="case" style="margin:0" aria-label="Sample case">
+      <div class="case-top"><span class="case-id">SEC-2026-1127 · Alert investigation</span><span class="chip st-wait">Awaiting approval</span></div>
+      <div class="case-body">
+        <div class="trigger"><span class="k">Trigger</span><span>Sign-ins for one account from İzmir and Frankfurt within 40 minutes</span><small>Identity provider alert · 22 Sep 2026</small></div>
+        <div class="srcs" aria-label="Sources"><span>Identity provider</span><span>VPN logs</span><span>Endpoint (EDR)</span><span>HR directory</span></div>
+        <ul class="finds"><li><span class="k">Identity</span><span>Second sign-in used a new device, MFA push approved</span><span class="src">Identity provider</span></li><li><span class="k">Network</span><span>No VPN session from Frankfurt</span><span class="src">VPN logs</span></li><li><span class="k">Endpoint</span><span>Known laptop active in İzmir at the same time</span><span class="src">EDR</span></li></ul>
+        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Finding</span>The Frankfurt session is not explained by travel or VPN, and the user's own device was active elsewhere. This matches your policy for a likely compromised account.</p>
+        <div class="propose"><p>Revoke sessions · reset credentials</p><div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div></div>
+      </div>
+      <figcaption class="case-note">Illustrative case. This investigation is still being explored.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="investigation">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What it investigates</p>
+      <h2 class="h2">From an alert to <b>a case you can act on.</b></h2>
+    </div>
+    <div class="inv inv-primary inv-panel">
+      <div class="inv-cols" style="border-top:0;padding-top:0">
+        <div><div class="lbl">Investigates</div><ul class="inv-list in"><li>Security alerts</li><li>Identity and access logs</li><li>Endpoint and asset data</li><li>Network and VPN logs</li><li>Threat intelligence</li><li>Past incidents</li></ul></div>
+        <div><div class="lbl">Delivers</div><ul class="inv-list out"><li>Evidence package per alert</li><li>Reasoning and severity</li><li>Recommended response</li><li>Human approval</li><li>Audit trail</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="status">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Where we are</p>
+      <h2 class="h2">Exploring, <b>not yet a Space.</b></h2>
+    </div>
+    <div class="statusbox">
+      <span class="chip st-exploring">Exploring</span>
+      <div><p>Security investigation is a strong technical fit for Deepin, but it is not yet a proven product. We are validating it with early design partners before calling it a Space.</p><p>If your team investigates alerts across many tools, we would like to see how the work is done today.</p>
+        <p><a class="go" href="../#spaces">How a Space is earned →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">deepin.security</p>
+    <h2>Which alerts take your team <b>the longest to investigate?</b></h2>
+    <p>Show us one. We will tell you honestly whether Deepin can investigate it.</p>
+    <!--@copy_email-->
+  </div>
+</section>

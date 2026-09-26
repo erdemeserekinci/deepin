@@ -1,0 +1,305 @@
+<!--
+title: deepin.risk · Company Investigation & Continuous Monitoring
+description: Investigate every company you depend on. deepin.risk reads official records and public sources and opens a new investigation whenever something material changes.
+-->
+<style>
+/* watchlist */
+.watch{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;font-size:14px}
+.watch-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--soft-2)}
+.watch-top strong{font-weight:600}
+.watch-top span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.wl{list-style:none;margin:0;padding:0}
+.wl li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.wl li:last-child{border-bottom:0}
+.wl .co{font-weight:600}
+.wl .ch{grid-column:1;color:var(--ink-2);font-size:13px}
+.wl .when{grid-column:2;grid-row:2;font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right}
+.wl li.sel{background:var(--soft)}
+.tag.low{background:var(--soft-2);color:var(--muted)}
+.watch-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 20px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+.graph-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.netgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+@media (max-width:960px){.netgrid{grid-template-columns:1fr;gap:32px}}
+.netgrid .txt{display:grid;gap:18px}
+.netgrid .txt p{color:var(--ink-2)}
+
+/* living investigation timeline */
+.tl{display:grid;gap:22px}
+.tl-row{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:start}
+.tl-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.tl-track{position:relative;height:78px;margin-inline:6px}
+.tl-track::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;border-radius:2px}
+.tl-track.static::before{background:linear-gradient(90deg,var(--muted),var(--line) 25%,transparent 90%)}
+.tl-track.live::before{background:linear-gradient(90deg,rgba(var(--dot),.35),var(--accent))}
+.tl-ev{position:absolute;top:0;left:var(--x);transform:translateX(-50%);width:150px;display:grid;justify-items:center;text-align:center;gap:1px}
+.tl-ev.start{transform:none;justify-items:start;text-align:left}
+.tl-ev.end{transform:translateX(-100%);justify-items:end;text-align:right}
+.tl-ev i{width:14px;height:14px;border-radius:50%;background:var(--sec-bg);border:2px solid var(--muted);margin:2px 0 8px}
+.live .tl-ev i{border-color:var(--accent)}
+.tl-ev.hot i{background:var(--accent);box-shadow:0 0 0 5px rgba(var(--dot),.18)}
+.tl-ev b{font-size:14px;font-weight:600}
+.tl-ev small{font-size:12px;color:var(--muted)}
+.tl-stale{position:absolute;top:0;left:var(--x);transform:translateX(-50%);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--warn);background:var(--warn-soft);padding:3px 9px;border-radius:999px;white-space:nowrap}
+.tl-axis{margin-left:196px;margin-right:6px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+@media (max-width:760px){
+  .tl-row{grid-template-columns:1fr;gap:10px}
+  .tl-track{height:auto;display:grid;gap:14px;padding-left:24px;margin:0}
+  .tl-track::before{left:6px;right:auto;top:4px;bottom:4px;width:2px;height:auto}
+  .tl-track.static::before{background:linear-gradient(var(--muted),transparent)}
+  .tl-track.live::before{background:linear-gradient(rgba(var(--dot),.35),var(--accent))}
+  .tl-ev,.tl-ev.start,.tl-ev.end,.tl-stale{position:relative;left:auto;transform:none;width:auto;justify-items:start;text-align:left}
+  .tl-ev i{position:absolute;left:-24px;top:2px;margin:0}
+  .tl-stale{justify-self:start}
+  .tl-axis{display:none}
+}
+.iso{font-size:13px;color:var(--muted);margin:12px 0}
+</style>
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Company Investigation &amp; Continuous Monitoring</p>
+      <h1>Investigate every company <b>you depend on.</b></h1>
+      <p class="lede">Know the company. Understand the risk. Monitor the change. deepin.risk reads trade registry records, official announcements and outside sources for every supplier, merchant, borrower and counterparty, and opens a new investigation whenever something material changes.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Request a demo
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#monitoring">See a living investigation</a>
+      </div>
+    </div>
+
+    <figure class="watch" style="margin:0" aria-label="Sample watchlist">
+      <div class="watch-top"><strong>Supplier watchlist</strong><span>1,284 companies · updated 08:40</span></div>
+      <ul class="wl">
+        <li class="sel"><span class="co">Northwind Lojistik A.Ş.</span><span class="tag wait">Elevated</span><span class="ch">Share capital reduced by 40%, new signatory registered</span><span class="when">2 days ago</span></li>
+        <li><span class="co">Larkspur Enerji Tic. Ltd.</span><span class="tag wait">Elevated</span><span class="ch">Moved to an address shared by 14 companies</span><span class="when">4 days ago</span></li>
+        <li><span class="co">Bluefin Tekstil San. A.Ş.</span><span class="tag">Review</span><span class="ch">Foreign partner appointed as board member</span><span class="when">6 days ago</span></li>
+        <li><span class="co">Kestrel Gıda Ltd. Şti.</span><span class="tag low">Low</span><span class="ch">Capital increase in line with sector peers</span><span class="when">9 days ago</span></li>
+        <li><span class="co">Heron Yazılım A.Ş.</span><span class="tag low">Low</span><span class="ch">No material change</span><span class="when">—</span></li>
+      </ul>
+      <figcaption class="watch-foot"><span>Sample data with fictional companies.</span><span>Sources: Trade Registry Gazette, news, web</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <p>The same deepin.risk service runs every month for</p>
+    <div class="names" aria-label="Customers"><span>Hayat Finans</span><span>PayTR</span><span>SOCAR</span></div>
+  </div>
+</div>
+
+<section class="sec tone" id="monitoring">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Continuous Monitoring</p>
+      <h2 class="h2">Static reports get old. <b>Investigations stay alive.</b></h2>
+      <p class="lede">A company should not be analyzed once and filed away. deepin.risk keeps watching, and every material change opens a new investigation with its own evidence.</p>
+    </div>
+    <div class="tl" aria-label="Static risk report compared with a living investigation of the same company, January to May">
+      <div class="tl-row">
+        <span class="tl-lbl">Static risk report</span>
+        <div class="tl-track static">
+          <span class="tl-ev start" style="--x:0%"><i></i><b>Onboarding report</b><small>Jan · never updated</small></span>
+          <span class="tl-stale" style="--x:62%">3 material changes missed</span>
+        </div>
+      </div>
+      <div class="tl-row">
+        <span class="tl-lbl">Living investigation</span>
+        <div class="tl-track live">
+          <span class="tl-ev start" style="--x:0%"><i></i><b>Onboarding investigation</b><small>Jan</small></span>
+          <span class="tl-ev hot" style="--x:25%"><i></i><b>New shareholder</b><small>Feb · investigation opened</small></span>
+          <span class="tl-ev hot" style="--x:66%"><i></i><b>Authority changed</b><small>Apr · investigation opened</small></span>
+          <span class="tl-ev hot end" style="--x:100%"><i></i><b>Financial event</b><small>May · investigation opened</small></span>
+        </div>
+      </div>
+      <div class="tl-axis" aria-hidden="true"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" id="investigation">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Company Investigation</p>
+      <h2 class="h2">What a Company Investigation <b>looks at.</b></h2>
+      <p class="lede">Most company risk shows up first in official records and public sources. deepin.risk reads them continuously and tells you which changes matter.</p>
+    </div>
+    <div class="caps">
+      <div class="cap">
+        <h3>Capital structure</h3>
+        <p>How a company's capital moves, and whether that movement makes sense.</p>
+        <ul>
+          <li>Capital increases and reductions, tracked over time</li>
+          <li>Signs of artificial growth</li>
+          <li>Capital movements compared with sector peers</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h3>Partners and authority</h3>
+        <p>Who owns the company and who can sign for it.</p>
+        <ul>
+          <li>Notable changes in partners, officers and signatories</li>
+          <li>Foreign partner or officer appointments</li>
+          <li>Shareholding changes above your thresholds</li>
+          <li>Internal directives and signing authorities</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h3>Early warning</h3>
+        <p>A multi-dimensional check on new and high-risk companies.</p>
+        <ul>
+          <li>Fraud-risk patterns in newly established firms</li>
+          <li>Risky addresses and unusual transaction volumes</li>
+          <li>Frequent branch and agency openings or closures</li>
+          <li>Reputation signals from news, websites and social media</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h3>Relationship network</h3>
+        <p>The connections that a single company record hides.</p>
+        <ul>
+          <li>People who recur across multiple companies</li>
+          <li>Multi-layered partnerships and group structures</li>
+          <li>Companies clustered at the same address</li>
+          <li>Suspicious person-to-company links</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="network">
+  <div class="wrap">
+    <div class="netgrid">
+      <div class="txt">
+        <p class="eyebrow">Relationship network</p>
+        <h2 class="h2">One change. <b>Three connected companies.</b></h2>
+        <p>A new signatory at one supplier looks routine on its own. deepin.risk follows the people and addresses behind it and finds that the same person is a partner in two companies you already watch, at an address shared by fourteen firms.</p>
+        <p>That context turns a registry entry into an investigation, with every link traced back to its source.</p>
+      </div>
+      <figure class="graph-card" style="margin:0">
+        <div class="graph-wrap">
+        <svg class="graph" viewBox="0 0 560 370" role="img" aria-label="Relationship graph: the new signatory at Northwind Lojistik is also a partner in two watched companies registered at a shared address">
+          <path class="edge" d="M452 68 L400 126"/>
+          <path class="edge hot" d="M166 150 L280 150"/>
+          <path class="edge hot" d="M130 175 L100 258"/>
+          <path class="edge hot" d="M160 168 L270 258"/>
+          <path class="edge dash" d="M100 302 L160 322"/>
+          <path class="edge dash" d="M290 302 L230 322"/>
+
+          <text class="e" x="223" y="140" text-anchor="middle">SIGNATORY</text>
+          <text class="e" x="462" y="104">SHAREHOLDER</text>
+          <text class="e" x="30" y="220">PARTNER 50%</text>
+          <text class="e" x="228" y="204">PARTNER 35%</text>
+
+          <rect class="node subj" x="280" y="126" width="160" height="48" rx="12"/>
+          <text class="t" x="360" y="147" text-anchor="middle">Northwind Lojistik</text>
+          <text class="s" x="360" y="163" text-anchor="middle">subject company</text>
+
+          <circle class="node person" cx="140" cy="150" r="26"/>
+          <text class="t" x="140" y="155" text-anchor="middle">M.Y.</text>
+          <text class="s" x="140" y="112" text-anchor="middle">new signatory · 18 Sep</text>
+
+          <circle class="node" cx="470" cy="50" r="24"/>
+          <text class="t" x="470" y="55" text-anchor="middle">H</text>
+          <text class="s" x="430" y="30" text-anchor="end">majority owner</text>
+
+          <rect class="node watch" x="30" y="258" width="140" height="44" rx="12"/>
+          <text class="t" x="100" y="277" text-anchor="middle">Company B</text>
+          <text class="s" x="100" y="292" text-anchor="middle">on watchlist</text>
+
+          <rect class="node watch" x="220" y="258" width="140" height="44" rx="12"/>
+          <text class="t" x="290" y="277" text-anchor="middle">Company C</text>
+          <text class="s" x="290" y="292" text-anchor="middle">on watchlist</text>
+
+          <rect class="node" x="110" y="322" width="170" height="34" rx="17"/>
+          <text x="195" y="343" text-anchor="middle">Shared address, 14 firms</text>
+
+          <rect class="node" x="384" y="222" width="164" height="104" rx="12"/>
+          <text class="e" x="400" y="246">FINDING</text>
+          <text x="400" y="266">Signatory is a partner</text>
+          <text x="400" y="282">in 2 watched companies</text>
+          <text class="s" x="400" y="308">Trade Registry Gazette</text>
+        </svg>
+        </div>
+        <div class="legend"><span><i class="subj"></i>Subject</span><span><i class="person"></i>Person</span><span><i class="watch"></i>Already on watch</span><span><i></i>Other entity</span></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="modes">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Ways to use it</p>
+      <h2 class="h2">Investigate once. <b>Monitor always.</b></h2>
+    </div>
+    <div class="modes">
+      <div class="mode"><span class="k">On demand</span><h3>Company <b>investigation</b></h3><p>A full picture of one company before onboarding, a credit decision or a contract: ownership, authority, capital history, relationships and reputation, with sources.</p></div>
+      <div class="mode"><span class="k">Continuous</span><h3>Company <b>monitoring</b></h3><p>A watchlist of the companies you already work with. You hear about material changes as they are registered, not at the next annual review.</p></div>
+      <div class="mode"><span class="k">Embedded</span><h3>Inside <b>your product</b></h3><p>Company intelligence delivered into your own platform. DGPays embeds it in its product and extends it with financial statement scoring.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="fit">
+  <div class="wrap">
+    <div class="spot">
+      <div class="txt">
+        <p class="eyebrow">Where it fits</p>
+        <h3>Built for teams that <b>decide about companies.</b></h3>
+        <p>deepin.risk works alongside your third-party risk and GRC tools. Vendor lifecycle, questionnaires and attestations stay where they are. Deepin adds deeper intelligence and continuous investigation.</p>
+        <dl class="meta">
+          <div><dt>Built for</dt><dd>Banks, payment institutions, fintechs and large enterprises</dd></div>
+        </dl>
+      </div>
+      <dl class="uses">
+        <div><dt>Credit &amp; commercial risk</dt><dd>Early warning on borrowers and counterparties between limit reviews.</dd></div>
+        <div><dt>Merchant operations</dt><dd>Onboard merchants with a full company picture, then keep watching them.</dd></div>
+        <div><dt>Compliance</dt><dd>Keep KYB files current as ownership and signing authority change.</dd></div>
+        <div><dt>Procurement</dt><dd>Supplier due diligence before the contract and monitoring after it.</dd></div>
+        <div><dt>Risk</dt><dd>Portfolio-level view of which counterparties changed and why it matters.</dd></div>
+      </dl>
+    </div>
+    <div class="panel" style="margin-top:56px">
+      <div class="lbl">Where deepin.risk sits</div>
+      <div class="tri">
+        <div><h4>Corporate intelligence</h4><p>Know the company</p><p>Ownership, executives, authority</p><p>Financial and external data</p></div>
+        <div class="mid"><h4>deepin.risk</h4><p>Investigate what changed</p><p>Evidence and reasoning</p><p>Continuous investigation</p></div>
+        <div><h4>Third-party risk</h4><p>Manage relationship risk</p><p>Onboarding and monitoring decisions</p><p>Governance and vendor lifecycle</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Trust</p>
+      <h2 class="h2">Evidence <b>before decision.</b></h2>
+      <p class="lede">Every alert links to the record it came from. Your analysts see what changed, why it matters and what Deepin suggests, and they make the call.</p>
+    </div>
+    <div class="trust">
+      <!--@evidence_rail-->
+      <div>
+        <!--@enterprise_chips-->
+        <p class="iso">Information security runs under an ISO/IEC 27001-based management system, with KVKK-compliant processing.</p>
+        <div class="datanote">
+          <strong>Your data stays yours.</strong>
+          <p>Your watchlists and decisions remain yours. What improves across deployments is how Deepin investigates, never your records.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">deepin.risk</p>
+    <h2>See risks <b>before they become problems.</b></h2>
+    <p>Send us a list of companies you already work with. We will show you what changed in them, with the evidence.</p>
+    <!--@copy_email-->
+  </div>
+</section>
