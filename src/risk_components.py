@@ -20,8 +20,21 @@ import json
 from html import escape as e
 
 
+UI = {}
+
+
+def _u(key, default):
+    return UI.get(key, default)
+
+
+def set_locale(content):
+    """Point the module at the current page's UI strings (content["ui"])."""
+    global UI
+    UI = content.get("ui", {})
+
+
 def _risk(level):
-    return f'<span class="risk r-{level.lower()}">{e(level)}</span>'
+    return f'<span class="risk r-{level.lower()}">{e(_u("levels", {}).get(level, level))}</span>'
 
 
 def _ck():
@@ -47,7 +60,7 @@ def company_investigation_card(arg, ctx):
     s += 1
     finds = "".join(f'<li><span class="n">{i+1:02d}</span>{e(f)}</li>' for i, f in enumerate(L["findings"]))
     labels = e(json.dumps(L["status"], ensure_ascii=False))
-    return f'''<figure class="case ci" data-live data-labels="{labels}" aria-label="Live company investigation (demo)">
+    return f'''<figure class="case ci" data-live data-labels="{labels}" aria-label="{e(_u("aria_live", "Live company investigation (demo)"))}">
   <div class="case-top ci-top">
     <div><span class="lbl">{e(L["mode"])}</span><strong>{e(L["company"])}</strong></div>
     <span class="chip st-wait" data-live-status>{e(L["status"][-1])}</span>
@@ -73,7 +86,7 @@ def living_investigation(arg, ctx):
   <div class="rep-doc">
     <div class="rep-head"><small>{e(R["month"])}</small><b>{e(R["title"])}</b></div>
     <ul>{rows}</ul>
-    <div class="rep-risk"><span class="lbl">Risk</span>{_risk(R["risk"])}</div>
+    <div class="rep-risk"><span class="lbl">{e(_u("risk", "Risk"))}</span>{_risk(R["risk"])}</div>
     <span class="rep-stale">{e(R["stale"])}</span>
   </div>
 </div>'''
@@ -95,23 +108,23 @@ def living_investigation(arg, ctx):
     return f'''<div class="liv">
   {report}
   <div class="liv-tl">
-    <div class="liv-head"><span class="lbl">Living investigation</span><strong>{e(T["company"])}</strong><small class="liv-hint">{e(t["mon_hint"])}</small></div>
+    <div class="liv-head"><span class="lbl">{e(_u("living", "Living investigation"))}</span><strong>{e(T["company"])}</strong><small class="liv-hint">{e(t["mon_hint"])}</small></div>
     <div class="lt-axis" aria-hidden="true">{ticks}</div>
     <ol class="lt-track">{"".join(pts)}</ol>
     <div class="lt-panels" aria-live="polite">{"".join(panels)}</div>
   </div>
 </div>
-<ol class="loop" aria-label="What happens when a material change is detected">{loop}</ol>'''
+<ol class="loop" aria-label="{e(_u("aria_loop", "What happens when a material change is detected"))}">{loop}</ol>'''
 
 
 # ------------------------------------------------------------------ what changed
 def _ownership(o):
     def bar(parts):
         segs = "".join(
-            f'<span class="own-seg{" new" if "(new)" in n else ""}" style="flex:{p}"><b>{p:g}%</b><small>{e(n)}</small></span>'
-            for n, p in parts)
+            f'<span class="own-seg{" new" if len(x) > 2 and x[2] else ""}" style="flex:{x[1]}"><b>{x[1]:g}%</b><small>{e(x[0])}</small></span>'
+            for x in parts)
         return f'<div class="own-bar">{segs}</div>'
-    return f'''<div class="viz own"><div class="own-row"><span class="lbl">Before</span>{bar(o["before"])}</div><div class="own-row"><span class="lbl">After</span>{bar(o["after"])}</div></div>'''
+    return f'''<div class="viz own"><div class="own-row"><span class="lbl">{e(_u("before", "Before"))}</span>{bar(o["before"])}</div><div class="own-row"><span class="lbl">{e(_u("after", "After"))}</span>{bar(o["after"])}</div></div>'''
 
 
 def _authority(a):
@@ -137,7 +150,7 @@ def _graph(g):
   <rect x="{n["x"] - w / 2:.0f}" y="{n["y"] - 15}" width="{w:.0f}" height="30" rx="15"/>
   <text x="{n["x"]}" y="{n["y"] + 4}" text-anchor="middle">{e(n["label"])}</text></g>''')
     return f'''<div class="viz rgraph">
-  <svg viewBox="0 0 360 250" role="group" aria-label="Relationship graph">{"".join(edges)}{"".join(nodes)}</svg>
+  <svg viewBox="0 0 360 250" role="group" aria-label="{e(_u("aria_graph", "Relationship graph"))}">{"".join(edges)}{"".join(nodes)}</svg>
   <p class="rg-info" aria-live="polite"><span class="lbl">{e(g["hint"])}</span></p>
 </div>'''
 
@@ -176,7 +189,7 @@ def monitoring_vs_investigation(arg, ctx):
 def evidence_chain(arg, ctx):
     c = ctx["content"]["chain"]
     li = "".join(f'<li class="{"hd" if i == len(c) - 1 else ""}">{e(x)}</li>' for i, x in enumerate(c))
-    return f'<ol class="chain2" aria-label="From source to human decision">{li}</ol>'
+    return f'<ol class="chain2" aria-label="{e(_u("aria_chain", "From source to human decision"))}">{li}</ol>'
 
 
 def roles(arg, ctx):
@@ -202,7 +215,7 @@ def risk_context_change(arg, ctx):
   </div>
 </li>''')
     steps = "".join(f'<li hidden>{e(s)}</li>' for s in C["further_steps"])
-    return f'''<figure class="evui rcx2" aria-label="Risk context change with evidence (demo)">
+    return f'''<figure class="evui rcx2" aria-label="{e(_u("aria_context", "Risk context change with evidence (demo)"))}">
   <div class="evui-top"><span>{e(C["company"])}</span><span class="chip st-wait">{e(C["label"])}</span></div>
   <div class="evui-body">
     <div class="rcx-bar"><span>{_risk(C["from"])}</span><span class="rcx-line" aria-hidden="true"></span><span>{_risk(C["to"])}</span></div>

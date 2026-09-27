@@ -1,0 +1,617 @@
+{
+  "lang": "tr",
+  "copy": {
+    "title": "deepin.risk · Company Investigation",
+    "description": "Bağlı olduğunuz her şirketi araştırın. Bir şirket değiştiğinde Deepin neyin değiştiğini, neden önemli olduğunu araştırır ve arkasındaki kanıtı gösterir.",
+    "demo_note": "Kurgusal şirketlerle hazırlanmış demo verisi.",
+    "hero_eyebrow": "Şirket ve Üçüncü Taraf Investigation",
+    "hero_h1": "Bağlı olduğunuz her şirketi <b>araştırın.</b>",
+    "hero_lede": "Şirketler değişir. Sahiplik değişir. Yetkiler değişir. İlişkiler değişir. Finansal durum değişir. Deepin bu değişiklikleri sürekli araştırır, kanıtı toplar ve önemli olanı size gösterir.",
+    "hero_cta": "Bir şirketi araştırın",
+    "hero_cta2": "Nasıl çalıştığını görün",
+    "mon_shift_from": "Statik Risk Raporu",
+    "mon_shift_to": "Canlı Investigation",
+    "mon_h2": "Bir şirket aynı kalmıyor. <b>Risk raporu neden aynı kalsın?</b>",
+    "mon_lede": "Geleneksel risk değerlendirmesi bir anlık görüntüdür. Deepin canlı bir Investigation sürdürür: önemli bir değişiklik, şirketin yeniden araştırılmasını başlatır.",
+    "mon_hint": "Neyin değiştiğini görmek için bir olay seçin.",
+    "dim_eyebrow": "Investigation",
+    "dim_h2": "Ne <b>değişti?</b>",
+    "dim_lede": "Aynı Company Investigation'ın dört boyutu; şirket her değiştiğinde yeniden sorulur.",
+    "see_evidence": "Kanıtı gör →",
+    "mi_eyebrow": "Sürekli Investigation",
+    "mi_h2": "İzleme bir şeyin değiştiğini söyler. <b>Deepin bunun ne anlama geldiğini araştırır.</b>",
+    "mi_key": "Olay → Investigation → Anlam",
+    "mi_note": "İzleme sinyali yakalar. Deepin sinyali araştırır.",
+    "ev_eyebrow": "Önce kanıt, sonra karar",
+    "ev_h2": "Bana skoru söyleme. <b>Nedenini göster.</b>",
+    "ev_lede": "Risk seviyesi ürünün kendisi değil, Investigation'ın son satırıdır. Her değişiklik bulgularıyla, kaynaklarıyla ve onları birbirine bağlayan gerekçeyle gelir; kararı ekibiniz verir.",
+    "layer_eyebrow": "deepin.risk nerede durur",
+    "layer_h2": "Risk yapınızdaki <b>Investigation katmanı.</b>",
+    "layer_lede": "TPRM ya da GRC sisteminiz süreci yönetir. Deepin sürecin arkasındaki şirketi araştırır.",
+    "layer_note1": "Deepin mevcut risk yapınızla birlikte çalışır.",
+    "layer_note2": "Deepin risk iş akışınızın yerini almaz. Ona araştırılmış, kanıta dayalı şirket bilgisi sağlar.",
+    "uses_eyebrow": "Kullanım alanları",
+    "uses_h2": "Tek Company Investigation. <b>Birden çok karar.</b>",
+    "uses_lede": "Aynı Investigation yeteneği, bir şirket hakkında karar veren her ekibe hizmet eder.",
+    "proof_eyebrow": "Müşteriler",
+    "proof_h2": "Company Investigation <b>canlı kullanımda.</b>",
+    "proof_lede": "Aynı Company Investigation yeteneği, farklı kurumsal kararlarda şimdiden kullanılıyor. Her müşteri, gerçekte ulaştığı olgunluk seviyesiyle gösterilir.",
+    "ent_eyebrow": "Kurumsal",
+    "ent_h2": "Dışarı gönderemeyeceğiniz veriler <b>için tasarlandı.</b>",
+    "ent_data_h": "Şirket verileriniz sizde kalır.",
+    "ent_data_p": "İzleme listeleriniz, Investigation'larınız ve kararlarınız sizin olarak kalır. Kurulumlar arasında gelişen şey, Deepin'in nasıl araştırdığıdır; kayıtlarınız asla.",
+    "cta_eyebrow": "deepin.risk",
+    "cta_h2": "Deepin'e <b>araştıracağı bir şirket verin.</b>",
+    "cta_p": "Ekibinizin zaten tanıdığı bir şirket seçin. Neyin değiştiğini, Deepin'in ne bulduğunu ve arkasındaki kanıtı görün.",
+    "cta_primary": "Company Investigation başlatın",
+    "cta_secondary": "Deepin ile konuşun"
+  },
+  "live": {
+    "company": "Akdeniz Endüstri A.Ş.",
+    "mode": "Sürekli izleme",
+    "event": "Yeni olay algılandı",
+    "event_meta": "24 Eyl 2026 · Ticaret Sicili",
+    "started": "Investigation başladı",
+    "activity": [
+      "Sicil geçmişi karşılaştırıldı",
+      "Ortaklar araştırıldı",
+      "Temsil yetkisi kontrol edildi",
+      "İlişkili şirketler araştırıldı",
+      "Finansal bağlam incelendi",
+      "Dış kanıtlar toplandı"
+    ],
+    "findings_label": "3 önemli değişiklik",
+    "findings": [
+      "Temsil yetkisi değişti",
+      "Yeni ortak tespit edildi",
+      "İlişkili şirket yeniden yapılandırmaya girdi"
+    ],
+    "link": "Investigation'ı görüntüle",
+    "status": [
+      "Olay algılandı",
+      "Investigation başladı",
+      "Geçmiş durum yüklendi",
+      "Ortaklar araştırılıyor",
+      "Yetki kontrol ediliyor",
+      "İlişkiler yeniden kuruluyor",
+      "Finansal bağlam inceleniyor",
+      "Kanıt toplanıyor",
+      "3 önemli değişiklik"
+    ]
+  },
+  "report": {
+    "label": "Geleneksel",
+    "month": "Ocak",
+    "title": "Şirket Risk Raporu",
+    "rows": [
+      "Sahiplik",
+      "Yönetim",
+      "Finansallar",
+      "İlişkiler"
+    ],
+    "risk": "Low",
+    "stale": "Mart'tan beri eski"
+  },
+  "timeline": {
+    "company": "Acme A.Ş.",
+    "ticks": [
+      "Oca",
+      "Mar",
+      "Haz",
+      "Eyl"
+    ],
+    "start": {
+      "label": "İlk Investigation",
+      "risk": "Low"
+    },
+    "events": [
+      {
+        "tick": 1,
+        "change": "Ortak değişti",
+        "date": "12 Mar",
+        "risk_from": "Low",
+        "risk_to": "Medium",
+        "before": "Kurucu aile %60 paya sahip",
+        "after": "Yeni bir holding şirketi %31,4 paya sahip",
+        "source": "Ticaret Sicili Gazetesi · 12 Mar 2026"
+      },
+      {
+        "tick": 2,
+        "change": "Yetki değişti",
+        "date": "18 Haz",
+        "risk_from": "Medium",
+        "risk_to": "Medium",
+        "before": "İki yönetici müşterek imza ile temsil ediyor",
+        "after": "Yeni bir yönetici tek başına ve sınırsız imza yetkisine sahip",
+        "source": "Ticaret Sicili Gazetesi · 18 Haz 2026"
+      },
+      {
+        "tick": 3,
+        "change": "İlişkili şirket yeniden yapılandırmada",
+        "date": "11 Eyl",
+        "risk_from": "Medium",
+        "risk_to": "High",
+        "before": "İlişkili şirket olağan faaliyetinde",
+        "after": "Yeniden yapılandırma başvurusu mahkemece kabul edildi",
+        "source": "Resmî mahkeme kaydı · 11 Eyl 2026"
+      }
+    ],
+    "reopened": "Investigation yeniden açıldı",
+    "before_label": "Önce",
+    "after_label": "Sonra",
+    "risk_label": "Risk bağlamı",
+    "loop": [
+      "Önemli değişiklik",
+      "Deepin algılar",
+      "Investigation",
+      "Güncel bağlam"
+    ]
+  },
+  "dimensions": [
+    {
+      "key": "Sahiplik değişti",
+      "question": "Şirketin sahibi artık kim?",
+      "items": [
+        "Ortaklık değişiklikleri",
+        "Pay oranları",
+        "Sahiplik zincirleri",
+        "Sermaye artırımları",
+        "Sermaye azaltımları",
+        "Pay devirleri"
+      ],
+      "visual": "ownership",
+      "ownership": {
+        "before": [
+          [
+            "Kurucu aile",
+            60
+          ],
+          [
+            "Diğer ortaklar",
+            40
+          ]
+        ],
+        "after": [
+          [
+            "Kurucu aile",
+            28.6
+          ],
+          [
+            "Kuzey Holding (yeni)",
+            31.4,
+            true
+          ],
+          [
+            "Diğer ortaklar",
+            40
+          ]
+        ]
+      },
+      "evidence": {
+        "source": "Ticaret Sicili Gazetesi · 18 Eyl 2026",
+        "excerpt": "Pay devri tescil edildi: payların %31,4'ü kurucu aileden, dört ay önce kurulan Kuzey Holding A.Ş.'ye devredildi."
+      }
+    },
+    {
+      "key": "Yetki değişti",
+      "question": "Şirket adına artık kim hareket edebiliyor?",
+      "items": [
+        "Yetkili temsilciler",
+        "Temsil hakları",
+        "İmza grupları",
+        "İç yönergeler",
+        "Yetki değişiklikleri",
+        "Yönetim değişiklikleri"
+      ],
+      "visual": "authority",
+      "authority": {
+        "before": {
+          "label": "Önceki",
+          "rule": "Müşterek imza, üç kişiden ikisi",
+          "people": [
+            "A. Demir",
+            "S. Kaya",
+            "M. Öz"
+          ]
+        },
+        "after": {
+          "label": "Güncel",
+          "rule": "Tek imza, sınırsız",
+          "people": [
+            "M. Yılmaz (yeni)"
+          ]
+        }
+      },
+      "evidence": {
+        "source": "Ticaret Sicili Gazetesi · 24 Eyl 2026",
+        "excerpt": "Yönetim kurulu kararı tescil edildi: müşterek imza yetkisi kaldırıldı; M. Yılmaz şirketi tek başına temsile yetkili olarak atandı."
+      }
+    },
+    {
+      "key": "İlişkiler değişti",
+      "question": "Şirket artık kimlerle bağlantılı?",
+      "items": [
+        "İlişkili şirketler",
+        "Ortak yöneticiler",
+        "Ortak hissedarlar",
+        "Ortak adresler",
+        "Şirket grupları",
+        "Çok katmanlı ilişkiler"
+      ],
+      "visual": "graph",
+      "graph": {
+        "hint": "Bir kuruma dokunun",
+        "nodes": [
+          {
+            "id": "a",
+            "label": "Akdeniz Endüstri",
+            "x": 180,
+            "y": 70,
+            "kind": "subject",
+            "info": "Araştırılan şirket."
+          },
+          {
+            "id": "p",
+            "label": "M. Yılmaz",
+            "x": 60,
+            "y": 150,
+            "kind": "person",
+            "info": "24 Eyl'den beri Akdeniz Endüstri'nin tek imza yetkilisi. Aynı zamanda Toros Ticaret'in yöneticisi."
+          },
+          {
+            "id": "t",
+            "label": "Toros Ticaret",
+            "x": 180,
+            "y": 225,
+            "kind": "new",
+            "info": "Yeni keşfedilen ilişki: Akdeniz Endüstri ile ortak yöneticiye sahip ve 11 Eyl'de yeniden yapılandırmaya girdi."
+          },
+          {
+            "id": "k",
+            "label": "Kuzey Holding",
+            "x": 300,
+            "y": 150,
+            "kind": "entity",
+            "info": "18 Eyl'de Akdeniz Endüstri'nin %31,4'ünü aldı. Toros Ticaret ile aynı adreste kayıtlı."
+          }
+        ],
+        "edges": [
+          [
+            "a",
+            "p",
+            "imza yetkilisi"
+          ],
+          [
+            "p",
+            "t",
+            "yönetici"
+          ],
+          [
+            "a",
+            "k",
+            "%31,4"
+          ],
+          [
+            "k",
+            "t",
+            "aynı adres",
+            "new"
+          ]
+        ]
+      },
+      "evidence": {
+        "source": "Ticaret sicili kayıtları · İlişki analizi",
+        "excerpt": "M. Yılmaz iki şirkette yönetici olarak görünüyor; Kuzey Holding ile Toros Ticaret aynı kayıtlı adresi paylaşıyor."
+      }
+    },
+    {
+      "key": "Finansal bağlam değişti",
+      "question": "Şirketin finansal bağlamı önemli ölçüde değişti mi?",
+      "items": [
+        "Finansal tablolar",
+        "Sermaye yapısı",
+        "Yeniden yapılandırma sinyalleri",
+        "Önemli finansal olaylar",
+        "Şirkete özgü göstergeler"
+      ],
+      "note": "Finansal verinin erişilebilir olduğu durumlarda.",
+      "visual": "financial",
+      "financial": [
+        {
+          "date": "Tem",
+          "text": "Sermaye %40 azaltıldı"
+        },
+        {
+          "date": "Ağu",
+          "text": "60 gün içinde üç şube kapandı"
+        },
+        {
+          "date": "Eyl",
+          "text": "İlişkili şirket yeniden yapılandırmaya girdi"
+        },
+        {
+          "date": "Eyl",
+          "text": "Finansal olay Investigation'a giriyor",
+          "hot": true
+        }
+      ],
+      "evidence": {
+        "source": "Ticaret Sicili Gazetesi · Resmî mahkeme kaydı",
+        "excerpt": "Temmuz'da sermaye azaltımı, Ağustos'ta şube kapanışları tescil edildi; Eylül'de ilişkili bir şirketin yeniden yapılandırma başvurusu kabul edildi."
+      }
+    }
+  ],
+  "stages": [
+    {
+      "key": "Algıla",
+      "q": "Bir şey değişti.",
+      "items": [
+        "Sicil olayı",
+        "Finansal olay",
+        "Dış sinyal",
+        "Şirket olayı"
+      ],
+      "who": "İzleme burada durur"
+    },
+    {
+      "key": "Araştır",
+      "q": "Ne değişti?",
+      "items": [
+        "Sahiplik",
+        "Yetki",
+        "İlişkiler",
+        "Geçmiş",
+        "Finansal bağlam",
+        "İlişkili şirketler"
+      ],
+      "who": "Deepin"
+    },
+    {
+      "key": "Açıkla",
+      "q": "Neden önemli?",
+      "items": [
+        "Kanıt",
+        "Bağlam",
+        "Gerekçe",
+        "Risk etkileri",
+        "Öneri"
+      ],
+      "who": "Deepin"
+    }
+  ],
+  "chain": [
+    "Kaynak",
+    "Kanıt",
+    "Bulgu",
+    "Bağlam",
+    "Gerekçe",
+    "Öneri",
+    "İnsan kararı"
+  ],
+  "roles": {
+    "deepin": {
+      "label": "Deepin",
+      "items": [
+        "Algılar",
+        "Araştırır",
+        "Kanıt toplar",
+        "Karşılaştırır",
+        "Gerekçelendirir",
+        "Öneri sunar"
+      ]
+    },
+    "team": {
+      "label": "Ekibiniz",
+      "items": [
+        "Kanıtı inceler",
+        "Muhakeme eder",
+        "Onaylar ya da reddeder"
+      ]
+    }
+  },
+  "context": {
+    "company": "Akdeniz Endüstri A.Ş.",
+    "label": "Risk bağlamı güncellendi",
+    "from": "Medium",
+    "to": "High",
+    "why_label": "Neden değişti?",
+    "source_label": "Kaynak",
+    "view": "Kanıtı gör",
+    "hide": "Kanıtı gizle",
+    "why": [
+      {
+        "title": "Temsil yetkisi değişti",
+        "date": "24 Eyl 2026",
+        "source": "Ticaret Sicili Gazetesi",
+        "excerpt": "Yönetim kurulu kararı tescil edildi: müşterek imza yetkisi kaldırıldı; yeni atanan bir yönetici şirketi tek başına ve sınırsız temsil edebiliyor."
+      },
+      {
+        "title": "Yeni ortak %31,4 pay aldı",
+        "date": "18 Eyl 2026",
+        "source": "Ticaret Sicili Gazetesi",
+        "excerpt": "Pay devri tescil edildi: payların %31,4'ü, dört ay önce kurulan Kuzey Holding A.Ş.'ye devredildi."
+      },
+      {
+        "title": "İlişkili şirket yeniden yapılandırmaya girdi",
+        "date": "11 Eyl 2026",
+        "source": "Resmî mahkeme kaydı",
+        "excerpt": "Akdeniz Endüstri A.Ş. ile ortak yöneticiye sahip Toros Ticaret Ltd.'nin yeniden yapılandırma başvurusu kabul edildi."
+      }
+    ],
+    "reasoning_label": "Deepin gerekçesi",
+    "reasoning": "13 gün içinde sahiplik, yetki ve ilişkili şirket yapısında üç önemli değişiklik gerçekleşti.",
+    "rec_label": "Öneri",
+    "recommendation": "Karşı taraf maruziyetini gözden geçirin.",
+    "team_label": "Ekibiniz",
+    "team_task": "Kanıtı inceleyin",
+    "approve": "Onayla",
+    "reject": "Reddet",
+    "further": "Daha fazla araştır",
+    "approved": "Ekibiniz onayladı · denetim izine kaydedildi",
+    "rejected": "Ekibiniz reddetti · denetim izine kaydedildi",
+    "further_steps": [
+      "Takip Investigation'ı açıldı: Toros Ticaret Ltd.",
+      "Kefaletler ve ortak yükümlülükler kontrol edildi",
+      "Bulgu: Akdeniz Endüstri, Toros Ticaret'in iki kredisine kefil"
+    ]
+  },
+  "stack": {
+    "top": {
+      "name": "Kurumsal istihbarat",
+      "role": "Şirket verisi",
+      "items": [
+        "Şirket bilgileri",
+        "Sicil verisi",
+        "Finansal bilgiler",
+        "Dış kaynaklar"
+      ]
+    },
+    "mid": {
+      "name": "deepin.risk",
+      "role": "Investigation katmanı",
+      "items": [
+        "Değişikliği algılar",
+        "Bağlamı araştırır",
+        "Geçmişi yeniden kurar",
+        "İlişkileri keşfeder",
+        "Kanıt toplar",
+        "Neyin önemli olduğunu açıklar"
+      ]
+    },
+    "bottom": {
+      "name": "Risk süreciniz",
+      "role": "TPRM, GRC ve karar iş akışlarınız",
+      "items": [
+        "Üçüncü taraf riski",
+        "Kredi riski",
+        "Uyum",
+        "Satın alma",
+        "Üye işyeri riski",
+        "Müşteri kabulü"
+      ]
+    }
+  },
+  "uses": {
+    "root": "Company Investigation",
+    "branches": [
+      {
+        "name": "Üçüncü taraf riski",
+        "then": "Satın alma"
+      },
+      {
+        "name": "Üye işyeri riski",
+        "then": "Müşteri kabulü"
+      },
+      {
+        "name": "Kredi riski",
+        "then": "İzleme"
+      }
+    ],
+    "footer": "Bu kararlarda tekrarlandıkça tek bir Investigation yeteneği şuna dönüşür:"
+  },
+  "enterprise": [
+    [
+      "lock",
+      "On-premise"
+    ],
+    [
+      "air",
+      "Air-gapped"
+    ],
+    [
+      "user",
+      "RBAC"
+    ],
+    [
+      "doc",
+      "Denetim izi"
+    ],
+    [
+      "net",
+      "Veri soy ağacı"
+    ],
+    [
+      "shield",
+      "Politika uygulama"
+    ],
+    [
+      "hand",
+      "İnsan onayı"
+    ]
+  ],
+  "form": {
+    "endpoint": "",
+    "title": "Yeni Company Investigation",
+    "close": "Kapat",
+    "step1": "Şirket ve soru",
+    "step2": "İletişim",
+    "group_company": "Şirket",
+    "group_question": "Investigation sorusu",
+    "group_contact": "İletişim",
+    "fields_company": [
+      {
+        "id": "company",
+        "label": "Şirket adı",
+        "required": true,
+        "placeholder": "örn. Akdeniz Endüstri A.Ş."
+      },
+      {
+        "id": "website",
+        "label": "Web sitesi (biliniyorsa)",
+        "placeholder": "ornek.com"
+      },
+      {
+        "id": "country",
+        "label": "Ülke",
+        "placeholder": "Türkiye"
+      }
+    ],
+    "fields_question": [
+      {
+        "id": "question",
+        "label": "Neyi anlamaya çalışıyorsunuz?",
+        "type": "textarea",
+        "placeholder": "Ortaklık değişiklikleri, temsil yetkisi, ilişkili şirketler, finansal bağlam..."
+      }
+    ],
+    "fields_contact": [
+      {
+        "id": "name",
+        "label": "Ad soyad",
+        "required": true
+      },
+      {
+        "id": "org",
+        "label": "Kurum",
+        "required": true
+      },
+      {
+        "id": "email",
+        "label": "Kurumsal e-posta",
+        "required": true,
+        "type": "email"
+      }
+    ],
+    "next": "Devam",
+    "back": "Geri",
+    "submit": "Bu şirketi araştırın",
+    "done": "E-posta uygulamanız talep bilgileri dolu şekilde açılmalı. Açılmazsa info@deepin.space adresine yazın, gerisini biz hallederiz.",
+    "email_subject": "Company Investigation talebi"
+  },
+  "ui": {
+    "levels": {
+      "Low": "Düşük",
+      "Medium": "Orta",
+      "High": "Yüksek"
+    },
+    "risk": "Risk",
+    "living": "Canlı Investigation",
+    "before": "Önce",
+    "after": "Sonra",
+    "aria_live": "Canlı Company Investigation (demo)",
+    "aria_loop": "Önemli bir değişiklik algılandığında ne olur",
+    "aria_graph": "İlişki grafiği",
+    "aria_chain": "Kaynaktan insan kararına",
+    "aria_context": "Kanıtlarıyla risk bağlamı değişikliği (demo)"
+  }
+}

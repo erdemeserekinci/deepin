@@ -1,0 +1,69 @@
+<!--
+title: deepin.security · Security Investigation
+description: Güvenlik alarmlarını kanıta dayalı Investigation'lara dönüştürün. deepin.security, Deepin'in keşif alanlarından biridir.
+-->
+<section class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Security Investigation</p>
+      <h1>Güvenlik alarmlarını <b>kanıta dayalı Investigation'lara dönüştürün.</b></h1>
+      <p class="lede">Analistler bir alarmın önemli olup olmadığına karar vermek için SIEM, kimlik, uç nokta ve varlık araçları arasında gidip gelir. Deepin bu bağlamı tek bir vakada toplayabilir, üzerinde akıl yürütebilir ve bir kişinin onayı için bir yanıt önerebilir.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Bize bir vaka getirin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#status">Neredeyiz</a>
+      </div>
+      <span class="chip st-exploring status">Keşif aşamasında</span>
+    </div>
+    <figure class="case" style="margin:0" aria-label="Örnek vaka">
+      <div class="case-top"><span class="case-id">SEC-2026-1127 · Alarm Investigation'ı</span><span class="chip st-wait">Onay bekliyor</span></div>
+      <div class="case-body">
+        <div class="trigger"><span class="k">Tetikleyici</span><span>Tek bir hesaba 40 dakika içinde İzmir ve Frankfurt'tan giriş</span><small>Kimlik sağlayıcı alarmı · 22 Eyl 2026</small></div>
+        <div class="srcs" aria-label="Kaynaklar"><span>Kimlik sağlayıcı</span><span>VPN kayıtları</span><span>Uç nokta (EDR)</span><span>İK dizini</span></div>
+        <ul class="finds"><li><span class="k">Kimlik</span><span>İkinci giriş yeni bir cihazdan yapıldı, MFA bildirimi onaylandı</span><span class="src">Kimlik sağlayıcı</span></li><li><span class="k">Ağ</span><span>Frankfurt'tan VPN oturumu yok</span><span class="src">VPN kayıtları</span></li><li><span class="k">Uç nokta</span><span>Bilinen dizüstü bilgisayar aynı anda İzmir'de aktif</span><span class="src">EDR</span></li></ul>
+        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Bulgu</span>Frankfurt oturumu seyahat ya da VPN ile açıklanamıyor ve kullanıcının kendi cihazı başka bir yerde aktifti. Bu durum, ele geçirilmiş olası hesap politikanızla örtüşüyor.</p>
+        <div class="propose"><p>Oturumları sonlandır · kimlik bilgilerini sıfırla</p><div class="acts"><span>Analiste gönder</span><span class="ok">Onayla</span></div></div>
+      </div>
+      <figcaption class="case-note">Örnek vaka. Bu Investigation henüz keşif aşamasında.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="investigation">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Neyi inceler</p>
+      <h2 class="h2">Bir alarmdan <b>aksiyon alınabilir bir vakaya.</b></h2>
+    </div>
+    <div class="inv inv-primary inv-panel">
+      <div class="inv-cols" style="border-top:0;padding-top:0">
+        <div><div class="lbl">İnceler</div><ul class="inv-list in"><li>Güvenlik alarmları</li><li>Kimlik ve erişim kayıtları</li><li>Uç nokta ve varlık verisi</li><li>Ağ ve VPN kayıtları</li><li>Tehdit istihbaratı</li><li>Geçmiş olaylar</li></ul></div>
+        <div><div class="lbl">Sunar</div><ul class="inv-list out"><li>Her alarm için kanıt paketi</li><li>Gerekçe ve önem derecesi</li><li>Önerilen yanıt</li><li>İnsan onayı</li><li>Denetim izi</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="status">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Neredeyiz</p>
+      <h2 class="h2">Keşif aşamasında, <b>henüz bir Space değil.</b></h2>
+    </div>
+    <div class="statusbox">
+      <span class="chip st-exploring">Keşif aşamasında</span>
+      <div><p>Güvenlik Investigation'ı Deepin için teknik olarak güçlü bir uyum taşıyor, ancak henüz kanıtlanmış bir ürün değil. Buna Space demeden önce ilk tasarım ortaklarımızla doğruluyoruz.</p><p>Ekibiniz alarmları birçok araç üzerinden araştırıyorsa, bu işin bugün nasıl yapıldığını görmek isteriz.</p>
+        <p><a class="go" href="../#spaces">Bir Space nasıl kazanılır →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">deepin.security</p>
+    <h2>Hangi alarmları araştırmak <b>ekibinizin en çok zamanını alıyor?</b></h2>
+    <p>Birini bize gösterin. Deepin'in onu araştırıp araştıramayacağını açıkça söyleyelim.</p>
+    <!--@copy_email-->
+  </div>
+</section>

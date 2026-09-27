@@ -1,138 +1,72 @@
 #!/usr/bin/env python3
-"""Build the static deepin.space site.
+"""Build the static deepin.space site in Turkish (default) and English.
 
-Pages live in src/pages/*.html. Each page starts with a small front-matter block
-and uses <!--@component:arg--> markers that are rendered from src/data.json.
+    python3 build.py
 
-    python3 build.py        # writes index.html, risk/, finance/, security/, energy/
+Output
+  Turkish (default)  index.html, risk/, finance/, security/, energy/
+  English            en/index.html, en/risk/, en/finance/, en/security/, en/energy/
+
+Sources (src/)
+  data.<lang>.json         investigations, spaces, customers, status labels, navigation
+  i18n/ui.json             shared interface strings used by components, nav and footer
+  pages/<lang>/<page>.html page body per language (front matter + markup)
+  pages/<page>.html        page body shared by all languages, text from content/<page>.<lang>.json
+  content/<page>.<lang>.json  text and demo data for shared pages ({{key}} placeholders)
+  styles/<page>.css        page styles, shared by all languages
+  base.css, base.js        design system and interactions
+
+Pages use <!--@component:arg--> markers; components are defined below and in
+src/risk_components.py.
 """
-import html, json, os, re
+import html, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
-DATA = json.load(open(os.path.join(SRC, "data.json"), encoding="utf-8"))
+sys.path.insert(0, SRC)
+import risk_components  # noqa: E402
+
+LOCALES = [("tr", ""), ("en", "en/")]          # (language, output folder); first is the default
+PAGES = ["home", "risk", "finance", "security", "energy"]
+PAGE_DIR = {"home": ""}                        # output folder per page inside a locale
+SUB = {"home": ""}                             # sub-brand after the logo
+
 BASE_CSS = open(os.path.join(SRC, "base.css"), encoding="utf-8").read()
 BASE_JS = open(os.path.join(SRC, "base.js"), encoding="utf-8").read()
+UI_ALL = json.load(open(os.path.join(SRC, "i18n", "ui.json"), encoding="utf-8"))
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">')
 EMAIL = "info@deepin.space"
 ADDRESS = "Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir"
-
 e = html.escape
-INV = {i["id"]: i for i in DATA["investigations"]}
-SPACE = {s["id"]: s for s in DATA["spaces"]}
-STATUS = DATA["status"]
+
+# Set per locale in build()
+DATA, INV, SPACE, STATUS, UI = {}, {}, {}, {}, {}
+
+
+def set_locale(lang):
+    global DATA, INV, SPACE, STATUS, UI
+    DATA = json.load(open(os.path.join(SRC, f"data.{lang}.json"), encoding="utf-8"))
+    INV = {i["id"]: i for i in DATA["investigations"]}
+    SPACE = {s["id"]: s for s in DATA["spaces"]}
+    STATUS = DATA["status"]
+    UI = UI_ALL[lang]
 
 
 # ---------------------------------------------------------------- primitives
-def arrow():
-    return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>'
-
-
 def wordmark(space_id, cls="nm"):
     return f'<span class="{cls}">deep<b>in</b>.{e(space_id)}</span>'
 
 
 def status_chip(status):
-    s = STATUS[status]
-    return f'<span class="chip st-{status}">{e(s["label"])}</span>'
+    return f'<span class="chip st-{status}">{e(STATUS[status]["label"])}</span>'
 
 
 def maturity(status):
     lvl = STATUS[status]["level"]
     pips = "".join(f'<i class="{"on" if n < lvl else ""}"></i>' for n in range(3))
     return f'<span class="pips" aria-hidden="true">{pips}</span>'
-
-
-# ---------------------------------------------------------------- components
-def c_investigation_card(inv_id, prefix=""):
-    i = INV[inv_id]
-    href = prefix + i["href"]
-    if i["weight"] == "primary":
-        src = "".join(f"<li>{e(x)}</li>" for x in i["sources"])
-        out = "".join(f"<li>{e(x)}</li>" for x in i["outputs"])
-        return f'''<article class="inv inv-primary" id="inv-{i["id"]}">
-  <header class="inv-head">
-    <div><h3>{e(i["name"])}</h3><p class="inv-space">{wordmark(i["space"], "nm-sm")}</p></div>
-    {status_chip(i["status"])}
-  </header>
-  <p class="inv-lede">{e(i["headline"])}</p>
-  <div class="inv-cols">
-    <div><div class="lbl">Investigates</div><ul class="inv-list in">{src}</ul></div>
-    <div><div class="lbl">Delivers</div><ul class="inv-list out">{out}</ul></div>
-  </div>
-  <a class="inv-cta" href="{href}">{e(i["cta"])} →</a>
-</article>'''
-    return f'''<article class="inv inv-secondary" id="inv-{i["id"]}">
-  <header class="inv-head"><h3>{e(i["name"])}</h3>{status_chip(i["status"])}</header>
-  <p class="inv-lede">{e(i["headline"])}</p>
-  <a class="inv-cta" href="{href}">{e(i["cta"])} →</a>
-</article>'''
-
-
-def c_investigation_catalog(_arg=""):
-    prim = "".join(c_investigation_card(i["id"]) for i in DATA["investigations"] if i["weight"] == "primary")
-    sec = "".join(c_investigation_card(i["id"]) for i in DATA["investigations"] if i["weight"] == "secondary")
-    return f'''<div class="catalog">
-  <div class="catalog-primary">{prim}</div>
-  <div class="catalog-secondary">{sec}
-    <a class="catalog-more" href="#contact"><strong>Don't see your investigation?</strong><span>Most of our work starts with a case nobody has automated yet.</span><span class="go">Tell us what your team investigates →</span></a>
-  </div>
-</div>'''
-
-
-def c_proof_grid(arg=""):
-    show_logos = DATA.get("proof", {}).get("show_logos", False)
-    cards = []
-    for c in DATA["customers"]:
-        if arg and arg not in c.get("spaces", []):
-            continue
-        name = (f'<img class="proof-logo" src="{c["logo"]}" alt="{e(c["name"])}">'
-                if show_logos and c.get("logo") else f'<strong>{e(c["name"])}</strong>')
-        cards.append(f'''<li class="proof-card">
-  {name}
-  <span class="proof-inv">{e(c["investigation"])}</span>{f'<span class="proof-ctx">{e(c["context"][arg])}</span>' if arg and c.get("context", {}).get(arg) else ""}
-  <span class="proof-st">{maturity(c["status"])}{status_chip(c["status"])}</span>
-</li>''')
-    cls = " n4" if len(cards) == 4 else ""
-    return f'<ul class="proof-grid{cls}">{"".join(cards)}</ul>'
-
-
-def c_proof_legend(_arg=""):
-    return ('<div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Contracted</span>'
-            '<span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Embedded or deploying</span>'
-            '<span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>In production</span></div>')
-
-
-def c_space_growth(space_id, prefix=""):
-    s = SPACE[space_id]
-    labels = ["One investigation", "Repeated", "Accumulated"]
-    rows, prev = [], set()
-    for n, stage in enumerate(s["growth"]):
-        chips = "".join(f'<span class="{"" if x in prev else "new"}">{e(x)}</span>' for x in stage)
-        prev = set(stage)
-        rows.append(f'<li><span class="g-lbl">{labels[n]}</span><span class="g-chips">{chips}</span></li>')
-    return f'''<div class="growth">
-  <ol class="g-stages">{"".join(rows)}</ol>
-  <div class="g-down" aria-hidden="true"></div>
-  <a class="g-space" href="{prefix + s["href"]}">
-    <span class="g-top">{wordmark(s["id"])}{status_chip(s["status"])}</span>
-    <span class="g-title">{e(s["title"])}</span>
-    <span class="g-meta"><span>Primary investigation</span><b>{e(s["primary"])}</b></span>
-    <span class="g-note">{e(s["note"])}</span>
-    <span class="go">Explore {e("deepin." + s["id"])} →</span>
-  </a>
-</div>'''
-
-
-def c_spaces_scene(_arg=""):
-    proven = "".join(c_space_growth(s["id"]) for s in DATA["spaces"] if s["status"] != "exploring")
-    explore = "".join(
-        f'<a class="x-space" href="{s["href"]}">{wordmark(s["id"])}<span>{e(s["title"])}</span>{status_chip(s["status"])}</a>'
-        for s in DATA["spaces"] if s["status"] == "exploring")
-    return f'''<div class="spaces-proven">{proven}</div>
-<div class="spaces-explore"><span class="lbl">Exploring</span>{explore}</div>'''
 
 
 ICONS = {
@@ -145,47 +79,127 @@ ICONS = {
     "check": '<path d="M3 9.5l3.5 3.5L15 5"/>',
     "hand": '<path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/>',
 }
-CHIP_ICON = {"on-premise": "lock", "air-gapped": "air", "air-gapped deployment": "air", "rbac": "user",
-             "role-based access": "user", "audit trail": "doc", "data lineage": "net",
-             "policy enforcement": "shield", "evaluations": "check", "human approval": "hand"}
-DEFAULT_CHIPS = ["On-premise", "Air-gapped deployment", "Role-based access", "Audit trail",
-                 "Data lineage", "Policy enforcement", "Evaluations", "Human approval"]
 
 
-def c_enterprise_chips(arg="", ctx=None):
-    labels = (ctx or {}).get("content", {}).get("enterprise") if arg == "content" else None
+# ---------------------------------------------------------------- components
+def c_investigation_card(inv_id, ctx):
+    i = INV[inv_id]
+    href = i["href"]
+    if i["weight"] == "primary":
+        src = "".join(f"<li>{e(x)}</li>" for x in i["sources"])
+        out = "".join(f"<li>{e(x)}</li>" for x in i["outputs"])
+        return f'''<article class="inv inv-primary" id="inv-{i["id"]}">
+  <header class="inv-head">
+    <div><h3>{e(i["name"])}</h3><p class="inv-space">{wordmark(i["space"], "nm-sm")}</p></div>
+    {status_chip(i["status"])}
+  </header>
+  <p class="inv-lede">{e(i["headline"])}</p>
+  <div class="inv-cols">
+    <div><div class="lbl">{e(UI["investigates"])}</div><ul class="inv-list in">{src}</ul></div>
+    <div><div class="lbl">{e(UI["delivers"])}</div><ul class="inv-list out">{out}</ul></div>
+  </div>
+  <a class="inv-cta" href="{href}">{e(i["cta"])} →</a>
+</article>'''
+    return f'''<article class="inv inv-secondary" id="inv-{i["id"]}">
+  <header class="inv-head"><h3>{e(i["name"])}</h3>{status_chip(i["status"])}</header>
+  <p class="inv-lede">{e(i["headline"])}</p>
+  <a class="inv-cta" href="{href}">{e(i["cta"])} →</a>
+</article>'''
+
+
+def c_investigation_catalog(arg, ctx):
+    prim = "".join(c_investigation_card(i["id"], ctx) for i in DATA["investigations"] if i["weight"] == "primary")
+    sec = "".join(c_investigation_card(i["id"], ctx) for i in DATA["investigations"] if i["weight"] == "secondary")
+    return f'''<div class="catalog">
+  <div class="catalog-primary">{prim}</div>
+  <div class="catalog-secondary">{sec}
+    <a class="catalog-more" href="#contact"><strong>{e(UI["more_title"])}</strong><span>{e(UI["more_text"])}</span><span class="go">{e(UI["more_cta"])}</span></a>
+  </div>
+</div>'''
+
+
+def c_proof_grid(arg, ctx):
+    show_logos = DATA.get("proof", {}).get("show_logos", False)
+    cards = []
+    for c in DATA["customers"]:
+        if arg and arg not in c.get("spaces", []):
+            continue
+        name = (f'<img class="proof-logo" src="{ctx["assets"]}{c["logo"]}" alt="{e(c["name"])}">'
+                if show_logos and c.get("logo") else f'<strong>{e(c["name"])}</strong>')
+        extra = f'<span class="proof-ctx">{e(c["context"][arg])}</span>' if arg and c.get("context", {}).get(arg) else ""
+        cards.append(f'''<li class="proof-card">
+  {name}
+  <span class="proof-inv">{e(c["investigation"])}</span>{extra}
+  <span class="proof-st">{maturity(c["status"])}{status_chip(c["status"])}</span>
+</li>''')
+    cls = " n4" if len(cards) == 4 else ""
+    return f'<ul class="proof-grid{cls}">{"".join(cards)}</ul>'
+
+
+def c_proof_legend(arg, ctx):
+    a, b, c = (e(x) for x in UI["legend"])
+    return (f'<div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>{a}</span>'
+            f'<span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>{b}</span>'
+            f'<span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>{c}</span></div>')
+
+
+def c_space_growth(space_id, ctx):
+    s = SPACE[space_id]
+    rows, prev = [], set()
+    for n, stage in enumerate(s["growth"]):
+        chips = "".join(f'<span class="{"" if x in prev else "new"}">{e(x)}</span>' for x in stage)
+        prev = set(stage)
+        rows.append(f'<li><span class="g-lbl">{e(UI["growth_labels"][n])}</span><span class="g-chips">{chips}</span></li>')
+    return f'''<div class="growth">
+  <ol class="g-stages">{"".join(rows)}</ol>
+  <div class="g-down" aria-hidden="true"></div>
+  <a class="g-space" href="{s["href"]}">
+    <span class="g-top">{wordmark(s["id"])}{status_chip(s["status"])}</span>
+    <span class="g-title">{e(s["title"])}</span>
+    <span class="g-meta"><span>{e(UI["primary"])}</span><b>{e(s["primary"])}</b></span>
+    <span class="g-note">{e(s["note"])}</span>
+    <span class="go">{e(UI["explore_space"].format(name="deepin." + s["id"]))}</span>
+  </a>
+</div>'''
+
+
+def c_spaces_scene(arg, ctx):
+    proven = "".join(c_space_growth(s["id"], ctx) for s in DATA["spaces"] if s["status"] != "exploring")
+    explore = "".join(
+        f'<a class="x-space" href="{s["href"]}">{wordmark(s["id"])}<span>{e(s["title"])}</span>{status_chip(s["status"])}</a>'
+        for s in DATA["spaces"] if s["status"] == "exploring")
+    return f'''<div class="spaces-proven">{proven}</div>
+<div class="spaces-explore"><span class="lbl">{e(UI["exploring"])}</span>{explore}</div>'''
+
+
+def c_enterprise_chips(arg, ctx):
+    chips = ctx["content"].get("enterprise") if arg == "content" else UI["chips"]
     li = "".join(
-        f'<li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">{ICONS[CHIP_ICON[t.lower()]]}</svg>{e(t)}</li>'
-        for t in (labels or DEFAULT_CHIPS))
+        f'<li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">{ICONS[k]}</svg>{e(t)}</li>'
+        for k, t in chips)
     return f'<ul class="ent-chips">{li}</ul>'
 
 
-def c_evidence_rail(arg="", ctx=None):
-    if arg == "content":
-        steps = [tuple(x) for x in ctx["content"]["rail"]]
-        li = "".join(f'<li><span class="n">{n+1:02d}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for n, (t, d) in enumerate(steps))
-        return f'<ol class="evidence">{li}</ol>'
-    steps = [("Source", "Each finding links to the record, document or system it came from."),
-             ("Evidence", "The facts are collected, dated and kept with the case."),
-             ("Reasoning", "The logic from evidence to conclusion is written out, with the policy it applies."),
-             ("Recommendation", "A proposed decision, never a silent one."),
-             ("Human approval", "A person approves, edits or rejects before anything changes.")]
+def c_evidence_rail(arg, ctx):
+    steps = ctx["content"]["rail"] if arg == "content" else UI["rail"]
     if arg == "short":
         steps = steps[:4]
     li = "".join(f'<li><span class="n">{n+1:02d}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for n, (t, d) in enumerate(steps))
     return f'<ol class="evidence">{li}</ol>'
 
 
-def c_data_note(_arg=""):
-    return '''<div class="datanote">
-  <strong>Your data stays yours.</strong>
-  <p>Deepin does not build its advantage by taking customer data. Your records stay yours. What we carry from one deployment to the next is how an investigation is solved:</p>
-  <ul class="assets"><li>Investigation templates</li><li>Connector patterns</li><li>Workflows</li><li>Evaluations</li><li>Policy patterns</li><li>Agent capabilities</li></ul>
+def c_data_note(arg, ctx):
+    assets = "".join(f"<li>{e(a)}</li>" for a in UI["data_assets"])
+    return f'''<div class="datanote">
+  <strong>{e(UI["data_h"])}</strong>
+  <p>{e(UI["data_p"])}</p>
+  <ul class="assets">{assets}</ul>
 </div>'''
 
 
-def c_copy_email(_arg=""):
-    return f'''<div class="mail"><code id="email">{EMAIL}</code><button class="copy" id="copyBtn" type="button">Copy email</button></div>'''
+def c_copy_email(arg, ctx):
+    return (f'<div class="mail"><code id="email">{EMAIL}</code><button class="copy" id="copyBtn" type="button" '
+            f'data-copied="{e(UI["copied"])}" data-selected="{e(UI["selected"])}">{e(UI["copy"])}</button></div>')
 
 
 COMPONENTS = {
@@ -199,70 +213,87 @@ COMPONENTS = {
     "data_note": c_data_note,
     "copy_email": c_copy_email,
 }
+COMPONENTS.update(risk_components.COMPONENTS)
 
-
-import sys
-sys.path.insert(0, SRC)
-import risk_components  # noqa: E402
-
-CTX_COMPONENTS = dict(risk_components.COMPONENTS)
-CTX_COMPONENTS["enterprise_chips"] = c_enterprise_chips
-CTX_COMPONENTS["evidence_rail"] = c_evidence_rail
 
 # ---------------------------------------------------------------- chrome
-def logo_imgs(prefix):
-    return (f'<img class="logo-l" src="{prefix}assets/deepin-logo.png" alt="deepin" width="632" height="190">'
-            f'<img class="logo-d" src="{prefix}assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">')
+def logo_imgs(assets):
+    return (f'<img class="logo-l" src="{assets}assets/deepin-logo.png" alt="deepin" width="632" height="190">'
+            f'<img class="logo-d" src="{assets}assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">')
 
 
-def nav(page, prefix, sub, cta, cta_href="#contact", back_label="← deepin.space"):
+def lang_switch(ctx):
+    links = []
+    for lang, _ in LOCALES:
+        cur = lang == ctx["lang"]
+        attrs = ' aria-current="true"' if cur else ""
+        links.append(f'<a href="{ctx["alt"][lang]}" hreflang="{lang}" lang="{lang}"{attrs} title="{e(UI_ALL[lang]["lang_name"])}">{lang.upper()}</a>')
+    return f'<span class="langs" role="group" aria-label="{e(UI["aria_lang"])}">{"".join(links)}</span>'
+
+
+def nav(page, ctx):
     links = "".join(f'<a href="{h}">{e(t)}</a>' for t, h in DATA["nav"][page])
-    home = "#top" if page == "home" else prefix
-    subspan = f'<span class="sub">.{e(sub)}</span>' if sub else ""
-    back = "" if page == "home" else f'<a class="back" href="{prefix}">{e(back_label)}</a>'
-    login = '<a class="login" href="https://platform.deepin.space">Log in</a>' if page == "home" else ""
+    root = ctx["root"]
+    home = "#top" if page == "home" else root
+    subspan = f'<span class="sub">.{e(SUB.get(page, page))}</span>' if SUB.get(page, page) else ""
+    back = "" if page == "home" else f'<a class="back" href="{root}">{e(UI["back_space"] if page == "risk" else UI["back_home"])}</a>'
+    login = f'<a class="login" href="https://platform.deepin.space">{e(UI["login"])}</a>' if page == "home" else ""
+    cta_href = "#request" if page == "risk" else "#contact"
     return f'''<header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="{home}" aria-label="Deepin home">{logo_imgs(prefix)}{subspan}</a>
-    <nav class="nav-links" aria-label="Main">{links}</nav>
-    <div class="nav-cta">{back}{login}<a class="btn btn-primary btn-sm" href="{cta_href}">{e(cta)}</a></div>
+    <a class="brand" href="{home}" aria-label="{e(UI["home_label"])}">{logo_imgs(ctx["assets"])}{subspan}</a>
+    <nav class="nav-links" aria-label="{e(UI["aria_main"])}">{links}</nav>
+    <div class="nav-cta">{lang_switch(ctx)}{back}{login}<a class="btn btn-primary btn-sm" href="{cta_href}">{e(UI["cta"][page])}</a></div>
   </div>
 </header>'''
 
 
-def footer(page, prefix, sub):
-    home = "#top" if page == "home" else prefix
-    subspan = f'<span class="sub">.{e(sub)}</span>' if sub else ""
-    spaces = "".join(f'<a href="{prefix}{s["href"]}">deepin.{s["id"]}</a>' for s in DATA["spaces"])
+def footer(page, ctx):
+    root = ctx["root"]
+    home = "#top" if page == "home" else root
+    subspan = f'<span class="sub">.{e(SUB.get(page, page))}</span>' if SUB.get(page, page) else ""
+    spaces = "".join(f'<a href="{root}{s["href"]}">deepin.{s["id"]}</a>' for s in DATA["spaces"])
     return f'''<footer id="company">
   <div class="wrap">
     <div class="f-about">
-      <a class="brand" href="{home}" aria-label="Deepin home">{logo_imgs(prefix)}{subspan}</a>
-      <p>Deepin builds Enterprise Investigation &amp; Decision Automation: agents that investigate business cases, show the evidence and wait for a person to approve.</p>
+      <a class="brand" href="{home}" aria-label="{e(UI["home_label"])}">{logo_imgs(ctx["assets"])}{subspan}</a>
+      <p>{e(UI["footer_about"])}</p>
       <span class="addr">{ADDRESS}</span>
     </div>
-    <nav class="f-col" aria-label="Spaces"><span class="lbl">Spaces</span>{spaces}</nav>
-    <nav class="f-col" aria-label="Company"><span class="lbl">Company</span>
-      <a href="{prefix}#customers">Customers</a><a href="{prefix}#enterprise">Enterprise</a>
-      <a href="https://platform.deepin.space">Log in</a>
+    <nav class="f-col" aria-label="{e(UI["footer_spaces"])}"><span class="lbl">{e(UI["footer_spaces"])}</span>{spaces}</nav>
+    <nav class="f-col" aria-label="{e(UI["footer_company"])}"><span class="lbl">{e(UI["footer_company"])}</span>
+      <a href="{root}#customers">{e(UI["customers"])}</a><a href="{root}#enterprise">{e(UI["enterprise"])}</a>
+      <a href="https://platform.deepin.space">{e(UI["login"])}</a>
       <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
-    <div class="f-col"><span class="lbl">Contact</span><span>{EMAIL}</span><span class="f-copy">© 2026 Deepin</span></div>
+    <div class="f-col"><span class="lbl">{e(UI["footer_contact"])}</span><span>{EMAIL}</span><span class="f-copy">© 2026 Deepin</span>{lang_switch(ctx)}</div>
   </div>
 </footer>'''
 
 
+
+# English product terms inside Turkish pages are marked lang="en", so uppercase
+# labels render "INVESTIGATION" rather than the Turkish-cased "INVESTİGATİON".
+EN_TERMS = re.compile(r"\b(deepin\.[a-z]+|Deepin|Investigation|Enterprise|Decision|Automation|Continuous|Monitoring|"
+                      r"Security|Operational|Supplier|Harness|On-premise|Air-gapped|Fintech|fintech|Company)\b")
+
+
+def mark_english(markup):
+    parts = re.split(r"(<[^>]+>)", markup)
+    skip = False
+    for i, p in enumerate(parts):
+        if p.startswith("<"):
+            t = p[1:].split(None, 1)[0].lower() if len(p) > 2 else ""
+            if t in ("script", "style", "textarea", "title"):
+                skip = True
+            elif t in ("/script", "/style", "/textarea", "/title"):
+                skip = False
+            continue
+        if not skip and p.strip():
+            parts[i] = EN_TERMS.sub(r'<span lang="en">\1</span>', p)
+    return "".join(parts)
+
 # ---------------------------------------------------------------- pages
-PAGES = [
-    dict(src="home.html", out="", nav="home", sub="", cta="Bring us an investigation"),
-    dict(src="risk.html", out="risk/", nav="risk", sub="risk", cta="Run an Investigation", cta_href="#request",
-         back="Deepin →", content="risk.en.json"),
-    dict(src="finance.html", out="finance/", nav="finance", sub="finance", cta="Request a demo"),
-    dict(src="security.html", out="security/", nav="security", sub="security", cta="Bring us a case"),
-    dict(src="energy.html", out="energy/", nav="energy", sub="energy", cta="Bring us a case"),
-]
-
-
 def front_matter(txt):
     m = re.match(r"<!--\s*\n(.*?)\n-->\n", txt, re.S)
     meta = {}
@@ -272,37 +303,57 @@ def front_matter(txt):
     return meta, txt[m.end():]
 
 
-def render(body, prefix, content=None):
-    ctx = {"prefix": prefix, "content": content or {}}
-    copy = ctx["content"].get("copy", {})
-    body = re.sub(r"\{\{(\w+)\}\}", lambda m: copy[m.group(1)], body)
+def fill(text, content):
+    copy = content.get("copy", {})
+    return re.sub(r"\{\{(\w+)\}\}", lambda m: copy[m.group(1)], text)
+
+
+def render(body, ctx):
+    body = fill(body, ctx["content"])
 
     def rep(m):
         name, _, arg = m.group(1).partition(":")
-        if name in CTX_COMPONENTS and (arg == "content" or name in risk_components.COMPONENTS):
-            return CTX_COMPONENTS[name](arg, ctx)
-        fn = COMPONENTS[name]
-        return fn(arg, prefix) if name == "space_growth" else fn(arg)
+        return COMPONENTS[name](arg, ctx)
     return re.sub(r"<!--@([\w:.-]+)-->", rep, body)
+
+
+def page_path(lang_dir, page):
+    return lang_dir + PAGE_DIR.get(page, page + "/")
 
 
 def build():
     written = []
-    for P in PAGES:
-        src, out, key, sub, cta = P["src"], P["out"], P["nav"], P["sub"], P["cta"]
-        prefix = "../" * out.count("/")
-        content = json.load(open(os.path.join(SRC, "content", P["content"]), encoding="utf-8")) if P.get("content") else {}
-        lang = content.get("lang", "en")
-        meta, body = front_matter(open(os.path.join(SRC, "pages", src), encoding="utf-8").read())
-        meta = {k: re.sub(r"\{\{(\w+)\}\}", lambda m: content["copy"][m.group(1)], v) for k, v in meta.items()}
-        style = ""
-        m = re.search(r"<style>(.*?)</style>\s*", body, re.S)
-        if m:
-            style, body = m.group(1), body[:m.start()] + body[m.end():]
-        body = render(body, prefix, content)
-        css = BASE_CSS.replace("url(\"assets/", f"url(\"{prefix}assets/") + style
-        url = f"https://deepin.space/{out}"
-        doc = f'''<!doctype html>
+    for lang, lang_dir in LOCALES:
+        set_locale(lang)
+        for page in PAGES:
+            out = page_path(lang_dir, page)
+            depth = out.count("/")
+            page_depth = PAGE_DIR.get(page, page + "/").count("/")
+            ctx = {
+                "lang": lang,
+                "assets": "../" * depth,          # to the site root (shared assets)
+                "root": "../" * page_depth,       # to this language's home page
+                "alt": {l: "../" * depth + page_path(d, page) for l, d in LOCALES},
+            }
+            src = os.path.join(SRC, "pages", lang, f"{page}.html")
+            if not os.path.exists(src):
+                src = os.path.join(SRC, "pages", f"{page}.html")
+            cpath = os.path.join(SRC, "content", f"{page}.{lang}.json")
+            ctx["content"] = json.load(open(cpath, encoding="utf-8")) if os.path.exists(cpath) else {}
+            risk_components.set_locale(ctx["content"])
+
+            meta, body = front_matter(open(src, encoding="utf-8").read())
+            meta = {k: fill(v, ctx["content"]) for k, v in meta.items()}
+            body = render(body, ctx).replace('src="assets/', f'src="{ctx["assets"]}assets/')
+            chrome_nav, chrome_footer = nav(page, ctx), footer(page, ctx)
+            if lang == "tr":
+                body, chrome_nav, chrome_footer = (mark_english(x) for x in (body, chrome_nav, chrome_footer))
+            style = open(os.path.join(SRC, "styles", f"{page}.css"), encoding="utf-8").read()
+            css = BASE_CSS.replace('url("assets/', f'url("{ctx["assets"]}assets/') + "\n" + style
+            url = f"https://deepin.space/{out}"
+            alternates = "\n".join(f'<link rel="alternate" hreflang="{l}" href="https://deepin.space/{page_path(d, page)}">' for l, d in LOCALES)
+            alternates += f'\n<link rel="alternate" hreflang="x-default" href="https://deepin.space/{page_path(LOCALES[0][1], page)}">'
+            doc = f'''<!doctype html>
 <html lang="{lang}">
 <head>
 <meta charset="utf-8">
@@ -312,32 +363,34 @@ def build():
 <meta property="og:title" content="{e(meta["title"])}">
 <meta property="og:description" content="{e(meta["description"])}">
 <meta property="og:url" content="{url}">
+<meta property="og:locale" content="{"tr_TR" if lang == "tr" else "en_US"}">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
 <link rel="canonical" href="{url}">
-<link rel="icon" type="image/png" href="{prefix}assets/favicon-64.png">
-<link rel="apple-touch-icon" href="{prefix}assets/favicon.png">
+{alternates}
+<link rel="icon" type="image/png" href="{ctx["assets"]}assets/favicon-64.png">
+<link rel="apple-touch-icon" href="{ctx["assets"]}assets/favicon.png">
 {FONTS}
 <style>
 {css}
 </style>
 </head>
 <body>
-{nav(key, prefix, sub, cta, P.get("cta_href", "#contact"), P.get("back", "← deepin.space"))}
+{chrome_nav}
 <main>
 {body.strip()}
 </main>
-{footer(key, prefix, sub)}
+{chrome_footer}
 <script>
 {BASE_JS}
 </script>
 </body>
 </html>
 '''
-        path = os.path.join(ROOT, out, "index.html")
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        open(path, "w", encoding="utf-8").write(doc)
-        written.append(out + "index.html")
+            path = os.path.join(ROOT, out, "index.html")
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            open(path, "w", encoding="utf-8").write(doc)
+            written.append(out + "index.html")
     print("built:", ", ".join(written))
 
 

@@ -15,8 +15,9 @@
   // copy email
   var btn=document.getElementById('copyBtn'),em=document.getElementById('email');
   if(btn&&em)btn.addEventListener('click',function(){
-    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1800)};
-    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';};
+    var label=btn.textContent;
+    var done=function(){btn.textContent=btn.getAttribute('data-copied')||'Copied';setTimeout(function(){btn.textContent=label},1800)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent=btn.getAttribute('data-selected')||'Selected';};
     try{navigator.clipboard.writeText(em.textContent).then(done,fallback)}catch(e){fallback()}
   });
 

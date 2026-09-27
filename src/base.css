@@ -653,3 +653,15 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 @media (max-width:900px){.proof-grid.n4{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.proof-grid.n4{grid-template-columns:1fr}}
 .proof-logo{height:28px;width:auto;max-width:160px;object-fit:contain;object-position:left}
+
+/* language switch */
+.langs{display:inline-flex;align-items:center;gap:2px;padding:2px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+.langs a{padding:4px 8px;border-radius:999px;text-decoration:none;color:var(--muted)}
+.langs a:hover{color:var(--ink)}
+.langs a[aria-current]{background:var(--soft);color:var(--accent);font-weight:500}
+footer .langs{justify-self:start;margin-top:10px}
+@media (max-width:420px){.nav .langs a{padding:4px 6px}}
+:lang(tr) .engage li::before{content:"Adım " counter(e)}
+@media (max-width:520px){.nav .nav-cta .btn-primary{display:none}}
+.inv-head{flex-wrap:wrap}.inv>*{min-width:0}@media (max-width:860px){.catalog-primary,.catalog-secondary{grid-template-columns:minmax(0,1fr)}}
+.nav-links a{white-space:nowrap}

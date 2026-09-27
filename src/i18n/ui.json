@@ -1,0 +1,220 @@
+{
+  "en": {
+    "lang_name": "English",
+    "investigates": "Investigates",
+    "delivers": "Delivers",
+    "more_title": "Don't see your investigation?",
+    "more_text": "Most of our work starts with a case nobody has automated yet.",
+    "more_cta": "Tell us what your team investigates →",
+    "legend": [
+      "Contracted",
+      "Embedded or deploying",
+      "In production"
+    ],
+    "growth_labels": [
+      "One investigation",
+      "Repeated",
+      "Accumulated"
+    ],
+    "primary": "Primary investigation",
+    "explore_space": "Explore {name} →",
+    "exploring": "Exploring",
+    "chips": [
+      [
+        "lock",
+        "On-premise"
+      ],
+      [
+        "air",
+        "Air-gapped deployment"
+      ],
+      [
+        "user",
+        "Role-based access"
+      ],
+      [
+        "doc",
+        "Audit trail"
+      ],
+      [
+        "net",
+        "Data lineage"
+      ],
+      [
+        "shield",
+        "Policy enforcement"
+      ],
+      [
+        "check",
+        "Evaluations"
+      ],
+      [
+        "hand",
+        "Human approval"
+      ]
+    ],
+    "rail": [
+      [
+        "Source",
+        "Each finding links to the record, document or system it came from."
+      ],
+      [
+        "Evidence",
+        "The facts are collected, dated and kept with the case."
+      ],
+      [
+        "Reasoning",
+        "The logic from evidence to conclusion is written out, with the policy it applies."
+      ],
+      [
+        "Recommendation",
+        "A proposed decision, never a silent one."
+      ],
+      [
+        "Human approval",
+        "A person approves, edits or rejects before anything changes."
+      ]
+    ],
+    "data_h": "Your data stays yours.",
+    "data_p": "Deepin does not build its advantage by taking customer data. Your records stay yours. What we carry from one deployment to the next is how an investigation is solved:",
+    "data_assets": [
+      "Investigation templates",
+      "Connector patterns",
+      "Workflows",
+      "Evaluations",
+      "Policy patterns",
+      "Agent capabilities"
+    ],
+    "copy": "Copy email",
+    "copied": "Copied",
+    "selected": "Selected",
+    "back_home": "← deepin.space",
+    "back_space": "Deepin →",
+    "login": "Log in",
+    "home_label": "Deepin home",
+    "footer_about": "Deepin builds Enterprise Investigation & Decision Automation: agents that investigate business cases, show the evidence and wait for a person to approve.",
+    "footer_spaces": "Spaces",
+    "footer_company": "Company",
+    "footer_contact": "Contact",
+    "customers": "Customers",
+    "enterprise": "Enterprise",
+    "cta": {
+      "home": "Bring us an investigation",
+      "risk": "Run an Investigation",
+      "finance": "Request a demo",
+      "security": "Bring us a case",
+      "energy": "Bring us a case"
+    },
+    "aria_main": "Main",
+    "aria_lang": "Language"
+  },
+  "tr": {
+    "lang_name": "Türkçe",
+    "investigates": "İnceler",
+    "delivers": "Sunar",
+    "more_title": "Aradığınız Investigation burada yok mu?",
+    "more_text": "İşlerimizin çoğu, henüz kimsenin otomatikleştirmediği bir vakayla başlıyor.",
+    "more_cta": "Ekibinizin neyi araştırdığını anlatın →",
+    "legend": [
+      "Sözleşme imzalandı",
+      "Ürüne gömülü ya da kurulumda",
+      "Canlı kullanımda"
+    ],
+    "growth_labels": [
+      "Tek Investigation",
+      "Tekrarlanan",
+      "Biriken"
+    ],
+    "primary": "Ana Investigation",
+    "explore_space": "{name} sayfasına git →",
+    "exploring": "Keşif aşamasında",
+    "chips": [
+      [
+        "lock",
+        "On-premise"
+      ],
+      [
+        "air",
+        "Air-gapped kurulum"
+      ],
+      [
+        "user",
+        "Rol tabanlı erişim"
+      ],
+      [
+        "doc",
+        "Denetim izi"
+      ],
+      [
+        "net",
+        "Veri soy ağacı"
+      ],
+      [
+        "shield",
+        "Politika uygulama"
+      ],
+      [
+        "check",
+        "Değerlendirmeler"
+      ],
+      [
+        "hand",
+        "İnsan onayı"
+      ]
+    ],
+    "rail": [
+      [
+        "Kaynak",
+        "Her bulgu, geldiği kayda, belgeye ya da sisteme bağlanır."
+      ],
+      [
+        "Kanıt",
+        "Olgular toplanır, tarihlenir ve vakayla birlikte saklanır."
+      ],
+      [
+        "Gerekçe",
+        "Kanıttan sonuca giden mantık, uygulanan politikayla birlikte yazılır."
+      ],
+      [
+        "Öneri",
+        "Önerilen bir karar; asla sessizce alınan bir karar değil."
+      ],
+      [
+        "İnsan onayı",
+        "Hiçbir şey değişmeden önce bir kişi onaylar, düzenler ya da reddeder."
+      ]
+    ],
+    "data_h": "Verileriniz sizde kalır.",
+    "data_p": "Deepin avantajını müşteri verisini alarak kurmaz. Kayıtlarınız sizin olarak kalır. Bir kurulumdan diğerine taşıdığımız şey, bir Investigation'ın nasıl çözüldüğüdür:",
+    "data_assets": [
+      "Investigation şablonları",
+      "Bağlantı kalıpları",
+      "İş akışları",
+      "Değerlendirmeler",
+      "Politika kalıpları",
+      "Agent yetenekleri"
+    ],
+    "copy": "E-postayı kopyala",
+    "copied": "Kopyalandı",
+    "selected": "Seçildi",
+    "back_home": "← deepin.space",
+    "back_space": "Deepin →",
+    "login": "Giriş",
+    "home_label": "Deepin ana sayfa",
+    "footer_about": "Deepin, Enterprise Investigation & Decision Automation alanında çalışır: iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent'lar.",
+    "footer_spaces": "Space'ler",
+    "footer_company": "Şirket",
+    "footer_contact": "İletişim",
+    "customers": "Müşteriler",
+    "enterprise": "Kurumsal",
+    "cta": {
+      "home": "Bize bir Investigation getirin",
+      "risk": "Investigation başlatın",
+      "finance": "Demo talep edin",
+      "security": "Bize bir vaka getirin",
+      "energy": "Bize bir vaka getirin"
+    },
+    "aria_main": "Ana menü",
+    "aria_lang": "Dil"
+  }
+}

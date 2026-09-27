@@ -1,0 +1,326 @@
+{
+  "investigations": [
+    {
+      "id": "company",
+      "name": "Company Investigation",
+      "space": "risk",
+      "status": "production",
+      "headline": "Çalıştığınız her şirketi ve önemli her değişikliği bilin.",
+      "sources": [
+        "Sahiplik",
+        "Ortaklar",
+        "Yöneticiler",
+        "Temsil yetkisi",
+        "İlişkili şirketler",
+        "Finansal durum",
+        "Geçmiş değişiklikler",
+        "Önemli şirket olayları"
+      ],
+      "outputs": [
+        "Kaynaklarıyla şirket risk dosyası",
+        "Değişiklik uyarıları",
+        "Onaya sunulan risk önerisi"
+      ],
+      "cta": "Company Investigation'ı inceleyin",
+      "href": "risk/",
+      "weight": "primary"
+    },
+    {
+      "id": "chargeback",
+      "name": "Chargeback Investigation",
+      "space": "finance",
+      "status": "deploying",
+      "headline": "Her kart itirazı, kanıtları hazır bir vaka olarak gelir.",
+      "sources": [
+        "İşlem",
+        "İtiraz vakası",
+        "Kanıt",
+        "Kart şeması kuralları",
+        "Politikalar",
+        "Geçmiş bilgiler",
+        "Üye işyeri ve şirket bağlamı"
+      ],
+      "outputs": [
+        "Kanıt paketi",
+        "Gerekçe",
+        "Öneri",
+        "İnsan onayı",
+        "Aksiyon hazırlığı"
+      ],
+      "cta": "Chargeback Investigation'ı inceleyin",
+      "href": "finance/",
+      "weight": "primary"
+    },
+    {
+      "id": "security",
+      "name": "Security Investigation",
+      "space": "security",
+      "status": "exploring",
+      "headline": "Güvenlik alarmlarını kanıta dayalı Investigation'lara dönüştürün.",
+      "cta": "İnceleyin",
+      "href": "security/",
+      "weight": "secondary"
+    },
+    {
+      "id": "operational",
+      "name": "Operational Investigation",
+      "space": "energy",
+      "status": "exploring",
+      "headline": "Anomalileri, sapmaları ve operasyonel kök nedenleri araştırın.",
+      "cta": "İnceleyin",
+      "href": "energy/",
+      "weight": "secondary"
+    }
+  ],
+  "spaces": [
+    {
+      "id": "risk",
+      "name": "risk",
+      "title": "Şirket ve üçüncü taraf Investigation'ı",
+      "status": "production",
+      "primary": "Company Investigation",
+      "note": "Kurumsal istihbarat ile üçüncü taraf risk ve GRC araçlarınız arasında konumlanır.",
+      "growth": [
+        [
+          "Company Investigation"
+        ],
+        [
+          "Company Investigation",
+          "Supplier Investigation"
+        ],
+        [
+          "Company Investigation",
+          "Supplier Investigation",
+          "Merchant Investigation",
+          "Continuous Monitoring"
+        ]
+      ],
+      "href": "risk/"
+    },
+    {
+      "id": "finance",
+      "name": "finance",
+      "title": "Finansal operasyonlar ve Investigation",
+      "status": "deploying",
+      "primary": "Chargeback Investigation",
+      "note": "Kart itirazlarıyla başlar, ardından yakın finansal Investigation'lara genişler.",
+      "growth": [
+        [
+          "Chargeback"
+        ],
+        [
+          "Chargeback",
+          "Fraud"
+        ],
+        [
+          "Chargeback",
+          "Fraud",
+          "Merchant Risk",
+          "KYC / KYB"
+        ]
+      ],
+      "href": "finance/"
+    },
+    {
+      "id": "security",
+      "name": "security",
+      "title": "Güvenlik Investigation'ı",
+      "status": "exploring",
+      "href": "security/"
+    },
+    {
+      "id": "energy",
+      "name": "energy",
+      "title": "Enerji ve operasyonel Investigation",
+      "status": "exploring",
+      "href": "energy/"
+    }
+  ],
+  "customers": [
+    {
+      "name": "Hayat Finans",
+      "investigation": "Company Investigation",
+      "status": "production",
+      "spaces": [
+        "risk"
+      ],
+      "logo": "",
+      "context": {
+        "risk": "Finansal / şirket riski"
+      }
+    },
+    {
+      "name": "PayTR",
+      "investigation": "Company Investigation",
+      "status": "production",
+      "spaces": [
+        "risk"
+      ],
+      "logo": "",
+      "context": {
+        "risk": "Üye işyeri / şirket riski"
+      }
+    },
+    {
+      "name": "SOCAR",
+      "investigation": "Company Investigation",
+      "status": "production",
+      "spaces": [
+        "risk"
+      ],
+      "logo": "",
+      "context": {
+        "risk": "Üçüncü taraf / şirket riski"
+      }
+    },
+    {
+      "name": "DGPays",
+      "investigation": "Company + Financial Investigation",
+      "status": "embedded",
+      "spaces": [
+        "risk",
+        "finance"
+      ],
+      "logo": "",
+      "context": {
+        "risk": "Ürüne gömülü çözüm"
+      }
+    },
+    {
+      "name": "Visa / Ziraat Bankası",
+      "investigation": "Chargeback Investigation",
+      "status": "contracted",
+      "spaces": [
+        "finance"
+      ],
+      "logo": ""
+    },
+    {
+      "name": "GreenChimney",
+      "investigation": "Operational Investigation",
+      "status": "production",
+      "spaces": [
+        "energy"
+      ],
+      "logo": ""
+    }
+  ],
+  "status": {
+    "production": {
+      "label": "Canlı kullanımda",
+      "level": 3
+    },
+    "embedded": {
+      "label": "Ürüne gömülü",
+      "level": 2
+    },
+    "deploying": {
+      "label": "Kurulumda",
+      "level": 2
+    },
+    "contracted": {
+      "label": "Sözleşmeli · Geliştirmede",
+      "level": 1
+    },
+    "exploring": {
+      "label": "Keşif aşamasında",
+      "level": 0
+    }
+  },
+  "nav": {
+    "home": [
+      [
+        "Investigation'lar",
+        "#investigations"
+      ],
+      [
+        "Space'ler",
+        "#spaces"
+      ],
+      [
+        "Müşteriler",
+        "#customers"
+      ],
+      [
+        "Nasıl çalışır",
+        "#how"
+      ],
+      [
+        "Kurumsal",
+        "#enterprise"
+      ],
+      [
+        "Şirket",
+        "#company"
+      ]
+    ],
+    "risk": [
+      [
+        "Investigation",
+        "#investigation"
+      ],
+      [
+        "İzleme",
+        "#monitoring"
+      ],
+      [
+        "Kanıt",
+        "#evidence"
+      ],
+      [
+        "Kullanım",
+        "#uses"
+      ],
+      [
+        "Müşteriler",
+        "#customers"
+      ],
+      [
+        "Kurumsal",
+        "#enterprise"
+      ]
+    ],
+    "finance": [
+      [
+        "Chargeback Investigation",
+        "#chargeback"
+      ],
+      [
+        "Vaka akışı",
+        "#how"
+      ],
+      [
+        "Üye işyeri bağlamı",
+        "#merchant"
+      ],
+      [
+        "Kanıt",
+        "#trust"
+      ]
+    ],
+    "security": [
+      [
+        "Neyi inceler",
+        "#investigation"
+      ],
+      [
+        "Durum",
+        "#status"
+      ]
+    ],
+    "energy": [
+      [
+        "Neyi inceler",
+        "#investigation"
+      ],
+      [
+        "Durum",
+        "#status"
+      ]
+    ]
+  },
+  "proof": {
+    "show_logos": false,
+    "_note": "Set show_logos to true and fill each customer logo path (e.g. assets/logos/paytr.svg) once logo use is approved."
+  }
+}

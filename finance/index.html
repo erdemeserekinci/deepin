@@ -1,16 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>deepin.finance · Chargeback Investigation</title>
-<meta name="description" content="Chargeback investigation with the evidence attached. deepin.finance assembles the dispute case, applies scheme rules and your policies and prepares a recommendation for human approval.">
+<meta name="description" content="Kanıtı ekli Chargeback Investigation. deepin.finance itiraz vakasını hazırlar, kart şeması kurallarını ve politikalarınızı uygular, insan onayı için bir öneri hazırlar.">
 <meta property="og:title" content="deepin.finance · Chargeback Investigation">
-<meta property="og:description" content="Chargeback investigation with the evidence attached. deepin.finance assembles the dispute case, applies scheme rules and your policies and prepares a recommendation for human approval.">
+<meta property="og:description" content="Kanıtı ekli Chargeback Investigation. deepin.finance itiraz vakasını hazırlar, kart şeması kurallarını ve politikalarınızı uygular, insan onayı için bir öneri hazırlar.">
 <meta property="og:url" content="https://deepin.space/finance/">
+<meta property="og:locale" content="tr_TR">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
 <link rel="canonical" href="https://deepin.space/finance/">
+<link rel="alternate" hreflang="tr" href="https://deepin.space/finance/">
+<link rel="alternate" hreflang="en" href="https://deepin.space/en/finance/">
+<link rel="alternate" hreflang="x-default" href="https://deepin.space/finance/">
 <link rel="icon" type="image/png" href="../assets/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -673,6 +677,18 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 @media (max-width:520px){.proof-grid.n4{grid-template-columns:1fr}}
 .proof-logo{height:28px;width:auto;max-width:160px;object-fit:contain;object-position:left}
 
+/* language switch */
+.langs{display:inline-flex;align-items:center;gap:2px;padding:2px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+.langs a{padding:4px 8px;border-radius:999px;text-decoration:none;color:var(--muted)}
+.langs a:hover{color:var(--ink)}
+.langs a[aria-current]{background:var(--soft);color:var(--accent);font-weight:500}
+footer .langs{justify-self:start;margin-top:10px}
+@media (max-width:420px){.nav .langs a{padding:4px 6px}}
+:lang(tr) .engage li::before{content:"Adım " counter(e)}
+@media (max-width:520px){.nav .nav-cta .btn-primary{display:none}}
+.inv-head{flex-wrap:wrap}.inv>*{min-width:0}@media (max-width:860px){.catalog-primary,.catalog-secondary{grid-template-columns:minmax(0,1fr)}}
+.nav-links a{white-space:nowrap}
+
 .amt{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
 .amt strong{font-size:26px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .amt span{font-size:13px;color:var(--muted)}
@@ -711,9 +727,9 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <body>
 <header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.finance</span></a>
-    <nav class="nav-links" aria-label="Main"><a href="#chargeback">Chargeback Investigation</a><a href="#how">Case path</a><a href="#merchant">Merchant context</a><a href="#trust">Evidence</a></nav>
-    <div class="nav-cta"><a class="back" href="../">← deepin.space</a><a class="btn btn-primary btn-sm" href="#contact">Request a demo</a></div>
+    <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.finance</span></a>
+    <nav class="nav-links" aria-label="Ana menü"><a href="#chargeback">Chargeback <span lang="en">Investigation</span></a><a href="#how">Vaka akışı</a><a href="#merchant">Üye işyeri bağlamı</a><a href="#trust">Kanıt</a></nav>
+    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="../finance/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/finance/" hreflang="en" lang="en" title="English">EN</a></span><a class="back" href="../">← <span lang="en">deepin.space</span></a><a class="btn btn-primary btn-sm" href="#contact">Demo talep edin</a></div>
   </div>
 </header>
 <main>
@@ -721,48 +737,48 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <p class="eyebrow">Financial Operations &amp; Investigation</p>
-      <h1>Chargeback investigation, <b>with the evidence attached.</b></h1>
-      <p class="lede">Dispute teams pull transaction data, authentication records, merchant details and documents for every case, against scheme deadlines. deepin.finance assembles the case, applies your rules and policies, and prepares a decision your team can approve.</p>
+      <p class="eyebrow">Finansal Operasyonlar ve <span lang="en">Investigation</span></p>
+      <h1>Chargeback <span lang="en">Investigation</span>, <b>kanıtı ekli olarak.</b></h1>
+      <p class="lede">İtiraz ekipleri her vaka için işlem verisini, doğrulama kayıtlarını, üye işyeri bilgilerini ve belgeleri, kart şeması sürelerine karşı yarışarak toplar. <span lang="en">deepin.finance</span> vakayı hazırlar, kurallarınızı ve politikalarınızı uygular ve ekibinizin onaylayabileceği bir karar hazırlar.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact">Request a demo
+        <a class="btn btn-primary" href="#contact">Demo talep edin
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn btn-ghost" href="#how">See the case path</a>
+        <a class="btn btn-ghost" href="#how">Vaka akışını görün</a>
       </div>
-      <span class="chip st-contracted status">Visa / Ziraat Bankası · contracted, in development</span>
+      <span class="chip st-contracted status">Visa / Ziraat Bankası · sözleşmeli, geliştirmede</span>
     </div>
 
-    <figure class="case" style="margin:0" aria-label="Sample chargeback case">
+    <figure class="case" style="margin:0" aria-label="Örnek chargeback vakası">
       <div class="case-top">
-        <span class="case-id">CB-2026-07731 · Card dispute</span>
-        <span class="tag wait">Response due in 6 days</span>
+        <span class="case-id">CB-2026-07731 · Kart itirazı</span>
+        <span class="tag wait">Yanıt için 6 gün kaldı</span>
       </div>
       <div class="case-body">
-        <div class="amt"><strong>₺4,850.00</strong><span>Reason: goods not received</span></div>
+        <div class="amt"><strong>₺4.850,00</strong><span>Sebep: ürün teslim alınmadı</span></div>
         <dl class="kv" style="margin:0">
-          <div><dt>Merchant</dt><dd>Kestrel Elektronik</dd></div>
-          <div><dt>Channel</dt><dd>E-commerce</dd></div>
-          <div><dt>Txn date</dt><dd>02 Sep 2026</dd></div>
+          <div><dt>Üye işyeri</dt><dd>Kestrel Elektronik</dd></div>
+          <div><dt>Kanal</dt><dd>E-ticaret</dd></div>
+          <div><dt>İşlem tarihi</dt><dd>02 Eyl 2026</dd></div>
         </dl>
         <div>
-          <div class="lbl">Evidence gathered</div>
+          <div class="lbl">Toplanan kanıtlar</div>
           <ul class="chk">
-            <li><span>Authorization and clearing records</span><span>card system</span></li>
-            <li><span>3-D Secure authentication</span><span>ACS log</span></li>
-            <li class="no"><span>Proof of delivery</span><span>not provided</span></li>
-            <li><span>Merchant profile: 3 signatory changes this year</span><span>deepin.risk</span></li>
+            <li><span>Provizyon ve takas kayıtları</span><span>kart sistemi</span></li>
+            <li><span>3-D Secure doğrulaması</span><span>ACS kaydı</span></li>
+            <li class="no"><span>Teslimat kanıtı</span><span>sunulmadı</span></li>
+            <li><span>Üye işyeri profili: bu yıl 3 imza yetkilisi değişikliği</span><span><span lang="en">deepin.risk</span></span></li>
           </ul>
         </div>
         <div>
-          <div class="lbl">Reasoning</div>
-          <p class="reason">The cardholder authenticated the purchase, but the merchant has not supplied proof of delivery within the response window. Under your policy the dispute is valid, and the merchant's recent authority changes justify a review.</p>
+          <div class="lbl">Gerekçe</div>
+          <p class="reason">Kart sahibi alışverişi doğrulamış, ancak üye işyeri yanıt süresi içinde teslimat kanıtı sunmamış. Politikanıza göre itiraz geçerli; üye işyerindeki son yetki değişiklikleri ayrıca bir incelemeyi gerektiriyor.</p>
         </div>
         <div class="propose">
-          <p>Accept dispute · flag merchant</p>
-          <div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div>
+          <p>İtirazı kabul et · üye işyerini işaretle</p>
+          <div class="acts"><span>Analiste gönder</span><span class="ok">Onayla</span></div>
         </div>
       </div>
-      <figcaption class="case-note">Sample case with a fictional merchant, for illustration.</figcaption>
+      <figcaption class="case-note">Kurgusal bir üye işyeriyle hazırlanmış örnek vaka.</figcaption>
     </figure>
   </div>
 </section>
@@ -770,15 +786,15 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec" id="chargeback">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">The problem</p>
-      <h2 class="h2">Every dispute is <b>a small investigation.</b></h2>
-      <p class="lede">A single chargeback can touch the card system, core banking, the acquirer, the merchant and a pile of documents. Multiply that by thousands of cases a month.</p>
+      <p class="eyebrow">Sorun</p>
+      <h2 class="h2">Her itiraz <b>küçük bir <span lang="en">Investigation</span>'dır.</b></h2>
+      <p class="lede">Tek bir chargeback kart sistemine, ana bankacılık sistemine, üye işyeri bankasına, üye işyerine ve bir yığın belgeye dokunabilir. Bunu ayda binlerce vakayla çarpın.</p>
     </div>
     <div class="pains">
-      <div><h3>High volume</h3><p>Cases arrive every day and the queue rarely empties.</p></div>
-      <div><h3>Hard deadlines</h3><p>Scheme timeframes leave little room for slow evidence collection.</p></div>
-      <div><h3>Scattered data</h3><p>Transaction, authentication, merchant and document data live in different systems.</p></div>
-      <div><h3>Real losses</h3><p>A missed deadline or a wrong call becomes a write-off, a fee or a complaint.</p></div>
+      <div><h3>Yüksek hacim</h3><p>Vakalar her gün gelir ve kuyruk nadiren boşalır.</p></div>
+      <div><h3>Katı süreler</h3><p>Kart şeması süreleri, yavaş kanıt toplamaya pek yer bırakmaz.</p></div>
+      <div><h3>Dağınık veri</h3><p>İşlem, doğrulama, üye işyeri ve belge verisi farklı sistemlerde durur.</p></div>
+      <div><h3>Gerçek kayıplar</h3><p>Kaçırılan bir süre ya da yanlış bir karar; zarar yazılan bir tutara, bir ücrete ya da bir şikâyete dönüşür.</p></div>
     </div>
   </div>
 </section>
@@ -786,20 +802,20 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec tone" id="how">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">How it works</p>
-      <h2 class="h2">The case path, <b>end to end.</b></h2>
-      <p class="lede">deepin.finance follows the steps your dispute analysts already take, and stops for a person before any action is taken.</p>
+      <p class="eyebrow">Nasıl çalışır</p>
+      <h2 class="h2">Vaka akışı, <b>baştan sona.</b></h2>
+      <p class="lede"><span lang="en">deepin.finance</span>, itiraz analistlerinizin zaten izlediği adımları izler ve herhangi bir aksiyondan önce bir kişinin onayı için durur.</p>
     </div>
     <div class="flow-wrap"><svg class="flow-line" aria-hidden="true"></svg>
     <ol class="flow eight">
-      <li><h3>Transaction</h3><p>A dispute is raised on a card transaction.</p></li>
-      <li><h3>Case</h3><p>Authorization, clearing and cardholder data form the case.</p></li>
-      <li><h3>Evidence collection</h3><p>Authentication logs, merchant responses and documents.</p></li>
-      <li><h3>Rules &amp; policies</h3><p>Scheme rules and your internal policies.</p></li>
-      <li><h3>Investigation</h3><p>Findings are weighed with the merchant's context.</p></li>
-      <li><h3>Recommen&shy;dation</h3><p>A proposed outcome with its reasoning.</p></li>
-      <li class="human"><h3>Human approval</h3><p>Your analyst approves, edits or rejects.</p></li>
-      <li><h3>Action</h3><p>Prepared for your systems, fully audited.</p></li>
+      <li><h3>İşlem</h3><p>Bir kart işlemine itiraz açılır.</p></li>
+      <li><h3>Vaka</h3><p>Provizyon, takas ve kart sahibi verisi vakayı oluşturur.</p></li>
+      <li><h3>Kanıt toplama</h3><p>Doğrulama kayıtları, üye işyeri yanıtları ve belgeler.</p></li>
+      <li><h3>Kurallar ve politikalar</h3><p>Kart şeması kuralları ve iç politikalarınız.</p></li>
+      <li><h3><span lang="en">Investigation</span></h3><p>Bulgular üye işyeri bağlamıyla birlikte değerlendirilir.</p></li>
+      <li><h3>Öneri</h3><p>Gerekçesiyle birlikte önerilen sonuç.</p></li>
+      <li class="human"><h3>İnsan onayı</h3><p>Analistiniz onaylar, düzenler ya da reddeder.</p></li>
+      <li><h3>Aksiyon</h3><p>Sistemleriniz için hazırlanır, tamamen denetlenebilir.</p></li>
     </ol></div>
   </div>
 </section>
@@ -808,27 +824,27 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   <div class="wrap">
     <div class="spot">
       <div class="txt">
-        <p class="eyebrow">Merchant context</p>
-        <h3>Look at the transaction <b>and the company behind it.</b></h3>
-        <p>Many financial cases need both. While a merchant's transaction is being investigated, deepin.finance can check the merchant company itself using <a href="../risk/">deepin.risk</a>, in the same case.</p>
+        <p class="eyebrow">Üye işyeri bağlamı</p>
+        <h3>İşleme <b>ve arkasındaki şirkete bakın.</b></h3>
+        <p>Birçok finansal vaka ikisini birden gerektirir. Bir üye işyerinin işlemi araştırılırken <span lang="en">deepin.finance</span>, aynı vaka içinde <a href="../risk/"><span lang="en">deepin.risk</span></a> ile üye işyeri şirketinin kendisini de kontrol edebilir.</p>
         <dl class="meta">
-          <div><dt>Built for</dt><dd>Banks, issuers, acquirers, payment institutions and fintechs</dd></div>
-          <div><dt>Teams</dt><dd>Cards, payment operations and dispute operations</dd></div>
-          <div><dt>With</dt><dd>Fraud, risk, compliance, IT and information security</dd></div>
+          <div><dt>Kimler için</dt><dd>Bankalar, kart çıkaran kuruluşlar, üye işyeri bankaları, ödeme kuruluşları ve <span lang="en">fintech</span>'ler</dd></div>
+          <div><dt>Ekipler</dt><dd>Kartlar, ödeme operasyonları ve itiraz operasyonları</dd></div>
+          <div><dt>Birlikte</dt><dd>Fraud, risk, uyum, BT ve bilgi güvenliği</dd></div>
         </dl>
       </div>
       <div class="panel">
         <div>
-          <div class="lbl">From case to decision-ready</div>
-          <div class="equation plain"><span>Transaction</span><i>+</i><span>Entity</span><i>+</i><span>Evidence</span></div>
+          <div class="lbl">Vakadan karara hazır hale</div>
+          <div class="equation plain"><span>İşlem</span><i>+</i><span>Şirket</span><i>+</i><span>Kanıt</span></div>
           <div class="eq-down" aria-hidden="true"></div>
-          <div class="equation"><span class="dr">Decision-ready case</span><i>→</i><span>Human approval</span></div>
+          <div class="equation"><span class="dr">Karara hazır vaka</span><i>→</i><span>İnsan onayı</span></div>
         </div>
         <div>
-          <div class="lbl">What Deepin checks about the merchant</div>
+          <div class="lbl"><span lang="en">Deepin</span> üye işyeri hakkında neleri kontrol eder</div>
           <div class="entity">
-            <span>The company</span><span>Partners</span><span>Related companies</span>
-            <span>Signatories</span><span>Past changes</span><span>Financial condition</span>
+            <span>Şirketin kendisi</span><span>Ortaklar</span><span>İlişkili şirketler</span>
+            <span>İmza yetkilileri</span><span>Geçmiş değişiklikler</span><span>Finansal durum</span>
           </div>
         </div>
       </div>
@@ -839,16 +855,16 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec tone" id="measure">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">What we measure</p>
-      <h2 class="h2">Results you can <b>put a number on.</b></h2>
-      <p class="lede">We agree on the metrics before deployment and measure them on your own cases.</p>
+      <p class="eyebrow">Neyi ölçeriz</p>
+      <h2 class="h2">Rakamla ifade edilebilen <b>sonuçlar.</b></h2>
+      <p class="lede">Metrikleri kurulumdan önce birlikte belirler, kendi vakalarınız üzerinde ölçeriz.</p>
     </div>
     <div class="metrics">
-      <div><strong>Investigation time</strong><span>Minutes from case opened to decision ready</span></div>
-      <div><strong>Human touch</strong><span>Manual steps left per case</span></div>
-      <div><strong>Cases per analyst</strong><span>Capacity of the same team</span></div>
-      <div><strong>Turnaround</strong><span>Time to respond within scheme deadlines</span></div>
-      <div><strong>Evidence automation</strong><span>Share of evidence gathered without a person</span></div>
+      <div><strong><span lang="en">Investigation</span> süresi</strong><span>Vakanın açılmasından karara hazır olmasına kadar geçen dakika</span></div>
+      <div><strong>İnsan müdahalesi</strong><span>Vaka başına kalan manuel adım</span></div>
+      <div><strong>Analist başına vaka</strong><span>Aynı ekibin kapasitesi</span></div>
+      <div><strong>Yanıt süresi</strong><span>Kart şeması süreleri içinde yanıt verme süresi</span></div>
+      <div><strong>Kanıt otomasyonu</strong><span>Bir kişiye gerek kalmadan toplanan kanıt oranı</span></div>
     </div>
   </div>
 </section>
@@ -856,17 +872,17 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec" id="next">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">What's next</p>
-      <h2 class="h2">Chargebacks first. <b>Then the rest of financial operations.</b></h2>
-      <p class="lede">Each new investigation reuses the connectors, policies and evaluations built for the last one, so it reaches production faster.</p>
+      <p class="eyebrow">Sırada ne var</p>
+      <h2 class="h2">Önce chargeback. <b>Sonra finansal operasyonların geri kalanı.</b></h2>
+      <p class="lede">Her yeni <span lang="en">Investigation</span>, bir öncekine kurulan bağlantıları, politikaları ve değerlendirmeleri yeniden kullanır; böylece canlıya daha hızlı çıkar.</p>
     </div>
     <ol class="roadmap">
-      <li class="now"><span class="tag">Now</span><h3>Chargeback</h3><p>Card dispute investigation</p></li>
-      <li><span class="tag next">Next</span><h3>Fraud</h3><p>Suspicious transaction review</p></li>
-      <li><span class="tag next">Next</span><h3>Merchant risk</h3><p>Onboarding and monitoring</p></li>
-      <li><span class="tag next">Next</span><h3>KYC / KYB</h3><p>Customer and business verification</p></li>
-      <li><span class="tag next">Next</span><h3>AML</h3><p>Alert investigation</p></li>
-      <li><span class="tag next">Next</span><h3>Complaints</h3><p>Case review and response</p></li>
+      <li class="now"><span class="tag">Şimdi</span><h3>Chargeback</h3><p>Kart itirazı <span lang="en">Investigation</span>'ı</p></li>
+      <li><span class="tag next">Sırada</span><h3>Fraud</h3><p>Şüpheli işlem incelemesi</p></li>
+      <li><span class="tag next">Sırada</span><h3>Üye işyeri riski</h3><p>Kabul ve izleme</p></li>
+      <li><span class="tag next">Sırada</span><h3>KYC / KYB</h3><p>Müşteri ve işletme doğrulaması</p></li>
+      <li><span class="tag next">Sırada</span><h3>AML</h3><p>Alarm <span lang="en">Investigation</span>'ı</p></li>
+      <li><span class="tag next">Sırada</span><h3>Şikâyetler</h3><p>Vaka inceleme ve yanıt</p></li>
     </ol>
   </div>
 </section>
@@ -874,18 +890,18 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec tone" id="trust">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Trust</p>
-      <h2 class="h2">Built for <b>regulated finance.</b></h2>
-      <p class="lede">Deepin runs where your data is allowed to run, and every decision can be traced from source to approval.</p>
+      <p class="eyebrow">Güven</p>
+      <h2 class="h2">Regüle finans <b>için tasarlandı.</b></h2>
+      <p class="lede"><span lang="en">Deepin</span>, verinizin çalışmasına izin verilen yerde çalışır ve her karar kaynaktan onaya kadar izlenebilir.</p>
     </div>
     <div class="trust">
-      <ol class="evidence"><li><span class="n">01</span><div><h3>Source</h3><p>Each finding links to the record, document or system it came from.</p></div></li><li><span class="n">02</span><div><h3>Evidence</h3><p>The facts are collected, dated and kept with the case.</p></div></li><li><span class="n">03</span><div><h3>Reasoning</h3><p>The logic from evidence to conclusion is written out, with the policy it applies.</p></div></li><li><span class="n">04</span><div><h3>Recommendation</h3><p>A proposed decision, never a silent one.</p></div></li><li><span class="n">05</span><div><h3>Human approval</h3><p>A person approves, edits or rejects before anything changes.</p></div></li></ol>
+      <ol class="evidence"><li><span class="n">01</span><div><h3>Kaynak</h3><p>Her bulgu, geldiği kayda, belgeye ya da sisteme bağlanır.</p></div></li><li><span class="n">02</span><div><h3>Kanıt</h3><p>Olgular toplanır, tarihlenir ve vakayla birlikte saklanır.</p></div></li><li><span class="n">03</span><div><h3>Gerekçe</h3><p>Kanıttan sonuca giden mantık, uygulanan politikayla birlikte yazılır.</p></div></li><li><span class="n">04</span><div><h3>Öneri</h3><p>Önerilen bir karar; asla sessizce alınan bir karar değil.</p></div></li><li><span class="n">05</span><div><h3>İnsan onayı</h3><p>Hiçbir şey değişmeden önce bir kişi onaylar, düzenler ya da reddeder.</p></div></li></ol>
       <div>
-        <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg>On-premise</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg>Air-gapped deployment</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Role-based access</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Audit trail</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Data lineage</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Policy enforcement</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Evaluations</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>Human approval</li></ul>
-        <p class="iso">Information security runs under an ISO/IEC 27001-based management system, with KVKK-compliant processing.</p>
+        <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg><span lang="en">On-premise</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg><span lang="en">Air-gapped</span> kurulum</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Rol tabanlı erişim</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Denetim izi</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Veri soy ağacı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Politika uygulama</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Değerlendirmeler</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>İnsan onayı</li></ul>
+        <p class="iso">Bilgi güvenliği ISO/IEC 27001 tabanlı bir yönetim sistemiyle yürütülür; veri işleme KVKK'ya uygundur.</p>
         <div class="datanote">
-          <strong>Cardholder and transaction data stay yours.</strong>
-          <p>Customer records remain customer-owned. What we reuse across deployments are investigation templates, connectors, evaluations and workflows, never your data.</p>
+          <strong>Kart sahibi ve işlem verileri sizde kalır.</strong>
+          <p>Müşteri kayıtları müşteriye ait kalır. Kurulumlar arasında yeniden kullandığımız şey <span lang="en">Investigation</span> şablonları, bağlantılar, değerlendirmeler ve iş akışlarıdır; asla sizin verileriniz değil.</p>
         </div>
       </div>
     </div>
@@ -895,40 +911,40 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec" id="engage">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Getting started</p>
-      <h2 class="h2">Start with <b>your own cases.</b></h2>
+      <p class="eyebrow">Başlarken</p>
+      <h2 class="h2">Kendi <b>vakalarınızla başlayın.</b></h2>
     </div>
     <ol class="engage">
-      <li><h3>Size the queue</h3><p>Monthly case volume, time per case, systems touched and the losses at stake.</p></li>
-      <li><h3>Run real cases</h3><p>Your own disputes, your systems and success criteria agreed up front.</p></li>
-      <li><h3>Put it into production</h3><p>Deploy into your dispute operation, with human approval on every outcome.</p></li>
+      <li><h3>Kuyruğu ölçün</h3><p>Aylık vaka hacmi, vaka başına süre, dokunulan sistemler ve risk altındaki kayıplar.</p></li>
+      <li><h3>Gerçek vakalarla çalışın</h3><p>Kendi itirazlarınız, kendi sistemleriniz ve baştan birlikte belirlenen başarı kriterleri.</p></li>
+      <li><h3>Canlıya alın</h3><p>Her sonuçta insan onayı ile itiraz operasyonunuza kurun.</p></li>
     </ol>
   </div>
 </section>
 
 <section class="band" id="contact">
   <div class="wrap">
-    <p class="eyebrow">deepin.finance</p>
-    <h2>How many disputes does your team <b>investigate each month?</b></h2>
-    <p>Tell us about your dispute operation. We will show you how deepin.finance would handle one of your real cases.</p>
-    <div class="mail"><code id="email">info@deepin.space</code><button class="copy" id="copyBtn" type="button">Copy email</button></div>
+    <p class="eyebrow"><span lang="en">deepin.finance</span></p>
+    <h2>Ekibiniz her ay <b>kaç itirazı araştırıyor?</b></h2>
+    <p>İtiraz operasyonunuzu anlatın. <span lang="en">deepin.finance</span>'in gerçek vakalarınızdan birini nasıl ele alacağını gösterelim.</p>
+    <div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div>
   </div>
 </section>
 </main>
 <footer id="company">
   <div class="wrap">
     <div class="f-about">
-      <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.finance</span></a>
-      <p>Deepin builds Enterprise Investigation &amp; Decision Automation: agents that investigate business cases, show the evidence and wait for a person to approve.</p>
+      <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.finance</span></a>
+      <p><span lang="en">Deepin</span>, <span lang="en">Enterprise</span> <span lang="en">Investigation</span> &amp; <span lang="en">Decision</span> <span lang="en">Automation</span> alanında çalışır: iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent&#x27;lar.</p>
       <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
     </div>
-    <nav class="f-col" aria-label="Spaces"><span class="lbl">Spaces</span><a href="../risk/">deepin.risk</a><a href="../finance/">deepin.finance</a><a href="../security/">deepin.security</a><a href="../energy/">deepin.energy</a></nav>
-    <nav class="f-col" aria-label="Company"><span class="lbl">Company</span>
-      <a href="../#customers">Customers</a><a href="../#enterprise">Enterprise</a>
-      <a href="https://platform.deepin.space">Log in</a>
+    <nav class="f-col" aria-label="Space&#x27;ler"><span class="lbl">Space&#x27;ler</span><a href="../risk/"><span lang="en">deepin.risk</span></a><a href="../finance/"><span lang="en">deepin.finance</span></a><a href="../security/"><span lang="en">deepin.security</span></a><a href="../energy/"><span lang="en">deepin.energy</span></a></nav>
+    <nav class="f-col" aria-label="Şirket"><span class="lbl">Şirket</span>
+      <a href="../#customers">Müşteriler</a><a href="../#enterprise">Kurumsal</a>
+      <a href="https://platform.deepin.space">Giriş</a>
       <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
-    <div class="f-col"><span class="lbl">Contact</span><span>info@deepin.space</span><span class="f-copy">© 2026 Deepin</span></div>
+    <div class="f-col"><span class="lbl">İletişim</span><span>info@<span lang="en">deepin.space</span></span><span class="f-copy">© 2026 <span lang="en">Deepin</span></span><span class="langs" role="group" aria-label="Dil"><a href="../finance/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/finance/" hreflang="en" lang="en" title="English">EN</a></span></div>
   </div>
 </footer>
 <script>
@@ -949,8 +965,9 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   // copy email
   var btn=document.getElementById('copyBtn'),em=document.getElementById('email');
   if(btn&&em)btn.addEventListener('click',function(){
-    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1800)};
-    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';};
+    var label=btn.textContent;
+    var done=function(){btn.textContent=btn.getAttribute('data-copied')||'Copied';setTimeout(function(){btn.textContent=label},1800)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent=btn.getAttribute('data-selected')||'Selected';};
     try{navigator.clipboard.writeText(em.textContent).then(done,fallback)}catch(e){fallback()}
   });
 

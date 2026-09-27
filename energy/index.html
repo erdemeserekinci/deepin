@@ -1,16 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>deepin.energy · Operational Investigation</title>
-<meta name="description" content="Investigate anomalies, deviations and operational root causes. deepin.energy is an exploration area at Deepin.">
+<meta name="description" content="Anomalileri, sapmaları ve operasyonel kök nedenleri araştırın. deepin.energy, Deepin&#x27;in keşif alanlarından biridir.">
 <meta property="og:title" content="deepin.energy · Operational Investigation">
-<meta property="og:description" content="Investigate anomalies, deviations and operational root causes. deepin.energy is an exploration area at Deepin.">
+<meta property="og:description" content="Anomalileri, sapmaları ve operasyonel kök nedenleri araştırın. deepin.energy, Deepin&#x27;in keşif alanlarından biridir.">
 <meta property="og:url" content="https://deepin.space/energy/">
+<meta property="og:locale" content="tr_TR">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
 <link rel="canonical" href="https://deepin.space/energy/">
+<link rel="alternate" hreflang="tr" href="https://deepin.space/energy/">
+<link rel="alternate" hreflang="en" href="https://deepin.space/en/energy/">
+<link rel="alternate" hreflang="x-default" href="https://deepin.space/energy/">
 <link rel="icon" type="image/png" href="../assets/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -673,6 +677,18 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 @media (max-width:520px){.proof-grid.n4{grid-template-columns:1fr}}
 .proof-logo{height:28px;width:auto;max-width:160px;object-fit:contain;object-position:left}
 
+/* language switch */
+.langs{display:inline-flex;align-items:center;gap:2px;padding:2px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+.langs a{padding:4px 8px;border-radius:999px;text-decoration:none;color:var(--muted)}
+.langs a:hover{color:var(--ink)}
+.langs a[aria-current]{background:var(--soft);color:var(--accent);font-weight:500}
+footer .langs{justify-self:start;margin-top:10px}
+@media (max-width:420px){.nav .langs a{padding:4px 6px}}
+:lang(tr) .engage li::before{content:"Adım " counter(e)}
+@media (max-width:520px){.nav .nav-cta .btn-primary{display:none}}
+.inv-head{flex-wrap:wrap}.inv>*{min-width:0}@media (max-width:860px){.catalog-primary,.catalog-secondary{grid-template-columns:minmax(0,1fr)}}
+.nav-links a{white-space:nowrap}
+
 .statusbox{display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:start;padding:28px;border-radius:18px;border:1px dashed var(--line);background:var(--surface)}
 @media (max-width:620px){.statusbox{grid-template-columns:1fr}}
 .statusbox p{color:var(--ink-2);max-width:62ch}
@@ -684,9 +700,9 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <body>
 <header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.energy</span></a>
-    <nav class="nav-links" aria-label="Main"><a href="#investigation">What it investigates</a><a href="#status">Status</a></nav>
-    <div class="nav-cta"><a class="back" href="../">← deepin.space</a><a class="btn btn-primary btn-sm" href="#contact">Bring us a case</a></div>
+    <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.energy</span></a>
+    <nav class="nav-links" aria-label="Ana menü"><a href="#investigation">Neyi inceler</a><a href="#status">Durum</a></nav>
+    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="../energy/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/energy/" hreflang="en" lang="en" title="English">EN</a></span><a class="back" href="../">← <span lang="en">deepin.space</span></a><a class="btn btn-primary btn-sm" href="#contact">Bize bir vaka getirin</a></div>
   </div>
 </header>
 <main>
@@ -694,25 +710,25 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <p class="eyebrow">Operational Investigation</p>
-      <h1>Investigate anomalies, deviations and <b>operational root causes.</b></h1>
-      <p class="lede">When output drops or a reading drifts, engineers compare sensor data, maintenance logs and past events to find the cause. Deepin can run that investigation and propose the next step for a person to approve.</p>
+      <p class="eyebrow"><span lang="en">Operational</span> <span lang="en">Investigation</span></p>
+      <h1>Anomalileri, sapmaları ve <b>operasyonel kök nedenleri araştırın.</b></h1>
+      <p class="lede">Üretim düştüğünde ya da bir ölçüm kaydığında mühendisler nedeni bulmak için sensör verisini, bakım kayıtlarını ve geçmiş olayları karşılaştırır. <span lang="en">Deepin</span> bu <span lang="en">Investigation</span>'ı yürütebilir ve bir kişinin onayı için sonraki adımı önerebilir.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact">Bring us a case <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn btn-ghost" href="#status">Where we are</a>
+        <a class="btn btn-primary" href="#contact">Bize bir vaka getirin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#status">Neredeyiz</a>
       </div>
-      <span class="chip st-exploring status">Exploring</span>
+      <span class="chip st-exploring status">Keşif aşamasında</span>
     </div>
-    <figure class="case" style="margin:0" aria-label="Sample case">
-      <div class="case-top"><span class="case-id">OPS-2026-0602 · Output deviation</span><span class="chip st-wait">Awaiting approval</span></div>
+    <figure class="case" style="margin:0" aria-label="Örnek vaka">
+      <div class="case-top"><span class="case-id">OPS-2026-0602 · Üretim sapması</span><span class="chip st-wait">Onay bekliyor</span></div>
       <div class="case-body">
-        <div class="trigger"><span class="k">Trigger</span><span>Unit 3 output 7% below expected for six hours</span><small>Plant monitoring · 21 Sep 2026</small></div>
-        <div class="srcs" aria-label="Sources"><span>Sensor data</span><span>Maintenance log</span><span>Weather data</span><span>Past events</span></div>
-        <ul class="finds"><li><span class="k">Sensors</span><span>Inlet pressure drop began after 04:10</span><span class="src">Sensor data</span></li><li><span class="k">Maintenance</span><span>Inlet filter replaced two days earlier</span><span class="src">Maintenance log</span></li><li><span class="k">History</span><span>Two similar events followed filter work in 2025</span><span class="src">Past events</span></li></ul>
-        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Finding</span>The deviation is not explained by weather or load. It matches earlier cases where a newly fitted filter restricted flow.</p>
-        <div class="propose"><p>Schedule inspection of Unit 3 inlet</p><div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div></div>
+        <div class="trigger"><span class="k">Tetikleyici</span><span>3 numaralı ünitenin üretimi altı saattir beklenenin %7 altında</span><small>Tesis izleme · 21 Eyl 2026</small></div>
+        <div class="srcs" aria-label="Kaynaklar"><span>Sensör verisi</span><span>Bakım kaydı</span><span>Hava durumu verisi</span><span>Geçmiş olaylar</span></div>
+        <ul class="finds"><li><span class="k">Sensörler</span><span>Giriş basıncındaki düşüş 04:10'dan sonra başladı</span><span class="src">Sensör verisi</span></li><li><span class="k">Bakım</span><span>Giriş filtresi iki gün önce değiştirildi</span><span class="src">Bakım kaydı</span></li><li><span class="k">Geçmiş</span><span>2025'te filtre çalışmasının ardından iki benzer olay yaşandı</span><span class="src">Geçmiş olaylar</span></li></ul>
+        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Bulgu</span>Sapma hava durumu ya da yük ile açıklanamıyor. Yeni takılan bir filtrenin akışı kısıtladığı önceki vakalarla örtüşüyor.</p>
+        <div class="propose"><p>3 numaralı ünitenin giriş denetimini planla</p><div class="acts"><span>Analiste gönder</span><span class="ok">Onayla</span></div></div>
       </div>
-      <figcaption class="case-note">Illustrative case. This investigation is still being explored.</figcaption>
+      <figcaption class="case-note">Örnek vaka. Bu <span lang="en">Investigation</span> henüz keşif aşamasında.</figcaption>
     </figure>
   </div>
 </section>
@@ -720,13 +736,13 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec" id="investigation">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">What it investigates</p>
-      <h2 class="h2">From a deviation to <b>a likely root cause.</b></h2>
+      <p class="eyebrow">Neyi inceler</p>
+      <h2 class="h2">Bir sapmadan <b>olası bir kök nedene.</b></h2>
     </div>
     <div class="inv inv-primary inv-panel">
       <div class="inv-cols" style="border-top:0;padding-top:0">
-        <div><div class="lbl">Investigates</div><ul class="inv-list in"><li>Sensor and SCADA readings</li><li>Maintenance and work orders</li><li>Operating conditions</li><li>Weather and external data</li><li>Past incidents</li><li>Operating procedures</li></ul></div>
-        <div><div class="lbl">Delivers</div><ul class="inv-list out"><li>Evidence package</li><li>Likely root cause with reasoning</li><li>Recommended next step</li><li>Human approval</li><li>Audit trail</li></ul></div>
+        <div><div class="lbl">İnceler</div><ul class="inv-list in"><li>Sensör ve SCADA ölçümleri</li><li>Bakım ve iş emirleri</li><li>İşletme koşulları</li><li>Hava durumu ve dış veriler</li><li>Geçmiş olaylar</li><li>İşletme prosedürleri</li></ul></div>
+        <div><div class="lbl">Sunar</div><ul class="inv-list out"><li>Kanıt paketi</li><li>Gerekçesiyle olası kök neden</li><li>Önerilen sonraki adım</li><li>İnsan onayı</li><li>Denetim izi</li></ul></div>
       </div>
     </div>
   </div>
@@ -735,13 +751,13 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec tone" id="status">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Where we are</p>
-      <h2 class="h2">Exploring, <b>not yet a Space.</b></h2>
+      <p class="eyebrow">Neredeyiz</p>
+      <h2 class="h2">Keşif aşamasında, <b>henüz bir Space değil.</b></h2>
     </div>
     <div class="statusbox">
-      <span class="chip st-exploring">Exploring</span>
-      <div><p>Our operational work started with SEÖS, a vertical solution in production at GreenChimney and approaching its second year. It shows that an operational investigation can run beyond the pilot stage.</p><p>deepin.energy is not a Space yet. We are looking for the investigation that repeats across energy and industrial operators.</p>
-        <p><a class="go" href="../#spaces">How a Space is earned →</a></p>
+      <span class="chip st-exploring">Keşif aşamasında</span>
+      <div><p>Operasyonel çalışmamız, GreenChimney'de canlı kullanımda olan ve ikinci yılına yaklaşan dikey bir çözüm olan SEÖS ile başladı. Bu, operasyonel bir <span lang="en">Investigation</span>'ın pilot aşamasının ötesinde çalışabildiğini gösteriyor.</p><p><span lang="en">deepin.energy</span> henüz bir Space değil. Enerji ve sanayi işletmelerinde tekrar eden <span lang="en">Investigation</span>'ı arıyoruz.</p>
+        <p><a class="go" href="../#spaces">Bir Space nasıl kazanılır →</a></p>
       </div>
     </div>
   </div>
@@ -749,27 +765,27 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 
 <section class="band" id="contact">
   <div class="wrap">
-    <p class="eyebrow">deepin.energy</p>
-    <h2>What does your team investigate <b>after something goes wrong?</b></h2>
-    <p>Tell us about the anomaly or deviation that costs you most. We will show you how Deepin would investigate it.</p>
-    <div class="mail"><code id="email">info@deepin.space</code><button class="copy" id="copyBtn" type="button">Copy email</button></div>
+    <p class="eyebrow"><span lang="en">deepin.energy</span></p>
+    <h2>Bir şeyler ters gittiğinde <b>ekibiniz neyi araştırıyor?</b></h2>
+    <p>Size en pahalıya mal olan anomaliyi ya da sapmayı anlatın. <span lang="en">Deepin</span>'in onu nasıl araştıracağını gösterelim.</p>
+    <div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div>
   </div>
 </section>
 </main>
 <footer id="company">
   <div class="wrap">
     <div class="f-about">
-      <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.energy</span></a>
-      <p>Deepin builds Enterprise Investigation &amp; Decision Automation: agents that investigate business cases, show the evidence and wait for a person to approve.</p>
+      <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.energy</span></a>
+      <p><span lang="en">Deepin</span>, <span lang="en">Enterprise</span> <span lang="en">Investigation</span> &amp; <span lang="en">Decision</span> <span lang="en">Automation</span> alanında çalışır: iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent&#x27;lar.</p>
       <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
     </div>
-    <nav class="f-col" aria-label="Spaces"><span class="lbl">Spaces</span><a href="../risk/">deepin.risk</a><a href="../finance/">deepin.finance</a><a href="../security/">deepin.security</a><a href="../energy/">deepin.energy</a></nav>
-    <nav class="f-col" aria-label="Company"><span class="lbl">Company</span>
-      <a href="../#customers">Customers</a><a href="../#enterprise">Enterprise</a>
-      <a href="https://platform.deepin.space">Log in</a>
+    <nav class="f-col" aria-label="Space&#x27;ler"><span class="lbl">Space&#x27;ler</span><a href="../risk/"><span lang="en">deepin.risk</span></a><a href="../finance/"><span lang="en">deepin.finance</span></a><a href="../security/"><span lang="en">deepin.security</span></a><a href="../energy/"><span lang="en">deepin.energy</span></a></nav>
+    <nav class="f-col" aria-label="Şirket"><span class="lbl">Şirket</span>
+      <a href="../#customers">Müşteriler</a><a href="../#enterprise">Kurumsal</a>
+      <a href="https://platform.deepin.space">Giriş</a>
       <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
-    <div class="f-col"><span class="lbl">Contact</span><span>info@deepin.space</span><span class="f-copy">© 2026 Deepin</span></div>
+    <div class="f-col"><span class="lbl">İletişim</span><span>info@<span lang="en">deepin.space</span></span><span class="f-copy">© 2026 <span lang="en">Deepin</span></span><span class="langs" role="group" aria-label="Dil"><a href="../energy/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/energy/" hreflang="en" lang="en" title="English">EN</a></span></div>
   </div>
 </footer>
 <script>
@@ -790,8 +806,9 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   // copy email
   var btn=document.getElementById('copyBtn'),em=document.getElementById('email');
   if(btn&&em)btn.addEventListener('click',function(){
-    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1800)};
-    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';};
+    var label=btn.textContent;
+    var done=function(){btn.textContent=btn.getAttribute('data-copied')||'Copied';setTimeout(function(){btn.textContent=label},1800)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent=btn.getAttribute('data-selected')||'Selected';};
     try{navigator.clipboard.writeText(em.textContent).then(done,fallback)}catch(e){fallback()}
   });
 

@@ -1,16 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Deepin · Enterprise Investigation &amp; Decision Automation</title>
-<meta name="description" content="Every decision starts with an investigation. Deepin investigates business cases across your systems, shows the evidence and waits for a person to approve.">
+<meta name="description" content="Her karar bir Investigation ile başlar. Deepin iş vakalarını sistemleriniz genelinde araştırır, kanıtı gösterir ve karar için bir kişinin onayını bekler.">
 <meta property="og:title" content="Deepin · Enterprise Investigation &amp; Decision Automation">
-<meta property="og:description" content="Every decision starts with an investigation. Deepin investigates business cases across your systems, shows the evidence and waits for a person to approve.">
+<meta property="og:description" content="Her karar bir Investigation ile başlar. Deepin iş vakalarını sistemleriniz genelinde araştırır, kanıtı gösterir ve karar için bir kişinin onayını bekler.">
 <meta property="og:url" content="https://deepin.space/">
+<meta property="og:locale" content="tr_TR">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
 <link rel="canonical" href="https://deepin.space/">
+<link rel="alternate" hreflang="tr" href="https://deepin.space/">
+<link rel="alternate" hreflang="en" href="https://deepin.space/en/">
+<link rel="alternate" hreflang="x-default" href="https://deepin.space/">
 <link rel="icon" type="image/png" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -673,6 +677,18 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 @media (max-width:520px){.proof-grid.n4{grid-template-columns:1fr}}
 .proof-logo{height:28px;width:auto;max-width:160px;object-fit:contain;object-position:left}
 
+/* language switch */
+.langs{display:inline-flex;align-items:center;gap:2px;padding:2px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+.langs a{padding:4px 8px;border-radius:999px;text-decoration:none;color:var(--muted)}
+.langs a:hover{color:var(--ink)}
+.langs a[aria-current]{background:var(--soft);color:var(--accent);font-weight:500}
+footer .langs{justify-self:start;margin-top:10px}
+@media (max-width:420px){.nav .langs a{padding:4px 6px}}
+:lang(tr) .engage li::before{content:"Adım " counter(e)}
+@media (max-width:520px){.nav .nav-cta .btn-primary{display:none}}
+.inv-head{flex-wrap:wrap}.inv>*{min-width:0}@media (max-width:860px){.catalog-primary,.catalog-secondary{grid-template-columns:minmax(0,1fr)}}
+.nav-links a{white-space:nowrap}
+
 .hero{padding-block:52px 64px}
 .hero .lede{max-width:54ch}
 .hero-note{margin-top:28px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
@@ -763,15 +779,16 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 }
 @media (max-width:900px){.xf-arr{flex:none;height:20px}}
 @media (max-width:480px){.xf{padding:16px}.xf-tasks{gap:6px}.xf-tasks li{padding:8px}.xf-tasks small{display:none}.t-ic{display:none}}
+.h-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.h-grid span{min-width:0;overflow-wrap:anywhere;hyphens:auto}.h-box .lbl{flex-wrap:wrap;gap:4px 12px}@media (max-width:420px){.h-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 </style>
 </head>
 <body>
 <header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Deepin home"><img class="logo-l" src="assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"></a>
-    <nav class="nav-links" aria-label="Main"><a href="#investigations">Investigations</a><a href="#spaces">Spaces</a><a href="#customers">Customers</a><a href="#how">How Deepin Works</a><a href="#enterprise">Enterprise</a><a href="#company">Company</a></nav>
-    <div class="nav-cta"><a class="login" href="https://platform.deepin.space">Log in</a><a class="btn btn-primary btn-sm" href="#contact">Bring us an investigation</a></div>
+    <a class="brand" href="#top" aria-label="Deepin ana sayfa"><img class="logo-l" src="assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"></a>
+    <nav class="nav-links" aria-label="Ana menü"><a href="#investigations"><span lang="en">Investigation</span>&#x27;lar</a><a href="#spaces">Space&#x27;ler</a><a href="#customers">Müşteriler</a><a href="#how">Nasıl çalışır</a><a href="#enterprise">Kurumsal</a><a href="#company">Şirket</a></nav>
+    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="en/" hreflang="en" lang="en" title="English">EN</a></span><a class="login" href="https://platform.deepin.space">Giriş</a><a class="btn btn-primary btn-sm" href="#contact">Bize bir <span lang="en">Investigation</span> getirin</a></div>
   </div>
 </header>
 <main>
@@ -779,37 +796,37 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <p class="eyebrow">Enterprise Investigation &amp; Decision Automation</p>
-      <h1>Every decision starts with an investigation. <b>Deepin runs it.</b></h1>
-      <p class="lede">Before a risk, fraud or compliance decision, your people search systems, read documents and compare records. Deepin does that investigation, shows the evidence behind every finding and waits for a person to approve.</p>
+      <p class="eyebrow"><span lang="en">Enterprise</span> <span lang="en">Investigation</span> &amp; <span lang="en">Decision</span> <span lang="en">Automation</span></p>
+      <h1>Her karar bir <span lang="en">Investigation</span> ile başlar. <b><span lang="en">Deepin</span> onu yürütür.</b></h1>
+      <p class="lede">Bir risk, fraud ya da uyum kararından önce ekibiniz sistemlerde arama yapar, belgeleri okur ve kayıtları karşılaştırır. <span lang="en">Deepin</span> bu araştırmayı yapar, her bulgunun arkasındaki kanıtı gösterir ve karar için bir kişinin onayını bekler.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact">Bring us an investigation <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn btn-ghost" href="#investigations">See what Deepin investigates</a>
+        <a class="btn btn-primary" href="#contact">Bize bir <span lang="en">Investigation</span> getirin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#investigations"><span lang="en">Deepin</span> neyi araştırır?</a>
       </div>
-      <p class="hero-note"><span>In production at <b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> and <b>GreenChimney</b></span></p>
+      <p class="hero-note"><span><b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> ve <b>GreenChimney</b> bünyesinde canlı kullanımda</span></p>
     </div>
 
-    <figure class="case" data-live data-labels='["Trigger detected","Sources activating","Evidence arriving","Mapping relationships","Finding emerged","Recommendation ready","Awaiting approval"]' style="margin:0" aria-label="Sample company investigation">
+    <figure class="case" data-live data-labels='["Tetikleyici algılandı","Kaynaklar devreye giriyor","Kanıtlar geliyor","İlişkiler çıkarılıyor","Bulgu oluştu","Öneri hazır","Onay bekliyor"]' style="margin:0" aria-label="Örnek Company Investigation">
       <div class="case-top">
-        <span class="case-id">INV-2026-0418 · Company Investigation</span>
-        <span class="chip st-wait" data-live-status>Awaiting approval</span>
+        <span class="case-id">INV-2026-0418 · <span lang="en">Company</span> <span lang="en">Investigation</span></span>
+        <span class="chip st-wait" data-live-status>Onay bekliyor</span>
       </div>
       <ol class="live-bar" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
       <div class="case-body">
-        <div class="trigger" data-s="0"><span class="k">Trigger</span><span>New signatory registered for <b>Northwind Lojistik A.Ş.</b></span><small>Trade Registry Gazette · 18 Sep 2026</small></div>
-        <div class="srcs" data-s="1" aria-label="Sources"><span>Trade Registry Gazette</span><span>Company records</span><span>Relationship graph</span><span>News &amp; web</span></div>
+        <div class="trigger" data-s="0"><span class="k">Tetikleyici</span><span><b>Northwind Lojistik A.Ş.</b> için yeni imza yetkilisi tescil edildi</span><small>Ticaret Sicili Gazetesi · 18 Eyl 2026</small></div>
+        <div class="srcs" data-s="1" aria-label="Kaynaklar"><span>Ticaret Sicili Gazetesi</span><span>Şirket kayıtları</span><span>İlişki grafiği</span><span>Haber ve web</span></div>
         <ul class="finds">
-          <li data-s="2"><span class="k">Capital</span><span>Share capital reduced by 40%</span><span class="src">Trade Registry Gazette · 12 Sep</span></li>
-          <li data-s="2"><span class="k">Authority</span><span>Representation authority changed</span><span class="src">Trade Registry Gazette · 18 Sep</span></li>
-          <li data-s="3"><span class="k">Network</span><span>New signatory is a partner in 2 watched companies</span><span class="src">Relationship graph</span></li>
+          <li data-s="2"><span class="k">Sermaye</span><span>Sermaye %40 azaltıldı</span><span class="src">Ticaret Sicili Gazetesi · 12 Eyl</span></li>
+          <li data-s="2"><span class="k">Yetki</span><span>Temsil yetkisi değişti</span><span class="src">Ticaret Sicili Gazetesi · 18 Eyl</span></li>
+          <li data-s="3"><span class="k">İlişki</span><span>Yeni imza yetkilisi, izlenen 2 şirkette ortak</span><span class="src">İlişki grafiği</span></li>
         </ul>
-        <p class="reason" data-s="4"><span class="lbl" style="display:block;margin-bottom:4px">Finding</span>Capital reduction and an authority change within 30 days, linked to watched entities. This matches your policy for elevated supplier risk.</p>
+        <p class="reason" data-s="4"><span class="lbl" style="display:block;margin-bottom:4px">Bulgu</span>30 gün içinde sermaye azaltımı ve yetki değişikliği; izlenen şirketlerle bağlantılı. Bu durum, yükseltilmiş tedarikçi riski politikanızla örtüşüyor.</p>
         <div class="propose" data-s="5">
-          <p>Risk level <s>Low</s> → Elevated</p>
-          <div class="acts" data-s="6"><span>Send to analyst</span><span class="ok">Approve</span></div>
+          <p>Risk seviyesi <s>Düşük</s> → Yükseltilmiş</p>
+          <div class="acts" data-s="6"><span>Analiste gönder</span><span class="ok">Onayla</span></div>
         </div>
       </div>
-      <figcaption class="case-note">Sample case with a fictional company.</figcaption>
+      <figcaption class="case-note">Kurgusal bir şirketle hazırlanmış örnek vaka.</figcaption>
     </figure>
   </div>
 </section>
@@ -817,44 +834,44 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec" id="investigations">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Investigations</p>
-      <h2 class="h2">What should <b>Deepin investigate?</b></h2>
-      <p class="lede">You buy an investigation, not a platform. Start with the one your team spends the most time on.</p>
+      <p class="eyebrow"><span lang="en">Investigation</span>'lar</p>
+      <h2 class="h2"><span lang="en">Deepin</span> <b>neyi araştırsın?</b></h2>
+      <p class="lede">Bir platform değil, bir <span lang="en">Investigation</span> satın alırsınız. Ekibinizin en çok zaman harcadığı <span lang="en">Investigation</span> ile başlayın.</p>
     </div>
     <div class="catalog">
   <div class="catalog-primary"><article class="inv inv-primary" id="inv-company">
   <header class="inv-head">
-    <div><h3>Company Investigation</h3><p class="inv-space"><span class="nm-sm">deep<b>in</b>.risk</span></p></div>
-    <span class="chip st-production">Production</span>
+    <div><h3><span lang="en">Company</span> <span lang="en">Investigation</span></h3><p class="inv-space"><span class="nm-sm">deep<b>in</b>.risk</span></p></div>
+    <span class="chip st-production">Canlı kullanımda</span>
   </header>
-  <p class="inv-lede">Know every company you work with, and every change that matters.</p>
+  <p class="inv-lede">Çalıştığınız her şirketi ve önemli her değişikliği bilin.</p>
   <div class="inv-cols">
-    <div><div class="lbl">Investigates</div><ul class="inv-list in"><li>Ownership</li><li>Shareholders</li><li>Executives</li><li>Representation authority</li><li>Related entities</li><li>Financial condition</li><li>Historical changes</li><li>Material company events</li></ul></div>
-    <div><div class="lbl">Delivers</div><ul class="inv-list out"><li>Company risk file with sources</li><li>Change alerts</li><li>Risk recommendation for approval</li></ul></div>
+    <div><div class="lbl">İnceler</div><ul class="inv-list in"><li>Sahiplik</li><li>Ortaklar</li><li>Yöneticiler</li><li>Temsil yetkisi</li><li>İlişkili şirketler</li><li>Finansal durum</li><li>Geçmiş değişiklikler</li><li>Önemli şirket olayları</li></ul></div>
+    <div><div class="lbl">Sunar</div><ul class="inv-list out"><li>Kaynaklarıyla şirket risk dosyası</li><li>Değişiklik uyarıları</li><li>Onaya sunulan risk önerisi</li></ul></div>
   </div>
-  <a class="inv-cta" href="risk/">Explore Company Investigation →</a>
+  <a class="inv-cta" href="risk/"><span lang="en">Company</span> <span lang="en">Investigation</span>&#x27;ı inceleyin →</a>
 </article><article class="inv inv-primary" id="inv-chargeback">
   <header class="inv-head">
-    <div><h3>Chargeback Investigation</h3><p class="inv-space"><span class="nm-sm">deep<b>in</b>.finance</span></p></div>
-    <span class="chip st-deploying">Deploying</span>
+    <div><h3>Chargeback <span lang="en">Investigation</span></h3><p class="inv-space"><span class="nm-sm">deep<b>in</b>.finance</span></p></div>
+    <span class="chip st-deploying">Kurulumda</span>
   </header>
-  <p class="inv-lede">Every card dispute arrives as a case, with the evidence already attached.</p>
+  <p class="inv-lede">Her kart itirazı, kanıtları hazır bir vaka olarak gelir.</p>
   <div class="inv-cols">
-    <div><div class="lbl">Investigates</div><ul class="inv-list in"><li>Transaction</li><li>Dispute case</li><li>Evidence</li><li>Scheme rules</li><li>Policies</li><li>Historical information</li><li>Merchant and entity context</li></ul></div>
-    <div><div class="lbl">Delivers</div><ul class="inv-list out"><li>Evidence package</li><li>Reasoning</li><li>Recommendation</li><li>Human approval</li><li>Action preparation</li></ul></div>
+    <div><div class="lbl">İnceler</div><ul class="inv-list in"><li>İşlem</li><li>İtiraz vakası</li><li>Kanıt</li><li>Kart şeması kuralları</li><li>Politikalar</li><li>Geçmiş bilgiler</li><li>Üye işyeri ve şirket bağlamı</li></ul></div>
+    <div><div class="lbl">Sunar</div><ul class="inv-list out"><li>Kanıt paketi</li><li>Gerekçe</li><li>Öneri</li><li>İnsan onayı</li><li>Aksiyon hazırlığı</li></ul></div>
   </div>
-  <a class="inv-cta" href="finance/">Explore Chargeback Investigation →</a>
+  <a class="inv-cta" href="finance/">Chargeback <span lang="en">Investigation</span>&#x27;ı inceleyin →</a>
 </article></div>
   <div class="catalog-secondary"><article class="inv inv-secondary" id="inv-security">
-  <header class="inv-head"><h3>Security Investigation</h3><span class="chip st-exploring">Exploring</span></header>
-  <p class="inv-lede">Turn security alerts into evidence-backed investigations.</p>
-  <a class="inv-cta" href="security/">Explore →</a>
+  <header class="inv-head"><h3><span lang="en">Security</span> <span lang="en">Investigation</span></h3><span class="chip st-exploring">Keşif aşamasında</span></header>
+  <p class="inv-lede">Güvenlik alarmlarını kanıta dayalı <span lang="en">Investigation</span>&#x27;lara dönüştürün.</p>
+  <a class="inv-cta" href="security/">İnceleyin →</a>
 </article><article class="inv inv-secondary" id="inv-operational">
-  <header class="inv-head"><h3>Operational Investigation</h3><span class="chip st-exploring">Exploring</span></header>
-  <p class="inv-lede">Investigate anomalies, deviations and operational root causes.</p>
-  <a class="inv-cta" href="energy/">Explore →</a>
+  <header class="inv-head"><h3><span lang="en">Operational</span> <span lang="en">Investigation</span></h3><span class="chip st-exploring">Keşif aşamasında</span></header>
+  <p class="inv-lede">Anomalileri, sapmaları ve operasyonel kök nedenleri araştırın.</p>
+  <a class="inv-cta" href="energy/">İnceleyin →</a>
 </article>
-    <a class="catalog-more" href="#contact"><strong>Don't see your investigation?</strong><span>Most of our work starts with a case nobody has automated yet.</span><span class="go">Tell us what your team investigates →</span></a>
+    <a class="catalog-more" href="#contact"><strong>Aradığınız <span lang="en">Investigation</span> burada yok mu?</strong><span>İşlerimizin çoğu, henüz kimsenin otomatikleştirmediği bir vakayla başlıyor.</span><span class="go">Ekibinizin neyi araştırdığını anlatın →</span></a>
   </div>
 </div>
   </div>
@@ -863,49 +880,49 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec tone" id="how">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">How Deepin works</p>
-      <h2 class="h2">Keep the decision. <b>Lose the investigation work.</b></h2>
-      <p class="lede">Deepin does the searching, gathering, comparing and reasoning. Your team reviews the evidence and stays in control of the decision.</p>
+      <p class="eyebrow"><span lang="en">Deepin</span> nasıl çalışır</p>
+      <h2 class="h2">Karar sizde kalsın. <b>Araştırma yükü kalksın.</b></h2>
+      <p class="lede">Aramayı, toplamayı, karşılaştırmayı ve akıl yürütmeyi <span lang="en">Deepin</span> yapar. Ekibiniz kanıtı inceler ve kararın kontrolü onda kalır.</p>
     </div>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-crm" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.5"/><circle cx="6" cy="7" r="1.6"/><path d="M3.8 11c.4-1.2 1.2-1.8 2.2-1.8s1.8.6 2.2 1.8M10 6.5h2.5M10 9h2.5"/></symbol><symbol id="i-reg" viewBox="0 0 16 16"><path d="M2 6l6-3.5L14 6M3.5 6.5v5.5M6.5 6.5v5.5M9.5 6.5v5.5M12.5 6.5v5.5M2 13h12"/></symbol><symbol id="i-pdf" viewBox="0 0 16 16"><path d="M4 2h5.5L12.5 5v9H4z"/><path d="M9.5 2v3h3M6 9h4.5M6 11.5h3"/></symbol><symbol id="i-mail" viewBox="0 0 16 16"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M2.5 4.5L8 9l5.5-4.5"/></symbol><symbol id="i-sheet" viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="11" height="11" rx="1.2"/><path d="M2.5 6.2h11M2.5 9.8h11M6.2 2.5v11M9.8 2.5v11"/></symbol><symbol id="i-web" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M2 6h12"/><circle cx="4" cy="4.5" r=".4"/><circle cx="8" cy="9.5" r="2"/><path d="M9.5 11l1.5 1.5"/></symbol><symbol id="i-notes" viewBox="0 0 16 16"><path d="M4 2.5h8v11H4z"/><path d="M6 5.5h4M6 8h4M6 10.5h2.5"/></symbol><symbol id="i-hist" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.2l2 1.3"/></symbol><symbol id="i-rel" viewBox="0 0 16 16"><circle cx="4" cy="8" r="1.8"/><circle cx="12" cy="4" r="1.8"/><circle cx="12" cy="12" r="1.8"/><path d="M5.6 7.2l4.8-2.4M5.6 8.8l4.8 2.4"/></symbol><symbol id="i-ev" viewBox="0 0 16 16"><path d="M3 13l2.5-2.5M6 3h7v7l-3 3H6z"/><path d="M8.5 6.5h2.5M8.5 9h1.5"/></symbol><symbol id="i-pol" viewBox="0 0 16 16"><path d="M8 2l5 2.2v3.6c0 3-2.2 4.9-5 6-2.8-1.1-5-3-5-6V4.2z"/><path d="M6 8l1.5 1.5L10.5 6.5"/></symbol></defs></svg>
     <div class="xf-grid">
-      <div class="xf today" aria-label="Today: your team moves between systems and documents to investigate, then decides">
-        <div class="xf-head"><span class="lbl">Today</span><p class="xf-role"><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Your team</span> = investigator + decision maker</p></div>
-        <div class="xf-node ev">Event</div>
+      <div class="xf today" aria-label="Bugün: ekibiniz araştırmak için sistemler ve belgeler arasında gidip gelir, sonra karar verir">
+        <div class="xf-head"><span class="lbl">Bugün</span><p class="xf-role"><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Ekibiniz</span> = araştırmacı + karar verici</p></div>
+        <div class="xf-node ev">Olay</div>
         <div class="xf-arr" aria-hidden="true"></div>
         <div class="xf-box human">
-          <div class="xf-box-h"><span>Hours of human investigation</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Your team</span></div>
-          <div class="tangle" data-edges='[["n1","n2","f","Different company name"],["n2","n3","f",""],["n3","n4","f","Missing evidence"],["n4","n3","b",""],["n3","n5","f",""],["n5","n2","b","Which record is current?"],["n5","n6","f",""],["n6","n7","f","Who is connected to whom?"],["n7","n6","b","Search another company"],["n7","n8","f","Check again"]]'>
+          <div class="xf-box-h"><span>Saatler süren insan araştırması</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Ekibiniz</span></div>
+          <div class="tangle" data-edges='[["n1","n2","f","Farklı şirket unvanı"],["n2","n3","f",""],["n3","n4","f","Eksik kanıt"],["n4","n3","b",""],["n3","n5","f",""],["n5","n2","b","Hangi kayıt güncel?"],["n5","n6","f",""],["n6","n7","f","Kim kimle bağlantılı?"],["n7","n6","b","Başka bir şirketi ara"],["n7","n8","f","Tekrar kontrol et"]]'>
             <svg class="tangle-paths" aria-hidden="true"><defs><marker id="tg-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z"/></marker></defs></svg>
-            <ol class="tangle-nodes"><li class="tn tn-a" id="n1"><svg class="i" aria-hidden="true"><use href="#i-crm"/></svg><span><b>CRM</b><small>Find the company</small></span></li><li class="tn tn-b" id="n2"><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg><span><b>Trade Registry</b><small>Search latest filing</small></span></li><li class="tn tn-c" id="n3"><svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg><span><b>PDF</b><small>Download &amp; read</small></span></li><li class="tn tn-d" id="n4"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span><b>Email</b><small>Ask for missing document</small></span></li><li class="tn tn-e" id="n5"><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg><span><b>Spreadsheet</b><small>Compare with previous record</small></span></li><li class="tn tn-f" id="n6"><svg class="i" aria-hidden="true"><use href="#i-web"/></svg><span><b>Browser</b><small>Search related company</small></span></li><li class="tn tn-g" id="n7"><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg><span><b>Trade Registry</b><small>Verify shareholder</small></span></li><li class="tn tn-h" id="n8"><svg class="i" aria-hidden="true"><use href="#i-notes"/></svg><span><b>Notes</b><small>Reconstruct what changed</small></span></li></ol>
+            <ol class="tangle-nodes"><li class="tn tn-a" id="n1"><svg class="i" aria-hidden="true"><use href="#i-crm"/></svg><span><b>CRM</b><small>Şirketi bul</small></span></li><li class="tn tn-b" id="n2"><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg><span><b>Ticaret Sicili</b><small>Son tescili ara</small></span></li><li class="tn tn-c" id="n3"><svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg><span><b>PDF</b><small>İndir ve oku</small></span></li><li class="tn tn-d" id="n4"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span><b>E-posta</b><small>Eksik belgeyi iste</small></span></li><li class="tn tn-e" id="n5"><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg><span><b>Excel tablosu</b><small>Önceki kayıtla karşılaştır</small></span></li><li class="tn tn-f" id="n6"><svg class="i" aria-hidden="true"><use href="#i-web"/></svg><span><b>Tarayıcı</b><small>İlişkili şirketi ara</small></span></li><li class="tn tn-g" id="n7"><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg><span><b>Ticaret Sicili</b><small>Ortağı doğrula</small></span></li><li class="tn tn-h" id="n8"><svg class="i" aria-hidden="true"><use href="#i-notes"/></svg><span><b>Notlar</b><small>Neyin değiştiğini yeniden kur</small></span></li></ol>
           </div>
-          <div class="frag"><span>Fragmented evidence</span><i aria-hidden="true">→</i><span>Human reasoning</span></div>
+          <div class="frag"><span>Dağınık kanıt</span><i aria-hidden="true">→</i><span>İnsan muhakemesi</span></div>
         </div>
         <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-node dec"><span>Decide</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Your team</span></div>
+        <div class="xf-node dec"><span>Karar ver</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Ekibiniz</span></div>
         <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-node">Act</div>
+        <div class="xf-node">Uygula</div>
       </div>
 
-      <div class="xf with" aria-label="With Deepin: the same systems and documents are handled inside Deepin; your team reviews evidence and decides">
-        <div class="xf-head"><span class="lbl">With Deepin</span><p class="xf-role"><span class="who-d"><img src="assets/favicon-64.png" alt="" width="14" height="14">Deepin</span> = investigator · <span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Your team</span> = decision owner</p></div>
-        <div class="xf-node ev">Event</div>
+      <div class="xf with" aria-label="Deepin ile: aynı sistemler ve belgeler Deepin içinde ele alınır; ekibiniz kanıtı inceler ve karar verir">
+        <div class="xf-head"><span class="lbl"><span lang="en">Deepin</span> ile</span><p class="xf-role"><span class="who-d"><img src="assets/favicon-64.png" alt="" width="14" height="14"><span lang="en">Deepin</span></span> = araştırmacı · <span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Ekibiniz</span> = karar sahibi</p></div>
+        <div class="xf-node ev">Olay</div>
         <div class="xf-arr" aria-hidden="true"></div>
         <div class="xf-box deepin">
-          <div class="xf-box-h"><span>Deepin investigates</span><span class="who-d"><img src="assets/favicon-64.png" alt="" width="14" height="14">Deepin</span></div>
-          <ul class="contained"><li><svg class="i" aria-hidden="true"><use href="#i-crm"/></svg>CRM</li><li><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg>Trade Registry</li><li><svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg>Documents</li><li><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Email</li><li><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg>Spreadsheets</li><li><svg class="i" aria-hidden="true"><use href="#i-web"/></svg>Web &amp; external sources</li><li><svg class="i" aria-hidden="true"><use href="#i-hist"/></svg>Historical records</li><li><svg class="i" aria-hidden="true"><use href="#i-rel"/></svg>Relationships</li><li><svg class="i" aria-hidden="true"><use href="#i-ev"/></svg>Evidence</li><li><svg class="i" aria-hidden="true"><use href="#i-pol"/></svg>Policies</li></ul>
-          <p class="xf-micro">Deepin does the investigation work.</p>
+          <div class="xf-box-h"><span><span lang="en">Deepin</span> araştırır</span><span class="who-d"><img src="assets/favicon-64.png" alt="" width="14" height="14"><span lang="en">Deepin</span></span></div>
+          <ul class="contained"><li><svg class="i" aria-hidden="true"><use href="#i-crm"/></svg>CRM</li><li><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg>Ticaret Sicili</li><li><svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg>Belgeler</li><li><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>E-posta</li><li><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg>Tablolar</li><li><svg class="i" aria-hidden="true"><use href="#i-web"/></svg>Web ve dış kaynaklar</li><li><svg class="i" aria-hidden="true"><use href="#i-hist"/></svg>Geçmiş kayıtlar</li><li><svg class="i" aria-hidden="true"><use href="#i-rel"/></svg>İlişkiler</li><li><svg class="i" aria-hidden="true"><use href="#i-ev"/></svg>Kanıt</li><li><svg class="i" aria-hidden="true"><use href="#i-pol"/></svg>Politikalar</li></ul>
+          <p class="xf-micro">Araştırma işini <span lang="en">Deepin</span> yapar.</p>
         </div>
         <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-node rec">Evidence-backed recommendation</div>
+        <div class="xf-node rec">Kanıta dayalı öneri</div>
         <div class="xf-arr" aria-hidden="true"></div>
         <div class="xf-box you">
-          <div class="xf-box-h"><span>Your team</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Decision owner</span></div>
-          <div class="xf-you"><span>Review evidence</span><span class="xf-ok">Approve</span><span>Reject</span></div>
-          <p class="xf-micro">You keep the judgment.</p>
+          <div class="xf-box-h"><span>Ekibiniz</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Karar sahibi</span></div>
+          <div class="xf-you"><span>Kanıtı incele</span><span class="xf-ok">Onayla</span><span>Reddet</span></div>
+          <p class="xf-micro">Muhakeme sizde kalır.</p>
         </div>
         <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-node act">Action</div>
+        <div class="xf-node act">Aksiyon</div>
       </div>
     </div>
   </div>
@@ -916,33 +933,33 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
     <div class="ev-grid">
       <div>
         <div class="sec-head" style="margin-bottom:36px">
-          <p class="eyebrow">Evidence</p>
-          <h2 class="h2">Evidence <b>before decision.</b></h2>
-          <p class="lede">Deepin does not hand you an AI answer. It hands you an investigation: every reason, every source, and a person who signs off.</p>
+          <p class="eyebrow">Kanıt</p>
+          <h2 class="h2">Önce kanıt, <b>sonra karar.</b></h2>
+          <p class="lede"><span lang="en">Deepin</span> size bir yapay zekâ cevabı vermez. Bir <span lang="en">Investigation</span> verir: her gerekçe, her kaynak ve son onayı veren bir kişi.</p>
         </div>
-        <ol class="evidence"><li><span class="n">01</span><div><h3>Source</h3><p>Each finding links to the record, document or system it came from.</p></div></li><li><span class="n">02</span><div><h3>Evidence</h3><p>The facts are collected, dated and kept with the case.</p></div></li><li><span class="n">03</span><div><h3>Reasoning</h3><p>The logic from evidence to conclusion is written out, with the policy it applies.</p></div></li><li><span class="n">04</span><div><h3>Recommendation</h3><p>A proposed decision, never a silent one.</p></div></li><li><span class="n">05</span><div><h3>Human approval</h3><p>A person approves, edits or rejects before anything changes.</p></div></li></ol>
+        <ol class="evidence"><li><span class="n">01</span><div><h3>Kaynak</h3><p>Her bulgu, geldiği kayda, belgeye ya da sisteme bağlanır.</p></div></li><li><span class="n">02</span><div><h3>Kanıt</h3><p>Olgular toplanır, tarihlenir ve vakayla birlikte saklanır.</p></div></li><li><span class="n">03</span><div><h3>Gerekçe</h3><p>Kanıttan sonuca giden mantık, uygulanan politikayla birlikte yazılır.</p></div></li><li><span class="n">04</span><div><h3>Öneri</h3><p>Önerilen bir karar; asla sessizce alınan bir karar değil.</p></div></li><li><span class="n">05</span><div><h3>İnsan onayı</h3><p>Hiçbir şey değişmeden önce bir kişi onaylar, düzenler ya da reddeder.</p></div></li></ol>
       </div>
-      <figure class="evui" style="margin:0" aria-label="Sample recommendation with its evidence">
-        <div class="evui-top"><span>Northwind Lojistik A.Ş. · INV-2026-0418</span><span class="chip st-wait">Awaiting approval</span></div>
+      <figure class="evui" style="margin:0" aria-label="Kanıtlarıyla örnek öneri">
+        <div class="evui-top"><span>Northwind Lojistik A.Ş. · INV-2026-0418</span><span class="chip st-wait">Onay bekliyor</span></div>
         <div class="evui-body">
-          <div class="rec"><span class="lbl">Recommendation</span><strong>Increase company risk level</strong><span>Medium → High</span></div>
+          <div class="rec"><span class="lbl">Öneri</span><strong>Şirket risk seviyesini yükselt</strong><span>Orta → Yüksek</span></div>
           <div>
-            <div class="lbl">Why?</div>
+            <div class="lbl">Neden?</div>
             <ol class="why">
-              <li data-ref="1"><span class="n">01</span><span>Representation authority changed</span><span class="ref">[1]</span></li>
-              <li data-ref="2"><span class="n">02</span><span>New shareholder detected</span><span class="ref">[2]</span></li>
-              <li data-ref="3"><span class="n">03</span><span>Related company entered restructuring</span><span class="ref">[3]</span></li>
+              <li data-ref="1"><span class="n">01</span><span>Temsil yetkisi değişti</span><span class="ref">[1]</span></li>
+              <li data-ref="2"><span class="n">02</span><span>Yeni ortak tespit edildi</span><span class="ref">[2]</span></li>
+              <li data-ref="3"><span class="n">03</span><span>İlişkili şirket yeniden yapılandırmaya girdi</span><span class="ref">[3]</span></li>
             </ol>
           </div>
           <div>
-            <div class="lbl">Evidence</div>
+            <div class="lbl">Kanıt</div>
             <ol class="srcstack">
-              <li data-ref="1"><span class="n">1</span><span><strong>Trade Registry Gazette</strong><small>12 Sep 2026</small></span><span class="kind">Official record</span></li>
-              <li data-ref="2"><span class="n">2</span><span><strong>Trade Registry Gazette</strong><small>18 Sep 2026</small></span><span class="kind">Official record</span></li>
-              <li data-ref="3"><span class="n">3</span><span><strong>External source</strong><small>20 Sep 2026</small></span><span class="kind">News</span></li>
+              <li data-ref="1"><span class="n">1</span><span><strong>Ticaret Sicili Gazetesi</strong><small>12 Eyl 2026</small></span><span class="kind">Resmî kayıt</span></li>
+              <li data-ref="2"><span class="n">2</span><span><strong>Ticaret Sicili Gazetesi</strong><small>18 Eyl 2026</small></span><span class="kind">Resmî kayıt</span></li>
+              <li data-ref="3"><span class="n">3</span><span><strong>Dış kaynak</strong><small>20 Eyl 2026</small></span><span class="kind">Haber</span></li>
             </ol>
           </div>
-          <div class="evui-actions"><p>Sample case with a fictional company.</p><div><span>Edit</span><span>Reject</span><span class="ok">Approve</span></div></div>
+          <div class="evui-actions"><p>Kurgusal bir şirketle hazırlanmış örnek vaka.</p><div><span>Düzenle</span><span>Reddet</span><span class="ok">Onayla</span></div></div>
         </div>
       </figure>
     </div>
@@ -952,97 +969,97 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 <section class="sec tone" id="customers">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Customers</p>
-      <h2 class="h2">Proven in real <b>enterprise environments.</b></h2>
-      <p class="lede">Each reference is shown at the maturity it has actually reached.</p>
+      <p class="eyebrow">Müşteriler</p>
+      <h2 class="h2">Gerçek kurumsal ortamlarda <b>kanıtlandı.</b></h2>
+      <p class="lede">Her referans, gerçekte ulaştığı olgunluk seviyesiyle gösterilir.</p>
     </div>
     <ul class="proof-grid"><li class="proof-card">
   <strong>Hayat Finans</strong>
-  <span class="proof-inv">Company Investigation</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span>
+  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span>
+  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
 </li><li class="proof-card">
   <strong>PayTR</strong>
-  <span class="proof-inv">Company Investigation</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span>
+  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span>
+  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
 </li><li class="proof-card">
   <strong>SOCAR</strong>
-  <span class="proof-inv">Company Investigation</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span>
+  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span>
+  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
 </li><li class="proof-card">
   <strong>DGPays</strong>
-  <span class="proof-inv">Company + Financial Investigation</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Embedded</span></span>
+  <span class="proof-inv"><span lang="en">Company</span> + Financial <span lang="en">Investigation</span></span>
+  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Ürüne gömülü</span></span>
 </li><li class="proof-card">
   <strong>Visa / Ziraat Bankası</strong>
-  <span class="proof-inv">Chargeback Investigation</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="chip st-contracted">Contracted · In development</span></span>
+  <span class="proof-inv">Chargeback <span lang="en">Investigation</span></span>
+  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="chip st-contracted">Sözleşmeli · Geliştirmede</span></span>
 </li><li class="proof-card">
   <strong>GreenChimney</strong>
-  <span class="proof-inv">Operational Investigation</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span>
+  <span class="proof-inv"><span lang="en">Operational</span> <span lang="en">Investigation</span></span>
+  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
 </li></ul>
-    <div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Contracted</span><span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Embedded or deploying</span><span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>In production</span></div>
+    <div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Sözleşme imzalandı</span><span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Ürüne gömülü ya da kurulumda</span><span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>Canlı kullanımda</span></div>
   </div>
 </section>
 
 <section class="sec dots" id="spaces">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Spaces</p>
-      <h2 class="h2">A Space is earned <b>through repetition.</b></h2>
-      <p class="lede">A Space is not a bundle of technical parts. It forms when the same kind of investigation repeats in one domain and leaves reusable capabilities behind.</p>
+      <p class="eyebrow">Space'ler</p>
+      <h2 class="h2">Bir Space <b>tekrarla kazanılır.</b></h2>
+      <p class="lede">Bir Space, teknik parçalardan oluşan bir paket değildir. Aynı türden <span lang="en">Investigation</span> bir alanda tekrarlandıkça ve geride yeniden kullanılabilir yetenekler bıraktıkça oluşur.</p>
     </div>
-    <div class="layers" aria-label="How a Space forms">
-      <span class="caps-row"><span>Agents</span><span>Tools</span><span>Data</span><span>Knowledge</span><span>Policies</span><span>Evaluations</span><span>Connectors</span></span>
-      <span class="via">enable</span><span class="obj">Investigations</span><span class="via">repeat &amp; accumulate</span><span class="obj sp">Space</span>
+    <div class="layers" aria-label="Bir Space nasıl oluşur">
+      <span class="caps-row"><span>Agent'lar</span><span>Araçlar</span><span>Veri</span><span>Bilgi</span><span>Politikalar</span><span>Değerlendirmeler</span><span>Bağlantılar</span></span>
+      <span class="via">mümkün kılar</span><span class="obj"><span lang="en">Investigation</span>'lar</span><span class="via">tekrarlanır ve birikir</span><span class="obj sp">Space</span>
     </div>
     <div class="spaces-proven"><div class="growth">
-  <ol class="g-stages"><li><span class="g-lbl">One investigation</span><span class="g-chips"><span class="new">Company Investigation</span></span></li><li><span class="g-lbl">Repeated</span><span class="g-chips"><span class="">Company Investigation</span><span class="new">Supplier Investigation</span></span></li><li><span class="g-lbl">Accumulated</span><span class="g-chips"><span class="">Company Investigation</span><span class="">Supplier Investigation</span><span class="new">Merchant Investigation</span><span class="new">Continuous Monitoring</span></span></li></ol>
+  <ol class="g-stages"><li><span class="g-lbl">Tek <span lang="en">Investigation</span></span><span class="g-chips"><span class="new"><span lang="en">Company</span> <span lang="en">Investigation</span></span></span></li><li><span class="g-lbl">Tekrarlanan</span><span class="g-chips"><span class=""><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="new"><span lang="en">Supplier</span> <span lang="en">Investigation</span></span></span></li><li><span class="g-lbl">Biriken</span><span class="g-chips"><span class=""><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class=""><span lang="en">Supplier</span> <span lang="en">Investigation</span></span><span class="new">Merchant <span lang="en">Investigation</span></span><span class="new"><span lang="en">Continuous</span> <span lang="en">Monitoring</span></span></span></li></ol>
   <div class="g-down" aria-hidden="true"></div>
   <a class="g-space" href="risk/">
-    <span class="g-top"><span class="nm">deep<b>in</b>.risk</span><span class="chip st-production">Production</span></span>
-    <span class="g-title">Company &amp; third-party investigation</span>
-    <span class="g-meta"><span>Primary investigation</span><b>Company Investigation</b></span>
-    <span class="g-note">Sits between corporate intelligence and your third-party risk and GRC tools.</span>
-    <span class="go">Explore deepin.risk →</span>
+    <span class="g-top"><span class="nm">deep<b>in</b>.risk</span><span class="chip st-production">Canlı kullanımda</span></span>
+    <span class="g-title">Şirket ve üçüncü taraf <span lang="en">Investigation</span>&#x27;ı</span>
+    <span class="g-meta"><span>Ana <span lang="en">Investigation</span></span><b><span lang="en">Company</span> <span lang="en">Investigation</span></b></span>
+    <span class="g-note">Kurumsal istihbarat ile üçüncü taraf risk ve GRC araçlarınız arasında konumlanır.</span>
+    <span class="go"><span lang="en">deepin.risk</span> sayfasına git →</span>
   </a>
 </div><div class="growth">
-  <ol class="g-stages"><li><span class="g-lbl">One investigation</span><span class="g-chips"><span class="new">Chargeback</span></span></li><li><span class="g-lbl">Repeated</span><span class="g-chips"><span class="">Chargeback</span><span class="new">Fraud</span></span></li><li><span class="g-lbl">Accumulated</span><span class="g-chips"><span class="">Chargeback</span><span class="">Fraud</span><span class="new">Merchant Risk</span><span class="new">KYC / KYB</span></span></li></ol>
+  <ol class="g-stages"><li><span class="g-lbl">Tek <span lang="en">Investigation</span></span><span class="g-chips"><span class="new">Chargeback</span></span></li><li><span class="g-lbl">Tekrarlanan</span><span class="g-chips"><span class="">Chargeback</span><span class="new">Fraud</span></span></li><li><span class="g-lbl">Biriken</span><span class="g-chips"><span class="">Chargeback</span><span class="">Fraud</span><span class="new">Merchant Risk</span><span class="new">KYC / KYB</span></span></li></ol>
   <div class="g-down" aria-hidden="true"></div>
   <a class="g-space" href="finance/">
-    <span class="g-top"><span class="nm">deep<b>in</b>.finance</span><span class="chip st-deploying">Deploying</span></span>
-    <span class="g-title">Financial operations &amp; investigation</span>
-    <span class="g-meta"><span>Primary investigation</span><b>Chargeback Investigation</b></span>
-    <span class="g-note">Starts with card disputes, then grows into adjacent financial investigations.</span>
-    <span class="go">Explore deepin.finance →</span>
+    <span class="g-top"><span class="nm">deep<b>in</b>.finance</span><span class="chip st-deploying">Kurulumda</span></span>
+    <span class="g-title">Finansal operasyonlar ve <span lang="en">Investigation</span></span>
+    <span class="g-meta"><span>Ana <span lang="en">Investigation</span></span><b>Chargeback <span lang="en">Investigation</span></b></span>
+    <span class="g-note">Kart itirazlarıyla başlar, ardından yakın finansal <span lang="en">Investigation</span>&#x27;lara genişler.</span>
+    <span class="go"><span lang="en">deepin.finance</span> sayfasına git →</span>
   </a>
 </div></div>
-<div class="spaces-explore"><span class="lbl">Exploring</span><a class="x-space" href="security/"><span class="nm">deep<b>in</b>.security</span><span>Security investigation</span><span class="chip st-exploring">Exploring</span></a><a class="x-space" href="energy/"><span class="nm">deep<b>in</b>.energy</span><span>Energy &amp; operational investigation</span><span class="chip st-exploring">Exploring</span></a></div>
+<div class="spaces-explore"><span class="lbl">Keşif aşamasında</span><a class="x-space" href="security/"><span class="nm">deep<b>in</b>.security</span><span>Güvenlik <span lang="en">Investigation</span>&#x27;ı</span><span class="chip st-exploring">Keşif aşamasında</span></a><a class="x-space" href="energy/"><span class="nm">deep<b>in</b>.energy</span><span>Enerji ve operasyonel <span lang="en">Investigation</span></span><span class="chip st-exploring">Keşif aşamasında</span></a></div>
   </div>
 </section>
 
 <section class="sec tone" id="enterprise">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Under the hood</p>
-      <h2 class="h2">The investigation system <b>behind every Deepin Space.</b></h2>
-      <p class="lede">You can build agents. Deepin gives you the investigation system around them.</p>
+      <p class="eyebrow">Altyapı</p>
+      <h2 class="h2">Her <span lang="en">Deepin</span> Space'in <b>arkasındaki <span lang="en">Investigation</span> sistemi.</b></h2>
+      <p class="lede">Agent'ları siz de kurabilirsiniz. <span lang="en">Deepin</span>, onların etrafındaki <span lang="en">Investigation</span> sistemini verir.</p>
     </div>
     <div class="harness">
       <div style="display:grid;gap:28px">
         <div class="h-box" aria-label="Deepin Harness">
-          <div class="lbl"><span>Deepin Harness</span><span>runs in your environment</span></div>
-          <div class="h-grid"><span>Agents</span><span>Tools</span><span>Data</span><span>Knowledge</span><span>Workflows</span><span>Policies</span><span>Evaluations</span><span>Connectors</span><span>Memory</span></div>
-          <div class="h-flow"><span>Investigation</span><i>→</i><span class="hum">Human approval</span><i>→</i><span class="act">Action</span></div>
+          <div class="lbl"><span><span lang="en">Deepin</span> <span lang="en">Harness</span></span><span>sizin ortamınızda çalışır</span></div>
+          <div class="h-grid"><span>Agent'lar</span><span>Araçlar</span><span>Veri</span><span>Bilgi</span><span>İş akışları</span><span>Politikalar</span><span>Değerlendirmeler</span><span>Bağlantılar</span><span>Hafıza</span></div>
+          <div class="h-flow"><span><span lang="en">Investigation</span></span><i>→</i><span class="hum">İnsan onayı</span><i>→</i><span class="act">Aksiyon</span></div>
         </div>
       </div>
       <div style="display:grid;gap:16px">
-        <div class="lbl">Built for regulated enterprises</div>
-        <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg>On-premise</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg>Air-gapped deployment</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Role-based access</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Audit trail</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Data lineage</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Policy enforcement</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Evaluations</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>Human approval</li></ul>
+        <div class="lbl">Regüle kurumlar için tasarlandı</div>
+        <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg><span lang="en">On-premise</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg><span lang="en">Air-gapped</span> kurulum</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Rol tabanlı erişim</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Denetim izi</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Veri soy ağacı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Politika uygulama</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Değerlendirmeler</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>İnsan onayı</li></ul>
         <div class="datanote">
-  <strong>Your data stays yours.</strong>
-  <p>Deepin does not build its advantage by taking customer data. Your records stay yours. What we carry from one deployment to the next is how an investigation is solved:</p>
-  <ul class="assets"><li>Investigation templates</li><li>Connector patterns</li><li>Workflows</li><li>Evaluations</li><li>Policy patterns</li><li>Agent capabilities</li></ul>
+  <strong>Verileriniz sizde kalır.</strong>
+  <p><span lang="en">Deepin</span> avantajını müşteri verisini alarak kurmaz. Kayıtlarınız sizin olarak kalır. Bir kurulumdan diğerine taşıdığımız şey, bir <span lang="en">Investigation</span>&#x27;ın nasıl çözüldüğüdür:</p>
+  <ul class="assets"><li><span lang="en">Investigation</span> şablonları</li><li>Bağlantı kalıpları</li><li>İş akışları</li><li>Değerlendirmeler</li><li>Politika kalıpları</li><li>Agent yetenekleri</li></ul>
 </div>
       </div>
     </div>
@@ -1051,32 +1068,32 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
 
 <section class="band" id="contact">
   <div class="wrap">
-    <p class="eyebrow">Start here</p>
-    <h2>Bring us <b>an investigation.</b></h2>
+    <p class="eyebrow">Buradan başlayın</p>
+    <h2>Bize <b>bir <span lang="en">Investigation</span> getirin.</b></h2>
     <ol class="band-steps">
-      <li><h3>Show us the work</h3><p>Show us what your team investigates today.</p></li>
-      <li><h3>Run a real case</h3><p>Real case, real systems and measurable success criteria.</p></li>
-      <li><h3>Put it into production</h3><p>Deploy the investigation into your operational environment.</p></li>
+      <li><h3>İşi bize gösterin</h3><p>Ekibinizin bugün neyi araştırdığını gösterin.</p></li>
+      <li><h3>Gerçek bir vakayla çalışalım</h3><p>Gerçek vaka, gerçek sistemler ve ölçülebilir başarı kriterleri.</p></li>
+      <li><h3>Canlıya alalım</h3><p><span lang="en">Investigation</span>'ı operasyonel ortamınıza kuralım.</p></li>
     </ol>
-    <p class="next">Then: <b>what should Deepin investigate next?</b></p>
-    <div class="mail"><code id="email">info@deepin.space</code><button class="copy" id="copyBtn" type="button">Copy email</button></div>
+    <p class="next">Sonra: <b><span lang="en">Deepin</span> sırada neyi araştırsın?</b></p>
+    <div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div>
   </div>
 </section>
 </main>
 <footer id="company">
   <div class="wrap">
     <div class="f-about">
-      <a class="brand" href="#top" aria-label="Deepin home"><img class="logo-l" src="assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"></a>
-      <p>Deepin builds Enterprise Investigation &amp; Decision Automation: agents that investigate business cases, show the evidence and wait for a person to approve.</p>
+      <a class="brand" href="#top" aria-label="Deepin ana sayfa"><img class="logo-l" src="assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"></a>
+      <p><span lang="en">Deepin</span>, <span lang="en">Enterprise</span> <span lang="en">Investigation</span> &amp; <span lang="en">Decision</span> <span lang="en">Automation</span> alanında çalışır: iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent&#x27;lar.</p>
       <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
     </div>
-    <nav class="f-col" aria-label="Spaces"><span class="lbl">Spaces</span><a href="risk/">deepin.risk</a><a href="finance/">deepin.finance</a><a href="security/">deepin.security</a><a href="energy/">deepin.energy</a></nav>
-    <nav class="f-col" aria-label="Company"><span class="lbl">Company</span>
-      <a href="#customers">Customers</a><a href="#enterprise">Enterprise</a>
-      <a href="https://platform.deepin.space">Log in</a>
+    <nav class="f-col" aria-label="Space&#x27;ler"><span class="lbl">Space&#x27;ler</span><a href="risk/"><span lang="en">deepin.risk</span></a><a href="finance/"><span lang="en">deepin.finance</span></a><a href="security/"><span lang="en">deepin.security</span></a><a href="energy/"><span lang="en">deepin.energy</span></a></nav>
+    <nav class="f-col" aria-label="Şirket"><span class="lbl">Şirket</span>
+      <a href="#customers">Müşteriler</a><a href="#enterprise">Kurumsal</a>
+      <a href="https://platform.deepin.space">Giriş</a>
       <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
-    <div class="f-col"><span class="lbl">Contact</span><span>info@deepin.space</span><span class="f-copy">© 2026 Deepin</span></div>
+    <div class="f-col"><span class="lbl">İletişim</span><span>info@<span lang="en">deepin.space</span></span><span class="f-copy">© 2026 <span lang="en">Deepin</span></span><span class="langs" role="group" aria-label="Dil"><a href="" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="en/" hreflang="en" lang="en" title="English">EN</a></span></div>
   </div>
 </footer>
 <script>
@@ -1097,8 +1114,9 @@ footer .wrap{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:32px;align
   // copy email
   var btn=document.getElementById('copyBtn'),em=document.getElementById('email');
   if(btn&&em)btn.addEventListener('click',function(){
-    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1800)};
-    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';};
+    var label=btn.textContent;
+    var done=function(){btn.textContent=btn.getAttribute('data-copied')||'Copied';setTimeout(function(){btn.textContent=label},1800)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent=btn.getAttribute('data-selected')||'Selected';};
     try{navigator.clipboard.writeText(em.textContent).then(done,fallback)}catch(e){fallback()}
   });
 
