@@ -15,6 +15,7 @@
 <link rel="alternate" hreflang="tr" href="https://deepin.space/energy/">
 <link rel="alternate" hreflang="en" href="https://deepin.space/en/energy/">
 <link rel="alternate" hreflang="x-default" href="https://deepin.space/energy/">
+<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a={"en": "../en/energy/"};if(s&&a[s]){var u=a[s];if(!/(^|\.)deepin\.space$/.test(location.hostname)&&/\/$/.test(u))u+="index.html";location.replace(u+location.hash)}}catch(e){}})()</script>
 <link rel="icon" type="image/png" href="../assets/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -798,6 +799,10 @@ footer .langs{justify-self:start;margin-top:10px}
       if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
     });
   }
+  // remember the language the visitor picks
+  document.querySelectorAll('.langs a[hreflang]').forEach(function(a){
+    a.addEventListener('click',function(){try{localStorage.setItem('deepin-lang',a.getAttribute('hreflang'))}catch(e){}});
+  });
   // sticky nav border
   var nav=document.querySelector('.nav');
   var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};

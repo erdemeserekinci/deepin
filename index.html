@@ -15,6 +15,7 @@
 <link rel="alternate" hreflang="tr" href="https://deepin.space/">
 <link rel="alternate" hreflang="en" href="https://deepin.space/en/">
 <link rel="alternate" hreflang="x-default" href="https://deepin.space/">
+<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a={"en": "en/"};if(s&&a[s]){var u=a[s];if(!/(^|\.)deepin\.space$/.test(location.hostname)&&/\/$/.test(u))u+="index.html";location.replace(u+location.hash)}}catch(e){}})()</script>
 <link rel="icon" type="image/png" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1058,7 +1059,7 @@ footer .langs{justify-self:start;margin-top:10px}
         <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg><span lang="en">On-premise</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg><span lang="en">Air-gapped</span> kurulum</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Rol tabanlı erişim</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Denetim izi</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Veri soy ağacı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Politika uygulama</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Değerlendirmeler</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>İnsan onayı</li></ul>
         <div class="datanote">
   <strong>Verileriniz sizde kalır.</strong>
-  <p><span lang="en">Deepin</span> avantajını müşteri verisini alarak kurmaz. Kayıtlarınız sizin olarak kalır. Bir kurulumdan diğerine taşıdığımız şey, bir <span lang="en">Investigation</span>&#x27;ın nasıl çözüldüğüdür:</p>
+  <p><span lang="en">Deepin</span> avantajını müşteri verisini alarak kurmaz. Kayıtlarınız her zaman sizindir. Bir kurulumdan diğerine taşıdığımız şey, bir <span lang="en">Investigation</span>&#x27;ın nasıl çözüldüğüdür:</p>
   <ul class="assets"><li><span lang="en">Investigation</span> şablonları</li><li>Bağlantı kalıpları</li><li>İş akışları</li><li>Değerlendirmeler</li><li>Politika kalıpları</li><li>Agent yetenekleri</li></ul>
 </div>
       </div>
@@ -1106,6 +1107,10 @@ footer .langs{justify-self:start;margin-top:10px}
       if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
     });
   }
+  // remember the language the visitor picks
+  document.querySelectorAll('.langs a[hreflang]').forEach(function(a){
+    a.addEventListener('click',function(){try{localStorage.setItem('deepin-lang',a.getAttribute('hreflang'))}catch(e){}});
+  });
   // sticky nav border
   var nav=document.querySelector('.nav');
   var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};

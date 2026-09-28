@@ -7,6 +7,10 @@
       if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
     });
   }
+  // remember the language the visitor picks
+  document.querySelectorAll('.langs a[hreflang]').forEach(function(a){
+    a.addEventListener('click',function(){try{localStorage.setItem('deepin-lang',a.getAttribute('hreflang'))}catch(e){}});
+  });
   // sticky nav border
   var nav=document.querySelector('.nav');
   var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};

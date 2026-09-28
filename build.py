@@ -353,6 +353,11 @@ def build():
             url = f"https://deepin.space/{out}"
             alternates = "\n".join(f'<link rel="alternate" hreflang="{l}" href="https://deepin.space/{page_path(d, page)}">' for l, d in LOCALES)
             alternates += f'\n<link rel="alternate" hreflang="x-default" href="https://deepin.space/{page_path(LOCALES[0][1], page)}">'
+            # honour a language the visitor picked with the TR/EN switch (set in base.js)
+            alt_json = json.dumps({l: u for l, u in ctx["alt"].items() if l != lang})
+            alternates += ('\n<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a=' + alt_json +
+                           ';if(s&&a[s]){var u=a[s];if(!/(^|\\.)deepin\\.space$/.test(location.hostname)&&/\\/$/.test(u))u+="index.html";'
+                           'location.replace(u+location.hash)}}catch(e){}})()</script>')
             doc = f'''<!doctype html>
 <html lang="{lang}">
 <head>

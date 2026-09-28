@@ -15,6 +15,7 @@
 <link rel="alternate" hreflang="tr" href="https://deepin.space/finance/">
 <link rel="alternate" hreflang="en" href="https://deepin.space/en/finance/">
 <link rel="alternate" hreflang="x-default" href="https://deepin.space/finance/">
+<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a={"en": "../en/finance/"};if(s&&a[s]){var u=a[s];if(!/(^|\.)deepin\.space$/.test(location.hostname)&&/\/$/.test(u))u+="index.html";location.replace(u+location.hash)}}catch(e){}})()</script>
 <link rel="icon" type="image/png" href="../assets/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -738,8 +739,8 @@ footer .langs{justify-self:start;margin-top:10px}
   <div class="wrap">
     <div>
       <p class="eyebrow">Finansal Operasyonlar ve <span lang="en">Investigation</span></p>
-      <h1>Chargeback <span lang="en">Investigation</span>, <b>kanıtı ekli olarak.</b></h1>
-      <p class="lede">İtiraz ekipleri her vaka için işlem verisini, doğrulama kayıtlarını, üye işyeri bilgilerini ve belgeleri, kart şeması sürelerine karşı yarışarak toplar. <span lang="en">deepin.finance</span> vakayı hazırlar, kurallarınızı ve politikalarınızı uygular ve ekibinizin onaylayabileceği bir karar hazırlar.</p>
+      <h1>Chargeback <span lang="en">Investigation</span>. <b>Kanıtıyla birlikte.</b></h1>
+      <p class="lede">İtiraz ekipleri, kart şemasının belirlediği süreler dolmadan her vaka için işlem verisini, doğrulama kayıtlarını, üye işyeri bilgilerini ve belgeleri toplamak zorundadır. <span lang="en">deepin.finance</span> vakayı hazırlar, kurallarınızı ve politikalarınızı uygular ve ekibinizin onaylayabileceği bir karar hazırlar.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#contact">Demo talep edin
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
@@ -835,7 +836,7 @@ footer .langs{justify-self:start;margin-top:10px}
       </div>
       <div class="panel">
         <div>
-          <div class="lbl">Vakadan karara hazır hale</div>
+          <div class="lbl">Vakadan karara</div>
           <div class="equation plain"><span>İşlem</span><i>+</i><span>Şirket</span><i>+</i><span>Kanıt</span></div>
           <div class="eq-down" aria-hidden="true"></div>
           <div class="equation"><span class="dr">Karara hazır vaka</span><i>→</i><span>İnsan onayı</span></div>
@@ -864,7 +865,7 @@ footer .langs{justify-self:start;margin-top:10px}
       <div><strong>İnsan müdahalesi</strong><span>Vaka başına kalan manuel adım</span></div>
       <div><strong>Analist başına vaka</strong><span>Aynı ekibin kapasitesi</span></div>
       <div><strong>Yanıt süresi</strong><span>Kart şeması süreleri içinde yanıt verme süresi</span></div>
-      <div><strong>Kanıt otomasyonu</strong><span>Bir kişiye gerek kalmadan toplanan kanıt oranı</span></div>
+      <div><strong>Kanıt otomasyonu</strong><span>İnsan müdahalesi olmadan toplanan kanıt oranı</span></div>
     </div>
   </div>
 </section>
@@ -874,7 +875,7 @@ footer .langs{justify-self:start;margin-top:10px}
     <div class="sec-head">
       <p class="eyebrow">Sırada ne var</p>
       <h2 class="h2">Önce chargeback. <b>Sonra finansal operasyonların geri kalanı.</b></h2>
-      <p class="lede">Her yeni <span lang="en">Investigation</span>, bir öncekine kurulan bağlantıları, politikaları ve değerlendirmeleri yeniden kullanır; böylece canlıya daha hızlı çıkar.</p>
+      <p class="lede">Her yeni <span lang="en">Investigation</span>, bir öncekinde kurulan bağlantıları, politikaları ve değerlendirmeleri yeniden kullanır; böylece canlıya daha hızlı çıkar.</p>
     </div>
     <ol class="roadmap">
       <li class="now"><span class="tag">Şimdi</span><h3>Chargeback</h3><p>Kart itirazı <span lang="en">Investigation</span>'ı</p></li>
@@ -957,6 +958,10 @@ footer .langs{justify-self:start;margin-top:10px}
       if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
     });
   }
+  // remember the language the visitor picks
+  document.querySelectorAll('.langs a[hreflang]').forEach(function(a){
+    a.addEventListener('click',function(){try{localStorage.setItem('deepin-lang',a.getAttribute('hreflang'))}catch(e){}});
+  });
   // sticky nav border
   var nav=document.querySelector('.nav');
   var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};
