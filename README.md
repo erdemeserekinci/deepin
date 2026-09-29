@@ -34,3 +34,5 @@ Müşteri logoları: `src/data.*.json` içinde `proof.show_logos` true yapılıp
 Talep formu şu an e-posta uygulamasını açar. Bir form servisi bağlanırsa `risk.*.json` içindeki `form.endpoint` alanına adresi yazmak yeterli.
 
 Eski risk.deepin.space adresini https://deepin.space/risk adresine 301 ile yönlendirmek önerilir.
+
+Yapılan işlerin ve kararların özeti: [CHANGELOG.md](CHANGELOG.md)
