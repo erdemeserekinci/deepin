@@ -19,3 +19,19 @@ html.tur:not(.temiz) .app{position:absolute;left:var(--tur-yan);top:var(--tur-us
 #kapanis .kp-slogan{font-family:Poppins,system-ui,sans-serif;font-size:29px;font-weight:500;color:#fff;margin:0;text-align:center}
 #kapanis .kp-not{position:absolute;bottom:46px;left:0;right:0;text-align:center;font-family:Poppins,system-ui,sans-serif;font-size:18px;color:#9fb3ba;margin:0}
 html.tur.temiz #altyazi,html.tur.temiz #kapanis{display:none!important}
+#altyazi span .sat{display:block;will-change:transform}
+#altyazi span i,#kart i{font-style:normal;color:#3ff0c0}
+#perde{position:fixed;left:0;right:0;bottom:0;height:260px;z-index:2147483400;pointer-events:none;opacity:0;background:linear-gradient(180deg,rgba(13,33,38,0) 0%,rgba(13,33,38,.78) 45%,rgba(13,33,38,.94) 100%)}
+#kart{position:fixed;inset:0;z-index:2147483560;pointer-events:none;opacity:0;visibility:hidden;display:flex;align-items:center;justify-content:center;background:radial-gradient(900px 420px at 50% 112%,rgba(19,220,167,.22),rgba(19,220,167,0) 70%),radial-gradient(700px 380px at 8% -10%,rgba(84,224,176,.10),rgba(84,224,176,0) 70%),linear-gradient(180deg,#143037 0%,#0d2126 100%)}
+#kart .kr-ic{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;margin-top:-20px}
+#kart .ks{display:block;font-family:Poppins,system-ui,sans-serif;font-size:92px;line-height:1.08;font-weight:700;color:#fff;letter-spacing:-.02em;will-change:transform}
+#kart .kr-ic.logo{gap:10px}
+#kart .kr-ic.logo .kp-logo{display:flex;align-items:center;margin-bottom:34px}
+#kart .kr-ic.logo .kp-logo img{height:76px;width:auto}
+#kart .kr-ic.logo .kp-logo .sep{width:6px;height:62px;background:#00e695;margin:-13px 28px 0 28px;border-radius:2px}
+#kart .kr-ic.logo .kp-logo .prod{font-family:Poppins,system-ui,sans-serif;font-size:84px;font-weight:300;color:#fff;line-height:1;margin-top:-18px}
+#kart .kr-ic.logo .ks{font-size:44px;font-weight:500;line-height:1.25;letter-spacing:-.005em}
+html.reklam #altyazi span{font-size:44px;line-height:1.12;font-weight:700;letter-spacing:-.015em;max-width:1400px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+html.reklam #kapanis .kp-slogan{font-size:52px;font-weight:700;letter-spacing:-.015em}
+html.reklam #perde{height:320px;z-index:2147483605;background:linear-gradient(180deg,rgba(13,33,38,0) 0%,rgba(13,33,38,.9) 40%,rgba(13,33,38,.98) 64%)}
+html.reklam #altyazi{z-index:2147483615}

@@ -64,13 +64,13 @@ def veri_hazirla(dil):
 def senaryo_hazirla(yol, dil):
     s = json.load(open(yol, encoding="utf-8"))
     sec = lambda x: x[dil] if isinstance(x, dict) and dil in x else x
-    out = {"imlec_bas": s.get("imlec_bas"), "kapanis": {k: sec(v) for k, v in s.get("kapanis", {}).items()}, "sahneler": []}
+    out = {"imlec_bas": s.get("imlec_bas"), "stil": s.get("stil"), "kapanis": {k: sec(v) for k, v in s.get("kapanis", {}).items()}, "sahneler": []}
     for sh in s["sahneler"]:
         adimlar = []
         for a in sh["adimlar"]:
             a = list(a)
-            if len(a) > 3 and isinstance(a[3], dict) and "metin" in a[3]:
-                a[3] = dict(a[3], metin=sec(a[3]["metin"]))
+            if len(a) > 3 and isinstance(a[3], dict):
+                a[3] = {k: sec(v) for k, v in a[3].items()}
             adimlar.append(a)
         out["sahneler"].append({"ad": sh["ad"], "altyazi": sec(sh.get("altyazi", "")), "adimlar": adimlar})
     return out

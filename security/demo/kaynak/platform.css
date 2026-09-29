@@ -347,8 +347,8 @@ table.t td .who{font-family:var(--mono);font-size:12.5px}
 .search input{border:0;outline:0;font:inherit;font-size:13.5px;flex:1;min-width:0;background:none;color:var(--ink)}
 .search input::placeholder{color:var(--ph)}
 .search .ic-s{color:var(--muted);height:13px}
-.sel{height:34px;border:1px solid #ededee;border-radius:8px;padding:0 10px;font:inherit;font-size:13.5px;background:#fff;color:var(--ink)}
-.sel:focus{outline:2px solid var(--mint-b)}
+select.sel{height:34px;border:1px solid #ededee;border-radius:8px;padding:0 10px;font:inherit;font-size:13.5px;background:#fff;color:var(--ink)}
+select.sel:focus{outline:2px solid var(--mint-b)}
 .bar{display:inline-block;height:6px;border-radius:3px;background:var(--c,var(--mint));vertical-align:middle}
 .barw{display:flex;align-items:center;gap:8px}
 .barw span:not(.bar){font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--ink-2);min-width:24px}

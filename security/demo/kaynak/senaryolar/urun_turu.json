@@ -40,7 +40,7 @@
     {
       "ad": "graf",
       "arayuz_adi": ["Graf"],
-      "altyazi": {"tr": "Graf: kişi, benzer görevdeki 22 çalışan ve gittiği ağlar. Çizgi kalınlığı istek sayısını gösterir.", "en": "The graph: the person, 22 peers in similar roles and the networks reached. Line width shows request volume."},
+      "altyazi": {"tr": "Graf: kişi, benzer görevdeki 18 çalışan ve gittiği ağlar. Çizgi kalınlığı istek sayısını gösterir.", "en": "The graph: the person, 18 peers in similar roles and the networks reached. Line width shows request volume."},
       "sayilar": ["grup_uye"],
       "adimlar": [
         ["tik", ".dact [data-a=\"tab\"][data-p=\"graf\"]", 950],
@@ -128,7 +128,7 @@
     {
       "ad": "kisi",
       "arayuz_adi": ["Kişi sorgusu"],
-      "altyazi": {"tr": "Kişi sorgusu: aynı hesabın haftası, gün gün. Ödeme ağlarına ilk kez 30 Nisan'da ulaşılmış.", "en": "User lookup: the same account's week, day by day. The payment networks were first reached on April 30."},
+      "altyazi": {"tr": "Kişi sorgusu: aynı hesabın haftası, gün gün. Ödeme ağlarına ilk kez 17 Eylül'de ulaşılmış.", "en": "User lookup: the same account's week, day by day. The payment networks were first reached on September 17."},
       "sayilar": ["ilk_ulasma_gunu"],
       "adimlar": [
         ["tik", ".rail .rb[data-p=\"kisi\"]", 1000],

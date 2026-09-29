@@ -1,6 +1,8 @@
 # deepin | security: tanıtım videosu brifi
 
 Bu dosya, ham ürün görüntüsünden **lansman tarzı bir tanıtım videosu** kuracak kişiye ya da yapay zekâ aracına verilir.
+**Bu kurgunun sessiz, ekran yazılı hâli hazır:** `kaynak/senaryolar/reklam.json` → `python3 kaynak/video_cek.py --senaryo reklam --dil tr`
+(ve `--dil en`), çıktı `video/reklam/tr.mp4`, ~73 sn, 1080p. Dış araç yalnız müzik ve seslendirme eklemek için gerekir (§5).
 Hedef: startup'ların ürün tanıtımları gibi, **60-75 saniye**, vurucu ekran yazıları ve anlatan bir seslendirme, 16:9.
 
 ## 1. Paket
@@ -30,7 +32,7 @@ koyu `#143037` ve zemin `#0d2126` · açık zemin beyaz. Ton: sakin, kendinden e
    "%90 daha hızlı", "binlerce müşteri" gibi ifade yok.
 3. **"Yapay zekâ saldırıyı tespit etti" denmez.** Ürün kanıta dayalı inceleme yapar; asistan incelemenin kendi kayıtlarından cevap verir
    ve kayıt söylemiyorsa "söylemez" der. Bu dürüstlük videonun ana mesajlarından biri.
-4. **Kapanışta şu not görünür kalır:** "Kurgusal kurumla hazırlanmış demo verisi." / "Demo data prepared with a fictional organization."
+4. **Kapanış:** logo ve slogan; alt satırda not yok.
 5. Metinlerde uzun tire (—) kullanılmaz; virgül ya da nokta.
 
 ## 3. Senaryo (Türkçe), ~70 sn
@@ -51,7 +53,7 @@ Zaman kodları **temiz görüntünün** zamanıdır (dakika:saniye). "Yakınlaş
 | 49-55 | 00:55.0-01:02.5 MITRE: iki teknik seçilir, ortak varlık kutusu. Yakınlaştır: 00:59.6 kutu | **Tek hesap.** / **İki ATT&CK aşaması.** | MITRE ATT&CK üzerinde aynı hesap hem ilk erişim hem yanal hareket aşamasında görünüyor. |
 | 55-63 | Hızlı kesitler, her biri ~2 sn: 01:05.5 kişi sorgusu · 01:15.2 ağ geçişleri matrisi · 01:23.7 uyarı araması · 01:30.6 veri kaynakları | **Kişi.** · **Ağ.** · **Uyarı.** · **Kaynak.** | Kişinin haftası, ağlar arası trafik, bütün uyarılar ve 5 kayıt kaynağı tek ekranda. |
 | 63-66 | 01:31.8-01:34.8 bağlam kartları | **Kayıtlarınız kurum dışına çıkmaz.** | Ve kayıtlarınız kurumunuzdan dışarı çıkmaz. |
-| 66-72 | Kapanış kartı (koyu zemin) | **deepin \| security** / Güvenlik kayıtlarını kanıtlı incelemelere dönüştürür. / alt satır: Kurgusal kurumla hazırlanmış demo verisi. | deepin security. Uyarıdan kanıta. |
+| 66-72 | Kapanış kartı (koyu zemin) | **deepin \| security** / Güvenlik kayıtlarını kanıtlı incelemelere dönüştürür. | deepin security. Uyarıdan kanıta. |
 
 Müzik: sakin başlayan, 7. saniyede (logo) ve 19. saniyede (graf) yükselen elektronik/ambient. Seslendirme yoksa ekran yazıları tek başına yeter;
 yazılar 1080p'de en az 60 px, bir seferde en çok 6 kelime.
@@ -72,7 +74,7 @@ yazılar 1080p'de en az 60 px, bir seferde en çok 6 kelime.
 | 49-55 | 00:55.0-01:02.5 MITRE, two techniques, shared entity. Zoom: box at 00:59.6 | **One account.** / **Two ATT&CK stages.** | On MITRE ATT&CK, the same account shows up in both initial access and lateral movement. |
 | 55-63 | Quick cuts, ~2 s each: 01:05.5 user lookup · 01:15.2 network flows matrix · 01:23.7 alert search · 01:30.6 data sources | **People.** · **Networks.** · **Alerts.** · **Sources.** | A person's week, traffic between zones, every alert and 5 log sources, on one screen. |
 | 63-66 | 01:31.8-01:34.8 context cards | **Your logs never leave your organization.** | And your logs never leave your organization. |
-| 66-72 | Closing card | **deepin \| security** / Turns security logs into evidence-backed investigations. / small: Demo data prepared with a fictional organization. | deepin security. From alert to evidence. |
+| 66-72 | Closing card | **deepin \| security** / Turns security logs into evidence-backed investigations. | deepin security. From alert to evidence. |
 
 İngilizce videoda `en_temiz.mp4` kullanılır; zaman kodları aynıdır.
 
@@ -98,15 +100,13 @@ beğenilirse ücretli ses) → müzik → 1080p ve 4K çıktı. Kısa sosyal med
 > Ekteki `tr_temiz.mp4` bir güvenlik yazılımının gerçek ekran kaydı. Bundan startup lansman videosu tarzında, 60-75 saniyelik,
 > 16:9 bir tanıtım videosu hazırla. Ekteki REKLAM_BRIFI.md'nin 3. bölümündeki senaryoyu, klip zaman kodlarını, ekran yazılarını ve
 > seslendirmeyi kullan. Kurallar: ürün görüntüsünü yeniden üretme, yalnız kes, yakınlaştır, hızlandır, üstüne yazı koy; ekrandaki
-> yazı ve sayıları değiştirme; brifte olmayan sayı ya da iddia ekleme; kapanışta "Kurgusal kurumla hazırlanmış demo verisi." notunu
-> koru. Yazı tipi Poppins, vurgu rengi #13dca7, koyu zemin #0d2126. Ton sakin ve kendinden emin.
+> yazı ve sayıları değiştirme; brifte olmayan sayı ya da iddia ekleme. Yazı tipi Poppins, vurgu rengi #13dca7, koyu zemin #0d2126. Ton sakin ve kendinden emin.
 
 **English:**
 > The attached `en_temiz.mp4` is a real screen recording of a security product. Turn it into a 60-75 second, 16:9 product launch
 > video in the style of startup launch videos. Use the script, clip timecodes, on-screen text and voice-over from section 4 of the
 > attached REKLAM_BRIFI.md. Rules: do not regenerate the product footage, only cut, zoom, speed up and overlay text; do not change
-> any text or number on screen; do not add numbers or claims that are not in the brief; keep the closing note "Demo data prepared
-> with a fictional organization." Font Poppins, accent #13dca7, dark background #0d2126. Tone: calm and confident.
+> any text or number on screen; do not add numbers or claims that are not in the brief. Font Poppins, accent #13dca7, dark background #0d2126. Tone: calm and confident.
 
 ## 7. Bizim tarafta (araca verilmez)
 

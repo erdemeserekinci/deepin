@@ -60,7 +60,7 @@ atıf `index.html` içinde). Logo `assets/deepin-logo-platform.png`: sitenin nan
 
 | Dosya | Ne |
 |---|---|
-| `kaynak/cevir.py` | Veri katmanını çevirir: her metni **şablona** indirir (`{N}` sayı, `{P}` yüzde, `{D}` tarih, `{T}` saat, `{K}` adres/makine/kişi adı), sözlükten Türkçe şablonun İngilizcesini koyar. Sayılar, tarihler ve adresler dokunulmadan taşınır; biçim çevrilir (`1.386` → `1,386`, `%74` → `74%`, `30 Nis` → `Apr 30`) |
+| `kaynak/cevir.py` | Veri katmanını çevirir: her metni **şablona** indirir (`{N}` sayı, `{P}` yüzde, `{D}` tarih, `{T}` saat, `{K}` adres/makine/kişi adı), sözlükten Türkçe şablonun İngilizcesini koyar. Sayılar, tarihler ve adresler dokunulmadan taşınır; biçim çevrilir (`1.386` → `1,386`, `%74` → `74%`, `17 Eyl` → `Sep 17`) |
 | `kaynak/ceviri_veri_en.py` | Veri metinleri sözlüğü (~590 girdi). Tekil/çoğul için `{"1": …, "*": …}`, sayı sırası değişirse `{N2}` gibi indeks |
 | `kaynak/ceviri_js_en.py` | Arayüz metinleri sözlüğü (~245 girdi); anahtarlar `platform.js` içindeki `tt('…')` çağrılarıdır |
 

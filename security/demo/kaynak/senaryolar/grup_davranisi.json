@@ -1,6 +1,6 @@
 {
   "surum": 1,
-  "baslik": "Kısa kesit: grup davranışı grafı (Müşteri İletişim Merkezi), kişiden kişiye geçiş, asistana kime sorulacağı",
+  "baslik": "Kısa kesit: grup davranışı grafı (Tahsilat Operasyonları), kişiden kişiye geçiş, asistana kime sorulacağı",
   "not": "Ornek ikinci senaryo. Adim bicimi ve kurallar: VIDEO_REHBERI.md.",
   "imlec_bas": [0.66, 0.78],
   "kapanis": {
@@ -10,11 +10,11 @@
   "sahneler": [
     {
       "ad": "inceleme",
-      "altyazi": {"tr": "Müşteri İletişim Merkezi: 34 kişilik gruptan 9'u yüzlerce iç ağa istek gönderdi, hiçbiri geçmedi.", "en": "Customer Contact Center: in a 34-person group, 9 sent requests to hundreds of internal networks. None got through."},
-      "sayilar": ["inc.iletisim-merkezi.grup_uye", "inc.iletisim-merkezi.varlik"],
+      "altyazi": {"tr": "Tahsilat Operasyonları: 46 kişilik gruptan 8'i onlarca iç ağa istek gönderdi, hiçbiri geçmedi.", "en": "Collections Operations: in a 46-person group, 8 sent requests to dozens of internal networks. None got through."},
+      "sayilar": ["inc.tahsilat-operasyonlari.grup_uye", "inc.tahsilat-operasyonlari.varlik"],
       "adimlar": [
         ["bekle", 600],
-        ["tik", ".row-h[data-a=\"ac-inc\"][data-p=\"iletisim-merkezi\"]", 1100, {"fx": 0.22}],
+        ["tik", ".row-h[data-a=\"ac-inc\"][data-p=\"tahsilat-operasyonlari\"]", 1100, {"fx": 0.22}],
         ["bekle", 900],
         ["imlec", ".verdict", 800, {"fx": 0.35}],
         ["bekle", 2300]
@@ -41,9 +41,9 @@
       "sayilar": [],
       "adimlar": [
         ["kaydir", "#card", 700, {"hedef": ".gwrap", "ust": 8}],
-        ["tik", ".gsel button[data-p=\"iletisim-merkezi|hyavuz\"]", 900],
+        ["tik", ".gsel button[data-p=\"tahsilat-operasyonlari|hyavuz\"]", 900],
         ["bekle", 900],
-        ["tik", ".gsel button[data-p=\"iletisim-merkezi|dtas\"]", 650],
+        ["tik", ".gsel button[data-p=\"tahsilat-operasyonlari|dtas\"]", 650],
         ["bekle", 900],
         ["kaydir", "#card", 900, {"hedef": ".gsvg", "ust": 2}],
         ["tik", ".gnode[data-p=\"d8\"]", 900, {"fx": 0.3}],
@@ -54,8 +54,8 @@
     },
     {
       "ad": "tek-inceleme",
-      "altyazi": {"tr": "9 kişi, tek inceleme: ayrı ayrı uyarı olarak değil, bir grup davranışı olarak.", "en": "9 people, one investigation: shown as one group behavior, not as separate alerts."},
-      "sayilar": ["inc.iletisim-merkezi.varlik"],
+      "altyazi": {"tr": "8 kişi, tek inceleme: ayrı ayrı uyarı olarak değil, bir grup davranışı olarak.", "en": "8 people, one investigation: shown as one group behavior, not as separate alerts."},
+      "sayilar": ["inc.tahsilat-operasyonlari.varlik"],
       "adimlar": [
         ["tik", ".chip[data-a=\"chip\"][data-p=\"soru:sor\"]", 1000],
         ["bekle", 1500],

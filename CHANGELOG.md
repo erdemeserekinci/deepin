@@ -112,6 +112,7 @@ Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 **deepin.security: örnek vaka kurgusal, tanıtım videosu yenilendi**
 - Üst bölümdeki örnek vaka tamamen kurgusal hâle getirildi: sayılar değişti (aynı birimde 5 bilgisayar, 22 kişilik birim, 3 günlük kayıt, 100'den fazla iç adres, 140'tan fazla kapı, denemelerin %91'i engellendi) ve alt not "Kurgusal örnek vaka; kurum, kişiler ve sayılar temsilidir." oldu. Davranış ölçümü grafiği yeni sayılarla yeniden üretildi.
 - Tanıtım videosu iki dilde yeniden çekildi. Demo verisi kurgusal bir haftaya (14-20 Eylül 2026), genel ürün adlarına ve kurgusal servis ve birim adlarına taşındı; MITRE ATT&CK sayfasında seçili teknik kutusunun alt satırının kesilmesi düzeltildi. Seslendirme, müzik, kapak ve altyazı aynı.
+- `security/demo/` aynı veriyle güncellendi (demo sayfası, iki örnek video, önizlemeler, belgeler). Kendi senaryosunu yazmak isteyen için tanıtım videosunun senaryosu (`kaynak/senaryolar/reklam.json`) ve seslendirme ile müzik araçları (`kaynak/ses_yap.py`, `kaynak/ses_ekle.swift`) eklendi; kullanımı `VIDEO_REHBERI.md` içinde. Ses kayıtları depoya konmuyor.
 
 ## Alınan kararlar
 

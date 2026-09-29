@@ -203,6 +203,7 @@ def main():
             print("UYARI: Poppins yuklenmedi, sistem yazi tipiyle cekiliyor (internet baglantisi?)")
         sure = c.js("window.__tur.sure")
         sahneler = c.js("window.__tur.sahneler")
+        json.dump({"senaryo": a.senaryo, "dil": a.dil, "sure_ms": sure, "sahneler": sahneler}, open(os.path.join(vdir, f"{a.dil}{ek}_sahneler.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         dt = 1000 / a.fps
         n = int(round(sure / dt)) + 1
         print(f"{a.senaryo} / {a.dil}{' temiz' if a.temiz else ''}: {sure / 1000:.1f} sn, {n} kare, {boyut[0]}x{boyut[1]}", flush=True)

@@ -26,7 +26,7 @@ const ONC = {yuksek:{ad:tt('Yüksek'), c:'var(--hi)'}, orta:{ad:tt('Orta'), c:'v
 const KAYNAK_AD = k => (D.kaynaklar[k] ? D.kaynaklar[k].ad : k);
 const DONEMLER = [
   {k:'tum', ad:tt('Tüm dönem'), alt:D.donem.kisa, bas:D.gunler[0].tarih},
-  {k:'son3', ad:tt('Son 3 gün'), alt:D.donem.son3, bas:'2026-05-01'},
+  {k:'son3', ad:tt('Son 3 gün'), alt:D.donem.son3, bas:D.gunler[D.gunler.length - 3].tarih},
   {k:'bugun', ad:tt('Bugün'), alt:D.gunler[D.gunler.length - 1].et, bas:SON_GUN}
 ];
 const SIRALAR = [{k:'oncelik', ad:tt('Önceliğe göre')}, {k:'uyari', ad:tt('Uyarı sayısına göre')}, {k:'son', ad:tt('Son uyarıya göre')}];
@@ -263,7 +263,7 @@ function hamHtml(inc){
   const h = inc.ham;
   const satir = h.satirlar.map((s, i) => `<div><span class="ln">${String(i + 1).padStart(2, '0')}</span>${esc(s).replace(/(\b\d{1,3}(?:\.\d{1,3}){3}\b)/g, '<em>$1</em>').replace(/(MERIDYEN\\[a-z0-9]+)/g, '<em>$1</em>')}</div>`).join('');
   return `<h3 class="sec">${tt('Ham kayıt')}</h3>
-  <div class="logh"><span>${tt('{0} / {1} satır gösteriliyor', h.satirlar.length, sayi(h.toplam))} · ${esc(KAYNAK_AD(h.kaynak === 'waf' ? 'citrix' : h.kaynak))}</span><span>${tt('Dosya')} <code>ham_kanit/${esc(h.dosya)}</code></span></div>
+  <div class="logh"><span>${tt('{0} / {1} satır gösteriliyor', h.satirlar.length, sayi(h.toplam))} · ${esc(KAYNAK_AD(h.kaynak === 'waf' ? 'gecit' : h.kaynak))}</span><span>${tt('Dosya')} <code>ham_kanit/${esc(h.dosya)}</code></span></div>
   <div class="log" role="region" aria-label="${tt('Ham kayıt satırları')}" tabindex="0">${satir}</div>`;
 }
 function tabKanit(inc){

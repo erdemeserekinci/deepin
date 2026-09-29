@@ -8,10 +8,11 @@ eslesmelidir (denetim.py sinar). Iki tur anahtar var:
                                                graf.normal, graf.yalniz, graf.engel, graf.grup_engel (ilk kisi)
                    kisi.<ad>.<alan>            kisi sorgusu: istek, engel, oturum, yonetici (haftalik toplam)
                    mitre.<kod>.uyari           o teknige dusen uyari sayisi
-                   gun.<YYYY-AA-GG>            o tarihin gun sayisi (ornek: 30), tarih donemde olmali
+                   gun.<YYYY-AA-GG>            o tarihin gun sayisi (ornek: 17), tarih donemde olmali
 
 Yeni bir sayi gerekirse ADLI sozlugune veriden hesaplanan bir anahtar ekle; sayiyi dogrudan yazma.
 """
+import re
 
 
 def _inc(D, i):
@@ -42,6 +43,7 @@ def adli(D):
         "yalniz_ag": k["ozet"]["yalniz"],
         "engel_ag": k["ozet"]["engel"] + k["ozet"]["grup_engel"],
         "ilk_ulasma_gunu": int(min(a["gun"] for a in k["ag"] if a["sinif"] == "yalniz")[-2:]),
+        "ayrilis_gunu": int(re.search(r"(\d+) [A-ZÇĞİÖŞÜ][a-zçğıöşü]+", D["haftalar"]["ktuncer"]["ik"]).group(1)),
     }
 
 

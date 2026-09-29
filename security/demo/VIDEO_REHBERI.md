@@ -14,6 +14,7 @@ görmenin en hızlı yolu bu:
 |---|---|
 | `video/urun_turu/tr_ornek.mp4` (720p, ~100 sn, 3,3 MB) | Tam ürün turu: ana sayfa ve günlük özet → inceleme → graf (üç sahne) → kanıt ve ham kayıt → asistana "Bu bir saldırı mı?" → MITRE → kişi sorgusu → ağ geçişleri → tüm uyarılar → veri kaynakları → kapanış |
 | `video/grup_davranisi/tr_ornek.mp4` (720p, ~34 sn, 0,9 MB) | Tek konulu kısa kesit: grup davranışı grafı, kişiden kişiye geçiş, asistana "Kimlere sorulur?" |
+| `video/reklam/onizleme_tr.jpg` | Lansman reklamının akışı (video depoda değil: `python3 kaynak/video_cek.py --senaryo reklam --dil tr`, ~4 dk) |
 | `video/<senaryo>/onizleme_tr.jpg`, `onizleme_en.jpg` | Her sahneden bir kare, sahne adıyla (bütün akış tek resimde) |
 | `video/urun_turu/REKLAM_BRIFI.md` | Ürün turundan lansman videosu montajı: senaryo, vurucu ekran yazıları, seslendirme, araçlar |
 
@@ -27,7 +28,7 @@ Bu klasörde (sitede `security/demo/`) Claude Code açıp düz Türkçeyle söyl
 
 - *"Graf odaklı 30 saniyelik bir video çek: Kerem Tuncer incelemesi, grafı aç, turuncu ağlara tıkla. Türkçe ve İngilizce."*
 - *"MITRE sayfasıyla başlayan 45 saniyelik İngilizce bir video: iki teknik seç, ortak hesabı göster, sonra o hesabın incelemesine git."*
-- *"Müşteri İletişim Merkezi grup davranışı için kısa kesit; kişiden kişiye geçsin, sonunda asistana 'Kimlere sorulur?' diye sorsun."*
+- *"Tahsilat Operasyonları grup davranışı için kısa kesit; kişiden kişiye geçsin, sonunda asistana 'Kimlere sorulur?' diye sorsun."*
 - *"Ürün turunu altyazısız 4K ver, montaj yapacağım."*
 - *"Var olan ürün turunda sohbet sahnesini kısalt, veri kaynakları sahnesini çıkar, yeniden çek."*
 - *"LinkedIn için 20 saniyelik, sadece ana sayfa ve graf; kapanışta 'Uyarıyı değil, hikâyeyi görün' yazsın."*
@@ -42,6 +43,7 @@ Bu klasörde (sitede `security/demo/`) Claude Code açıp düz Türkçeyle söyl
 | Vurgulanacak tek mesaj | "grubundan kimsenin gitmediği ağ" | sahne başına bir cümle |
 | Altyazı | var / yok (montaj için temiz) | var |
 | Kapanış sloganı | "Uyarıdan kanıta." | "Güvenlik kayıtlarını kanıtlı incelemelere dönüştürür." |
+| Kapanışta alt satır notu | var / yok | ürün turunda var, reklamda yok |
 | Çözünürlük | 1080p / 4K | 1080p; temiz sürüm 4K |
 
 Claude şunları teslim eder: senaryo dosyası (`kaynak/senaryolar/<ad>.json`), önizleme levhası (her sahneden bir kare), video(lar),
@@ -92,7 +94,7 @@ Zaman sanal ilerlediği için makine yavaş da olsa video akıcı ve her çekim 
 ## 4. Senaryo dosyası
 
 `kaynak/senaryolar/<ad>.json`. Dosya adı senaryonun adıdır (`--senaryo <ad>`, tarayıcıda `index.html?tur=1&senaryo=<ad>`).
-Var olan iki örnek: `urun_turu.json` (~100 sn, bütün sayfalar) ve `grup_davranisi.json` (~34 sn, tek konu). Yenisini yazarken
+Var olan örnekler: `urun_turu.json` (~100 sn, bütün sayfalar), `grup_davranisi.json` (~34 sn, tek konu) ve `reklam.json` (~73 sn, reklam stili: kart ve yakınlaştırma). Yenisini yazarken
 onlardan birini kopyalayıp değiştirmek en hızlı yoldur.
 
 ```json
@@ -147,6 +149,14 @@ o adın arayüzdeki yazılışı; denetim İngilizce karşılığını da arar) 
 | `git` | `["git", "#/mitre"]` | 0 | Rotaya anında gider, imleçsiz. Videoda `tik` daha doğal durur; `git` yalnız zorunluysa |
 | `kontrol` | `["kontrol", seçici veya null, 0, {"cevap": "saldiri", "metin": "..."}]` | 0 | **Doğrulama.** Seçici ekranda yoksa, asistan beklenen soruyu cevaplamadıysa ya da metin ekranda yoksa çekim hata verir |
 | `kapanis` | `["kapanis", null, ms]` | 4500 | Kapanış kartı. `--temiz` çekimde 1 sn beklemeye dönüşür |
+| `kamera` | `["kamera", seçici, ms, {"olcek": 1.5, "fx": .5, "fy": .5}]` | 900 | **Yakınlaştırma.** Pencereyi öğenin üstüne yumuşakça büyütür (pencere kenarı dışarı taşmaz). Geri almak için `["kamera", null, 600, {"olcek": 1}]`. İmleç içerikle birlikte kalır |
+| `kart` | `["kart", null, ms, {"satirlar": {"tr": [...], "en": [...]}, "logo": true}]` | 3000 | **Tam ekran vurucu yazı kartı** (koyu marka zemini, satırlar sırayla gelir). `logo: true` üstüne deepin \| security logosunu koyar. Art arda iki kart zemin kesilmeden geçer; senaryo kartla başlarsa ilk kare karttır |
+
+**Reklam stili:** senaryonun üst düzeyine `"stil": "reklam"` yazılırsa altyazı **büyük ve kalın ekran yazısına** dönüşür
+(satırlar `\n` ile ayrılır ve sırayla gelir, `*yıldız*` arası nane rengi olur), yakınlaşınca yazının arkasına koyu bir perde gelir,
+kapanış sloganı büyür. Bu stilde ekran yazısında soru işareti serbesttir ("Saldırı mı?"). Örnek: `kaynak/senaryolar/reklam.json`
+(~73 sn lansman reklamı: kanca kartı, logo kartı, yakınlaştırmalı ürün sahneleri, hızlı montaj, kapanış), kurgusu
+`video/urun_turu/REKLAM_BRIFI.md` §3'ten.
 
 **`ek` alanları:** `fx`, `fy` imlecin öğe içindeki yeri, 0-1 oran (varsayılan 0,5 / 0,5; uzun satırlarda `fx: 0.25` gibi sol tarafa
 götürmek daha doğal) · `dx`, `dy` piksel kaydırma.
@@ -175,6 +185,35 @@ sonrasında 1,5 sn bekleyin.
 
 ---
 
+## 4b. Ses ve müzik
+
+```bash
+python3 kaynak/ses_yap.py --senaryo reklam --dil tr        # önce video_cek.py ile tr.mp4 çekilmiş olmalı
+```
+
+Senaryoya `"seslendirme"` listesi yazılırsa (`reklam.json`'da örneği var) `ses_yap.py` videoya **seslendirme ve müzik** ekler:
+`video/<senaryo>/<dil>_sesli.mp4`, ayrıca montaj için ayrı ayrı `<dil>_muzik.wav`, `<dil>_seslendirme.wav` ve karışım `<dil>_ses.wav`.
+
+- **Seslendirme:** satır başına bir cümle; `sahne` satırın başladığı sahne, `bitis` (isteğe bağlı) bittiği sahne. Satır sahnesine
+  sığmazsa okuma hızı en çok %25 artar, yine sığmazsa betik durur (metni kısaltın). Metin **okunuşa göre** yazılır (Türkçe sesin
+  doğru okuması için "Dipin Sekyuriti"). Anlatım ekran yazısını birebir tekrarlamaz; hikâyeyi sıcak ve anlaşılır anlatır.
+  Rakam geçerse `sayilar` ile veriden denetlenir.
+- **Ses:** macOS'un kendi sesi (`say`: Türkçe Yelda, İngilizce Samantha), taslak kalitesinde. Daha doğal bir ses için
+  `video/<senaryo>/ses_<dil>/01.wav`, `02.wav` … (satır sırasıyla, insan kaydı ya da bir ses servisi) konursa onlar kullanılır;
+  zamanlama değişmez. macOS'ta daha iyi Türkçe ses için Sistem Ayarları › Erişilebilirlik › Konuşulan İçerik › Sesleri Yönet'ten
+  Yelda'nın gelişmiş sürümü indirilebilir.
+- **İnsan gibi ses (önerilen): ElevenLabs.** Mac sesi taslaktır. İki yol:
+  *web:* `python3 kaynak/ses_yap.py --senaryo reklam --dil tr --metin` numaralı metni ve her satırın en çok kaç saniye
+  sürebileceğini `video/reklam/seslendirme_tr.txt`'ye yazar; ElevenLabs'te (model Eleven Multilingual v2, Türkçe bir ses)
+  satır satır seslendirip `video/reklam/ses_tr/01.mp3`, `02.mp3` … olarak koyun, sonra `ses_yap.py` normal komutu.
+  *API:* terminalde `export ELEVENLABS_API_KEY=...` → `--elevenlabs-sesler` (ses kimliklerini listeler) →
+  `--elevenlabs <ses kimliği>` (satırları seslendirip indirir, sığmayanı biraz hızlı tekrar ister, videoya ekler). Gönderilen yalnız
+  seslendirme metnidir. Ücretsiz planda ticari kullanım yok; sitede yayın için en düşük ücretli plan (ticari lisanslı) gerekir.
+- **Müzik:** kodla üretilen özgün parça, lisans sorunu yok; sahnelere göre kurgulanır (kanca sakin, logoda vuruş, ürün bölümünde ritim,
+  hızlı montajda yükselir, gizlilik cümlesinde çekilir, kapanışta çözülür). Konuşma sırasında müzik kısılır
+  (`--muzik-seviye`, `--kisma`).
+- **Birleştirme:** ffmpeg varsa onunla; yoksa macOS'ta `afconvert` + `kaynak/ses_ekle.swift` (AVFoundation). Video yeniden kodlanmaz.
+
 ## 5. Altyazıdaki sayılar veriden gelir
 
 Altyazıda geçen **her rakam**, sahnenin `sayilar` listesindeki bir anahtarın değerine eşit olmalı. `denetim.py` bunu hem Türkçe hem
@@ -184,10 +223,10 @@ Altyazıda geçen **her rakam**, sahnenin `sayilar` listesindeki bir anahtarın 
 | Anahtar türü | Örnek | Değer |
 |---|---|---|
 | Adlı | `uyari_sayisi`, `inceleme_sayisi`, `yuksek_sayisi`, `grup_uye`, `ag_bolge`, `kayit_kaynagi` | 45, 16, 4, 22, 11, 5 |
-| İnceleme başına | `inc.<id>.uyari` · `.kaynak` · `.varlik` · `.eksik` · `.ham` · `.grup_uye` · `.graf.yalniz` | `inc.iletisim-merkezi.grup_uye` = 34 |
+| İnceleme başına | `inc.<id>.uyari` · `.kaynak` · `.varlik` · `.eksik` · `.ham` · `.grup_uye` · `.graf.yalniz` | `inc.tahsilat-operasyonlari.grup_uye` = 46 |
 | Kişi başına (haftalık toplam) | `kisi.<ad>.istek` · `.engel` · `.oturum` · `.yonetici` | `kisi.ktuncer.oturum` = 9 |
 | Teknik | `mitre.<kod>.uyari` | `mitre.T1046.uyari` = 19 |
-| Gün | `gun.<YYYY-AA-GG>` | `gun.2026-04-30` = 30 ("30 Nisan") |
+| Gün | `gun.<YYYY-AA-GG>` | `gun.2026-09-17` = 17 ("17 Eylül") |
 
 Aynı sayı altyazıda iki kez geçiyorsa anahtar da iki kez yazılır. Rakam yerine yazıyla yazılan sayılar ("üç") denetlenmez; rakam
 tercih edin. Listede olmayan bir sayı gerekiyorsa `senaryo_sayilari.py` içindeki `adli()` sözlüğüne **veriden hesaplayan** bir satır
@@ -202,7 +241,7 @@ eklenir; sayı elle yazılmaz.
 2. **Sayılar veriden** (§5). Kullanıcı bir sayı söylese bile veriden doğrulanır.
 3. **İki dil ayrı çekilir:** Türkçe video Türkçe arayüzle, İngilizce video İngilizce arayüzle. Her altyazı ve yazılacak her metin
    iki dilde yazılır; altyazıdaki sayfa adı arayüzdeki adla aynıdır (`arayuz_adi`).
-4. **Kapanış kartında demo notu kalır:** "Kurgusal kurumla hazırlanmış demo verisi." / "Demo data prepared with a fictional organization."
+4. **Kapanış kartı:** slogan iki dilde yazılır; alt satırdaki not (`kapanis.not`) isteğe bağlıdır. Reklamda (`reklam.json`) not yok.
 5. **Altyazı dili:** uzun tire (—) yok, soru işareti yok, iç kod ya da dosya adı yok; sade, kısa, kendinden emin cümle.
 6. **Veri kurgusaldır ve öyle kalır.** Kurum, kişiler, adres planı, kayıt satırları `kaynak/veri.py`'de üretilir. Gerçek bir
    kurumdan ad, adres, sayı ya da kayıt bu dosyaya taşınmaz.
@@ -240,7 +279,6 @@ eklenir; sayı elle yazılmaz.
 |---|---|---|
 | Dikey (9:16) ya da kare (1:1) video | Yok: uygulama dar ekranda mobil düzene geçer | Temiz 4K çekimden montajda kırpma |
 | Seslendirme, müzik | Yok | `REKLAM_BRIFI.md`: araçlar (önce ücretsiz), seslendirme metni |
-| Kamera yakınlaştırması (ekranın bir bölgesine zoom) | Yok | Temiz 4K çekimde montajda yakınlaştırma; 4K olduğu için net kalır |
 | Demoda olmayan bir vaka ya da sayı | Senaryo yetmez, veri değişir | `kaynak/veri.py`'ye inceleme eklemek gerekir; `denetim.py` tutarlılığı sınar (büyük iş) |
 | Gerçek müşteri verisiyle video | Yapılmaz | Kural 6 |
 

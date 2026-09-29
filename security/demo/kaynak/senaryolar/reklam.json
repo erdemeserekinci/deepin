@@ -1,0 +1,762 @@
+{
+  "surum": 1,
+  "baslik": "Lansman reklamı (~75 sn): kanca kartı, logo, ürün sahneleri yakınlaştırma ve vurucu yazıyla, hızlı montaj, kapanış. Kurgu: video/urun_turu/REKLAM_BRIFI.md",
+  "not": "Reklam stili: ekran yazisi buyuk, satirlar \\n ile ayrilir, *yildiz* arasi nane rengi. Adim bicimi: VIDEO_REHBERI.md.",
+  "stil": "reklam",
+  "imlec_bas": [
+    0.66,
+    0.72
+  ],
+  "kapanis": {
+    "slogan": {
+      "tr": "Uyarıdan kanıta.",
+      "en": "From alert to evidence."
+    }
+  },
+  "sahneler": [
+    {
+      "ad": "kanca",
+      "altyazi": {
+        "tr": "",
+        "en": ""
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "kart",
+          null,
+          3800,
+          {
+            "satirlar": {
+              "tr": [
+                "Uyarı çok.",
+                "*Zaman az.*"
+              ],
+              "en": [
+                "Too many alerts.",
+                "*Too little time.*"
+              ]
+            }
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "logo",
+      "altyazi": {
+        "tr": "",
+        "en": ""
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "kart",
+          null,
+          3400,
+          {
+            "logo": true,
+            "satirlar": {
+              "tr": [
+                "Güvenlik kayıtlarını",
+                "kanıtlı incelemelere dönüştürür."
+              ],
+              "en": [
+                "Turns security logs",
+                "into evidence-backed investigations."
+              ]
+            }
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "ana",
+      "altyazi": {
+        "tr": "45 uyarı. 16 inceleme.\n*Önce 4'ü.*",
+        "en": "45 alerts. 16 investigations.\n*4 first.*"
+      },
+      "sayilar": [
+        "uyari_sayisi",
+        "inceleme_sayisi",
+        "yuksek_sayisi"
+      ],
+      "adimlar": [
+        [
+          "imlec",
+          ".t4[data-p=\"yuksek\"]",
+          700,
+          {
+            "fy": 0.55
+          }
+        ],
+        [
+          "tik",
+          "[data-a=\"brifing\"]",
+          800
+        ],
+        [
+          "bekle",
+          700
+        ],
+        [
+          "kamera",
+          "#feed .msg.a",
+          900,
+          {
+            "olcek": 1.5,
+            "fx": 0.5,
+            "fy": 0.4
+          }
+        ],
+        [
+          "bekle",
+          1700
+        ],
+        [
+          "kamera",
+          null,
+          650,
+          {
+            "olcek": 1
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "hesap",
+      "altyazi": {
+        "tr": "İşten ayrıldı.\n*Hesabı hâlâ açık.*",
+        "en": "Left the company.\n*Account still active.*"
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".row-h[data-a=\"ac-inc\"][data-p=\"ayrilan-hesap\"]",
+          850,
+          {
+            "fx": 0.22
+          }
+        ],
+        [
+          "bekle",
+          600
+        ],
+        [
+          "kamera",
+          ".verdict",
+          900,
+          {
+            "olcek": 1.45,
+            "fx": 0.35
+          }
+        ],
+        [
+          "bekle",
+          2000
+        ],
+        [
+          "kamera",
+          null,
+          600,
+          {
+            "olcek": 1
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "graf",
+      "arayuz_adi": [],
+      "altyazi": {
+        "tr": "O nereye gitti,\n*grubu nereye gidiyor.*",
+        "en": "Where they went.\n*Where the group goes.*"
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".dact [data-a=\"tab\"][data-p=\"graf\"]",
+          800
+        ],
+        [
+          "bekle",
+          350
+        ],
+        [
+          "kaydir",
+          "#card",
+          900,
+          {
+            "hedef": ".gsvg",
+            "ust": 2
+          }
+        ],
+        [
+          "imlec",
+          ".gsvg circle[r=\"44\"]",
+          700
+        ],
+        [
+          "bekle",
+          400
+        ],
+        [
+          "imlec",
+          ".gsvg rect[fill=\"#143037\"]",
+          650
+        ],
+        [
+          "bekle",
+          1100
+        ]
+      ]
+    },
+    {
+      "ad": "odeme",
+      "altyazi": {
+        "tr": "Grubundan kimsenin gitmediği\n*3 ödeme ağı.*",
+        "en": "3 payment networks\n*no one in the group touches.*"
+      },
+      "sayilar": [
+        "yalniz_ag"
+      ],
+      "adimlar": [
+        [
+          "tik",
+          ".gnode[data-c=\"10.93.61.0/24\"]",
+          700,
+          {
+            "fx": 0.3
+          }
+        ],
+        [
+          "bekle",
+          350
+        ],
+        [
+          "imlec",
+          ".gside dl",
+          600,
+          {
+            "fx": 0.62,
+            "fy": 0.9
+          }
+        ],
+        [
+          "kamera",
+          ".gside dl",
+          900,
+          {
+            "olcek": 1.6,
+            "fx": 0.75,
+            "fy": 0.85
+          }
+        ],
+        [
+          "bekle",
+          2200
+        ],
+        [
+          "kamera",
+          null,
+          600,
+          {
+            "olcek": 1
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "engel",
+      "altyazi": {
+        "tr": "Denedi.\n*Engellendi.*",
+        "en": "Tried.\n*Blocked.*"
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".gnode[data-c=\"10.60.89.0/24\"]",
+          750,
+          {
+            "fx": 0.3
+          }
+        ],
+        [
+          "kamera",
+          ".gnode[data-c=\"10.60.89.0/24\"]",
+          750,
+          {
+            "olcek": 1.45
+          }
+        ],
+        [
+          "bekle",
+          1300
+        ],
+        [
+          "kamera",
+          null,
+          550,
+          {
+            "olcek": 1
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "kanit",
+      "altyazi": {
+        "tr": "İddia değil,\n*kanıt.*",
+        "en": "Not a claim.\n*Evidence.*"
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".dtabs [data-a=\"tab\"][data-p=\"kanit\"]",
+          750
+        ],
+        [
+          "bekle",
+          450
+        ],
+        [
+          "kaydir",
+          "#card",
+          1100,
+          {
+            "hedef": ".logh",
+            "ust": 90
+          }
+        ],
+        [
+          "kamera",
+          ".log",
+          900,
+          {
+            "olcek": 1.35,
+            "fx": 0.3,
+            "fy": 0.35
+          }
+        ],
+        [
+          "bekle",
+          1700
+        ],
+        [
+          "kamera",
+          null,
+          600,
+          {
+            "olcek": 1
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "sor",
+      "altyazi": {
+        "tr": "Sorun.\n*Cevap kayıttan gelsin.*",
+        "en": "Ask.\n*The answer comes from the record.*"
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "imlec",
+          "#handle",
+          600
+        ],
+        [
+          "panel",
+          null,
+          700,
+          {
+            "genislik": 470
+          }
+        ],
+        [
+          "tik",
+          "#askin",
+          550,
+          {
+            "fx": 0.3
+          }
+        ],
+        [
+          "yaz",
+          "#askin",
+          1000,
+          {
+            "metin": {
+              "tr": "Bu bir saldırı mı?",
+              "en": "Is this an attack?"
+            }
+          }
+        ],
+        [
+          "tik",
+          "#ask button[type=\"submit\"]",
+          400
+        ],
+        [
+          "bekle",
+          1300
+        ],
+        [
+          "kontrol",
+          null,
+          0,
+          {
+            "cevap": "saldiri"
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "saldiri",
+      "altyazi": {
+        "tr": "Saldırı mı?\n*Kayıt tek başına söylemez.*",
+        "en": "An attack?\n*The logs alone can't say.*"
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "kamera",
+          "#feed .msg.a:last-child table",
+          900,
+          {
+            "olcek": 1.55
+          }
+        ],
+        [
+          "bekle",
+          2600
+        ],
+        [
+          "kamera",
+          null,
+          600,
+          {
+            "olcek": 1
+          }
+        ],
+        [
+          "imlec",
+          "#handle",
+          450
+        ],
+        [
+          "panel",
+          null,
+          550,
+          {
+            "genislik": 300
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "mitre",
+      "altyazi": {
+        "tr": "Tek hesap.\n*İki ATT&CK aşaması.*",
+        "en": "One account.\n*Two ATT&CK stages.*"
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".rail .rb[data-p=\"mitre\"]",
+          700
+        ],
+        [
+          "bekle",
+          450
+        ],
+        [
+          "tik",
+          ".tile[data-p=\"T1078\"]",
+          650
+        ],
+        [
+          "tik",
+          ".tile[data-p=\"T1021\"]",
+          600
+        ],
+        [
+          "bekle",
+          250
+        ],
+        [
+          "kaydir",
+          "#card",
+          850,
+          {
+            "hedef": ".card h3.sec",
+            "ust": 40
+          }
+        ],
+        [
+          "kamera",
+          ".card .verdict",
+          800,
+          {
+            "olcek": 1.4,
+            "fx": 0.3
+          }
+        ],
+        [
+          "bekle",
+          1400
+        ],
+        [
+          "kamera",
+          null,
+          500,
+          {
+            "olcek": 1
+          }
+        ]
+      ]
+    },
+    {
+      "ad": "m-kisi",
+      "arayuz_adi": [
+        "Kişi sorgusu"
+      ],
+      "altyazi": {
+        "tr": "Kişi sorgusu.",
+        "en": "User lookup."
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".rail .rb[data-p=\"kisi\"]",
+          650
+        ],
+        [
+          "bekle",
+          1000
+        ]
+      ]
+    },
+    {
+      "ad": "m-ag",
+      "arayuz_adi": [
+        "Ağ geçişleri"
+      ],
+      "altyazi": {
+        "tr": "Ağ geçişleri.",
+        "en": "Network flows."
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".rail .rb[data-p=\"ag\"]",
+          600
+        ],
+        [
+          "bekle",
+          1000
+        ]
+      ]
+    },
+    {
+      "ad": "m-uyari",
+      "arayuz_adi": [
+        "Tüm uyarılar"
+      ],
+      "altyazi": {
+        "tr": "Tüm uyarılar.",
+        "en": "All alerts."
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".rail .rb[data-p=\"uyarilar\"]",
+          600
+        ],
+        [
+          "bekle",
+          1000
+        ]
+      ]
+    },
+    {
+      "ad": "m-kaynak",
+      "arayuz_adi": [
+        "Veri kaynakları"
+      ],
+      "altyazi": {
+        "tr": "Veri kaynakları.",
+        "en": "Data sources."
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "tik",
+          ".rail .rb[data-p=\"kaynaklar\"]",
+          600
+        ],
+        [
+          "bekle",
+          900
+        ]
+      ]
+    },
+    {
+      "ad": "gizlilik",
+      "altyazi": {
+        "tr": "Kayıtlarınız\n*kurum dışına çıkmaz.*",
+        "en": "Your logs\n*never leave your organization.*"
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "kaydir",
+          "#card",
+          900,
+          {
+            "hedef": ".kcards",
+            "ust": 120
+          }
+        ],
+        [
+          "bekle",
+          2400
+        ]
+      ]
+    },
+    {
+      "ad": "kapanis",
+      "altyazi": {
+        "tr": "",
+        "en": ""
+      },
+      "sayilar": [],
+      "adimlar": [
+        [
+          "kapanis",
+          null,
+          4600
+        ]
+      ]
+    }
+  ],
+  "seslendirme_not": "Anlatim: ekran yazisini birebir tekrarlamaz, hikayeyi sicak ve anlasilir anlatir. Sahne basina bir satir; 'sahne' baslangic, 'bitis' (istege bagli) bitis sahnesi. Metin okunusa gore yazilir (Dipin Sekyuriti). Rakam varsa 'sayilar' ile veriden denetlenir. Ses: kaynak/ses_yap.py 'muzik.fragman_vurusu': o seslendirme satiri baslarken fragman vurusu (alt bas, braaam, yanki); kapanisin eski darbesinin yerine gecer. 'gecikme_ms' satirin sahne basindan kac ms sonra basladigi (varsayilan 260); dile gore ayri verilebilir: {\"tr\": 260, \"en\": 50}.",
+  "seslendirme": [
+    {
+      "sahne": "kanca",
+      "tr": "Her gün yeni uyarılar. Hangisi gerçekten önemli?",
+      "en": "New alerts every day. Which ones really matter?",
+      "sayilar": [],
+      "gecikme_ms": {
+        "tr": 260,
+        "en": 50
+      }
+    },
+    {
+      "sahne": "logo",
+      "tr": "Dipin Sekyuriti, kayıtları kanıta dönüştürür.",
+      "en": "Deepin Security turns your logs into evidence.",
+      "sayilar": [],
+      "gecikme_ms": {
+        "tr": 260,
+        "en": 200
+      }
+    },
+    {
+      "sahne": "ana",
+      "tr": "Uyarılar tek tek değil, hikâyeler hâlinde gelir. Önemli olan en üstte.",
+      "en": "Alerts arrive as stories, not noise, with what matters most on top.",
+      "sayilar": [],
+      "gecikme_ms": {
+        "tr": 260,
+        "en": 400
+      }
+    },
+    {
+      "sahne": "hesap",
+      "tr": "Bir çalışan şirketten ayrılmış, ama hesabı hâlâ açık.",
+      "en": "An employee has left the company, but the account is still active.",
+      "sayilar": [],
+      "gecikme_ms": {
+        "tr": 260,
+        "en": 370
+      }
+    },
+    {
+      "sahne": "graf",
+      "tr": "Onu, aynı işi yapan meslektaşlarıyla yan yana koyuyoruz.",
+      "en": "We place them next to colleagues who do the same work.",
+      "sayilar": []
+    },
+    {
+      "sahne": "odeme",
+      "tr": "Kimsenin gitmediği ödeme sistemlerine, yalnızca o ulaşmış.",
+      "en": "Only they reached the payment systems no one else touches.",
+      "sayilar": []
+    },
+    {
+      "sahne": "engel",
+      "tr": "Yönetim ağlarını da denemiş, ama engellenmiş.",
+      "en": "They tried the management networks too, and were blocked.",
+      "sayilar": [],
+      "gecikme_ms": {
+        "tr": 260,
+        "en": 150
+      }
+    },
+    {
+      "sahne": "kanit",
+      "tr": "Her tespitin arkasında, ham kayıt duruyor.",
+      "en": "Behind every finding, the raw log is right there.",
+      "sayilar": []
+    },
+    {
+      "sahne": "sor",
+      "tr": "Soru sorabilirsiniz. Cevap, kayıtlardan gelir.",
+      "en": "Ask a question, and the answer comes from the records.",
+      "sayilar": []
+    },
+    {
+      "sahne": "saldiri",
+      "tr": "Kayıt bir şeyi söyleyemiyorsa, bunu dürüstçe söyler.",
+      "en": "When the logs can't tell, it says so, honestly.",
+      "sayilar": []
+    },
+    {
+      "sahne": "mitre",
+      "tr": "Bulgular saldırı teknikleriyle eşleşir, aşamaları görünür.",
+      "en": "Findings map to attack techniques, and their stages.",
+      "sayilar": []
+    },
+    {
+      "sahne": "m-kisi",
+      "bitis": "m-kaynak",
+      "tr": "Kişiler, ağlar, uyarılar ve kaynaklar; hepsi tek ekranda.",
+      "en": "People, networks, alerts and sources, all on one screen.",
+      "sayilar": []
+    },
+    {
+      "sahne": "gizlilik",
+      "tr": "Ve verileriniz, kurumunuzdan hiç çıkmaz.",
+      "en": "And your data never leaves your organization.",
+      "sayilar": []
+    },
+    {
+      "sahne": "kapanis",
+      "tr": "Dipin Sekyuriti. Uyarıdan kanıta.",
+      "en": "Deepin Security. From alert to evidence.",
+      "sayilar": []
+    }
+  ],
+  "muzik": {
+    "fragman_vurusu": 14,
+    "vurus_seviye": 0.42
+  }
+}

@@ -39,7 +39,7 @@ for i in D["incelemeler"]:
     kontrol(i["id"] + ": uyarilar bu incelemeye ait", all(UY[x]["inc"] == i["id"] for x in i["uyarilar"]))
 kontrol("uyari toplami", len(UY) == sum(len(i["uyarilar"]) for i in D["incelemeler"]))
 
-for kid in ("iletisim-merkezi", "dijital-kanallar"):
+for kid in ("tahsilat-operasyonlari", "uygulama-gelistirme"):
     i = INC[kid]
     t = tablo(kid, "Kişiler")
     kol = t["kolon"]
@@ -153,7 +153,7 @@ SEN_DIR = os.path.join(KOK, "kaynak", "senaryolar")
 SENARYOLAR = {f[:-5]: json.load(open(os.path.join(SEN_DIR, f), encoding="utf-8")) for f in sorted(os.listdir(SEN_DIR)) if f.endswith(".json")}
 kontrol("video: en az bir senaryo var", bool(SENARYOLAR))
 kontrol("video: varsayilan senaryo urun_turu var", "urun_turu" in SENARYOLAR)
-ADIM_TIPLERI = {"tik", "imlec", "tikla", "bekle", "kaydir", "yaz", "gonder", "git", "sec", "panel", "kapanis", "kontrol"}
+ADIM_TIPLERI = {"tik", "imlec", "tikla", "bekle", "kaydir", "yaz", "gonder", "git", "sec", "panel", "kapanis", "kontrol", "kart", "kamera"}
 kontrol("video: ilk ulasma gunu hafta tablosunda ilk kez", any(
     "ulaşıldı" in x[1] for g in H["ktuncer"]["gunler"] if int(g["gun"][-2:]) == SS.adli(D)["ilk_ulasma_gunu"] for x in g["ilk"]))
 for sad, SEN in SENARYOLAR.items():
@@ -167,14 +167,20 @@ for sad, SEN in SENARYOLAR.items():
         except KeyError as e:
             hata.append((yer + ": sayi anahtari", str(e)))
             bek = []
+        kartlar = [a[3].get("satirlar", {}) for a in sh.get("adimlar", []) if a[0] == "kart" and len(a) > 3 and isinstance(a[3], dict)]
+        for k in kartlar:
+            kontrol(f"{yer}: kart satirlari iki dilde", isinstance(k, dict) and bool(k.get("tr")) and bool(k.get("en")) and len(k["tr"]) == len(k["en"]))
         for dil in ("tr", "en"):
             m = ay.get(dil, "") if isinstance(ay, dict) else ""
+            m = " ".join([m] + [x for k in kartlar if isinstance(k, dict) for x in k.get(dil, [])])
             kontrol(f"{yer} {dil}: altyazi sayilari veriden", rakamlar(m) == bek, (rakamlar(m), bek))
             for ad, rg in (("uzun tire", r"[—–]"), ("soru isareti", r"\?"), ("ic kod", r"\b[A-Z]-\d\b|hucre|\.json")):
+                if ad == "soru isareti" and SEN.get("stil") == "reklam":
+                    continue
                 if re.search(rg, m):
                     hata.append((f"{yer} {dil}: {ad}", m[:70]))
         kapanis = any(a[0] == "kapanis" for a in sh.get("adimlar", []))
-        if not kapanis:
+        if not kapanis and not kartlar:
             kontrol(f"{yer}: iki dilde altyazi var", isinstance(ay, dict) and bool(ay.get("tr")) and bool(ay.get("en")))
         for ad in sh.get("arayuz_adi", []):
             kontrol(f"{yer} tr: altyazida arayuz adi '{ad}'", ad.lower() in ay.get("tr", "").lower())
@@ -185,9 +191,25 @@ for sad, SEN in SENARYOLAR.items():
             if a[0] == "yaz":
                 mt = ek.get("metin")
                 kontrol(f"{yer}: yazilacak metin iki dilde", isinstance(mt, dict) and bool(mt.get("tr")) and bool(mt.get("en")))
-    if any(a[0] == "kapanis" for sh in SEN.get("sahneler", []) for a in sh["adimlar"]):
-        kp = SEN.get("kapanis", {})
-        kontrol(f"video {sad}: kapanista demo notu iki dilde", "Kurgusal" in kp.get("not", {}).get("tr", "") and "fictional" in kp.get("not", {}).get("en", ""))
+    sahne_adlari = {sh.get("ad") for sh in SEN.get("sahneler", [])}
+    for i, sl in enumerate(SEN.get("seslendirme", [])):
+        yer = f"video {sad}/seslendirme {i + 1} ({sl.get('sahne')})"
+        kontrol(f"{yer}: sahne var", sl.get("sahne") in sahne_adlari and sl.get("bitis", sl.get("sahne")) in sahne_adlari)
+        try:
+            bek = sorted(str(SS.coz(D, x)) for x in sl.get("sayilar", []))
+        except KeyError as e:
+            hata.append((yer + ": sayi anahtari", str(e)))
+            bek = []
+        for dil in ("tr", "en"):
+            m = sl.get(dil, "")
+            kontrol(f"{yer} {dil}: metin var", bool(m))
+            kontrol(f"{yer} {dil}: sayilar veriden", rakamlar(m) == bek, (rakamlar(m), bek))
+            if re.search(r"[—–]", m):
+                hata.append((f"{yer} {dil}: uzun tire", m[:70]))
+    kp = SEN.get("kapanis", {})
+    for alan in ("slogan", "not"):
+        if alan in kp:
+            kontrol(f"video {sad}: kapanis {alan} iki dilde", isinstance(kp[alan], dict) and bool(kp[alan].get("tr")) and bool(kp[alan].get("en")))
 
 print(f"{len(D['incelemeler'])} inceleme, {len(D['uyarilar'])} uyari, {len(metin)} metin tarandi, {len(SENARYOLAR)} video senaryosu")
 if hata:

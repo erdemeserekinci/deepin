@@ -5,7 +5,7 @@ Tek mantik, iki dil: veri.py Turkce uretir (sayilar, tarihler, tutarlilik orada)
 SABLONA indirger ve kaynak/ceviri_veri_en.json sozlugunden Ingilizcesini koyar.
 
 Sablon: metindeki degisken parcalar yer tutucuya cevrilir, sozlukte anahtar bu sablondur.
-  {N} sayi   {P} yuzde (%74)   {D} tarih (30 Nis, 8 Nisan, 12 Mar 2026)   {T} saat (01:10)   {K} degismeyen kimlik (adres, makine adi)
+  {N} sayi   {P} yuzde (%74)   {D} tarih (17 Eyl, 21 Ağustos, 4 Tem 2026)   {T} saat (01:10)   {K} degismeyen kimlik (adres, makine adi)
 Ingilizce degerde ayni yer tutucular kullanilir; sira degisecekse {N1} {N2} gibi kaynaktaki sirasi yazilir.
 Deger {"1": "...", "*": "..."} ise ilk sayi 1 iken birinci, degilse ikinci metin kullanilir (tekil/cogul).
 Sozlukte olmayan Turkce metin HATA verir: sessiz gecis yok.
@@ -15,10 +15,10 @@ import os
 import re
 
 KOK = os.path.dirname(os.path.abspath(__file__))
-AY_EN = {"Nis": "Apr", "Nisan": "Apr", "May": "May", "Mayıs": "May", "Mar": "Mar"}
+AY_EN = {"Eyl": "Sep", "Eylül": "Sep", "Ağu": "Aug", "Ağustos": "Aug", "Tem": "Jul"}
 
 RE_KIMLIK = re.compile(r"\b(?:MRD[A-Z]+\d+|\d{1,3}(?:\.\d{1,3}){3}(?:/\d+)?|[a-z0-9-]+(?:\.[a-z0-9-]+)*\.mrd\.local|[\w-]+\.zip)\b")
-RE_TARIH = re.compile(r"\b(\d{1,2}) (Nisan|Mayıs|Nis|May|Mar)(?: (\d{4}))?\b")
+RE_TARIH = re.compile(r"\b(\d{1,2}) (Eylül|Eyl|Ağustos|Ağu|Tem)(?: (\d{4}))?(?![a-zçğıöşü])")
 RE_SAAT = re.compile(r"\b\d{1,2}:\d{2}\b")
 RE_YUZDE = re.compile(r"%\d+(?:,\d+)?")
 RE_SAYI = re.compile(r"\d{1,3}(?:\.\d{3})+|\d+(?:,\d+)?")

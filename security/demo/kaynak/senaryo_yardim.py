@@ -128,8 +128,8 @@ if bolum("sayi", "Altyazı sayı anahtarları (sahnenin \"sayilar\" listesi)"):
     for k, v in SS.adli(D).items():
         print(f"{k:<22} {v}")
     print("\ngenel anahtarlar (örnek değerlerle):")
-    for k in ("inc.ayrilan-hesap.uyari", "inc.ayrilan-hesap.kaynak", "inc.iletisim-merkezi.grup_uye", "inc.ayrilan-hesap.graf.yalniz",
-              "kisi.ktuncer.oturum", "mitre.T1046.uyari", "gun.2026-04-30"):
+    for k in ("inc.ayrilan-hesap.uyari", "inc.ayrilan-hesap.kaynak", "inc.tahsilat-operasyonlari.grup_uye", "inc.ayrilan-hesap.graf.yalniz",
+              "kisi.ktuncer.oturum", "mitre.T1046.uyari", "gun.2026-09-17"):
         print(f"{k:<32} {SS.coz(D, k)}")
     print("\nKural: altyazıdaki her rakam bu listedeki bir değere eşit olmalı; yeni sayı gerekirse senaryo_sayilari.py'de ADLI sözlüğüne veriden hesaplayan bir satır ekle.")
 
