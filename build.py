@@ -344,7 +344,7 @@ def build():
 
             meta, body = front_matter(open(src, encoding="utf-8").read())
             meta = {k: fill(v, ctx["content"]) for k, v in meta.items()}
-            body = render(body, ctx).replace('src="assets/', f'src="{ctx["assets"]}assets/')
+            body = render(body, ctx).replace('src="assets/', f'src="{ctx["assets"]}assets/').replace('poster="assets/', f'poster="{ctx["assets"]}assets/')
             chrome_nav, chrome_footer = nav(page, ctx), footer(page, ctx)
             if lang == "tr":
                 body, chrome_nav, chrome_footer = (mark_english(x) for x in (body, chrome_nav, chrome_footer))

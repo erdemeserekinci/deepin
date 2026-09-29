@@ -104,6 +104,11 @@ Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Demo kendi kendine gezen bir tur moduyla videoya çekilebiliyor (`?tur=1`). Her video bir senaryo dosyası (`kaynak/senaryolar/`); kaydedici başlıksız Chrome ile kare kare çekiyor, Türkçe ve İngilizce ayrı video, altyazılı 1080p ya da altyazısız 4K. Altyazıdaki her sayı veriyle denetleniyor.
 - Nasıl kullanılacağı: `security/demo/VIDEO_REHBERI.md`. Depoda iki küçük örnek video (720p: tam ürün turu 3,3 MB, grup davranışı kesiti 0,9 MB) ve önizleme levhaları var; 1080p/4K videolar depoya konmuyor, yeniden üretiliyor.
 
+**deepin.security tanıtım videosu**
+- /security ve /en/security sayfalarına, üst bölümle "Sorun" bölümü arasına 72 saniyelik tanıtım videosu eklendi: Türkçe sayfada Türkçe, İngilizce sayfada İngilizce. Seslendirme ElevenLabs ile, müzik özgün (kodla üretildi). Kapak görüntüsü ve seslendirmenin altyazısı (WebVTT) var; video kendiliğinden oynamaz.
+- Dosyalar `assets/video/` altında (deepin-security-tr/en: .mp4, .jpg, .vtt; iki video toplam ~27 MB).
+- `build.py`: `src="assets/` gibi `poster="assets/` yolları da sayfanın derinliğine göre düzeltiliyor (tek satır).
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.

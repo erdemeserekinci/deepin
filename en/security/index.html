@@ -802,6 +802,9 @@ footer .langs{justify-self:start;margin-top:10px}
 .alt div > span > span[lang]{font-weight:inherit;color:inherit}
 .alt div:not(.hd) > span > span[lang]:last-child::before{content:none}
 .equation span > span[lang],.equation span > span[lang]:last-child{padding:0;border:0;border-radius:0;background:none;color:inherit}
+.film-sec{padding-block:clamp(8px,2vw,24px) clamp(40px,5vw,72px)}
+.film{margin:0 auto;max-width:1000px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#0d2126}
+.film video{display:block;width:100%;height:100%;background:#0d2126}
 
 </style>
 </head>
@@ -838,6 +841,17 @@ footer .langs{justify-self:start;margin-top:10px}
         <div class="propose"><p>Review the software on these 8 computers · ask the desktop team</p><div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div></div>
       </div>
       <figcaption class="case-note">Adapted from a real case; organization and personal details changed.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec film-sec" id="video">
+  <div class="wrap">
+    <figure class="film">
+      <video controls preload="metadata" playsinline poster="../../assets/video/deepin-security-en.jpg" aria-label="deepin.security introduction video">
+        <source src="../../assets/video/deepin-security-en.mp4" type="video/mp4">
+        <track kind="captions" src="../../assets/video/deepin-security-en.vtt" srclang="en" label="English">
+      </video>
     </figure>
   </div>
 </section>
