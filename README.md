@@ -23,6 +23,7 @@ python3 build.py
 - `src/data.tr.json`, `src/data.en.json`: Investigation, Space ve müşteri bilgileri, durum etiketleri, menüler.
 - `src/i18n/ui.json`: Bileşenlerde, menüde ve alt bilgide kullanılan ortak metinler (tr ve en).
 - `src/pages/tr/*.html`, `src/pages/en/*.html`: Ana sayfa, finance, security ve energy sayfalarının dile özel içerikleri.
+- `src/content/security.tr.json` / `security.en.json`: deepin.security sayfasının güven adımları ve kurumsal özellikleri.
 - `src/pages/risk.html` + `src/content/risk.tr.json` / `risk.en.json`: deepin.risk sayfası tek şablon; tüm metinler ve demo verisi JSON dosyalarında.
 - `src/styles/*.css`: Sayfa stilleri (iki dil için ortak). `src/base.css`, `src/base.js`: Ortak tasarım sistemi ve etkileşimler.
 - `src/risk_components.py`: deepin.risk bileşenleri.

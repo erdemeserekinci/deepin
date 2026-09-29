@@ -696,13 +696,120 @@ footer .langs{justify-self:start;margin-top:10px}
 .statusbox p + p{margin-top:10px}
 .inv-panel{max-width:860px}
 
+/* ---- taslak eklemeleri ---- */
+
+/* ornek vakadaki davranis olcumu */
+.olcum{padding:12px 14px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);display:grid;gap:4px}
+.olcum svg{display:block;width:100%;height:auto;overflow:visible}
+.olcum text{font-family:var(--mono);font-size:9px;fill:var(--muted)}
+.olcum text.eksen{font-size:9.5px;fill:var(--ink-2)}
+.olcum text.bl{fill:var(--accent);font-weight:500;font-size:9.5px}
+.olcum text.ekb{fill:var(--ink);font-weight:600;font-size:10.5px}
+.olcum text.ekn{fill:var(--ink-2);font-size:9.5px}
+.olcum .izgara{stroke:var(--line);stroke-width:1}
+.olcum .bolge{fill:var(--soft);stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3}
+.olcum .ok{fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:3 3}
+.olcum .okucu{fill:var(--muted)}
+.olcum circle{stroke:var(--surface);stroke-width:1.4}
+.olcum circle.ak{fill:#8FA39C}
+.olcum circle.ek{fill:#B7791F}
+.olcum circle.nabiz{fill:none;stroke:#B7791F;stroke-width:1.4;transform-box:fill-box;transform-origin:center;animation:olc-nabiz 2.4s ease-out infinite}
+@keyframes olc-nabiz{0%{transform:scale(1);opacity:.75}100%{transform:scale(3);opacity:0}}
+@media (prefers-reduced-motion: reduce){.olcum circle.nabiz{animation:none;opacity:0}}
+.olcum-alt{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--muted)}
+.olcum-alt span{display:inline-flex;align-items:center;gap:6px}
+.olcum-alt i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.olcum-alt i.ak{background:#8FA39C}
+.olcum-alt i.ek{background:#B7791F}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .olcum circle.ak{fill:#5E7870}
+  :root:not([data-theme="light"]) .olcum-alt i.ak{background:#5E7870}
+  :root:not([data-theme="light"]) .olcum circle.ek{fill:#BD8535}
+  :root:not([data-theme="light"]) .olcum circle.nabiz{stroke:#BD8535}
+  :root:not([data-theme="light"]) .olcum-alt i.ek{background:#BD8535}
+}
+:root[data-theme="dark"] .olcum circle.ak{fill:#5E7870}
+:root[data-theme="dark"] .olcum-alt i.ak{background:#5E7870}
+:root[data-theme="dark"] .olcum circle.ek{fill:#BD8535}
+:root[data-theme="dark"] .olcum circle.nabiz{stroke:#BD8535}
+:root[data-theme="dark"] .olcum-alt i.ek{background:#BD8535}
+
+/* sorun kartlari */
+.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:960px){.pains{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.pains{grid-template-columns:1fr}}
+.pains div{padding:24px;border-top:2px solid var(--accent);background:var(--surface);border-radius:0 0 14px 14px;display:grid;gap:8px;align-content:start}
+.pains h3{font-size:17px;font-weight:600}
+.pains p{font-size:14px;color:var(--ink-2)}
+
+/* kural ile / deepin ile */
+.yaklasim{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:800px){.yaklasim{grid-template-columns:1fr}}
+.yk{padding:28px;border-radius:18px;border:1px solid var(--line);background:var(--surface);display:grid;gap:14px;align-content:start}
+.yk.dp{background:var(--soft);border-color:transparent}
+.yk .lbl{margin:0}
+.yk.dp .lbl{color:var(--accent)}
+.yk h3{font-size:22px;font-weight:600;letter-spacing:-.01em}
+.yk > p{font-size:14px;color:var(--ink-2)}
+.yk-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.yk-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;background:var(--bg);border:1px solid var(--line);font-size:14px}
+.yk.dp .yk-list li{background:var(--surface);border-color:transparent}
+.yk-list em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.yk-list .var em{background:var(--soft);color:var(--accent)}
+.yk-list .yok{border-style:dashed;background:transparent;color:var(--muted)}
+.yk-list .yok em{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+.yk-list .olagan em{background:var(--soft-2);color:var(--muted)}
+.yk-list .sapma{box-shadow:inset 3px 0 0 var(--warn)}
+.yk-list .sapma em{background:var(--warn-soft);color:var(--warn)}
+
+/* neyi inceler: girdi -> cikti */
+.inv-akis{display:grid;grid-template-columns:1fr auto 1.25fr;gap:18px;align-items:stretch}
+.ia-kart{padding:26px 28px;border-radius:18px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);display:grid;gap:22px;align-content:start}
+.ia-kart .lbl{margin-bottom:10px}
+.ia-kart.sunar{background:var(--soft);border-color:transparent;box-shadow:none}
+.ia-kart.sunar .lbl{color:var(--accent)}
+.ia-ok{display:grid;place-items:center}
+.ia-ok span{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
+.ia-ok svg{width:18px;height:18px}
+.ia-cikti{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+.ia-cikti li{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;font-size:15px;line-height:1.45}
+.ia-cikti li::before{content:"✓";width:20px;height:20px;border-radius:50%;background:var(--surface);color:var(--accent);display:grid;place-items:center;font-size:11px;font-weight:700;margin-top:1px}
+@media (max-width:960px){.inv-akis{grid-template-columns:1fr}.ia-ok span{transform:rotate(90deg)}}
+@media (max-width:560px){.ia-cikti{grid-template-columns:1fr}.ia-kart{padding:22px}}
+
+/* nasil calisir: sekiz adim */
+.flow.eight{grid-template-columns:repeat(8,1fr)}
+.flow.eight li{padding-inline:14px}
+.flow.eight h3{font-size:16px}
+@media (max-width:1100px){.flow.eight{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:760px){.flow.eight{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.flow.eight{grid-template-columns:1fr}}
+
+/* neleri bulur */
+.fit.findings div{grid-template-rows:auto auto 1fr auto}
+.fit.findings .src{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--muted);padding-top:10px;border-top:1px solid var(--line);margin-top:4px}
+
+/* kanit */
+.answers{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.answers li{display:grid;gap:2px;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--soft-2)}
+.answers strong{font-size:15px;font-weight:600}
+.answers span{font-size:13px;color:var(--ink-2)}
+.equation.plain span:last-child{background:none;color:inherit;border-color:var(--line)}
+.equation .dr{background:var(--soft);border-color:var(--accent);color:var(--ink)}
+.eq-down{height:26px;margin:4px 0 4px 60px;border-left:2px dashed rgba(var(--dot),.55)}
+
+/* Turkce sayfada Ingilizce terim <span lang="en"> ile sarilir; kapsayici bilesen kurallarini devralmasin */
+.alt div > span > span[lang]{font-weight:inherit;color:inherit}
+.alt div:not(.hd) > span > span[lang]:last-child::before{content:none}
+.equation span > span[lang],.equation span > span[lang]:last-child{padding:0;border:0;border-radius:0;background:none;color:inherit}
+
 </style>
 </head>
 <body>
 <header class="nav" id="top">
   <div class="wrap">
     <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.security</span></a>
-    <nav class="nav-links" aria-label="Main"><a href="#investigation">What it investigates</a><a href="#status">Status</a></nav>
+    <nav class="nav-links" aria-label="Main"><a href="#investigation">What it investigates</a><a href="#how">How it works</a><a href="#findings">What it finds</a><a href="#evidence">Evidence</a><a href="#trust">Trust</a><a href="#status">Status</a></nav>
     <div class="nav-cta"><span class="langs" role="group" aria-label="Language"><a href="../../security/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="../../en/security/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></span><a class="back" href="../">← deepin.space</a><a class="btn btn-primary btn-sm" href="#contact">Bring us a case</a></div>
   </div>
 </header>
@@ -721,16 +828,67 @@ footer .langs{justify-self:start;margin-top:10px}
       <span class="chip st-exploring status">Exploring</span>
     </div>
     <figure class="case" style="margin:0" aria-label="Sample case">
-      <div class="case-top"><span class="case-id">SEC-2026-1127 · Alert investigation</span><span class="chip st-wait">Awaiting approval</span></div>
+      <div class="case-top"><span class="case-id">SEC-2026-0930 · Internal network investigation</span><span class="chip st-wait">Awaiting approval</span></div>
       <div class="case-body">
-        <div class="trigger"><span class="k">Trigger</span><span>Sign-ins for one account from İzmir and Frankfurt within 40 minutes</span><small>Identity provider alert · 22 Sep 2026</small></div>
-        <div class="srcs" aria-label="Sources"><span>Identity provider</span><span>VPN logs</span><span>Endpoint (EDR)</span><span>HR directory</span></div>
-        <ul class="finds"><li><span class="k">Identity</span><span>Second sign-in used a new device, MFA push approved</span><span class="src">Identity provider</span></li><li><span class="k">Network</span><span>No VPN session from Frankfurt</span><span class="src">VPN logs</span></li><li><span class="k">Endpoint</span><span>Known laptop active in İzmir at the same time</span><span class="src">EDR</span></li></ul>
-        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Finding</span>The Frankfurt session is not explained by travel or VPN, and the user's own device was active elsewhere. This matches your policy for a likely compromised account.</p>
-        <div class="propose"><p>Revoke sessions · reset credentials</p><div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div></div>
+        <div class="trigger"><span class="k">Trigger</span><span>In one week, 8 computers in the same unit tried to connect to about 300 internal addresses on more than 700 different ports</span><small>7 days of logs · not a single alert raised</small></div>
+        <div class="srcs" aria-label="Sources"><span>VPN logs</span><span>Internal firewall</span><span>Org chart</span><span>Server list</span></div>
+        <div class="olcum"><span class="lbl" style="margin:0">Behavior measured · 35 people in one unit, 7 days</span><!--grafik--><svg viewBox="0 0 330 204" role="img" aria-label="Internal addresses and ports that 35 people in one unit tried to connect to in a week. 27 people sit in the normal zone: at most 8 addresses and 6 ports. The 8 flagged computers tried 236 to 305 addresses and 612 to 790 ports."><defs><marker id="olc-ok" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path class="okucu" d="M0 0L8 4L0 8z"/></marker></defs><line class="izgara" x1="38.0" y1="30" x2="38.0" y2="168"/><text class="eks" x="38.0" y="182" text-anchor="middle">0</text><line class="izgara" x1="145.3" y1="30" x2="145.3" y2="168"/><text class="eks" x="145.3" y="182" text-anchor="middle">10</text><line class="izgara" x1="244.6" y1="30" x2="244.6" y2="168"/><text class="eks" x="244.6" y="182" text-anchor="middle">100</text><line class="izgara" x1="293.4" y1="30" x2="293.4" y2="168"/><text class="eks" x="293.4" y="182" text-anchor="middle">300</text><line class="izgara" x1="38" y1="168.0" x2="318" y2="168.0"/><text class="eks" x="29" y="171.0" text-anchor="end">0</text><line class="izgara" x1="38" y1="123.5" x2="318" y2="123.5"/><text class="eks" x="29" y="126.5" text-anchor="end">10</text><line class="izgara" x1="38" y1="82.4" x2="318" y2="82.4"/><text class="eks" x="29" y="85.4" text-anchor="end">100</text><line class="izgara" x1="38" y1="44.0" x2="318" y2="44.0"/><text class="eks" x="29" y="47.0" text-anchor="end">800</text><text class="eksen" x="38" y="18">Ports tried</text><text class="eksen" x="318" y="197" text-anchor="end">Internal addresses tried</text><rect class="bolge" x="32.0" y="121.0" width="122.9" height="49.0" rx="12"/><text class="bl" x="34.0" y="115.0">The unit's normal · 27 people</text><path class="ok" d="M160.9 127.0 Q243.1 127.0 273.1 66.0" marker-end="url(#olc-ok)"/><text class="ekb" x="269.1" y="38.2" text-anchor="end">8 computers</text><text class="ekn" x="269.1" y="50.2" text-anchor="end">90× the normal address count</text><circle class="ak" cx="38.0" cy="155.1" r="3.6"><title>Unit employee: 0 addresses, 1 ports</title></circle><circle class="ak" cx="69.0" cy="147.6" r="3.6"><title>Unit employee: 1 addresses, 2 ports</title></circle><circle class="ak" cx="73.0" cy="155.1" r="3.6"><title>Unit employee: 1 addresses, 1 ports</title></circle><circle class="ak" cx="63.3" cy="160.8" r="3.6"><title>Unit employee: 1 addresses, 1 ports</title></circle><circle class="ak" cx="87.2" cy="134.8" r="3.6"><title>Unit employee: 2 addresses, 5 ports</title></circle><circle class="ak" cx="87.2" cy="147.6" r="3.6"><title>Unit employee: 2 addresses, 2 ports</title></circle><circle class="ak" cx="99.2" cy="147.6" r="3.6"><title>Unit employee: 2 addresses, 2 ports</title></circle><circle class="ak" cx="95.7" cy="156.1" r="3.6"><title>Unit employee: 2 addresses, 2 ports</title></circle><circle class="ak" cx="87.2" cy="159.6" r="3.6"><title>Unit employee: 2 addresses, 2 ports</title></circle><circle class="ak" cx="100.0" cy="131.9" r="3.6"><title>Unit employee: 3 addresses, 6 ports</title></circle><circle class="ak" cx="108.0" cy="142.3" r="3.6"><title>Unit employee: 3 addresses, 3 ports</title></circle><circle class="ak" cx="108.5" cy="150.8" r="3.6"><title>Unit employee: 3 addresses, 3 ports</title></circle><circle class="ak" cx="108.5" cy="133.8" r="3.6"><title>Unit employee: 3 addresses, 3 ports</title></circle><circle class="ak" cx="111.3" cy="158.9" r="3.6"><title>Unit employee: 3 addresses, 2 ports</title></circle><circle class="ak" cx="100.0" cy="147.6" r="3.6"><title>Unit employee: 3 addresses, 2 ports</title></circle><circle class="ak" cx="100.0" cy="155.1" r="3.6"><title>Unit employee: 3 addresses, 1 ports</title></circle><circle class="ak" cx="118.0" cy="138.1" r="3.6"><title>Unit employee: 4 addresses, 4 ports</title></circle><circle class="ak" cx="118.5" cy="150.8" r="3.6"><title>Unit employee: 4 addresses, 3 ports</title></circle><circle class="ak" cx="121.3" cy="158.9" r="3.6"><title>Unit employee: 4 addresses, 2 ports</title></circle><circle class="ak" cx="110.0" cy="147.6" r="3.6"><title>Unit employee: 4 addresses, 2 ports</title></circle><circle class="ak" cx="110.0" cy="155.1" r="3.6"><title>Unit employee: 4 addresses, 1 ports</title></circle><circle class="ak" cx="126.2" cy="142.3" r="3.6"><title>Unit employee: 5 addresses, 3 ports</title></circle><circle class="ak" cx="134.2" cy="147.6" r="3.6"><title>Unit employee: 5 addresses, 2 ports</title></circle><circle class="ak" cx="130.2" cy="155.1" r="3.6"><title>Unit employee: 5 addresses, 1 ports</title></circle><circle class="ak" cx="125.1" cy="131.6" r="3.6"><title>Unit employee: 6 addresses, 2 ports</title></circle><circle class="ak" cx="135.1" cy="138.1" r="3.6"><title>Unit employee: 7 addresses, 4 ports</title></circle><circle class="ak" cx="144.3" cy="147.6" r="3.6"><title>Unit employee: 8 addresses, 2 ports</title></circle><circle class="nabiz" cx="282.7" cy="48.9" r="3.6" style="animation-delay:0.0s"/><circle class="nabiz" cx="293.5" cy="47.9" r="3.6" style="animation-delay:0.3s"/><circle class="nabiz" cx="287.4" cy="39.2" r="3.6" style="animation-delay:0.6s"/><circle class="nabiz" cx="288.7" cy="58.4" r="3.6" style="animation-delay:0.9s"/><circle class="nabiz" cx="302.0" cy="45.9" r="3.6" style="animation-delay:1.2s"/><circle class="nabiz" cx="300.3" cy="36.8" r="3.6" style="animation-delay:1.5s"/><circle class="nabiz" cx="304.3" cy="56.0" r="3.6" style="animation-delay:1.8s"/><circle class="nabiz" cx="294.2" cy="44.2" r="3.6" style="animation-delay:2.1s"/><circle class="ek" cx="282.7" cy="48.9" r="3.6"><title>Flagged computer: 236 addresses, 612 ports</title></circle><circle class="ek" cx="293.5" cy="47.9" r="3.6"><title>Flagged computer: 251 addresses, 648 ports</title></circle><circle class="ek" cx="287.4" cy="39.2" r="3.6"><title>Flagged computer: 262 addresses, 671 ports</title></circle><circle class="ek" cx="288.7" cy="58.4" r="3.6"><title>Flagged computer: 270 addresses, 702 ports</title></circle><circle class="ek" cx="302.0" cy="45.9" r="3.6"><title>Flagged computer: 278 addresses, 719 ports</title></circle><circle class="ek" cx="300.3" cy="36.8" r="3.6"><title>Flagged computer: 289 addresses, 744 ports</title></circle><circle class="ek" cx="304.3" cy="56.0" r="3.6"><title>Flagged computer: 297 addresses, 768 ports</title></circle><circle class="ek" cx="294.2" cy="44.2" r="3.6"><title>Flagged computer: 305 addresses, 790 ports</title></circle></svg><!--/grafik--><div class="olcum-alt"><span><i class="ak"></i>The other 27 people in the unit</span><span><i class="ek"></i>The 8 flagged computers</span></div></div>
+        <ul class="finds"><li><span class="k">Network</span><span>98% of the attempts were blocked; with no known attack signature, no alert fired</span><span class="src">Internal firewall</span></li></ul>
+        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Finding</span>The behavior sits in the computers, not the people: trying hundreds of ports one after another is not something anyone does by hand. Shared software on these eight machines is scanning the internal network. The firewall is stopping it for now, but nobody knew what it was.</p>
+        <div class="propose"><p>Review the software on these 8 computers · ask the desktop team</p><div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div></div>
       </div>
-      <figcaption class="case-note">Illustrative case. This investigation is still being explored.</figcaption>
+      <figcaption class="case-note">Adapted from a real case; organization and personal details changed.</figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="sec" id="problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The problem</p>
+      <h2 class="h2">The logs are collected. <b>Reading them takes time.</b></h2>
+      <p class="lede">Firewalls, VPNs, sign-ins and computers produce millions of log entries every day. They are stored, but nobody has the time to read them all, and what matters gets lost in the crowd.</p>
+    </div>
+    <div class="pains">
+      <div><h3>Not enough time</h3><p>Understanding a single alert means opening five different systems. An analyst's day ends after a handful of alerts.</p></div>
+      <div><h3>What matters slips through</h3><p>An entry that needs attention sits among thousands of ordinary ones and goes unnoticed.</p></div>
+      <div><h3>One incident, many alerts</h3><p>Alerts about the same incident arrive separately. Working out which ones belong together takes hours.</p></div>
+      <div><h3>Silent failures</h3><p>A service fails for days, monitoring checks the wrong place, and nobody notices.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="unknown">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The difference</p>
+      <h2 class="h2">Rules catch what is known. <b>Deepin sees what is unusual.</b></h2>
+      <p class="lede">Every security rule describes an attack someone has already seen. However long the list gets, what has not been described yet is not on it. That is why Deepin learns what normal looks like, not what attacks look like.</p>
+    </div>
+    <div class="yaklasim">
+      <div class="yk">
+        <div class="lbl">With rules</div>
+        <h3>Looks for what is described</h3>
+        <ul class="yk-list">
+          <li class="var"><span>Known malware</span><em>alert</em></li>
+          <li class="var"><span>Blocklisted address</span><em>alert</em></li>
+          <li class="var"><span>Known attack pattern</span><em>alert</em></li>
+          <li class="yok"><span>Behavior nobody has described yet</span><em>silent</em></li>
+        </ul>
+        <p>A new threat stays invisible until someone writes a rule for it.</p>
+      </div>
+      <div class="yk dp">
+        <div class="lbl">With Deepin</div>
+        <h3>Sees what departs from normal</h3>
+        <ul class="yk-list">
+          <li class="olagan"><span>Servers the team uses every day</span><em>normal</em></li>
+          <li class="olagan"><span>Working hours and usual computers</span><em>normal</em></li>
+          <li class="olagan"><span>What everyone in the unit does</span><em>normal</em></li>
+          <li class="sapma"><span>A server nobody else goes to</span><em>case</em></li>
+        </ul>
+        <p>Even when a behavior has no name yet, it becomes visible the moment it departs from normal.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -739,25 +897,144 @@ footer .langs{justify-self:start;margin-top:10px}
     <div class="sec-head">
       <p class="eyebrow">What it investigates</p>
       <h2 class="h2">From an alert to <b>a case you can act on.</b></h2>
+      <p class="lede">Nothing new to install. Deepin reads the logs your systems already collect and joins them with what your organization already knows: which server an address belongs to, whose account it is, which team they work in.</p>
     </div>
-    <div class="inv inv-primary inv-panel">
-      <div class="inv-cols" style="border-top:0;padding-top:0">
-        <div><div class="lbl">Investigates</div><ul class="inv-list in"><li>Security alerts</li><li>Identity and access logs</li><li>Endpoint and asset data</li><li>Network and VPN logs</li><li>Threat intelligence</li><li>Past incidents</li></ul></div>
-        <div><div class="lbl">Delivers</div><ul class="inv-list out"><li>Evidence package per alert</li><li>Reasoning and severity</li><li>Recommended response</li><li>Human approval</li><li>Audit trail</li></ul></div>
+    <div class="inv-akis">
+      <div class="ia-kart">
+        <div class="ia-grup"><div class="lbl">Investigates</div><ul class="inv-list in"><li>Firewall logs</li><li>VPN logs</li><li>Sign-in logs</li><li>Web application logs</li><li>Endpoint protection logs</li></ul></div>
+        <div class="ia-grup"><div class="lbl">Joins with</div><ul class="inv-list in"><li>Server list</li><li>Network map</li><li>Network devices</li><li>Org chart</li><li>User and HR records</li></ul></div>
+      </div>
+      <div class="ia-ok" aria-hidden="true"><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
+      <div class="ia-kart sunar">
+        <div class="lbl">Delivers</div>
+        <ul class="ia-cikti"><li><span>Related alerts in one case</span></li><li><span>Comparison with colleagues in similar roles</span></li><li><span>A check for a reasonable explanation</span></li><li><span>The original log entries behind every claim</span></li><li><span>Day-by-day activity for each person</span></li><li><span>A map of traffic between network zones</span></li><li><span>Mapping to known attack techniques</span></li><li><span>The next step and who to ask</span></li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec tone" id="status">
+<section class="sec tone" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2">Every suspicion, <b>the same questions.</b></h2>
+      <p class="lede">Deepin does not run a list of rules. For every suspicious situation it asks, in order, the questions an experienced analyst would ask, and leaves the decision to a person.</p>
+    </div>
+    <div class="flow-wrap"><svg class="flow-line" aria-hidden="true"></svg>
+    <ol class="flow eight">
+      <li><h3>Logs</h3><p>The logs your systems already collect are read; nothing is changed.</p></li>
+      <li><h3>Identity</h3><p>Addresses become servers, accounts become people and teams.</p></li>
+      <li><h3>Question</h3><p>Did this person go somewhere nobody on their team goes?</p></li>
+      <li><h3>Comparison</h3><p>How many people do the same? What everyone does is not suspicious.</p></li>
+      <li><h3>Reasonable explanation</h3><p>An update, a test, a monitoring tool? That is checked first.</p></li>
+      <li><h3>Case</h3><p>Alerts about the same incident come together in one file.</p></li>
+      <li class="human"><h3>Human decision</h3><p>An analyst approves, rejects or takes it further.</p></li>
+      <li><h3>Evidence</h3><p>Every number in the case is backed by the original log entries.</p></li>
+    </ol></div>
+  </div>
+</section>
+
+<section class="sec" id="findings">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What it finds</p>
+      <h2 class="h2">It finds what <b>raises no alert.</b></h2>
+      <p class="lede">Each case type answers one question. Deepin shows why an entry that looks ordinary on its own matters, by asking who, in which team, and to which server.</p>
+    </div>
+    <div class="fit findings">
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="10" r="3"/><circle cx="19" cy="10" r="3"/><circle cx="14" cy="19" r="3"/><path d="M3 25c1-3 3-4.5 6-4.5M25 25c-1-3-3-4.5-6-4.5"/></svg><h3>A group that stands apart</h3><p>A few people in one unit behave differently from their colleagues. Kept separate from a single person's oddity.</p><span class="src">VPN · firewall · org chart</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="14" r="3"/><circle cx="22" cy="6" r="3"/><circle cx="22" cy="22" r="3"/><path d="M9 13l10-6M9 15l10 6" stroke-dasharray="2 3"/></svg><h3>Where nobody else goes</h3><p>Someone reaches an internal server that nobody in the same role ever uses. Trying and reaching are counted separately.</p><span class="src">VPN · network map</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="14" cy="14" r="10"/><circle cx="14" cy="14" r="5"/><path d="M14 14l7-7"/></svg><h3>Mapping the internal network</h3><p>Connection attempts to hundreds of addresses and ports in a short time. Told apart from a user who is simply busy.</p><span class="src">VPN · internal firewall</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="12" width="14" height="11" rx="2"/><path d="M10 12V9a4 4 0 018 0v3M14 16v3"/></svg><h3>An account that suddenly becomes admin</h3><p>Being added to an admin group, the first admin sign-in and reaching a new system are looked for in order. A single event does not open a case.</p><span class="src">Sign-in logs · VPN</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 24c1-4.5 4.5-7 8-7s7 2.5 8 7"/><path d="M20 7l5 5M25 7l-5 5"/></svg><h3>A leaver's account still open</h3><p>Accounts that HR records show as having left, but that still sign in.</p><span class="src">HR records · sign-ins</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="14" r="6"/><path d="M3 14h12M9 8c2 2 2.8 4 2.8 6S11 18 9 20"/><path d="M17 14h8M22 11l3 3-3 3"/></svg><h3>Internet traffic reaching inside</h3><p>A request that should stay in the internet-facing zone reaching the internal network. Every crossing on one map.</p><span class="src">Firewalls · network map</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="6" width="20" height="13" rx="2"/><path d="M10 23h8M14 19v4"/></svg><h3>Endpoint protection alerts</h3><p>Alerts from endpoint protection, with the user and the computer attached. Your own attack simulations and bulk software rollouts are kept apart.</p><span class="src">Endpoint protection · sign-ins</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 18h5l3-8 4 12 3-7h7"/></svg><h3>The failure nobody noticed</h3><p>A service returning errors for days, or monitoring that checks the wrong place, without a single alert.</p><span class="src">Web application logs · server list</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="siem">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">With your existing systems</p>
+      <h2 class="h2">Not instead of it. <b>On top of it.</b></h2>
+      <p class="lede">Your log collection system (SIEM) keeps collecting logs and catching known attacks. Deepin picks out what is worth a look and turns it into a case.</p>
+    </div>
+    <div class="alt">
+      <div class="hd"><span></span><span>Today</span><span>With Deepin</span></div>
+      <div><span>What it does</span><span>Collects and stores logs, catches known patterns</span><span>Joins logs with what your organization knows and prepares a case file</span></div>
+      <div><span>New behavior</span><span>Invisible unless someone wrote a rule</span><span>Each person is compared with their team, so the difference shows</span></div>
+      <div><span>Alerts</span><span>One alert per event; the analyst connects them</span><span>Alerts about the same incident in one case</span></div>
+      <div><span>False alarms</span><span>The analyst weeds them out one by one</span><span>Every case is checked for a reasonable explanation first</span></div>
+      <div><span>Silent failures</span><span>Invisible</span><span>A service failing for days becomes a case</span></div>
+      <div><span>Evidence</span><span>The analyst writes queries to find it</span><span>The original log entries behind every number, ready</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="evidence">
+  <div class="wrap">
+    <div class="spot">
+      <div class="txt">
+        <p class="eyebrow">Evidence</p>
+        <h3>Not a score. <b>Three clear answers.</b></h3>
+        <p>Every case answers the same three questions and says what to do next. Behind every number sit the original log entries, never edited or shortened.</p>
+        <dl class="meta">
+          <div><dt>For</dt><dd>Banks and regulated organizations</dd></div>
+          <div><dt>Teams</dt><dd>Security operations and information security</dd></div>
+          <div><dt>Together with</dt><dd>System, network and IT operations teams</dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <div>
+          <div class="lbl">In every case</div>
+          <ul class="answers">
+            <li><strong>How many sources confirm it?</strong><span>How many separate systems' logs show the same thing</span></li>
+            <li><strong>How many people do this?</strong><span>How common the behavior is in the team and across the organization</span></li>
+            <li><strong>Is there a reasonable explanation?</strong><span>An update, a test, a monitoring tool: was it checked, was it found</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">Numbers match the logs</div>
+          <div class="equation plain"><span>137 blocked requests in the case</span><i>=</i><span>137 lines in the logs</span></div>
+          <div class="eq-down" aria-hidden="true"></div>
+          <div class="equation"><span class="dr">Case with evidence ready</span><i>→</i><span>Analyst decision</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Trust</p>
+      <h2 class="h2">Runs inside your organization. <b>No log ever leaves.</b></h2>
+      <p class="lede">Deepin runs on your own server. It only reads logs and never touches the settings of your security systems. The review screen does not connect to the internet.</p>
+    </div>
+    <div class="trust">
+      <ol class="evidence"><li><span class="n">01</span><div><h3>Source</h3><p>Every case is tied to the system and the log entry it came from.</p></div></li><li><span class="n">02</span><div><h3>Original entries</h3><p>The log entries behind a case are kept exactly as they are; not a character is changed.</p></div></li><li><span class="n">03</span><div><h3>Numbers add up</h3><p>Every number on screen is checked against the logs; a case that does not match is flagged.</p></div></li><li><span class="n">04</span><div><h3>The base of every rate</h3><p>When a rate is shown, it also says out of how many people.</p></div></li><li><span class="n">05</span><div><h3>Decision</h3><p>Deepin makes a recommendation; a person always decides.</p></div></li></ol>
+      <div>
+        <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg>Installed inside your organization</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg>No internet connection needed</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Read-only, changes nothing</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Sends no data out</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Original entries kept</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Numbers checked against logs</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Every change recorded</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>A person decides</li></ul>
+        <div class="datanote">
+          <strong>Your logs stay with you.</strong>
+          <p>Not a single log left the organization during the first trial either. What we carry from one organization to the next is case types and review methods, never your logs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="status">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Where we are</p>
-      <h2 class="h2">Exploring, <b>not yet a Space.</b></h2>
+      <h2 class="h2">Exploring, <b>first tried at one organization.</b></h2>
     </div>
     <div class="statusbox">
       <span class="chip st-exploring">Exploring</span>
-      <div><p>Security investigation is a strong technical fit for Deepin, but it is not yet a proven product. We are validating it with early design partners before calling it a Space.</p><p>If your team investigates alerts across many tools, we would like to see how the work is done today.</p>
+      <div><p>The first trial of deepin.security ran inside a bank's own environment, on real logs. Firewall, VPN, sign-in, web application and endpoint protection logs were read together with the bank's server list, network map and org chart.</p><p>Before calling it a Space, we want to see the same cases appear at a second organization. If your team investigates alerts by jumping between many tools, we would like to see how the work is done today.</p>
         <p><a class="go" href="../#spaces">How a Space is earned →</a></p>
       </div>
     </div>
@@ -767,8 +1044,8 @@ footer .langs{justify-self:start;margin-top:10px}
 <section class="band" id="contact">
   <div class="wrap">
     <p class="eyebrow">deepin.security</p>
-    <h2>Which alerts take your team <b>the longest to investigate?</b></h2>
-    <p>Show us one. We will tell you honestly whether Deepin can investigate it.</p>
+    <h2>Your logs are being collected. <b>Who tells you which ones to look at?</b></h2>
+    <p>Tell us how your team works today. We will show you what Deepin can find in your own logs, without a single log leaving your organization.</p>
     <div class="mail"><code id="email">info@deepin.space</code><button class="copy" id="copyBtn" type="button" data-copied="Copied" data-selected="Selected">Copy email</button></div>
   </div>
 </section>

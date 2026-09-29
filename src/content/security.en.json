@@ -1,0 +1,58 @@
+{
+  "rail": [
+    [
+      "Source",
+      "Every case is tied to the system and the log entry it came from."
+    ],
+    [
+      "Original entries",
+      "The log entries behind a case are kept exactly as they are; not a character is changed."
+    ],
+    [
+      "Numbers add up",
+      "Every number on screen is checked against the logs; a case that does not match is flagged."
+    ],
+    [
+      "The base of every rate",
+      "When a rate is shown, it also says out of how many people."
+    ],
+    [
+      "Decision",
+      "Deepin makes a recommendation; a person always decides."
+    ]
+  ],
+  "enterprise": [
+    [
+      "lock",
+      "Installed inside your organization"
+    ],
+    [
+      "air",
+      "No internet connection needed"
+    ],
+    [
+      "shield",
+      "Read-only, changes nothing"
+    ],
+    [
+      "net",
+      "Sends no data out"
+    ],
+    [
+      "doc",
+      "Original entries kept"
+    ],
+    [
+      "check",
+      "Numbers checked against logs"
+    ],
+    [
+      "doc",
+      "Every change recorded"
+    ],
+    [
+      "hand",
+      "A person decides"
+    ]
+  ]
+}

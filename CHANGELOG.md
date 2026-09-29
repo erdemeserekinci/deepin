@@ -1,6 +1,6 @@
 # deepin.space: yapılanlar ve kararlar
 
-Bu belge 26–28 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, alınan kararları ve açık kalan konuları özetler. Sitenin nasıl üretildiği ve düzenlendiği README.md dosyasında anlatılıyor.
+Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, alınan kararları ve açık kalan konuları özetler. Sitenin nasıl üretildiği ve düzenlendiği README.md dosyasında anlatılıyor.
 
 ## Özet
 
@@ -88,6 +88,17 @@ Bu belge 26–28 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 | "bir öncekine kurulan" | "bir öncekinde kurulan" |
 | "bir kişiye gerek kalmadan" | "insan müdahalesi olmadan" |
 
+### 29 Eylül
+
+**deepin.security sayfası ilk gerçek denemeye göre yeniden yazıldı**
+- Üst bölümün başlığı, giriş metni ve düğmeleri aynı kaldı. Sağdaki örnek vaka, bir bankadaki ilk denemede bulunan gerçek bir vakadan uyarlandı; kurum ve kişi bilgileri, sayılar değiştirildi.
+- Örnek vakaya davranış grafiği eklendi: birimdeki her kişi bir nokta; 27 kişi "olağan" bölgede, sapan 8 bilgisayar ayrı ve hareketli. Grafik sayfanın içinde satır içi SVG; hareket kapatılmış tarayıcılarda durur.
+- "Neyi inceler" listeleri sayfanın gerçekten yaptığına göre düzeltildi: tehdit istihbaratı, geçmiş olaylar ve otomatik yanıt çıkarıldı; okunan kayıtlar, birleştirilen kurum bilgileri ve sunulan çıktılar girdi → çıktı kartları olarak gösteriliyor.
+- Yeni bölümler: Sorun, Farkı (kural ile / Deepin ile), Nasıl çalışır (8 adım), Neleri bulur (8 vaka türü), Mevcut sistemlerinizle, Kanıt, Güven. Menü bu bölümlere göre genişletildi.
+- "Neredeyiz" bölümü ilk denemeyi anıyor (banka adı ve sayı yok); durum etiketi "Keşif aşamasında" olarak kaldı.
+- Güven bölümündeki adımlar ve kurumsal özellikler sayfaya özel: `src/content/security.tr.json` ve `security.en.json`.
+- Metinler jargonsuz yazıldı ("makul açıklama", "kaydın aslı" gibi). İngilizce sürüm aynı içerikle.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.
@@ -103,4 +114,4 @@ Bu belge 26–28 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - **Müşteri logoları:** Şu an isimler gösteriliyor. Logo dosyaları gelirse `proof.show_logos` açılabilir.
 - **Talep formu:** Şu an e-posta uygulamasını açıyor. Bir form servisi bağlanırsa `form.endpoint` alanına adresi yazmak yeterli.
 - **Yönlendirme:** Eski risk.deepin.space adresi deepin.space/risk adresine 301 ile yönlendirilmeli.
-- **Security ve Energy:** Bu sayfalar "keşif aşamasında". Somut bir müşteri ya da vaka oluştuğunda içerikleri güncellenmeli.
+- **Energy:** Bu sayfa "keşif aşamasında". Somut bir müşteri ya da vaka oluştuğunda içeriği güncellenmeli.

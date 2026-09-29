@@ -1,0 +1,58 @@
+{
+  "rail": [
+    [
+      "Kaynak",
+      "Her vaka, geldiği sisteme ve kayda bağlanır."
+    ],
+    [
+      "Kaydın aslı",
+      "Vakayı doğuran kayıtlar olduğu gibi saklanır; tek karakter değiştirilmez."
+    ],
+    [
+      "Sayılar tutar",
+      "Ekranda yazan her sayı kayıtlarla karşılaştırılır; tutmayan vaka işaretlenir."
+    ],
+    [
+      "Oranın tabanı",
+      "Bir oran verildiğinde, kaç kişi içinden hesaplandığı da yazılır."
+    ],
+    [
+      "Karar",
+      "Deepin öneri yapar; karar her zaman bir kişinindir."
+    ]
+  ],
+  "enterprise": [
+    [
+      "lock",
+      "Kurum içi kurulum"
+    ],
+    [
+      "air",
+      "İnternet bağlantısı gerekmez"
+    ],
+    [
+      "shield",
+      "Yalnızca okur, değiştirmez"
+    ],
+    [
+      "net",
+      "Dışarıya veri göndermez"
+    ],
+    [
+      "doc",
+      "Kaydın aslı saklanır"
+    ],
+    [
+      "check",
+      "Sayılar kayıtla denetlenir"
+    ],
+    [
+      "doc",
+      "Her değişiklik kayıt altında"
+    ],
+    [
+      "hand",
+      "Karar insanda"
+    ]
+  ]
+}

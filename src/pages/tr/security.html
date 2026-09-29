@@ -16,16 +16,67 @@ description: Güvenlik alarmlarını kanıta dayalı Investigation'lara dönüş
       <span class="chip st-exploring status">Keşif aşamasında</span>
     </div>
     <figure class="case" style="margin:0" aria-label="Örnek vaka">
-      <div class="case-top"><span class="case-id">SEC-2026-1127 · Alarm Investigation'ı</span><span class="chip st-wait">Onay bekliyor</span></div>
+      <div class="case-top"><span class="case-id">SEC-2026-0930 · İç ağ Investigation'ı</span><span class="chip st-wait">Onay bekliyor</span></div>
       <div class="case-body">
-        <div class="trigger"><span class="k">Tetikleyici</span><span>Tek bir hesaba 40 dakika içinde İzmir ve Frankfurt'tan giriş</span><small>Kimlik sağlayıcı alarmı · 22 Eyl 2026</small></div>
-        <div class="srcs" aria-label="Kaynaklar"><span>Kimlik sağlayıcı</span><span>VPN kayıtları</span><span>Uç nokta (EDR)</span><span>İK dizini</span></div>
-        <ul class="finds"><li><span class="k">Kimlik</span><span>İkinci giriş yeni bir cihazdan yapıldı, MFA bildirimi onaylandı</span><span class="src">Kimlik sağlayıcı</span></li><li><span class="k">Ağ</span><span>Frankfurt'tan VPN oturumu yok</span><span class="src">VPN kayıtları</span></li><li><span class="k">Uç nokta</span><span>Bilinen dizüstü bilgisayar aynı anda İzmir'de aktif</span><span class="src">EDR</span></li></ul>
-        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Bulgu</span>Frankfurt oturumu seyahat ya da VPN ile açıklanamıyor ve kullanıcının kendi cihazı başka bir yerde aktifti. Bu durum, ele geçirilmiş olası hesap politikanızla örtüşüyor.</p>
-        <div class="propose"><p>Oturumları sonlandır · kimlik bilgilerini sıfırla</p><div class="acts"><span>Analiste gönder</span><span class="ok">Onayla</span></div></div>
+        <div class="trigger"><span class="k">Tetikleyici</span><span>Aynı birimdeki 8 bilgisayar bir hafta içinde yaklaşık 300 iç adrese, 700'den fazla farklı kapı (port) üzerinden bağlanmaya çalıştı</span><small>7 günlük kayıt · tek bir alarm üretilmedi</small></div>
+        <div class="srcs" aria-label="Kaynaklar"><span>VPN kayıtları</span><span>İç güvenlik duvarı</span><span>Organizasyon şeması</span><span>Sunucu listesi</span></div>
+        <div class="olcum"><span class="lbl" style="margin:0">Davranış ölçümü · aynı birimdeki 35 kişi, 7 gün</span><!--grafik--><svg viewBox="0 0 330 204" role="img" aria-label="Birimdeki 35 kişinin bir haftada bağlantı denediği iç adres ve kapı sayısı. 27 kişi olağan bölgede: en çok 8 adres ve 6 kapı. İşaretli 8 bilgisayar 236 ile 305 adres ve 612 ile 790 kapı arasında."><defs><marker id="olc-ok" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path class="okucu" d="M0 0L8 4L0 8z"/></marker></defs><line class="izgara" x1="38.0" y1="30" x2="38.0" y2="168"/><text class="eks" x="38.0" y="182" text-anchor="middle">0</text><line class="izgara" x1="145.3" y1="30" x2="145.3" y2="168"/><text class="eks" x="145.3" y="182" text-anchor="middle">10</text><line class="izgara" x1="244.6" y1="30" x2="244.6" y2="168"/><text class="eks" x="244.6" y="182" text-anchor="middle">100</text><line class="izgara" x1="293.4" y1="30" x2="293.4" y2="168"/><text class="eks" x="293.4" y="182" text-anchor="middle">300</text><line class="izgara" x1="38" y1="168.0" x2="318" y2="168.0"/><text class="eks" x="29" y="171.0" text-anchor="end">0</text><line class="izgara" x1="38" y1="123.5" x2="318" y2="123.5"/><text class="eks" x="29" y="126.5" text-anchor="end">10</text><line class="izgara" x1="38" y1="82.4" x2="318" y2="82.4"/><text class="eks" x="29" y="85.4" text-anchor="end">100</text><line class="izgara" x1="38" y1="44.0" x2="318" y2="44.0"/><text class="eks" x="29" y="47.0" text-anchor="end">800</text><text class="eksen" x="38" y="18">Denenen kapı (port)</text><text class="eksen" x="318" y="197" text-anchor="end">Bağlantı denenen iç adres</text><rect class="bolge" x="32.0" y="121.0" width="122.9" height="49.0" rx="12"/><text class="bl" x="34.0" y="115.0">Birimin olağanı · 27 kişi</text><path class="ok" d="M160.9 127.0 Q243.1 127.0 273.1 66.0" marker-end="url(#olc-ok)"/><text class="ekb" x="269.1" y="38.2" text-anchor="end">8 bilgisayar</text><text class="ekn" x="269.1" y="50.2" text-anchor="end">olağanın 90 katı adres</text><circle class="ak" cx="38.0" cy="155.1" r="3.6"><title>Birim çalışanı: 0 adres, 1 kapı</title></circle><circle class="ak" cx="69.0" cy="147.6" r="3.6"><title>Birim çalışanı: 1 adres, 2 kapı</title></circle><circle class="ak" cx="73.0" cy="155.1" r="3.6"><title>Birim çalışanı: 1 adres, 1 kapı</title></circle><circle class="ak" cx="63.3" cy="160.8" r="3.6"><title>Birim çalışanı: 1 adres, 1 kapı</title></circle><circle class="ak" cx="87.2" cy="134.8" r="3.6"><title>Birim çalışanı: 2 adres, 5 kapı</title></circle><circle class="ak" cx="87.2" cy="147.6" r="3.6"><title>Birim çalışanı: 2 adres, 2 kapı</title></circle><circle class="ak" cx="99.2" cy="147.6" r="3.6"><title>Birim çalışanı: 2 adres, 2 kapı</title></circle><circle class="ak" cx="95.7" cy="156.1" r="3.6"><title>Birim çalışanı: 2 adres, 2 kapı</title></circle><circle class="ak" cx="87.2" cy="159.6" r="3.6"><title>Birim çalışanı: 2 adres, 2 kapı</title></circle><circle class="ak" cx="100.0" cy="131.9" r="3.6"><title>Birim çalışanı: 3 adres, 6 kapı</title></circle><circle class="ak" cx="108.0" cy="142.3" r="3.6"><title>Birim çalışanı: 3 adres, 3 kapı</title></circle><circle class="ak" cx="108.5" cy="150.8" r="3.6"><title>Birim çalışanı: 3 adres, 3 kapı</title></circle><circle class="ak" cx="108.5" cy="133.8" r="3.6"><title>Birim çalışanı: 3 adres, 3 kapı</title></circle><circle class="ak" cx="111.3" cy="158.9" r="3.6"><title>Birim çalışanı: 3 adres, 2 kapı</title></circle><circle class="ak" cx="100.0" cy="147.6" r="3.6"><title>Birim çalışanı: 3 adres, 2 kapı</title></circle><circle class="ak" cx="100.0" cy="155.1" r="3.6"><title>Birim çalışanı: 3 adres, 1 kapı</title></circle><circle class="ak" cx="118.0" cy="138.1" r="3.6"><title>Birim çalışanı: 4 adres, 4 kapı</title></circle><circle class="ak" cx="118.5" cy="150.8" r="3.6"><title>Birim çalışanı: 4 adres, 3 kapı</title></circle><circle class="ak" cx="121.3" cy="158.9" r="3.6"><title>Birim çalışanı: 4 adres, 2 kapı</title></circle><circle class="ak" cx="110.0" cy="147.6" r="3.6"><title>Birim çalışanı: 4 adres, 2 kapı</title></circle><circle class="ak" cx="110.0" cy="155.1" r="3.6"><title>Birim çalışanı: 4 adres, 1 kapı</title></circle><circle class="ak" cx="126.2" cy="142.3" r="3.6"><title>Birim çalışanı: 5 adres, 3 kapı</title></circle><circle class="ak" cx="134.2" cy="147.6" r="3.6"><title>Birim çalışanı: 5 adres, 2 kapı</title></circle><circle class="ak" cx="130.2" cy="155.1" r="3.6"><title>Birim çalışanı: 5 adres, 1 kapı</title></circle><circle class="ak" cx="125.1" cy="131.6" r="3.6"><title>Birim çalışanı: 6 adres, 2 kapı</title></circle><circle class="ak" cx="135.1" cy="138.1" r="3.6"><title>Birim çalışanı: 7 adres, 4 kapı</title></circle><circle class="ak" cx="144.3" cy="147.6" r="3.6"><title>Birim çalışanı: 8 adres, 2 kapı</title></circle><circle class="nabiz" cx="282.7" cy="48.9" r="3.6" style="animation-delay:0.0s"/><circle class="nabiz" cx="293.5" cy="47.9" r="3.6" style="animation-delay:0.3s"/><circle class="nabiz" cx="287.4" cy="39.2" r="3.6" style="animation-delay:0.6s"/><circle class="nabiz" cx="288.7" cy="58.4" r="3.6" style="animation-delay:0.9s"/><circle class="nabiz" cx="302.0" cy="45.9" r="3.6" style="animation-delay:1.2s"/><circle class="nabiz" cx="300.3" cy="36.8" r="3.6" style="animation-delay:1.5s"/><circle class="nabiz" cx="304.3" cy="56.0" r="3.6" style="animation-delay:1.8s"/><circle class="nabiz" cx="294.2" cy="44.2" r="3.6" style="animation-delay:2.1s"/><circle class="ek" cx="282.7" cy="48.9" r="3.6"><title>İşaretli bilgisayar: 236 adres, 612 kapı</title></circle><circle class="ek" cx="293.5" cy="47.9" r="3.6"><title>İşaretli bilgisayar: 251 adres, 648 kapı</title></circle><circle class="ek" cx="287.4" cy="39.2" r="3.6"><title>İşaretli bilgisayar: 262 adres, 671 kapı</title></circle><circle class="ek" cx="288.7" cy="58.4" r="3.6"><title>İşaretli bilgisayar: 270 adres, 702 kapı</title></circle><circle class="ek" cx="302.0" cy="45.9" r="3.6"><title>İşaretli bilgisayar: 278 adres, 719 kapı</title></circle><circle class="ek" cx="300.3" cy="36.8" r="3.6"><title>İşaretli bilgisayar: 289 adres, 744 kapı</title></circle><circle class="ek" cx="304.3" cy="56.0" r="3.6"><title>İşaretli bilgisayar: 297 adres, 768 kapı</title></circle><circle class="ek" cx="294.2" cy="44.2" r="3.6"><title>İşaretli bilgisayar: 305 adres, 790 kapı</title></circle></svg><!--/grafik--><div class="olcum-alt"><span><i class="ak"></i>Birimin geri kalan 27 kişisi</span><span><i class="ek"></i>İşaretli 8 bilgisayar</span></div></div>
+        <ul class="finds"><li><span class="k">Ağ</span><span>Denemelerin %98'i engellendi; bilinen bir saldırı imzası olmadığı için alarm da çıkmadı</span><span class="src">İç güvenlik duvarı</span></li></ul>
+        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Bulgu</span>Davranış kişilerde değil, bilgisayarlarında: yüzlerce kapıyı sırayla denemek elle yapılacak iş değil. Bu sekiz makinede ortak bir yazılım iç ağı tarıyor. Şimdilik güvenlik duvarında duruyor, ama ne olduğunu kimse bilmiyordu.</p>
+        <div class="propose"><p>Bu 8 bilgisayardaki yazılımları incele · masaüstü ekibine sor</p><div class="acts"><span>Analiste gönder</span><span class="ok">Onayla</span></div></div>
       </div>
-      <figcaption class="case-note">Örnek vaka. Bu Investigation henüz keşif aşamasında.</figcaption>
+      <figcaption class="case-note">Gerçek bir vakadan uyarlandı; kurum ve kişi bilgileri değiştirildi.</figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="sec" id="problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Sorun</p>
+      <h2 class="h2">Kayıtlar toplanıyor. <b>Okumak zaman alıyor.</b></h2>
+      <p class="lede">Güvenlik duvarları, VPN, kullanıcı girişleri ve bilgisayarlar her gün milyonlarca kayıt üretir. Hepsini okumaya kimsenin zamanı yetmez; önemli olan, kalabalığın içinde gözden kaçar.</p>
+    </div>
+    <div class="pains">
+      <div><h3>Zaman yetmiyor</h3><p>Tek bir alarmı anlamak için beş ayrı sistemi açmak gerekir. Analistin günü birkaç alarmla biter.</p></div>
+      <div><h3>Önemli olan gözden kaçıyor</h3><p>Dikkat isteyen bir kayıt, binlerce sıradan kaydın arasında kalır ve fark edilmez.</p></div>
+      <div><h3>Aynı olay, çok alarm</h3><p>Aynı olayı anlatan alarmlar ayrı ayrı gelir. Hangilerinin birbirine bağlı olduğunu bulmak saatler alır.</p></div>
+      <div><h3>Sessiz arıza</h3><p>Bir servis günlerce hata verir, izleme yanlış yeri kontrol eder ve kimse fark etmez.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="unknown">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Farkı</p>
+      <h2 class="h2">Kurallar bilineni yakalar. <b>Deepin olağan dışını görür.</b></h2>
+      <p class="lede">Her güvenlik kuralı, daha önce görülmüş bir saldırının tarifidir. Liste ne kadar uzun olursa olsun, henüz tarif edilmemiş olan listede yoktur. Deepin bu yüzden saldırıyı değil, olağanı öğrenir.</p>
+    </div>
+    <div class="yaklasim">
+      <div class="yk">
+        <div class="lbl">Kural ile</div>
+        <h3>Tarif edileni arar</h3>
+        <ul class="yk-list">
+          <li class="var"><span>Bilinen zararlı yazılım</span><em>alarm</em></li>
+          <li class="var"><span>Kara listedeki adres</span><em>alarm</em></li>
+          <li class="var"><span>Bilinen saldırı kalıbı</span><em>alarm</em></li>
+          <li class="yok"><span>Henüz tarif edilmemiş bir davranış</span><em>sessiz</em></li>
+        </ul>
+        <p>Yeni bir tehdit, kuralı yazılana kadar görünmez.</p>
+      </div>
+      <div class="yk dp">
+        <div class="lbl">Deepin ile</div>
+        <h3>Olağandan sapanı görür</h3>
+        <ul class="yk-list">
+          <li class="olagan"><span>Ekibin her gün gittiği sunucular</span><em>olağan</em></li>
+          <li class="olagan"><span>Mesai saatleri ve kullanılan bilgisayarlar</span><em>olağan</em></li>
+          <li class="olagan"><span>Birimde herkesin yaptığı işler</span><em>olağan</em></li>
+          <li class="sapma"><span>Kimsenin gitmediği bir sunucu</span><em>vaka</em></li>
+        </ul>
+        <p>Bir davranışın adı konmamış olsa bile, olağandan saptığı anda görünür olur.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -34,25 +85,144 @@ description: Güvenlik alarmlarını kanıta dayalı Investigation'lara dönüş
     <div class="sec-head">
       <p class="eyebrow">Neyi inceler</p>
       <h2 class="h2">Bir alarmdan <b>aksiyon alınabilir bir vakaya.</b></h2>
+      <p class="lede">Yeni bir cihaz ya da yazılım kurmanız gerekmez. Deepin, sistemlerinizin zaten topladığı kayıtları okur ve kurumunuzun kendi bilgileriyle birleştirir: bu adres hangi sunucu, bu hesap kimin, hangi ekipte çalışıyor.</p>
     </div>
-    <div class="inv inv-primary inv-panel">
-      <div class="inv-cols" style="border-top:0;padding-top:0">
-        <div><div class="lbl">İnceler</div><ul class="inv-list in"><li>Güvenlik alarmları</li><li>Kimlik ve erişim kayıtları</li><li>Uç nokta ve varlık verisi</li><li>Ağ ve VPN kayıtları</li><li>Tehdit istihbaratı</li><li>Geçmiş olaylar</li></ul></div>
-        <div><div class="lbl">Sunar</div><ul class="inv-list out"><li>Her alarm için kanıt paketi</li><li>Gerekçe ve önem derecesi</li><li>Önerilen yanıt</li><li>İnsan onayı</li><li>Denetim izi</li></ul></div>
+    <div class="inv-akis">
+      <div class="ia-kart">
+        <div class="ia-grup"><div class="lbl">İnceler</div><ul class="inv-list in"><li>Güvenlik duvarı kayıtları</li><li>VPN kayıtları</li><li>Kullanıcı giriş kayıtları</li><li>Web uygulaması kayıtları</li><li>Bilgisayar koruma kayıtları</li></ul></div>
+        <div class="ia-grup"><div class="lbl">Birleştirir</div><ul class="inv-list in"><li>Sunucu listesi</li><li>Ağ haritası</li><li>Ağ cihazları</li><li>Organizasyon şeması</li><li>Kullanıcı ve İK kayıtları</li></ul></div>
+      </div>
+      <div class="ia-ok" aria-hidden="true"><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
+      <div class="ia-kart sunar">
+        <div class="lbl">Sunar</div>
+        <ul class="ia-cikti"><li><span>Aynı olayı anlatan alarmlar tek vakada</span></li><li><span>Ekibindeki benzerleriyle karşılaştırma</span></li><li><span>Makul bir açıklaması var mı kontrolü</span></li><li><span>Her iddianın arkasında kaydın aslı</span></li><li><span>Kişinin gün gün hareketleri</span></li><li><span>Ağın bölümleri arası geçiş haritası</span></li><li><span>Bilinen saldırı teknikleriyle eşleştirme</span></li><li><span>Bir sonraki adım ve kime sorulacağı</span></li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec tone" id="status">
+<section class="sec tone" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Nasıl çalışır</p>
+      <h2 class="h2">Her şüpheye <b>aynı sorular.</b></h2>
+      <p class="lede">Deepin bir kural listesi işletmez. Her şüpheli durumda deneyimli bir analistin soracağı soruları sırayla sorar ve kararı bir kişiye bırakır.</p>
+    </div>
+    <div class="flow-wrap"><svg class="flow-line" aria-hidden="true"></svg>
+    <ol class="flow eight">
+      <li><h3>Kayıtlar</h3><p>Sistemlerinizin zaten topladığı kayıtlar okunur; hiçbiri değiştirilmez.</p></li>
+      <li><h3>Kimlik</h3><p>Adres sunucuya, hesap kişiye ve ekibine bağlanır.</p></li>
+      <li><h3>Soru</h3><p>Bu kişi, ekibinden kimsenin gitmediği bir yere mi gitti?</p></li>
+      <li><h3>Karşılaştırma</h3><p>Aynı durum kaç kişide var? Herkeste olan şey şüphe sayılmaz.</p></li>
+      <li><h3>Makul açıklama</h3><p>Güncelleme mi, test mi, izleme aracı mı? Önce bu aranır.</p></li>
+      <li><h3>Vaka</h3><p>Aynı olayı anlatan alarmlar tek dosyada birleşir.</p></li>
+      <li class="human"><h3>İnsan kararı</h3><p>Analist onaylar, reddeder ya da incelemeye alır.</p></li>
+      <li><h3>Kanıt</h3><p>Vakadaki her sayının arkasında kaydın aslı durur.</p></li>
+    </ol></div>
+  </div>
+</section>
+
+<section class="sec" id="findings">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Neleri bulur</p>
+      <h2 class="h2">Alarm üretmeyeni <b>de bulur.</b></h2>
+      <p class="lede">Her vaka türü tek bir soruya cevap arar. Deepin, tek başına sıradan görünen bir kaydın neden önemli olduğunu kim, hangi ekipte ve hangi sunucuya sorularıyla gösterir.</p>
+    </div>
+    <div class="fit findings">
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="10" r="3"/><circle cx="19" cy="10" r="3"/><circle cx="14" cy="19" r="3"/><path d="M3 25c1-3 3-4.5 6-4.5M25 25c-1-3-3-4.5-6-4.5"/></svg><h3>Ekibinden ayrışan grup</h3><p>Bir birimde birkaç kişi, meslektaşlarından farklı davranıyor. Tek kişilik bir tuhaflıktan ayrı tutulur.</p><span class="src">VPN · güvenlik duvarı · organizasyon şeması</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="14" r="3"/><circle cx="22" cy="6" r="3"/><circle cx="22" cy="22" r="3"/><path d="M9 13l10-6M9 15l10 6" stroke-dasharray="2 3"/></svg><h3>Kimsenin gitmediği yer</h3><p>Bir kişi, aynı işi yapanların hiç gitmediği bir iç sunucuya ulaşıyor. Denemek ile ulaşmak ayrı sayılır.</p><span class="src">VPN · ağ haritası</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="14" cy="14" r="10"/><circle cx="14" cy="14" r="5"/><path d="M14 14l7-7"/></svg><h3>İç ağda keşif</h3><p>Kısa sürede yüzlerce adrese ve kapıya bağlanma denemesi. Yoğun çalışan bir kullanıcıdan ayırt edilir.</p><span class="src">VPN · iç güvenlik duvarı</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="12" width="14" height="11" rx="2"/><path d="M10 12V9a4 4 0 018 0v3M14 16v3"/></svg><h3>Aniden yönetici olan hesap</h3><p>Yönetici grubuna eklenme, ilk yönetici girişi ve yeni bir sisteme ulaşma sırayla aranır. Tek olay vaka açmaz.</p><span class="src">Kullanıcı giriş kayıtları · VPN</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 24c1-4.5 4.5-7 8-7s7 2.5 8 7"/><path d="M20 7l5 5M25 7l-5 5"/></svg><h3>Ayrılan çalışanın açık hesabı</h3><p>İK kayıtlarında işten ayrılmış görünen, ama hâlâ sisteme giren hesaplar.</p><span class="src">İK kayıtları · kullanıcı girişleri</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="14" r="6"/><path d="M3 14h12M9 8c2 2 2.8 4 2.8 6S11 18 9 20"/><path d="M17 14h8M22 11l3 3-3 3"/></svg><h3>İnternetten iç ağa ulaşan trafik</h3><p>Dışarıya açık bölgede kalması gereken bir isteğin iç ağa kadar ulaşması. Bütün geçişler tek haritada.</p><span class="src">Güvenlik duvarları · ağ haritası</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="6" width="20" height="13" rx="2"/><path d="M10 23h8M14 19v4"/></svg><h3>Bilgisayar koruma alarmları</h3><p>Koruma yazılımının alarmı, kullanıcısı ve bilgisayarıyla birlikte. Kendi saldırı testleriniz ve toplu yazılım dağıtımları ayrı tutulur.</p><span class="src">Bilgisayar koruma · kullanıcı girişleri</span></div>
+      <div><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 18h5l3-8 4 12 3-7h7"/></svg><h3>Kimsenin fark etmediği arıza</h3><p>Günlerce hata veren bir servis ya da yanlış yeri kontrol eden bir izleme ayarı; tek alarm çıkmadan.</p><span class="src">Web uygulaması kayıtları · sunucu listesi</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="siem">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Mevcut sistemlerinizle</p>
+      <h2 class="h2">Yerine değil, <b>üstüne.</b></h2>
+      <p class="lede">Kayıt toplama sisteminiz (SIEM) kayıtları toplamaya ve bilinen saldırıları yakalamaya devam eder. Deepin o kayıtların içinden bakılmaya değer olanı seçer ve vakaya çevirir.</p>
+    </div>
+    <div class="alt">
+      <div class="hd"><span></span><span>Bugün</span><span>Deepin ile</span></div>
+      <div><span>Ne yapar</span><span>Kayıtları toplar, saklar, bilinen kalıpları yakalar</span><span>Kayıtları kurumunuzun bilgileriyle birleştirip vaka dosyası hazırlar</span></div>
+      <div><span>Yeni bir davranış</span><span>Kuralı yazılmamışsa görünmez</span><span>Kişi ekibiyle karşılaştırılır; farklılık görünür olur</span></div>
+      <div><span>Alarmlar</span><span>Her olay ayrı alarm; birleştirmeyi analist yapar</span><span>Aynı olayı anlatan alarmlar tek vakada</span></div>
+      <div><span>Yanlış alarm</span><span>Analist tek tek eler</span><span>Makul bir açıklaması olup olmadığı her vakada önceden aranır</span></div>
+      <div><span>Sessiz arıza</span><span>Görünmez</span><span>Günlerce hata veren servis vakaya dönüşür</span></div>
+      <div><span>Kanıt</span><span>Analist sorgu yazıp arar</span><span>Vakadaki her sayının arkasında kaydın aslı hazır</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="evidence">
+  <div class="wrap">
+    <div class="spot">
+      <div class="txt">
+        <p class="eyebrow">Kanıt</p>
+        <h3>Puan değil, <b>üç net cevap.</b></h3>
+        <p>Her vaka aynı üç soruyu cevaplar ve bir sonraki adımı söyler. Vakadaki her sayının arkasında kaydın aslı durur; değiştirilmez, kısaltılmaz.</p>
+        <dl class="meta">
+          <div><dt>Kimler için</dt><dd>Bankalar ve denetlenen kurumlar</dd></div>
+          <div><dt>Ekipler</dt><dd>Güvenlik operasyon ve bilgi güvenliği ekipleri</dd></div>
+          <div><dt>Birlikte</dt><dd>Sistem, ağ ve BT operasyon ekipleri</dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <div>
+          <div class="lbl">Her vakada</div>
+          <ul class="answers">
+            <li><strong>Kaç kaynak doğruluyor?</strong><span>Aynı şeyi kaç ayrı sistemin kaydı gösteriyor</span></li>
+            <li><strong>Kaç kişide var?</strong><span>Bu davranış ekibinde ve kurumun genelinde ne kadar yaygın</span></li>
+            <li><strong>Makul bir açıklaması var mı?</strong><span>Güncelleme, test, izleme aracı: arandı mı, bulundu mu</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">Sayılar kayıtla tutar</div>
+          <div class="equation plain"><span>Vakada 137 engellenen istek</span><i>=</i><span>Kayıtlarda 137 satır</span></div>
+          <div class="eq-down" aria-hidden="true"></div>
+          <div class="equation"><span class="dr">Kanıtı hazır vaka</span><i>→</i><span>Analist kararı</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tone" id="trust">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Güven</p>
+      <h2 class="h2">Kurumunuzun içinde çalışır. <b>Hiçbir kayıt dışarı çıkmaz.</b></h2>
+      <p class="lede">Deepin kurumunuzun kendi sunucusunda çalışır. Kayıtları yalnızca okur; güvenlik sistemlerinizin ayarlarına dokunmaz. İnceleme ekranı internete bağlanmaz.</p>
+    </div>
+    <div class="trust">
+      <!--@evidence_rail:content-->
+      <div>
+        <!--@enterprise_chips:content-->
+        <div class="datanote">
+          <strong>Kayıtlarınız sizde kalır.</strong>
+          <p>İlk denemede de tek bir kayıt kurum dışına çıkmadı. Bir kurumdan diğerine taşıdığımız şey vaka türleri ve inceleme yöntemleridir; asla sizin kayıtlarınız değil.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="status">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Neredeyiz</p>
-      <h2 class="h2">Keşif aşamasında, <b>henüz bir Space değil.</b></h2>
+      <h2 class="h2">Keşif aşamasında, <b>ilk kurumda denendi.</b></h2>
     </div>
     <div class="statusbox">
       <span class="chip st-exploring">Keşif aşamasında</span>
-      <div><p>Güvenlik Investigation'ı Deepin için teknik olarak güçlü bir uyum taşıyor, ancak henüz kanıtlanmış bir ürün değil. Buna Space demeden önce ilk tasarım ortaklarımızla doğruluyoruz.</p><p>Ekibiniz alarmları birçok araç üzerinden araştırıyorsa, bu işin bugün nasıl yapıldığını görmek isteriz.</p>
+      <div><p>deepin.security'nin ilk denemesi bir bankanın kendi ortamında, gerçek kayıtlarla yapıldı. Güvenlik duvarı, VPN, kullanıcı girişi, web uygulaması ve bilgisayar koruma kayıtları; kurumun sunucu listesi, ağ haritası ve organizasyon şemasıyla birlikte okundu.</p><p>Buna Space demeden önce aynı vakaların ikinci bir kurumda da çıktığını görmek istiyoruz. Ekibiniz alarmları birçok araç arasında gidip gelerek araştırıyorsa, bu işin bugün nasıl yapıldığını görmek isteriz.</p>
         <p><a class="go" href="../#spaces">Bir Space nasıl kazanılır →</a></p>
       </div>
     </div>
@@ -62,8 +232,8 @@ description: Güvenlik alarmlarını kanıta dayalı Investigation'lara dönüş
 <section class="band" id="contact">
   <div class="wrap">
     <p class="eyebrow">deepin.security</p>
-    <h2>Hangi alarmları araştırmak <b>ekibinizin en çok zamanını alıyor?</b></h2>
-    <p>Birini bize gösterin. Deepin'in onu araştırıp araştıramayacağını açıkça söyleyelim.</p>
+    <h2>Kayıtlarınız toplanıyor. <b>Hangisine bakılması gerektiğini kim söylüyor?</b></h2>
+    <p>Ekibinizin bugün nasıl çalıştığını anlatın. Deepin'in kendi kayıtlarınızda neler bulabileceğini, tek bir kaydı dışarı çıkarmadan gösterelim.</p>
     <!--@copy_email-->
   </div>
 </section>
