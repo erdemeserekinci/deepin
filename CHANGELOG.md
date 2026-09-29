@@ -99,6 +99,11 @@ Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Güven bölümündeki adımlar ve kurumsal özellikler sayfaya özel: `src/content/security.tr.json` ve `security.en.json`.
 - Metinler jargonsuz yazıldı ("makul açıklama", "kaydın aslı" gibi). İngilizce sürüm aynı içerikle.
 
+**deepin.security platform demosu ve video aracı** (`security/demo/`)
+- deepin.security inceleme ekranının Deepin platformu görünümüyle çalışan demosu eklendi: 16 inceleme, 45 uyarı, graf, kanıt ve ham kayıt, MITRE, ağ geçişleri, kişi sorgusu, asistan. Veri tamamen kurgusal ("Meridyen Finans"); kurum, kişi, sayı ve adres planı hiçbir gerçek kuruma dayanmıyor. Türkçe ve İngilizce.
+- Demo kendi kendine gezen bir tur moduyla videoya çekilebiliyor (`?tur=1`). Her video bir senaryo dosyası (`kaynak/senaryolar/`); kaydedici başlıksız Chrome ile kare kare çekiyor, Türkçe ve İngilizce ayrı video, altyazılı 1080p ya da altyazısız 4K. Altyazıdaki her sayı veriyle denetleniyor.
+- Nasıl kullanılacağı: `security/demo/VIDEO_REHBERI.md`. Depoda iki küçük örnek video (720p: tam ürün turu 3,3 MB, grup davranışı kesiti 0,9 MB) ve önizleme levhaları var; 1080p/4K videolar depoya konmuyor, yeniden üretiliyor.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.
@@ -109,6 +114,7 @@ Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 
 ## Açık konular
 
+- **deepin.security demosu:** `security/demo/` yayına çıkınca herkese açık olur (arama motorlarına kapalı). /security sayfasından demoya bağlantı henüz verilmedi.
 - **Türkçe metinler:** Tamamı gözden geçirilmeli, özellikle risk demo metinleri ve müşteri durum etiketleri.
 - **Fontlar:** Eski siteye erişilemediği için Poppins tahmini yapıldı. Eski siteyle karşılaştırılıp doğrulanmalı.
 - **Müşteri logoları:** Şu an isimler gösteriliyor. Logo dosyaları gelirse `proof.show_logos` açılabilir.

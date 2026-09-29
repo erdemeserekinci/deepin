@@ -1,0 +1,76 @@
+{
+  "surum": 1,
+  "baslik": "Kısa kesit: grup davranışı grafı (Müşteri İletişim Merkezi), kişiden kişiye geçiş, asistana kime sorulacağı",
+  "not": "Ornek ikinci senaryo. Adim bicimi ve kurallar: VIDEO_REHBERI.md.",
+  "imlec_bas": [0.66, 0.78],
+  "kapanis": {
+    "slogan": {"tr": "Uyarıyı değil, hikâyeyi görün.", "en": "See the story, not the alert."},
+    "not": {"tr": "Kurgusal kurumla hazırlanmış demo verisi.", "en": "Demo data prepared with a fictional organization."}
+  },
+  "sahneler": [
+    {
+      "ad": "inceleme",
+      "altyazi": {"tr": "Müşteri İletişim Merkezi: 34 kişilik gruptan 9'u yüzlerce iç ağa istek gönderdi, hiçbiri geçmedi.", "en": "Customer Contact Center: in a 34-person group, 9 sent requests to hundreds of internal networks. None got through."},
+      "sayilar": ["inc.iletisim-merkezi.grup_uye", "inc.iletisim-merkezi.varlik"],
+      "adimlar": [
+        ["bekle", 600],
+        ["tik", ".row-h[data-a=\"ac-inc\"][data-p=\"iletisim-merkezi\"]", 1100, {"fx": 0.22}],
+        ["bekle", 900],
+        ["imlec", ".verdict", 800, {"fx": 0.35}],
+        ["bekle", 2300]
+      ]
+    },
+    {
+      "ad": "graf",
+      "arayuz_adi": ["Graf"],
+      "altyazi": {"tr": "Graf: grubun olağan yolu gri, kişinin engellenen istekleri kırmızı kesik çizgi.", "en": "Graph: the group's usual path in grey, the person's blocked requests as red dashed lines."},
+      "sayilar": [],
+      "adimlar": [
+        ["tik", ".dact [data-a=\"tab\"][data-p=\"graf\"]", 950],
+        ["bekle", 450],
+        ["kaydir", "#card", 1100, {"hedef": ".gsvg", "ust": 2}],
+        ["imlec", ".gsvg circle[r=\"44\"]", 800],
+        ["bekle", 500],
+        ["imlec", ".gsvg rect[fill=\"#143037\"]", 800],
+        ["bekle", 1800]
+      ]
+    },
+    {
+      "ad": "kisiler",
+      "altyazi": {"tr": "Kişiden kişiye geçin: desen her birinde aynı.", "en": "Switch from person to person: the pattern is the same for each."},
+      "sayilar": [],
+      "adimlar": [
+        ["kaydir", "#card", 700, {"hedef": ".gwrap", "ust": 8}],
+        ["tik", ".gsel button[data-p=\"iletisim-merkezi|hyavuz\"]", 900],
+        ["bekle", 900],
+        ["tik", ".gsel button[data-p=\"iletisim-merkezi|dtas\"]", 650],
+        ["bekle", 900],
+        ["kaydir", "#card", 900, {"hedef": ".gsvg", "ust": 2}],
+        ["tik", ".gnode[data-p=\"d8\"]", 900, {"fx": 0.3}],
+        ["bekle", 700],
+        ["imlec", ".gside dl", 700, {"fx": 0.3, "fy": 0.4}],
+        ["bekle", 1600]
+      ]
+    },
+    {
+      "ad": "tek-inceleme",
+      "altyazi": {"tr": "9 kişi, tek inceleme: ayrı ayrı uyarı olarak değil, bir grup davranışı olarak.", "en": "9 people, one investigation: shown as one group behavior, not as separate alerts."},
+      "sayilar": ["inc.iletisim-merkezi.varlik"],
+      "adimlar": [
+        ["tik", ".chip[data-a=\"chip\"][data-p=\"soru:sor\"]", 1000],
+        ["bekle", 1500],
+        ["kontrol", null, 0, {"cevap": "sor"}],
+        ["imlec", "#feed .msg.a:last-child table", 800, {"fx": 0.5, "fy": 0.4}],
+        ["bekle", 3000]
+      ]
+    },
+    {
+      "ad": "kapanis",
+      "altyazi": {"tr": "", "en": ""},
+      "sayilar": [],
+      "adimlar": [
+        ["kapanis", null, 4000]
+      ]
+    }
+  ]
+}

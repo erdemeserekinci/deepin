@@ -9,6 +9,7 @@ Statik site. Klasörün tamamı deepin.space kök dizinine yüklenir. Varsayıla
 | `en/index.html` | https://deepin.space/en (İngilizce) |
 | `en/risk/`, `en/finance/`, `en/security/`, `en/energy/` | https://deepin.space/en/risk vb. (İngilizce) |
 | `assets/` | Ortak görseller |
+| `security/demo/` | https://deepin.space/security/demo (deepin.security platform demosu, kurgusal veri, arama motorlarına kapalı; İngilizcesi `security/demo/en/`) |
 
 Her sayfanın sağ üstünde TR / EN geçişi var; aynı sayfanın diğer dildeki karşılığına gider. Sayfalarda `hreflang` bağlantıları tanımlı.
 
@@ -35,5 +36,12 @@ Müşteri logoları: `src/data.*.json` içinde `proof.show_logos` true yapılıp
 Talep formu şu an e-posta uygulamasını açar. Bir form servisi bağlanırsa `risk.*.json` içindeki `form.endpoint` alanına adresi yazmak yeterli.
 
 Eski risk.deepin.space adresini https://deepin.space/risk adresine 301 ile yönlendirmek önerilir.
+
+## deepin.security demosu ve ürün videoları
+
+`security/demo/` kendi başına duran bir klasör: `build.py` ona yazmaz, onun komutları sitenin geri kalanına dokunmaz.
+Demoyu yeniden üretmek ve anlatımı: [security/demo/BENI_OKU.md](security/demo/BENI_OKU.md). Demodan ürün videosu çekmek
+(senaryo yazma, önizleme, Türkçe/İngilizce çekim, altyazısız 4K): [security/demo/VIDEO_REHBERI.md](security/demo/VIDEO_REHBERI.md).
+Claude Code ile çalışılıyorsa o klasörde açıp istenen videoyu düz Türkçeyle söylemek yeter. Neyin gösterildiğini görmek için örnekler: `security/demo/video/urun_turu/tr_ornek.mp4` (tam tur) ve `security/demo/video/grup_davranisi/tr_ornek.mp4` (kısa kesit).
 
 Yapılan işlerin ve kararların özeti: [CHANGELOG.md](CHANGELOG.md)

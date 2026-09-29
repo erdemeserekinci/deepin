@@ -1,0 +1,7 @@
+# Videolar ve kontrol kareleri uretilen dosyalardir (kaynak/video_cek.py yeniden uretir). Depoya yalniz brifler,
+# kucuk ornek videolar (<dil>_ornek.mp4, 720p) ve onizleme levhalari (onizleme_<dil>.jpg) girer.
+/video/*/*
+!/video/*/*.md
+!/video/*/*_ornek.mp4
+!/video/*/onizleme_*.jpg
+__pycache__/

@@ -1,0 +1,4 @@
+# Video cekimi icin (kaynak/video_cek.py). Sayfa uretimi (uret.py) ve denetim (denetim.py) yalniz standart kutuphaneyi kullanir.
+opencv-python>=4.8
+numpy>=1.24
+websocket-client>=1.6
