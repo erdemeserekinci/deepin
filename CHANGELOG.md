@@ -109,6 +109,10 @@ Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Dosyalar `assets/video/` altında (deepin-security-tr/en: .mp4, .jpg, .vtt; iki video toplam ~27 MB).
 - `build.py`: `src="assets/` gibi `poster="assets/` yolları da sayfanın derinliğine göre düzeltiliyor (tek satır).
 
+**deepin.security: örnek vaka kurgusal, tanıtım videosu yenilendi**
+- Üst bölümdeki örnek vaka tamamen kurgusal hâle getirildi: sayılar değişti (aynı birimde 5 bilgisayar, 22 kişilik birim, 3 günlük kayıt, 100'den fazla iç adres, 140'tan fazla kapı, denemelerin %91'i engellendi) ve alt not "Kurgusal örnek vaka; kurum, kişiler ve sayılar temsilidir." oldu. Davranış ölçümü grafiği yeni sayılarla yeniden üretildi.
+- Tanıtım videosu iki dilde yeniden çekildi. Demo verisi kurgusal bir haftaya (14-20 Eylül 2026), genel ürün adlarına ve kurgusal servis ve birim adlarına taşındı; MITRE ATT&CK sayfasında seçili teknik kutusunun alt satırının kesilmesi düzeltildi. Seslendirme, müzik, kapak ve altyazı aynı.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.
