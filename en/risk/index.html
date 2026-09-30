@@ -1334,6 +1334,27 @@ span[lang="en"]{display:contents}
       if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
     });
   }
+  // Inside a frame (e.g. a preview window) the scroll position belongs to the outer page,
+  // so the browser neither starts a new page at its top nor restores the spot on Back.
+  // Remember the link a visitor leaves through, and on load scroll the frame's own
+  // content: back to that link after Back, to the top (or #section) otherwise.
+  if(window.top!==window){
+    var POS='deepin-pos:'+location.pathname;
+    document.addEventListener('click',function(ev){
+      var a=ev.target.closest&&ev.target.closest('a[href]');if(!a)return;
+      var h=a.getAttribute('href');if(!h||h.charAt(0)==='#'||/^(mailto|tel|javascript):/i.test(h))return;
+      try{sessionStorage.setItem(POS,[].indexOf.call(document.querySelectorAll('a[href]'),a))}catch(e){}
+    },true);
+    var land=function(back){
+      var t=null,i=null;
+      if(back){try{i=sessionStorage.getItem(POS)}catch(e){}if(i!==null)t=document.querySelectorAll('a[href]')[+i]}
+      if(!t&&location.hash){try{t=document.querySelector(location.hash)}catch(e){}}
+      if(t)t.scrollIntoView({block:back?'center':'start'});else document.documentElement.scrollIntoView({block:'start'});
+    };
+    var nav=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];
+    land(!!nav&&nav.type==='back_forward');
+    window.addEventListener('pageshow',function(ev){if(ev.persisted)land(true)});
+  }
   // remember the language the visitor picks
   document.querySelectorAll('.langs a[hreflang]').forEach(function(a){
     a.addEventListener('click',function(){try{localStorage.setItem('deepin-lang',a.getAttribute('hreflang'))}catch(e){}});
