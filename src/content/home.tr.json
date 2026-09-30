@@ -1,0 +1,356 @@
+{
+  "copy": {
+    "title": "Deepin · Enterprise Investigation & Decision Automation",
+    "description": "Her karar bir Investigation ile başlar. Deepin iş vakalarını sistemleriniz genelinde araştırır, kanıtı gösterir ve karar için bir kişinin onayını bekler.",
+    "hero_kicker": "Enterprise Investigation &amp; Decision Automation",
+    "hero_l1": "Her karar bir",
+    "hero_l2": "Investigation ile başlar.",
+    "hero_l3": "Deepin onu yürütür.",
+    "hero_lede": "Bir risk, fraud ya da uyum kararından önce ekibiniz sistemlerde arama yapar, belgeleri okur ve kayıtları karşılaştırır. Deepin bu araştırmayı yapar, her bulgunun arkasındaki kanıtı gösterir ve karar için bir kişinin onayını bekler.",
+    "hero_cta": "Bize bir Investigation getirin",
+    "hero_cta2": "Bir tanesini izleyin",
+    "hero_proof": "<b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> ve <b>GreenChimney</b> bünyesinde canlı kullanımda",
+    "sig_time": "18.09.2026 · 09:42",
+    "sig_src": "Ticaret Sicili Gazetesi",
+    "sig_text": "Yeni imza yetkilisi tescil edildi · Northwind Lojistik A.Ş.",
+    "sig_next": "Bir karar vermek gerekiyor.",
+    "sc_kicker": "Investigation",
+    "sc_note": "Kurgusal bir şirketle hazırlanmış örnek vaka.",
+    "sc_steps": "Investigation adımları",
+    "dc_kicker": "Deepin burada durur.",
+    "dc_h": "Karar <b>sizindir.</b>",
+    "dc_p": "Deepin asla sessizce karar vermez. Vakayı, karar yetkisi olan kişiye; her gerekçe ve her kaynak ekli olarak getirir.",
+    "ix_kicker": "Investigation'lar",
+    "ix_h": "Deepin <b>neyi araştırsın?</b>",
+    "ix_p": "Bir platform değil, bir Investigation satın alırsınız. Ekibinizin en çok zaman harcadığı Investigation ile başlayın.",
+    "sp_kicker": "Space'ler",
+    "sp_h": "Bir alanda tekrarlandıkça <b>Investigation bir Space'e dönüşür.</b>",
+    "sp_p": "Space tekrarla kazanılır: aynı türden Investigation aynı alanda tekrarlanır ve geride yeniden kullanılabilir yetenekler bırakır. İki Space, tek bir dil.",
+    "pf_kicker": "Müşteriler",
+    "pf_h": "Gerçek kurumsal ortamlarda <b>kanıtlandı.</b>",
+    "pf_p": "Her referans, gerçekte ulaştığı olgunluk seviyesiyle gösterilir.",
+    "hx_kicker": "Space'lerin altında",
+    "hx_h": "Her Investigation'ın altında <b>bir organizasyon var.</b>",
+    "hx_p": "Deepin Harness; yapay zekâya rol, yetenek, kurumsal bilgi, politika ve kontrol kazandırır. Böylece agent'lar tek başına çalışan asistanlar gibi değil, kurumun bir parçası olarak çalışır.",
+    "hx_cta": "Deepin Harness'ı keşfedin →",
+    "hx_ent": "Regüle kurumlar için tasarlandı",
+    "cl_kicker": "Buradan başlayın",
+    "cl_h": "Bize <b>bir Investigation getirin.</b>",
+    "cl_next": "Sonra: <b>Deepin sırada neyi araştırsın?</b>",
+    "rail_label": "Bu sayfada"
+  },
+  "rail": [
+    [
+      "signal",
+      "Sinyal"
+    ],
+    [
+      "investigation",
+      "Investigation"
+    ],
+    [
+      "decision",
+      "Karar"
+    ],
+    [
+      "investigations",
+      "Katalog"
+    ],
+    [
+      "spaces",
+      "Space'ler"
+    ],
+    [
+      "customers",
+      "Müşteriler"
+    ],
+    [
+      "enterprise",
+      "Harness"
+    ],
+    [
+      "contact",
+      "Başlayın"
+    ]
+  ],
+  "scene": {
+    "phases": [
+      {
+        "k": "Bugün",
+        "h": "Karardan önce birinin araştırması gerekir.",
+        "p": "Sekiz sistem, dağınık kayıtlar; saatlerce arama, okuma ve karşılaştırma. Araştırmanın izi tek bir kişinin aklında kalır."
+      },
+      {
+        "k": "Deepin",
+        "h": "Deepin işin etrafında organize olur.",
+        "p": "Aynı sistemler tek bir yerde okunur. Her kaynak kontrol edilir ve vakayla birlikte saklanır."
+      },
+      {
+        "k": "Kanıt",
+        "h": "Kaynaklar kanıta dönüşür.",
+        "p": "Sekiz kaynaktan üçünde önemli bir şey var. Her kanıt, geldiği yere bağlı kalır."
+      },
+      {
+        "k": "Bulgu",
+        "h": "Kanıt bir bulguya dönüşür.",
+        "p": "Gerekçe, uyguladığı politikayla birlikte yazılır. Henüz hiçbir karar verilmedi."
+      },
+      {
+        "k": "Karar",
+        "h": "Karar sizde kalsın. <b>Araştırma yükü kalksın.</b>",
+        "p": "Deepin durur ve vakayı bir kişiye teslim eder: bulgu, kanıt ve önerilen karar."
+      }
+    ],
+    "company": "Northwind Lojistik A.Ş.",
+    "case": "INV-2026-0418",
+    "checked": "kontrol edildi",
+    "sources": [
+      [
+        "reg1",
+        "Ticaret Sicili",
+        "Son tescili ara",
+        "İlan · 12 Eyl",
+        "E1"
+      ],
+      [
+        "reg2",
+        "Ticaret Sicili",
+        "Ortağı doğrula",
+        "İlan · 18 Eyl",
+        "E2"
+      ],
+      [
+        "graph",
+        "İlişki grafiği",
+        "Kim kimle bağlantılı?",
+        "İzlenen 2 şirket",
+        "E3"
+      ],
+      [
+        "pdf",
+        "PDF",
+        "İndir ve oku",
+        "Esas sözleşme",
+        ""
+      ],
+      [
+        "crm",
+        "CRM",
+        "Şirketi bul",
+        "Tedarikçi kaydı",
+        ""
+      ],
+      [
+        "mail",
+        "E-posta",
+        "Eksik belgeyi iste",
+        "Yazışmalar",
+        ""
+      ],
+      [
+        "sheet",
+        "Excel tablosu",
+        "Son değerlendirmeyle karşılaştır",
+        "Son değerlendirme",
+        ""
+      ],
+      [
+        "web",
+        "Haber ve web",
+        "İlişkili şirketi ara",
+        "Basın",
+        ""
+      ]
+    ],
+    "tangle": [
+      [
+        "crm",
+        "reg1",
+        "Farklı şirket unvanı"
+      ],
+      [
+        "reg1",
+        "pdf",
+        ""
+      ],
+      [
+        "pdf",
+        "web",
+        ""
+      ],
+      [
+        "web",
+        "graph",
+        "Kim kimle bağlantılı?"
+      ],
+      [
+        "graph",
+        "reg2",
+        "Tekrar kontrol et"
+      ],
+      [
+        "reg2",
+        "sheet",
+        ""
+      ],
+      [
+        "sheet",
+        "mail",
+        "Eksik kanıt"
+      ],
+      [
+        "mail",
+        "crm",
+        "Hangi kayıt güncel?"
+      ],
+      [
+        "reg2",
+        "reg1",
+        ""
+      ]
+    ],
+    "evidence": [
+      [
+        "E1",
+        "Sermaye %40 azaltıldı",
+        "Ticaret Sicili Gazetesi · 12 Eyl"
+      ],
+      [
+        "E2",
+        "Temsil yetkisi değişti",
+        "Ticaret Sicili Gazetesi · 18 Eyl"
+      ],
+      [
+        "E3",
+        "Yeni imza yetkilisi, izlenen 2 şirkette ortak",
+        "İlişki grafiği"
+      ]
+    ],
+    "finding_k": "Bulgu",
+    "finding": "30 gün içinde sermaye azaltımı ve yetki değişikliği; izlenen şirketlerle bağlantılı. Bu durum, yükseltilmiş tedarikçi riski politikanızla örtüşüyor.",
+    "decision_k": "Önerilen karar",
+    "decision": "Risk seviyesi Orta → Yüksek",
+    "decision_sub": "Bir kişinin kararını bekliyor"
+  },
+  "decision": {
+    "head": "INV-2026-0418 · Northwind Lojistik A.Ş.",
+    "status": "Kararınızı bekliyor",
+    "chain": [
+      "Kaynak",
+      "Kanıt",
+      "Gerekçe",
+      "Öneri",
+      "İnsan kararı"
+    ],
+    "rec_k": "Öneri",
+    "rec": "Şirket risk seviyesini yükselt",
+    "rec_sub": "Orta → Yüksek",
+    "why_k": "Neden",
+    "why": [
+      [
+        "Temsil yetkisi değişti",
+        "E2"
+      ],
+      [
+        "Sermaye %40 azaltıldı",
+        "E1"
+      ],
+      [
+        "Yeni imza yetkilisi, izlenen 2 şirketle bağlantılı",
+        "E3"
+      ]
+    ],
+    "ev_k": "Kanıt",
+    "actions": [
+      [
+        "approve",
+        "Onayla",
+        "Sizin tarafınızdan onaylandı. Risk seviyesi güncellendi; vaka, kanıtı ve kararınız birlikte saklanıyor."
+      ],
+      [
+        "reject",
+        "Reddet",
+        "Reddedildi. Risk seviyesi Orta olarak kalıyor ve gerekçeniz vakayla birlikte kaydediliyor."
+      ],
+      [
+        "further",
+        "Araştırmaya devam et",
+        ""
+      ]
+    ],
+    "further": [
+      "Son finansal tabloları iste",
+      "İmza yetkilisinin diğer şirketlerini incele",
+      "Investigation'ı 7 gün sonra yeniden çalıştır"
+    ],
+    "note": "Kurgusal bir şirketle hazırlanmış örnek vaka."
+  },
+  "grammar": {
+    "label": "Ortak dil",
+    "rows": [
+      [
+        "Sinyal",
+        "Bir şirket değişir: yeni imza yetkilisi, sermaye azaltımı",
+        "Bir itiraz gelir: ₺4.850 · ürün teslim edilmedi"
+      ],
+      [
+        "Kaynaklar",
+        "Ticaret sicili · şirket kayıtları · ilişki grafiği",
+        "İşlem · 3-D Secure kaydı · üye işyeri profili · kart şeması kuralları"
+      ],
+      [
+        "Kanıt",
+        "Yetki değişti · sermaye −%40 · izlenen şirketlerle bağlantı",
+        "Kart sahibi doğrulandı · teslimat kanıtı yok"
+      ],
+      [
+        "Öneri",
+        "Risk seviyesini yükselt: Orta → Yüksek",
+        "İtirazı kabul et · üye işyerini işaretle"
+      ],
+      [
+        "İnsan kararı",
+        "Risk analisti karar verir",
+        "İtiraz analisti karar verir"
+      ]
+    ],
+    "note": "Kurgusal şirketlerle hazırlanmış temsilî vakalar."
+  },
+  "under": {
+    "slab": [
+      "Sinyal",
+      "Investigation",
+      "Kanıt",
+      "İnsan kararı"
+    ],
+    "org": "Organizasyon",
+    "role": "Rol",
+    "authority": "Yetki",
+    "agent": "Agent",
+    "task": "Görev",
+    "capability": "Yetenek",
+    "tools": "Araç · Servis",
+    "strata": [
+      "Bilgi",
+      "Politika",
+      "Hafıza",
+      "Değerlendirme"
+    ],
+    "aria": "Deepin Harness: yetki sahibi rollerden oluşan bir organizasyon; agent'lar ortak bilgi, politika, hafıza ve değerlendirme üzerinde, yetenekler aracılığıyla bir görev üzerinde çalışır",
+    "slab_h": "Deepin Investigation'ları yürütür. <b>Farklı alanlarda, tekrar tekrar.</b>"
+  },
+  "close": [
+    [
+      "İşi bize gösterin",
+      "Ekibinizin bugün neyi araştırdığını gösterin."
+    ],
+    [
+      "Gerçek bir vakayla çalışalım",
+      "Gerçek vaka, gerçek sistemler ve ölçülebilir başarı kriterleri."
+    ],
+    [
+      "Canlıya alalım",
+      "Investigation'ı operasyonel ortamınıza kuralım."
+    ]
+  ]
+}

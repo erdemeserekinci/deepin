@@ -11,6 +11,7 @@
 <meta property="og:locale" content="tr_TR">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
+<meta name="generator" content="deepin/organism">
 <link rel="canonical" href="https://deepin.space/">
 <link rel="alternate" hreflang="tr" href="https://deepin.space/">
 <link rel="alternate" hreflang="en" href="https://deepin.space/en/">
@@ -698,414 +699,625 @@ footer .langs{justify-self:start;margin-top:10px}
 /* English terms inside Turkish text stay part of the same text run (no flex gaps around them) */
 span[lang="en"]{display:contents}
 
-.hero{padding-block:52px 64px}
-.hero .lede{max-width:54ch}
-.hero-note{margin-top:28px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
-.hero-note b{font-weight:500;color:var(--ink-2)}
-
-/* ---- today vs with deepin ---- */
-.xf-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
-@media (max-width:900px){.xf-grid{grid-template-columns:1fr;gap:40px}}
-.xf-grid>*{min-width:0}
-.xf{display:flex;flex-direction:column;align-items:center;padding:22px;border-radius:20px}
-.xf.today{border:1px dashed var(--line);background:var(--bg)}
-.xf.with{background:var(--surface);border:1px solid rgba(var(--dot),.45);box-shadow:var(--shadow)}
-.xf-head{align-self:stretch;display:grid;gap:6px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.xf.today .xf-head .lbl{color:var(--muted)}
-.xf.with .xf-head .lbl{color:var(--accent)}
-.xf-role{font-size:14px;color:var(--ink-2);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
-.who-h,.who-d{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:3px 9px 3px 7px;border-radius:999px;white-space:nowrap}
-.who-h{background:var(--warn-soft);color:var(--warn)}
-.who-h svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.6}
-.who-d{background:var(--soft);color:var(--accent)}
-.who-d img{width:14px;height:14px}
-.xf-node{flex:none;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:500;font-size:14px;display:inline-flex;gap:10px;align-items:center}
-.xf-node.ev{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-.xf-node.dec{border-color:rgba(183,121,31,.55)}
-.xf-node.rec{background:var(--soft);border-color:var(--accent);color:var(--ink)}
-.xf-node.act{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-/* connectors stretch so both columns span the same height */
-.xf-arr{flex:1 1 18px;min-height:18px;width:2px;background:var(--line);position:relative}
-.xf-arr::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top:6px solid var(--line);border-bottom:0}
-.xf.with .xf-arr{background:rgba(var(--dot),.5)}
-.xf.with .xf-arr::after{border-top-color:var(--accent)}
-.xf-box{flex:none;align-self:stretch;border-radius:16px;padding:14px 14px 16px}
-.xf-box-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
-.xf-box.human{border:1px solid rgba(183,121,31,.35);background:var(--soft-2)}
-.xf-box.human .xf-box-h{color:var(--warn)}
-.xf-tasks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.xf-tasks li{display:flex;gap:9px;align-items:center;padding:8px 10px;border-radius:10px;border:1px dashed var(--line);background:var(--surface);font-size:14px;min-width:0}
-.xf-tasks li>span:last-child{min-width:0}
-.xf-tasks b{font-weight:500;display:block;line-height:1.3}
-.xf-tasks small{display:block;font-size:12px;color:var(--muted);line-height:1.35}
-.t-ic{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--warn-soft);color:var(--warn)}
-.t-ic svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.6}
-.xf-box.deepin{border:1.5px solid var(--accent);background:var(--soft)}
-.xf-box.deepin .xf-box-h{color:var(--accent)}
-.xf-chips{display:flex;flex-wrap:wrap;gap:6px}
-.xf-chips span{font-size:13px;padding:5px 11px;border-radius:8px;background:var(--surface);border:1px solid rgba(var(--dot),.35)}
-.xf-micro{margin-top:12px;font-size:13px;font-weight:600;color:var(--accent)}
-.xf-box.you{border:1.5px solid rgba(183,121,31,.45);background:var(--surface)}
-.xf-box.you .xf-box-h{color:var(--warn)}
-.xf-box.you .xf-micro{color:var(--warn)}
-.xf-you{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
-.xf-you span{padding:7px 14px;border-radius:999px;border:1px solid var(--line)}
-.xf-you span:first-child{border-style:dashed}
-.xf-you .xf-ok{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
-
-/* fragmented human investigation */
-.tangle{position:relative;padding:20px 0 6px}
-.tangle-paths{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.tangle-paths path{fill:none;stroke:rgba(183,121,31,.55);stroke-width:1.4;stroke-linecap:round}
-.tangle-paths path.b{stroke-dasharray:3 4;stroke:rgba(183,121,31,.7)}
-.tangle-paths marker path{fill:rgba(183,121,31,.75);stroke:none}
-.tangle-nodes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:40px;row-gap:52px;position:relative}
-.tn{justify-self:start;max-width:86%;display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-size:13px;min-width:0;position:relative;z-index:1;box-shadow:0 1px 0 rgba(2,45,38,.03)}
-.tn span{min-width:0}
-.tn b{display:block;font-weight:600;font-size:12.5px;line-height:1.25}
-.tn small{display:block;font-size:12px;color:var(--warn);line-height:1.3}
-.tn .i{flex:none;width:16px;height:16px;margin-top:1px;fill:none;stroke:var(--muted);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
-.tn-b{justify-self:end;margin-top:14px}
-.tn-c{margin-left:6%}.tn-d{justify-self:end;margin-top:-6px}
-.tn-e{justify-self:end;margin-right:-4%}.tn-f{justify-self:end;margin-top:18px}
-.tn-g{margin-top:4px}.tn-h{justify-self:end;margin-right:6%}
-.tg-lbl{position:absolute;z-index:2;transform:translate(-50%,-50%);font-size:11px;font-style:italic;color:var(--warn);background:var(--soft-2);padding:1px 6px;border-radius:6px;white-space:nowrap;pointer-events:none}
-.frag{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;align-items:center;margin-top:14px;padding-top:12px;border-top:1px dashed rgba(183,121,31,.35);font-size:12.5px;color:var(--ink-2)}
-.frag span{padding:4px 10px;border-radius:999px;border:1px dashed rgba(183,121,31,.5);background:var(--surface)}
-.frag i{font-style:normal;color:var(--warn)}
-/* coherent deepin investigation */
-.contained{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.contained li{display:flex;gap:8px;align-items:center;font-size:13px;padding:7px 10px;border-radius:8px;background:var(--surface);border:1px solid rgba(var(--dot),.3)}
-.contained .i{flex:none;width:15px;height:15px;fill:none;stroke:var(--accent);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
-@media (max-width:480px){
-  .tangle-nodes{column-gap:12px;row-gap:28px}
-  .tn{padding:7px 8px;gap:6px}.tn .i{display:none}
-  .tn{max-width:100%}.tn-a,.tn-b,.tn-c,.tn-d,.tn-e,.tn-f,.tn-g,.tn-h{margin-left:0;margin-right:0}
-  .tn-b,.tn-d,.tn-f{margin-top:12px}
-  .tg-lbl{display:none}
-  .frag{flex-direction:column}.frag i{transform:rotate(90deg)}
-  .contained{grid-template-columns:1fr 1fr}
+/* =====================================================================
+   DEEPIN / ORGANISM — global layer
+   Same typefaces (Poppins, JetBrains Mono), same palette. Rules of use:
+   · mint  (--mint)   = the signal: what is happening right now
+   · green (--accent) = structure the system builds (sources, evidence, links)
+   · amber (--warn)   = a human: approval, judgment, decision rights
+   · deep  (--deep)   = what lies underneath (Harness)
+   ===================================================================== */
+:root{
+  --hair:rgba(var(--dot),.22);
+  --hair-2:rgba(var(--dot),.12);
+  --paper:#FFFFFF;
+  --paper-edge:0 1px 0 rgba(2,45,38,.05),0 10px 24px -14px rgba(2,45,38,.28);
+  --deep:#03130F;--deep-2:#072019;--deep-ink:#E7F5F0;--deep-muted:#8FB3A7;--deep-line:rgba(40,220,168,.28);
+  --nav-h:64px;
+  --ease:cubic-bezier(.2,.7,.1,1);
 }
-@media (max-width:900px){.xf-arr{flex:none;height:20px}}
-@media (max-width:480px){.xf{padding:16px}.xf-tasks{gap:6px}.xf-tasks li{padding:8px}.xf-tasks small{display:none}.t-ic{display:none}}
-.h-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.h-grid span{min-width:0;overflow-wrap:anywhere;hyphens:auto}.h-box .lbl{flex-wrap:wrap;gap:4px 12px}@media (max-width:420px){.h-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#0E2A23;--paper-edge:0 1px 0 rgba(0,0,0,.3),0 10px 24px -14px rgba(0,0,0,.6);--hair:rgba(40,220,168,.2);--hair-2:rgba(40,220,168,.1)}}
+:root[data-theme="dark"]{--paper:#0E2A23;--paper-edge:0 1px 0 rgba(0,0,0,.3),0 10px 24px -14px rgba(0,0,0,.6);--hair:rgba(40,220,168,.2);--hair-2:rgba(40,220,168,.1)}
 
-/* ---- homepage: Deepin Harness, compact ---- */
-.hx-mini{justify-self:stretch;padding:22px;border-radius:18px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);display:grid}
-.hx-mini .lbl{display:flex;justify-content:space-between;gap:10px;margin-bottom:14px}
-.hxm-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.hxm-pillars>span{padding:9px 6px;border-radius:10px;background:var(--soft-2);border:1px solid var(--line);font-size:14px;font-weight:500;text-align:center}
-.hxm-join,.hxm-split{display:block;width:100%;height:30px}
-.hxm-join path,.hxm-split path{fill:none;stroke:rgba(var(--dot),.55);stroke-width:1.5;vector-effect:non-scaling-stroke;stroke-dasharray:3 4;animation:hxm-flow 1.6s linear infinite}
-@keyframes hxm-flow{to{stroke-dashoffset:-14}}
-@media (prefers-reduced-motion: reduce){.hxm-join path,.hxm-split path{animation:none}}
-.hxm-work{justify-self:center;padding:8px 22px;border-radius:999px;border:1px solid var(--accent);background:var(--soft);font-weight:600;font-size:14px;text-align:center}
-.hxm-spaces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.hxm-spaces a{display:grid;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);text-decoration:none;transition:border-color .15s}
-.hxm-spaces a:hover{border-color:var(--accent)}
-.hxm-spaces .nm{font-size:19px}
-.hxm-spaces a>span:last-child{font-size:13px;color:var(--ink-2)}
-@media (max-width:420px){.hx-mini{padding:16px}.hxm-pillars>span{font-size:13px}.hxm-spaces a{padding:10px}.hxm-spaces .nm{font-size:16px}}
+/* calmer surfaces: no particle field, hairline section seams */
+#field{display:none}
+.sec::before{height:1px;background:linear-gradient(90deg,transparent,var(--hair) 20%,var(--hair) 80%,transparent);-webkit-mask-image:none;mask-image:none}
+.sec.dots::after{opacity:.5}
+
+/* ---- type system ---- */
+.lab{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.4}
+.sec-k{display:flex;align-items:center;gap:14px;margin:0 0 22px}
+.sec-k span{color:var(--accent)}
+.sec-k::after{content:"";flex:0 1 72px;height:1px;background:var(--hair)}
+.o-h2{font-size:clamp(34px,4.8vw,68px);font-weight:300;line-height:1.02;letter-spacing:-.04em;max-width:18ch;text-wrap:balance}
+.o-h2 b{font-weight:600;color:var(--accent)}
+.mega{font-size:clamp(46px,8.6vw,132px);font-weight:300;line-height:.95;letter-spacing:-.05em;text-wrap:balance}
+.mega b{font-weight:600;color:var(--accent)}
+.o-p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--ink-2);max-width:54ch;margin-top:22px}
+.note{font-size:12.5px;color:var(--muted)}
+.o-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.o-link:hover{color:var(--ink)}
+h1,.h2{letter-spacing:-.035em}
+.h2{font-size:clamp(30px,3.8vw,52px);line-height:1.05}
+.hero h1{font-size:clamp(40px,5.8vw,78px);line-height:1;letter-spacing:-.045em}
+.eyebrow{letter-spacing:.12em}
+.lede{line-height:1.6}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---- navigation: one global map on every page ---- */
+.nav{background:color-mix(in srgb,var(--bg) 82%,transparent)}
+.nav .wrap{height:var(--nav-h);gap:20px}
+.nav-links{gap:4px;font-size:13.5px}
+.nav-links a{position:relative;padding:8px 12px;border-radius:999px;color:var(--ink-2)}
+.nav-links a:hover{background:var(--soft-2);color:var(--ink)}
+.nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+.nav-links a[aria-current="page"]::after{content:"";position:absolute;left:50%;bottom:2px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--mint)}
+.nav .btn-sm{padding:9px 16px}
+.menu{display:none;position:relative}
+.menu summary{list-style:none;display:grid;place-items:center;gap:4px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;align-content:center}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary span{display:block;width:14px;height:1.5px;background:var(--ink);transition:transform .2s}
+.menu[open] summary span:first-child{transform:translateY(2.75px) rotate(45deg)}
+.menu[open] summary span:last-child{transform:translateY(-2.75px) rotate(-45deg)}
+.menu-panel{position:absolute;right:0;top:48px;min-width:240px;display:grid;padding:8px;border-radius:16px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);z-index:30}
+.menu-panel a{padding:12px 14px;border-radius:10px;text-decoration:none;font-size:15px}
+.menu-panel a:hover{background:var(--soft-2)}
+.menu-panel a[aria-current="page"]{font-weight:600;color:var(--accent)}
+.menu-panel .menu-cta{margin-top:6px;background:var(--accent);color:var(--accent-ink);font-weight:500}
+@media (max-width:1180px){.menu{display:block}}
+
+/* ---- evidence as material (shared) ---- */
+.slip{position:relative;display:grid;gap:3px;padding:12px 14px 12px 44px;border-radius:10px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--paper-edge);list-style:none}
+.slip .ev-id,.ev-id{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.06em;color:var(--accent)}
+.slip .ev-id{position:absolute;left:12px;top:13px;padding:2px 5px;border-radius:5px;background:var(--soft)}
+.slip b{font-weight:600;font-size:14px;line-height:1.35}
+.slip small{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* ---- state rail (homepage, wide screens) ---- */
+.rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:15;display:none;gap:4px}
+.rail a{display:flex;align-items:center;gap:10px;padding:4px 0;text-decoration:none;color:var(--muted)}
+.rail i{width:7px;height:7px;border-radius:50%;border:1.5px solid var(--hair);transition:all .3s var(--ease)}
+.rail span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateX(-4px);transition:all .3s var(--ease)}
+.rail:hover span,.rail a.on span{opacity:1;transform:none}
+.rail a.on{color:var(--ink)}
+.rail a.on i{background:var(--mint);border-color:var(--mint);box-shadow:0 0 0 4px rgba(40,220,168,.18)}
+.rail a.done i{background:var(--accent);border-color:var(--accent)}
+body.on-dark .rail a{color:var(--deep-muted)}
+body.on-dark .rail a.on{color:var(--deep-ink)}
+@media (min-width:1360px){.rail{display:grid}}
+
+/* the navigation darkens while the page is underneath (Harness) */
+.nav{transition:background .35s,border-color .35s}
+body.on-dark .nav{background:color-mix(in srgb,var(--deep) 86%,transparent);border-bottom-color:rgba(231,245,240,.08)}
+body.on-dark .nav-links a{color:var(--deep-muted)}
+body.on-dark .nav-links a:hover{background:rgba(231,245,240,.06);color:var(--deep-ink)}
+body.on-dark .nav-links a[aria-current="page"]{color:var(--deep-ink)}
+body.on-dark .login{color:var(--deep-muted)}
+body.on-dark .logo-l{display:none}body.on-dark .logo-d{display:block}
+body.on-dark .nav .langs{background:transparent;border-color:rgba(231,245,240,.16)}
+body.on-dark .menu summary{background:transparent;border-color:rgba(231,245,240,.2)}
+body.on-dark .menu summary span{background:var(--deep-ink)}
+
+/* ---- footer ---- */
+footer{padding-block:64px 48px;border-top:1px solid var(--hair)}
+footer .f-about p{max-width:40ch}
+
+/* ---- motion preference ---- */
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+/* =====================================================================
+   DEEPIN / ORGANISM — homepage
+   ===================================================================== */
+
+/* ---- §00 hero: one event, one sentence ---- */
+.o-hero{position:relative;min-height:calc(100svh - var(--nav-h));display:flex;flex-direction:column;justify-content:center;padding-block:56px 120px;overflow:clip}
+.o-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(60% 50% at 85% 20%,rgba(40,220,168,.10),transparent 70%),
+  radial-gradient(40% 40% at 10% 90%,rgba(21,136,103,.06),transparent 70%)}
+.o-hero-grid{position:relative;display:grid;gap:34px}
+.o-kicker{margin:0}
+.o-h1{font-size:clamp(46px,7.8vw,122px);font-weight:300;line-height:.96;letter-spacing:-.052em;max-width:13ch}
+.o-h1 .l{display:inline}
+.o-h1 .l3{display:block;font-weight:600;color:var(--accent);margin-top:.08em;position:relative;width:max-content;max-width:100%}
+.o-h1 .l3::after{content:"";position:absolute;left:0;right:0;bottom:-.06em;height:.06em;border-radius:1em;background:var(--mint);transform-origin:left;transform:scaleX(0);animation:o-underline 1.1s var(--ease) 1.2s forwards}
+.o-h1 .l1,.o-h1 .l2{animation:o-rise .9s var(--ease) both}
+.o-h1 .l2{animation-delay:.12s}
+.o-h1 .l3{animation:o-rise .9s var(--ease) .75s both}
+@keyframes o-rise{from{opacity:0;transform:translateY(.25em)}to{opacity:1;transform:none}}
+@keyframes o-underline{to{transform:scaleX(1)}}
+.o-hero-foot{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:end;margin-top:6px}
+.o-lede{font-size:clamp(16px,1.25vw,18px);line-height:1.6;color:var(--ink-2);max-width:52ch}
+.o-hero .hero-ctas{margin-top:26px}
+.o-proof{margin-top:22px;font-size:13px;color:var(--muted)}
+.o-proof b{font-weight:500;color:var(--ink-2)}
+.signal{justify-self:end;position:relative;display:grid;gap:6px;max-width:340px;padding:16px 18px 16px 40px;border-left:1px solid var(--hair)}
+.signal b{font-size:15px;font-weight:500;line-height:1.4}
+.sig-dot{position:absolute;left:14px;top:21px;width:9px;height:9px;border-radius:50%;background:var(--mint)}
+.sig-dot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid var(--mint);opacity:0;animation:o-ping 3.2s var(--ease) 1.6s infinite}
+@keyframes o-ping{0%{opacity:.8;transform:scale(.4)}70%,100%{opacity:0;transform:scale(1.8)}}
+.sig-next{margin-top:6px;font-size:13px;color:var(--warn);font-weight:500}
+.thread{position:absolute;left:50%;bottom:0;width:1px;height:96px;background:linear-gradient(var(--hair),var(--mint))}
+.thread::after{content:"";position:absolute;left:-3px;bottom:0;width:7px;height:7px;border-radius:50%;background:var(--mint);animation:o-drop 2.6s var(--ease) 2s infinite}
+@keyframes o-drop{0%{transform:translateY(-96px);opacity:0}30%{opacity:1}100%{transform:none;opacity:0}}
+@media (max-width:860px){
+  .o-hero{min-height:auto;padding-block:40px 110px}
+  .o-hero-foot{grid-template-columns:minmax(0,1fr);gap:34px}
+  .signal{justify-self:start}
+}
+
+/* ---- §01 the Investigation, organizing itself ---- */
+.scene{position:relative;background:var(--bg)}
+.scene-sticky{padding-block:72px 40px}
+.scene.js-on.is-scroll{height:calc(var(--len,5) * 100vh)}
+.scene.js-on.is-scroll .scene-sticky{position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));padding-block:28px;display:flex;align-items:center}
+.scene-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:56px;align-items:center;width:100%}
+.scene-copy{position:relative;z-index:2}
+.phases{position:relative}
+.ph{display:grid;gap:14px;margin-bottom:36px}
+.ph h2{font-size:clamp(28px,3.2vw,46px);font-weight:300;line-height:1.06;letter-spacing:-.035em;text-wrap:balance}
+.ph h2 b{font-weight:600;color:var(--accent)}
+.ph p{font-size:16px;color:var(--ink-2);max-width:40ch}
+.ph .lab{color:var(--accent)}
+.scene.js-on .phases{min-height:clamp(250px,34vh,330px)}
+.scene.js-on .ph{position:absolute;inset:0 0 auto 0;margin:0;opacity:0;transform:translateY(12px);transition:opacity .45s var(--ease),transform .45s var(--ease);pointer-events:none}
+.scene.js-on .ph.on{opacity:1;transform:none;pointer-events:auto}
+.steps-nav{display:none;list-style:none;margin:10px 0 0;padding:0;gap:6px;flex-wrap:wrap}
+.scene.js-on .steps-nav{display:flex}
+.steps-nav button{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.steps-nav button span{color:var(--hair)}
+.steps-nav button:hover{color:var(--ink);border-color:var(--hair)}
+.steps-nav button.on{color:var(--ink);border-color:var(--accent);background:var(--soft)}
+.steps-nav button.on span{color:var(--accent)}
+.steps-nav li:last-child button.on{border-color:var(--warn);background:var(--warn-soft)}
+.steps-nav li:last-child button.on span{color:var(--warn)}
+.sc-note{position:relative;margin-top:0;padding-bottom:28px;text-align:right}
+.scene.js-on.is-scroll .sc-note{position:absolute;bottom:18px;left:0;right:0;padding:0}
+
+/* the stage */
+.stage{position:relative;margin:0;height:min(64vh,600px);min-height:470px;border-radius:26px;border:1px solid var(--hair);background:
+  radial-gradient(circle at 1px 1px,var(--hair-2) 1px,transparent 1.5px) 0 0/22px 22px,var(--surface);overflow:hidden;--org:1;--dim:0}
+.stage-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.stage-lines path{fill:none;stroke-linecap:round}
+.stage-lines .ch{stroke:rgba(183,121,31,.55);stroke-width:1.3;stroke-dasharray:3 4}
+.stage-lines .or{stroke:var(--accent);stroke-width:1.4;opacity:.55}
+.stage-lines .hu{stroke:var(--warn);stroke-width:1.6}
+.st-n{position:absolute;left:calc(var(--x,50) * 1%);top:calc(var(--y,50) * 1%);transform:translate(-50%,-50%) rotate(calc(var(--r,0) * 1deg)) scale(var(--s,1));opacity:var(--o,1);will-change:transform,opacity}
+.st-src{display:grid;gap:1px;min-width:0;max-width:24%;padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:var(--paper);box-shadow:var(--paper-edge);font-size:12px;line-height:1.3;white-space:nowrap}
+.st-src b{font-weight:600;font-size:12.5px}
+.st-src small{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.st-src .t1,.st-src .st-chk{display:none}
+.stage.org .st-src{width:22%;max-width:none;padding:7px 34px 7px 11px}
+.stage.org .st-src .t0{display:none}
+.stage.org .st-src .t1{display:block;font-family:var(--mono);font-size:10.5px}
+.stage.ev .st-src .st-chk{display:block;position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10px;color:var(--muted);font-size:0}
+.stage.ev .st-src .st-chk::first-letter{font-size:11px}
+.stage.ev .st-src.rel{border-color:var(--accent)}
+.stage.ev .st-src.rel .st-chk{font-size:10px;font-weight:500;color:var(--accent)}
+.stage.ev .st-src:not(.rel){opacity:calc(var(--o,1) * .55)}
+.st-co{display:grid;gap:2px;text-align:center;padding:12px 18px;border-radius:14px;background:var(--ink);color:var(--bg);white-space:nowrap}
+.st-co .lab{color:rgba(247,250,249,.6);font-size:10px}
+.st-co b{font-weight:600;font-size:15px}
+.stage.org .st-co{background:transparent;color:var(--ink);padding:4px 10px}
+.stage.org .st-co .lab{color:var(--accent)}
+.st-tn{position:absolute;transform:translate(-50%,-50%);font-size:11px;font-style:italic;color:var(--warn);background:var(--surface);padding:1px 6px;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:var(--o,1)}
+.st-ev{width:31%;display:grid;gap:3px;padding:11px 12px 11px 42px;border-radius:10px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--paper-edge)}
+.st-ev .ev-id{position:absolute;left:11px;top:12px;padding:2px 5px;border-radius:5px;background:var(--soft)}
+.st-ev b{font-size:12.5px;font-weight:600;line-height:1.3}
+.st-ev small{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.st-find{width:27%;display:grid;gap:6px;padding:14px;border-radius:14px;border:1.5px solid var(--accent);background:var(--soft)}
+.st-find p{font-size:12.5px;line-height:1.45}
+.st-find .lab,.st-dec .lab{font-size:10px}
+.st-find .lab{color:var(--accent)}
+.cites{display:flex;gap:4px}
+.cites i{font:500 10px/1 var(--mono);font-style:normal;padding:3px 5px;border-radius:5px;background:var(--surface);color:var(--accent)}
+.st-dec{width:27%;display:grid;gap:4px;padding:14px;border-radius:14px;border:1.5px solid rgba(183,121,31,.6);background:var(--warn-soft);box-shadow:0 0 0 calc(var(--dim) * 10px) rgba(183,121,31,.1)}
+.st-dec .lab{color:var(--warn)}
+.st-dec b{font-size:15px;font-weight:600}
+.st-dec small{font-size:12px;color:var(--warn)}
+.stage.dimmed .st-src,.stage.dimmed .st-co{opacity:calc(var(--o,1) * (1 - var(--dim) * .65))}
+@media (max-width:860px){
+  .scene-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+  .scene.js-on.is-scroll .scene-sticky{align-items:stretch;padding-block:14px 10px}
+  .scene.js-on.is-scroll .scene-grid{grid-template-rows:auto minmax(0,1fr);height:100%}
+  .scene.js-on .phases{min-height:150px}
+  .ph h2{font-size:24px}
+  .ph p{font-size:14px}
+  .scene.js-on.is-scroll .steps-nav{display:none}
+  .stage{height:auto;min-height:0;aspect-ratio:3/4.1;border-radius:20px}
+  .scene.js-on.is-scroll .stage{aspect-ratio:auto;height:100%}
+  .st-src{max-width:46%;padding:6px 8px}
+  .stage.org .st-src{width:44%;padding:5px 24px 5px 9px}
+  .st-src b{font-size:11.5px}.st-src small{font-size:10px}
+  .st-ev{width:78%;padding:8px 10px 8px 38px}.st-ev b{font-size:12px}
+  .st-find,.st-dec{width:78%;padding:10px 12px}
+  .st-find p{font-size:11.5px}
+  .st-tn{display:none}
+  .sc-note{text-align:left}
+}
+
+/* ---- §02 the human moment: complexity reduces to one decision ---- */
+.decide{padding-block:clamp(110px,16vw,200px) clamp(80px,10vw,140px);background:var(--bg)}
+.decide .mega b{color:var(--warn)}
+.dcard{margin-top:clamp(48px,7vw,88px);max-width:980px;border-radius:26px;border:1px solid var(--line);background:var(--surface);box-shadow:0 1px 2px rgba(2,45,38,.04),0 40px 80px -40px rgba(2,45,38,.3);overflow:hidden}
+.dcard-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;padding:16px 26px;border-bottom:1px solid var(--line)}
+.dchain{list-style:none;margin:0;padding:14px 26px;display:flex;flex-wrap:wrap;gap:6px 0;border-bottom:1px dashed var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dchain li{display:flex;align-items:center}
+.dchain li:not(:last-child)::after{content:"";width:28px;height:1px;margin:0 10px;background:var(--hair)}
+.dchain li.hum{color:var(--warn);font-weight:500}
+.dcard-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0}
+.dcard-body>div{padding:26px}
+.dcard-body>div+div{border-left:1px solid var(--line);background:var(--soft-2)}
+.drec{display:grid;gap:6px;align-content:start}
+.drec strong{font-size:clamp(22px,2.2vw,28px);font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.drec-sub{font-family:var(--mono);font-size:13px;color:var(--ink-2)}
+.dwhy-k{margin-top:18px}
+.dwhy{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.dwhy li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px;cursor:default;transition:color .2s}
+.dwhy sup{font:500 10.5px/1 var(--mono);color:var(--accent);padding:3px 5px;border-radius:5px;background:var(--soft)}
+.dev{display:grid;gap:10px;align-content:start}
+.slips{margin:0;padding:0;display:grid;gap:8px}
+.slip{transition:transform .25s var(--ease),border-color .25s}
+.dcard .lit{border-color:var(--accent);transform:translateX(-4px)}
+.dwhy li.lit{color:var(--accent)}
+.dact{padding:20px 26px 24px;border-top:1px solid var(--line);display:grid;gap:14px;background:linear-gradient(var(--surface),color-mix(in srgb,var(--warn-soft) 55%,var(--surface)))}
+.d-btns{display:flex;flex-wrap:wrap;gap:10px}
+.d-btn{font:500 15px/1 var(--font);padding:13px 20px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:all .2s}
+.d-btn:hover{border-color:var(--ink)}
+.d-approve{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.d-approve:hover{border-color:var(--accent);filter:brightness(1.06)}
+.d-further{border-color:rgba(183,121,31,.5);color:var(--warn)}
+.d-btn[aria-pressed="true"]{box-shadow:0 0 0 3px rgba(var(--dot),.18)}
+.d-res{font-size:14.5px;color:var(--ink);padding-left:14px;border-left:2px solid var(--accent)}
+.d-res.reject{border-left-color:var(--muted)}
+ol.d-next{margin:0;padding:0;display:grid;gap:6px}
+ol.d-next li{display:flex;gap:10px;align-items:center;font-size:14px;animation:o-rise .5s var(--ease) both}
+ol.d-next li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint)}
+.decide .note{margin-top:14px}
+@media (max-width:760px){
+  .dcard-body{grid-template-columns:minmax(0,1fr)}
+  .dcard-body>div+div{border-left:0;border-top:1px solid var(--line)}
+  .dcard-top,.dchain,.dcard-body>div,.dact{padding-inline:18px}
+  .dchain li:not(:last-child)::after{width:14px;margin:0 6px}
+}
+
+/* ---- section frame ---- */
+.o-sec{padding-block:clamp(90px,12vw,170px)}
+.o-sec.tint{background:var(--tint)}
+.o-head{margin-bottom:clamp(40px,6vw,72px)}
+
+/* ---- §03 Investigations as an index ---- */
+.ix{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--hair)}
+.ix-row{border-top:1px solid var(--hair)}
+.ix-row summary,.ix-row.more a{list-style:none;display:grid;grid-template-columns:52px minmax(0,1fr) 190px auto 28px;gap:18px;align-items:center;padding:26px 6px;cursor:pointer;text-decoration:none;color:inherit;transition:background .25s,padding .25s var(--ease)}
+.ix-row summary::-webkit-details-marker{display:none}
+.ix-row summary:hover,.ix-row.more a:hover{background:linear-gradient(90deg,var(--soft),transparent 70%);padding-left:14px}
+.ix-n{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.ix-name{font-size:clamp(24px,3vw,40px);font-weight:300;letter-spacing:-.03em;line-height:1.1}
+.ix-row.minor .ix-name{font-size:clamp(20px,2.2vw,28px);color:var(--ink-2)}
+.ix-sp .nm{font-size:17px;color:var(--ink-2)}
+.ix-plus{position:relative;width:18px;height:18px}
+.ix-plus::before,.ix-plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;background:var(--ink);transition:transform .3s var(--ease)}
+.ix-plus::after{transform:rotate(90deg)}
+details[open] .ix-plus::after{transform:rotate(0)}
+details[open] summary .ix-name{color:var(--accent)}
+.ix-body{display:grid;gap:22px;padding:0 6px 34px 76px;animation:o-rise .45s var(--ease) both}
+.ix-head{font-size:18px;color:var(--ink-2);max-width:56ch}
+.ix-trail{display:grid;grid-template-columns:minmax(0,1.2fr) 80px minmax(0,1fr);gap:18px;align-items:center}
+.ix-trail ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.ix-trail li{font-size:13px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.ix-trail ul.out li{border-color:var(--accent);background:var(--soft)}
+.ix-trail>i{height:1px;background:linear-gradient(90deg,var(--hair),var(--accent));position:relative}
+.ix-trail>i::after{content:"";position:absolute;right:-1px;top:-4px;border:4.5px solid transparent;border-left:6px solid var(--accent);border-right:0}
+.ix-go{justify-self:start;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
+.ix-row.more a{grid-template-columns:52px minmax(0,1fr) minmax(0,1fr)}
+.ix-row.more .ix-name{font-size:clamp(20px,2.2vw,28px)}
+.ix-more{font-size:14px;color:var(--muted)}
+.ix-more b{font-weight:500;color:var(--accent)}
+@media (max-width:760px){
+  .ix-row summary{grid-template-columns:34px minmax(0,1fr) 22px;gap:10px 12px;padding:20px 2px}
+  .ix-row summary .ix-sp,.ix-row summary .chip{grid-column:2}
+  .ix-row summary .ix-plus{grid-row:1;grid-column:3}
+  .ix-row summary .chip{justify-self:start}
+  .ix-body{padding:0 2px 26px 46px}
+  .ix-trail{grid-template-columns:minmax(0,1fr)}
+  .ix-trail>i{width:1px;height:22px;background:linear-gradient(var(--hair),var(--accent));margin-left:10px}
+  .ix-trail>i::after{right:auto;left:-4px;top:auto;bottom:-1px;border:4.5px solid transparent;border-top:6px solid var(--accent);border-bottom:0}
+  .ix-row.more a{grid-template-columns:34px minmax(0,1fr);gap:6px 12px}
+  .ix-row.more .ix-more{grid-column:2}
+}
+
+/* ---- §04 two Spaces, one grammar ---- */
+.gm{position:relative}
+.gm-head{display:grid;grid-template-columns:minmax(0,1fr) 170px minmax(0,1fr);gap:0;align-items:end;margin-bottom:18px}
+.gm-sp{display:grid;gap:8px;padding:22px 26px;border-radius:20px;text-decoration:none;transition:background .25s}
+.gm-sp:hover{background:var(--surface)}
+.gm-sp.a{justify-items:end;text-align:right}
+.gm-sp.b{justify-items:start}
+.gm-sp .nm{font-size:clamp(28px,3.2vw,42px)}
+.gm-inv{font-size:14px;color:var(--ink-2)}
+.gm-lbl{text-align:center;padding-bottom:26px}
+.gm-rows{list-style:none;margin:0;padding:0;position:relative}
+.gm-rows::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(var(--hair),var(--accent) 60%,var(--warn))}
+.gm-row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 170px minmax(0,1fr);align-items:center;border-top:1px solid var(--hair-2);transition:background .25s}
+.gm-row:last-child{border-bottom:1px solid var(--hair-2)}
+.gm-row:hover{background:linear-gradient(90deg,transparent,var(--surface) 30%,var(--surface) 70%,transparent)}
+.gm-a,.gm-b{padding:22px 28px;font-size:15.5px;line-height:1.45;color:var(--ink-2);transition:color .25s}
+.gm-a{text-align:right}
+.gm-b{font-family:var(--mono);font-size:13.5px;letter-spacing:-.01em}
+.gm-row:hover .gm-a,.gm-row:hover .gm-b{color:var(--ink)}
+.gm-k{position:relative;z-index:1;justify-self:center;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--tint);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.gm-k i{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.gm-row.hum .gm-k{color:var(--warn)}
+.gm-row.hum .gm-k i{background:var(--warn)}
+.gm-row.hum .gm-a,.gm-row.hum .gm-b{color:var(--warn);font-weight:500}
+.gm-note{margin-top:16px;text-align:center}
+.gm-explore{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 22px;margin-top:48px}
+.gm-explore a{display:inline-flex;align-items:baseline;gap:10px;padding:10px 16px;border-radius:12px;border:1px dashed var(--hair);text-decoration:none;color:var(--muted)}
+.gm-explore a:hover{border-color:var(--accent)}
+.gm-explore .nm{font-size:18px;color:var(--ink-2)}
+.gm-explore span:last-child{font-size:13px}
+@media (max-width:860px){
+  .gm-head{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+  .gm-lbl{display:none}
+  .gm-sp{padding:14px}
+  .gm-sp.a{justify-items:start;text-align:left}
+  .gm-rows::before{display:none}
+  .gm-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 14px;padding:14px 0}
+  .gm-k{grid-column:1/-1;grid-row:1;justify-self:start;margin-bottom:8px;padding:0;background:none}
+  .gm-a,.gm-b{padding:0 2px;font-size:13.5px;text-align:left}
+  .gm-b{font-size:12.5px}
+}
+@media (max-width:480px){
+  .gm-head,.gm-row{grid-template-columns:minmax(0,1fr)}
+  .gm-a::before,.gm-b::before{display:block;margin-bottom:2px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
+  .gm-a::before{content:"deepin.risk"}
+  .gm-b::before{content:"deepin.finance"}
+  .gm-b{margin-top:10px}
+}
+
+/* ---- §05 customers: quiet ---- */
+.o-sec.quiet{padding-block:clamp(90px,11vw,150px)}
+.pf-list{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--hair)}
+.pf-list li{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:20px;align-items:center;padding:20px 4px;border-top:1px solid var(--hair)}
+.pf-name{font-size:clamp(22px,2.6vw,34px);font-weight:300;letter-spacing:-.03em}
+.pf-inv{font-size:14px;color:var(--ink-2)}
+.pf-st{display:flex;align-items:center;gap:12px}
+.o-sec.quiet .proof-legend{margin-top:20px}
+@media (max-width:700px){.pf-list li{grid-template-columns:minmax(0,1fr);gap:4px}.pf-st{margin-top:6px}}
+
+/* ---- §06 underneath: Deepin Harness ---- */
+.under{position:relative;background:var(--deep);color:var(--deep-ink);overflow:clip}
+.under .lab{color:var(--deep-muted)}
+.under .sec-k span{color:var(--mint)}
+.under .sec-k::after{background:rgba(231,245,240,.16)}
+.under .o-h2 b{color:var(--mint)}
+.under .o-p{color:var(--deep-muted)}
+.under .o-link{color:var(--mint)}
+.under .o-link:hover{color:var(--deep-ink)}
+.under-sticky{position:relative;padding-block:clamp(170px,20vw,240px) 60px}
+.under-name{margin-top:26px;font-size:15px;font-weight:600;letter-spacing:.02em;color:var(--mint)}
+.under-grid{position:relative;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:center}
+.slab{position:absolute;left:0;right:0;top:0;height:100%;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 16px 30px;background:var(--bg);color:var(--ink);border-radius:0 0 34px 34px;box-shadow:0 40px 70px -30px rgba(0,0,0,.65);transform:translateY(calc((var(--lift,1) * -100%) + (var(--lift,1) * 118px)));will-change:transform}
+.slab-h{flex:1;display:flex;align-items:center;max-width:16ch;text-align:center;font-size:clamp(34px,4.6vw,64px);font-weight:300;line-height:1.05;letter-spacing:-.04em;opacity:calc(1 - var(--lift,1) * 2.2);display:none}
+.under.js-on.is-scroll .slab-h{display:flex;flex-direction:column;justify-content:center}
+.slab-h b{display:block;font-weight:600;color:var(--accent)}
+.slab-in{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px}
+.slab-in span{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:500}
+.slab-in span.hum{border-color:rgba(183,121,31,.5);color:var(--warn);background:var(--warn-soft)}
+.slab-in i{width:22px;height:1px;background:var(--hair)}
+.under.js-on.is-scroll .under-track{height:250vh}
+.under.js-on.is-scroll .under-sticky{position:sticky;top:0;height:100vh;padding-block:0;display:flex;align-items:center}
+.under.js-on.is-scroll .under-grid{width:100%;padding-top:110px}
+.under-copy{opacity:var(--copy,1);transform:translateY(calc((1 - var(--copy,1)) * 18px))}
+.topo{margin:0;--draw:1}
+.topo-svg{display:block;width:100%;height:auto;overflow:visible}
+.topo-svg text{fill:var(--deep-ink);font-family:var(--font);font-size:13px}
+.topo-svg .t-k,.topo-svg .t-s{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;fill:var(--deep-muted);text-transform:uppercase}
+.topo-svg .t-a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;fill:#E9B45A;text-transform:uppercase}
+.topo-svg .t-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--mint)}
+.t-org{fill:rgba(40,220,168,.03);stroke:var(--deep-line);stroke-dasharray:4 6;opacity:calc(var(--draw) * 1.4)}
+.t-hub{fill:var(--mint)}
+.t-edges path{fill:none;stroke:var(--deep-line);stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
+.t-edges path.tie{stroke:rgba(231,245,240,.14);stroke-dasharray:.012 .02;stroke-dashoffset:0;opacity:var(--draw)}
+.t-node{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
+.t-node circle{fill:var(--deep);stroke:var(--mint);stroke-width:1.6}
+.t-node rect{fill:var(--deep-2);stroke:var(--deep-line)}
+.t-node .t-task{stroke:var(--mint)}
+.t-str{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
+.t-str path{stroke:rgba(231,245,240,.22);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
+.t-signal{fill:var(--mint);opacity:clamp(0,calc((var(--draw) - .9) * 10),1)}
+.topo-m,.topo-ms{display:none}
+.under-ent{position:relative;display:grid;gap:14px;padding-block:20px clamp(90px,10vw,130px)}
+.under-ent .ent-chips li{background:rgba(231,245,240,.04);border-color:rgba(231,245,240,.14);color:var(--deep-ink)}
+.under-ent .ent-chips svg{color:var(--mint)}
+.under-ent .datanote{margin-top:14px;background:rgba(40,220,168,.06)}
+.under-ent .datanote strong{color:var(--deep-ink)}
+.under-ent .datanote p{color:var(--deep-muted)}
+.under-ent .datanote .assets li{background:transparent;border-color:rgba(231,245,240,.16);color:var(--deep-muted)}
+@media (max-width:860px){
+  .under-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .topo-svg{display:none}
+  .topo-m{display:grid;list-style:none;margin:0;padding:0;gap:0;justify-items:start}
+  .topo-m li{position:relative;padding:9px 16px;border-radius:999px;border:1px solid var(--deep-line);background:var(--deep-2);font-size:14px}
+  .topo-m li:first-child{border-style:dashed;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep-muted)}
+  .topo-m li:not(:last-child){margin-bottom:22px}
+  .topo-m li:not(:last-child)::after{content:"";position:absolute;left:24px;top:100%;width:1px;height:22px;background:var(--deep-line)}
+  .topo-ms{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(231,245,240,.14)}
+  .topo-ms span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.16);color:var(--deep-muted)}
+}
+
+/* ---- §07 start ---- */
+.o-close{padding-block:clamp(110px,14vw,200px) clamp(80px,10vw,130px);background:var(--bg)}
+.close-steps{list-style:none;margin:clamp(40px,6vw,70px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--hair)}
+.close-steps li{display:grid;gap:10px;align-content:start;padding:26px 28px 30px 0}
+.close-steps li+li{padding-left:28px;border-left:1px solid var(--hair)}
+.close-steps .lab{color:var(--accent)}
+.close-steps h3{font-size:22px;font-weight:500;letter-spacing:-.02em}
+.close-steps p{font-size:15px;color:var(--ink-2)}
+.o-next{margin:40px 0 26px;font-size:clamp(20px,2.2vw,28px);font-weight:300}
+.o-next b{font-weight:600;color:var(--accent)}
+.o-close .mail code{color:var(--ink);border-color:var(--line)}
+.o-close .copy{background:var(--accent);color:var(--accent-ink)}
+@media (max-width:760px){.close-steps{grid-template-columns:minmax(0,1fr)}.close-steps li,.close-steps li+li{padding:20px 0;border-left:0;border-top:1px solid var(--hair)}.close-steps li:first-child{border-top:0}}
 
 </style>
 </head>
-<body>
+<body class="pg-home">
 <header class="nav" id="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Deepin ana sayfa"><img class="logo-l" src="assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"></a>
-    <nav class="nav-links" aria-label="Ana menü"><a href="#investigations"><span lang="en">Investigation</span>&#x27;lar</a><a href="#spaces">Space&#x27;ler</a><a href="#customers">Müşteriler</a><a href="#how">Nasıl çalışır</a><a href="#enterprise">Kurumsal</a><a href="harness/"><span lang="en">Harness</span></a><a href="#company">Şirket</a></nav>
-    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="en/" hreflang="en" lang="en" title="English">EN</a></span><a class="login" href="https://platform.deepin.space">Giriş</a><a class="btn btn-primary btn-sm" href="#contact">Bize bir <span lang="en">Investigation</span> getirin</a></div>
+    <nav class="nav-links" aria-label="Ana menü"><a href="./" aria-current="page"><span lang="en">Deepin</span></a><a href="risk/"><span lang="en">deepin.risk</span></a><a href="finance/"><span lang="en">deepin.finance</span></a><a href="harness/"><span lang="en">Harness</span></a><a href="#customers">Müşteriler</a></nav>
+    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="en/" hreflang="en" lang="en" title="English">EN</a></span><a class="login" href="https://platform.deepin.space">Giriş</a><a class="btn btn-primary btn-sm" href="#contact">Bize bir <span lang="en">Investigation</span> getirin</a>
+      <details class="menu"><summary aria-label="Ana menü"><span></span><span></span></summary><nav class="menu-panel" aria-label="Ana menü"><a href="./" aria-current="page"><span lang="en">Deepin</span></a><a href="risk/"><span lang="en">deepin.risk</span></a><a href="finance/"><span lang="en">deepin.finance</span></a><a href="harness/"><span lang="en">Harness</span></a><a href="#customers">Müşteriler</a><a class="menu-cta" href="#contact">Bize bir <span lang="en">Investigation</span> getirin →</a></nav></details>
+    </div>
   </div>
 </header>
 <main>
-<section class="hero">
-  <canvas id="field" aria-hidden="true"></canvas>
-  <div class="wrap">
-    <div>
-      <p class="eyebrow"><span lang="en">Enterprise</span> <span lang="en">Investigation</span> &amp; <span lang="en">Decision</span> <span lang="en">Automation</span></p>
-      <h1>Her karar bir <span lang="en">Investigation</span> ile başlar. <b><span lang="en">Deepin</span> onu yürütür.</b></h1>
-      <p class="lede">Bir risk, fraud ya da uyum kararından önce ekibiniz sistemlerde arama yapar, belgeleri okur ve kayıtları karşılaştırır. <span lang="en">Deepin</span> bu araştırmayı yapar, her bulgunun arkasındaki kanıtı gösterir ve karar için bir kişinin onayını bekler.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact">Bize bir <span lang="en">Investigation</span> getirin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn btn-ghost" href="#investigations"><span lang="en">Deepin</span> neyi araştırır?</a>
-      </div>
-      <p class="hero-note"><span><b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> ve <b>GreenChimney</b> bünyesinde canlı kullanımda</span></p>
-    </div>
+<nav class="rail" aria-label="Bu sayfada"><a href="#signal" data-rail="signal"><i></i><span>Sinyal</span></a><a href="#investigation" data-rail="investigation"><i></i><span><span lang="en">Investigation</span></span></a><a href="#decision" data-rail="decision"><i></i><span>Karar</span></a><a href="#investigations" data-rail="investigations"><i></i><span>Katalog</span></a><a href="#spaces" data-rail="spaces"><i></i><span>Space&#x27;ler</span></a><a href="#customers" data-rail="customers"><i></i><span>Müşteriler</span></a><a href="#enterprise" data-rail="enterprise"><i></i><span><span lang="en">Harness</span></span></a><a href="#contact" data-rail="contact"><i></i><span>Başlayın</span></a></nav>
 
-    <figure class="case" data-live data-labels='["Tetikleyici algılandı","Kaynaklar devreye giriyor","Kanıtlar geliyor","İlişkiler çıkarılıyor","Bulgu oluştu","Öneri hazır","Onay bekliyor"]' style="margin:0" aria-label="Örnek Company Investigation">
-      <div class="case-top">
-        <span class="case-id">INV-2026-0418 · <span lang="en">Company</span> <span lang="en">Investigation</span></span>
-        <span class="chip st-wait" data-live-status>Onay bekliyor</span>
-      </div>
-      <ol class="live-bar" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
-      <div class="case-body">
-        <div class="trigger" data-s="0"><span class="k">Tetikleyici</span><span><b>Northwind Lojistik A.Ş.</b> için yeni imza yetkilisi tescil edildi</span><small>Ticaret Sicili Gazetesi · 18 Eyl 2026</small></div>
-        <div class="srcs" data-s="1" aria-label="Kaynaklar"><span>Ticaret Sicili Gazetesi</span><span>Şirket kayıtları</span><span>İlişki grafiği</span><span>Haber ve web</span></div>
-        <ul class="finds">
-          <li data-s="2"><span class="k">Sermaye</span><span>Sermaye %40 azaltıldı</span><span class="src">Ticaret Sicili Gazetesi · 12 Eyl</span></li>
-          <li data-s="2"><span class="k">Yetki</span><span>Temsil yetkisi değişti</span><span class="src">Ticaret Sicili Gazetesi · 18 Eyl</span></li>
-          <li data-s="3"><span class="k">İlişki</span><span>Yeni imza yetkilisi, izlenen 2 şirkette ortak</span><span class="src">İlişki grafiği</span></li>
-        </ul>
-        <p class="reason" data-s="4"><span class="lbl" style="display:block;margin-bottom:4px">Bulgu</span>30 gün içinde sermaye azaltımı ve yetki değişikliği; izlenen şirketlerle bağlantılı. Bu durum, yükseltilmiş tedarikçi riski politikanızla örtüşüyor.</p>
-        <div class="propose" data-s="5">
-          <p>Risk seviyesi <s>Düşük</s> → Yükseltilmiş</p>
-          <div class="acts" data-s="6"><span>Analiste gönder</span><span class="ok">Onayla</span></div>
+<section class="o-hero" id="signal">
+  <div class="wrap o-hero-grid">
+    <p class="lab o-kicker"><span lang="en">Enterprise</span> <span lang="en">Investigation</span> &amp; <span lang="en">Decision</span> <span lang="en">Automation</span></p>
+    <h1 class="o-h1"><span class="l l1">Her karar bir</span> <span class="l l2"><span lang="en">Investigation</span> ile başlar.</span> <span class="l l3"><span lang="en">Deepin</span> onu yürütür.</span></h1>
+    <div class="o-hero-foot">
+      <div>
+        <p class="o-lede">Bir risk, fraud ya da uyum kararından önce ekibiniz sistemlerde arama yapar, belgeleri okur ve kayıtları karşılaştırır. <span lang="en">Deepin</span> bu araştırmayı yapar, her bulgunun arkasındaki kanıtı gösterir ve karar için bir kişinin onayını bekler.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contact">Bize bir <span lang="en">Investigation</span> getirin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn-ghost" href="#investigation">Bir tanesini izleyin</a>
         </div>
+        <p class="o-proof"><b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> ve <b>GreenChimney</b> bünyesinde canlı kullanımda</p>
       </div>
-      <figcaption class="case-note">Kurgusal bir şirketle hazırlanmış örnek vaka.</figcaption>
+      <div class="signal">
+        <span class="sig-dot" aria-hidden="true"></span>
+        <span class="lab">18.09.2026 · 09:42 · Ticaret Sicili Gazetesi</span>
+        <b>Yeni imza yetkilisi tescil edildi · Northwind Lojistik A.Ş.</b>
+        <span class="sig-next">Bir karar vermek gerekiyor.</span>
+      </div>
+    </div>
+  </div>
+  <div class="thread" aria-hidden="true"></div>
+</section>
+
+<section class="scene" id="investigation" data-scene>
+  <div class="scene-sticky">
+  <div class="wrap scene-grid">
+    <div class="scene-copy">
+      <p class="lab sec-k"><span>§01</span><span lang="en">Investigation</span></p>
+      <div class="phases"><div class="ph" data-ph="0"><span class="lab">01 · Bugün</span><h2>Karardan önce birinin araştırması gerekir.</h2><p>Sekiz sistem, dağınık kayıtlar; saatlerce arama, okuma ve karşılaştırma. Araştırmanın izi tek bir kişinin aklında kalır.</p></div><div class="ph" data-ph="1"><span class="lab">02 · <span lang="en">Deepin</span></span><h2><span lang="en">Deepin</span> işin etrafında organize olur.</h2><p>Aynı sistemler tek bir yerde okunur. Her kaynak kontrol edilir ve vakayla birlikte saklanır.</p></div><div class="ph" data-ph="2"><span class="lab">03 · Kanıt</span><h2>Kaynaklar kanıta dönüşür.</h2><p>Sekiz kaynaktan üçünde önemli bir şey var. Her kanıt, geldiği yere bağlı kalır.</p></div><div class="ph" data-ph="3"><span class="lab">04 · Bulgu</span><h2>Kanıt bir bulguya dönüşür.</h2><p>Gerekçe, uyguladığı politikayla birlikte yazılır. Henüz hiçbir karar verilmedi.</p></div><div class="ph" data-ph="4"><span class="lab">05 · Karar</span><h2>Karar sizde kalsın. <b>Araştırma yükü kalksın.</b></h2><p><span lang="en">Deepin</span> durur ve vakayı bir kişiye teslim eder: bulgu, kanıt ve önerilen karar.</p></div></div>
+      <ol class="steps-nav" aria-label="Investigation adımları"><li><button type="button" data-step="0"><span>01</span>Bugün</button></li><li><button type="button" data-step="1"><span>02</span><span lang="en">Deepin</span></button></li><li><button type="button" data-step="2"><span>03</span>Kanıt</button></li><li><button type="button" data-step="3"><span>04</span>Bulgu</button></li><li><button type="button" data-step="4"><span>05</span>Karar</button></li></ol>
+    </div>
+    <figure class="stage org ev" data-tangle="[[&quot;crm&quot;, &quot;reg1&quot;], [&quot;reg1&quot;, &quot;pdf&quot;], [&quot;pdf&quot;, &quot;web&quot;], [&quot;web&quot;, &quot;graph&quot;], [&quot;graph&quot;, &quot;reg2&quot;], [&quot;reg2&quot;, &quot;sheet&quot;], [&quot;sheet&quot;, &quot;mail&quot;], [&quot;mail&quot;, &quot;crm&quot;], [&quot;reg2&quot;, &quot;reg1&quot;]]" aria-label="Deepin durur ve vakayı bir kişiye teslim eder: bulgu, kanıt ve önerilen karar.">
+      <svg class="stage-lines" aria-hidden="true"></svg>
+      <div class="st-n st-co" data-node="co" style="--x:50;--y:7"><span class="lab">INV-2026-0418</span><b>Northwind Lojistik A.Ş.</b></div>
+      <div class="st-n st-src rel" data-node="reg1" data-ev="E1" style="--x:14;--y:20"><b>Ticaret Sicili</b><small class="t0">Son tescili ara</small><small class="t1">İlan · 12 Eyl</small><span class="st-chk">→ E1</span></div><div class="st-n st-src rel" data-node="reg2" data-ev="E2" style="--x:14;--y:30"><b>Ticaret Sicili</b><small class="t0">Ortağı doğrula</small><small class="t1">İlan · 18 Eyl</small><span class="st-chk">→ E2</span></div><div class="st-n st-src rel" data-node="graph" data-ev="E3" style="--x:14;--y:40"><b>İlişki grafiği</b><small class="t0">Kim kimle bağlantılı?</small><small class="t1">İzlenen 2 şirket</small><span class="st-chk">→ E3</span></div><div class="st-n st-src" data-node="pdf" data-ev="" style="--x:14;--y:51"><b>PDF</b><small class="t0">İndir ve oku</small><small class="t1">Esas sözleşme</small><span class="st-chk">✓ kontrol edildi</span></div><div class="st-n st-src" data-node="crm" data-ev="" style="--x:14;--y:60"><b>CRM</b><small class="t0">Şirketi bul</small><small class="t1">Tedarikçi kaydı</small><span class="st-chk">✓ kontrol edildi</span></div><div class="st-n st-src" data-node="mail" data-ev="" style="--x:14;--y:69"><b>E-posta</b><small class="t0">Eksik belgeyi iste</small><small class="t1">Yazışmalar</small><span class="st-chk">✓ kontrol edildi</span></div><div class="st-n st-src" data-node="sheet" data-ev="" style="--x:14;--y:78"><b>Excel tablosu</b><small class="t0">Son değerlendirmeyle karşılaştır</small><small class="t1">Son değerlendirme</small><span class="st-chk">✓ kontrol edildi</span></div><div class="st-n st-src" data-node="web" data-ev="" style="--x:14;--y:87"><b>Haber ve web</b><small class="t0">İlişkili şirketi ara</small><small class="t1">Basın</small><span class="st-chk">✓ kontrol edildi</span></div><span class="st-tn" data-a="crm" data-b="reg1">Farklı şirket unvanı</span><span class="st-tn" data-a="web" data-b="graph">Kim kimle bağlantılı?</span><span class="st-tn" data-a="graph" data-b="reg2">Tekrar kontrol et</span><span class="st-tn" data-a="sheet" data-b="mail">Eksik kanıt</span><span class="st-tn" data-a="mail" data-b="crm">Hangi kayıt güncel?</span><div class="st-n st-ev" data-node="E1" style="--x:47;--y:25"><span class="ev-id">E1</span><b>Sermaye %40 azaltıldı</b><small>Ticaret Sicili Gazetesi · 12 Eyl</small></div><div class="st-n st-ev" data-node="E2" style="--x:47;--y:46"><span class="ev-id">E2</span><b>Temsil yetkisi değişti</b><small>Ticaret Sicili Gazetesi · 18 Eyl</small></div><div class="st-n st-ev" data-node="E3" style="--x:47;--y:67"><span class="ev-id">E3</span><b>Yeni imza yetkilisi, izlenen 2 şirkette ortak</b><small>İlişki grafiği</small></div>
+      <div class="st-n st-find" data-node="find" style="--x:80.5;--y:40"><span class="lab">Bulgu</span><p>30 gün içinde sermaye azaltımı ve yetki değişikliği; izlenen şirketlerle bağlantılı. Bu durum, yükseltilmiş tedarikçi riski politikanızla örtüşüyor.</p><span class="cites"><i>E1</i><i>E2</i><i>E3</i></span></div>
+      <div class="st-n st-dec" data-node="dec" style="--x:80.5;--y:77"><span class="lab">Önerilen karar</span><b>Risk seviyesi Orta → Yüksek</b><small>Bir kişinin kararını bekliyor</small></div>
     </figure>
   </div>
-</section>
-
-<section class="sec" id="investigations">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow"><span lang="en">Investigation</span>'lar</p>
-      <h2 class="h2"><span lang="en">Deepin</span> <b>neyi araştırsın?</b></h2>
-      <p class="lede">Bir platform değil, bir <span lang="en">Investigation</span> satın alırsınız. Ekibinizin en çok zaman harcadığı <span lang="en">Investigation</span> ile başlayın.</p>
-    </div>
-    <div class="catalog">
-  <div class="catalog-primary"><article class="inv inv-primary" id="inv-company">
-  <header class="inv-head">
-    <div><h3><span lang="en">Company</span> <span lang="en">Investigation</span></h3><p class="inv-space"><span class="nm-sm">deep<b>in</b>.risk</span></p></div>
-    <span class="chip st-production">Canlı kullanımda</span>
-  </header>
-  <p class="inv-lede">Çalıştığınız her şirketi ve önemli her değişikliği bilin.</p>
-  <div class="inv-cols">
-    <div><div class="lbl">İnceler</div><ul class="inv-list in"><li>Sahiplik</li><li>Ortaklar</li><li>Yöneticiler</li><li>Temsil yetkisi</li><li>İlişkili şirketler</li><li>Finansal durum</li><li>Geçmiş değişiklikler</li><li>Önemli şirket olayları</li></ul></div>
-    <div><div class="lbl">Sunar</div><ul class="inv-list out"><li>Kaynaklarıyla şirket risk dosyası</li><li>Değişiklik uyarıları</li><li>Onaya sunulan risk önerisi</li></ul></div>
-  </div>
-  <a class="inv-cta" href="risk/"><span lang="en">Company</span> <span lang="en">Investigation</span>&#x27;ı inceleyin →</a>
-</article><article class="inv inv-primary" id="inv-chargeback">
-  <header class="inv-head">
-    <div><h3>Chargeback <span lang="en">Investigation</span></h3><p class="inv-space"><span class="nm-sm">deep<b>in</b>.finance</span></p></div>
-    <span class="chip st-deploying">Kurulumda</span>
-  </header>
-  <p class="inv-lede">Her kart itirazı, kanıtları hazır bir vaka olarak gelir.</p>
-  <div class="inv-cols">
-    <div><div class="lbl">İnceler</div><ul class="inv-list in"><li>İşlem</li><li>İtiraz vakası</li><li>Kanıt</li><li>Kart şeması kuralları</li><li>Politikalar</li><li>Geçmiş bilgiler</li><li>Üye işyeri ve şirket bağlamı</li></ul></div>
-    <div><div class="lbl">Sunar</div><ul class="inv-list out"><li>Kanıt paketi</li><li>Gerekçe</li><li>Öneri</li><li>İnsan onayı</li><li>Aksiyon hazırlığı</li></ul></div>
-  </div>
-  <a class="inv-cta" href="finance/">Chargeback <span lang="en">Investigation</span>&#x27;ı inceleyin →</a>
-</article></div>
-  <div class="catalog-secondary"><article class="inv inv-secondary" id="inv-security">
-  <header class="inv-head"><h3><span lang="en">Security</span> <span lang="en">Investigation</span></h3><span class="chip st-exploring">Keşif aşamasında</span></header>
-  <p class="inv-lede">Güvenlik alarmlarını kanıta dayalı <span lang="en">Investigation</span>&#x27;lara dönüştürün.</p>
-  <a class="inv-cta" href="security/">İnceleyin →</a>
-</article><article class="inv inv-secondary" id="inv-operational">
-  <header class="inv-head"><h3><span lang="en">Operational</span> <span lang="en">Investigation</span></h3><span class="chip st-exploring">Keşif aşamasında</span></header>
-  <p class="inv-lede">Anomalileri, sapmaları ve operasyonel kök nedenleri araştırın.</p>
-  <a class="inv-cta" href="energy/">İnceleyin →</a>
-</article>
-    <a class="catalog-more" href="#contact"><strong>Aradığınız <span lang="en">Investigation</span> burada yok mu?</strong><span>İşlerimizin çoğu, henüz kimsenin otomatikleştirmediği bir vakayla başlıyor.</span><span class="go">Ekibinizin neyi araştırdığını anlatın →</span></a>
-  </div>
 </div>
+  <p class="wrap note sc-note">Kurgusal bir şirketle hazırlanmış örnek vaka.</p>
+</section>
+
+<section class="decide" id="decision">
+  <div class="wrap">
+    <p class="lab sec-k"><span>§02</span><span lang="en">Deepin</span> burada durur.</p>
+    <h2 class="mega">Karar <b>sizindir.</b></h2>
+    <p class="o-p"><span lang="en">Deepin</span> asla sessizce karar vermez. Vakayı, karar yetkisi olan kişiye; her gerekçe ve her kaynak ekli olarak getirir.</p>
+    <div class="dcard" data-dcard>
+  <div class="dcard-top"><span class="lab">INV-2026-0418 · Northwind Lojistik A.Ş.</span><span class="chip st-wait">Kararınızı bekliyor</span></div>
+  <ol class="dchain" aria-hidden="true"><li class="">Kaynak</li><li class="">Kanıt</li><li class="">Gerekçe</li><li class="">Öneri</li><li class="hum">İnsan kararı</li></ol>
+  <div class="dcard-body">
+    <div class="drec"><span class="lab">Öneri</span><strong>Şirket risk seviyesini yükselt</strong><span class="drec-sub">Orta → Yüksek</span>
+      <span class="lab dwhy-k">Neden</span><ol class="dwhy"><li data-cite="E2"><span>Temsil yetkisi değişti</span><sup>E2</sup></li><li data-cite="E1"><span>Sermaye %40 azaltıldı</span><sup>E1</sup></li><li data-cite="E3"><span>Yeni imza yetkilisi, izlenen 2 şirketle bağlantılı</span><sup>E3</sup></li></ol></div>
+    <div class="dev"><span class="lab">Kanıt</span><ol class="slips"><li class="slip" data-slip="E1"><span class="ev-id">E1</span><b>Sermaye %40 azaltıldı</b><small>Ticaret Sicili Gazetesi · 12 Eyl</small></li><li class="slip" data-slip="E2"><span class="ev-id">E2</span><b>Temsil yetkisi değişti</b><small>Ticaret Sicili Gazetesi · 18 Eyl</small></li><li class="slip" data-slip="E3"><span class="ev-id">E3</span><b>Yeni imza yetkilisi, izlenen 2 şirkette ortak</b><small>İlişki grafiği</small></li></ol></div>
+  </div>
+  <div class="dact"><div class="d-btns"><button type="button" class="d-btn d-approve" data-act="approve" data-msg="Sizin tarafınızdan onaylandı. Risk seviyesi güncellendi; vaka, kanıtı ve kararınız birlikte saklanıyor.">Onayla</button><button type="button" class="d-btn d-reject" data-act="reject" data-msg="Reddedildi. Risk seviyesi Orta olarak kalıyor ve gerekçeniz vakayla birlikte kaydediliyor.">Reddet</button><button type="button" class="d-btn d-further" data-act="further" data-msg="">Araştırmaya devam et</button></div><p class="d-res" aria-live="polite" hidden></p><ol class="d-next"><li hidden>Son finansal tabloları iste</li><li hidden>İmza yetkilisinin diğer şirketlerini incele</li><li hidden><span lang="en">Investigation</span>&#x27;ı 7 gün sonra yeniden çalıştır</li></ol></div>
+</div>
+<p class="note">Kurgusal bir şirketle hazırlanmış örnek vaka.</p>
   </div>
 </section>
 
-<section class="sec tone" id="how">
+<section class="o-sec" id="investigations">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow"><span lang="en">Deepin</span> nasıl çalışır</p>
-      <h2 class="h2">Karar sizde kalsın. <b>Araştırma yükü kalksın.</b></h2>
-      <p class="lede">Aramayı, toplamayı, karşılaştırmayı ve akıl yürütmeyi <span lang="en">Deepin</span> yapar. Ekibiniz kanıtı inceler ve kararın kontrolü onda kalır.</p>
-    </div>
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-crm" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.5"/><circle cx="6" cy="7" r="1.6"/><path d="M3.8 11c.4-1.2 1.2-1.8 2.2-1.8s1.8.6 2.2 1.8M10 6.5h2.5M10 9h2.5"/></symbol><symbol id="i-reg" viewBox="0 0 16 16"><path d="M2 6l6-3.5L14 6M3.5 6.5v5.5M6.5 6.5v5.5M9.5 6.5v5.5M12.5 6.5v5.5M2 13h12"/></symbol><symbol id="i-pdf" viewBox="0 0 16 16"><path d="M4 2h5.5L12.5 5v9H4z"/><path d="M9.5 2v3h3M6 9h4.5M6 11.5h3"/></symbol><symbol id="i-mail" viewBox="0 0 16 16"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M2.5 4.5L8 9l5.5-4.5"/></symbol><symbol id="i-sheet" viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="11" height="11" rx="1.2"/><path d="M2.5 6.2h11M2.5 9.8h11M6.2 2.5v11M9.8 2.5v11"/></symbol><symbol id="i-web" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M2 6h12"/><circle cx="4" cy="4.5" r=".4"/><circle cx="8" cy="9.5" r="2"/><path d="M9.5 11l1.5 1.5"/></symbol><symbol id="i-notes" viewBox="0 0 16 16"><path d="M4 2.5h8v11H4z"/><path d="M6 5.5h4M6 8h4M6 10.5h2.5"/></symbol><symbol id="i-hist" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 5v3.2l2 1.3"/></symbol><symbol id="i-rel" viewBox="0 0 16 16"><circle cx="4" cy="8" r="1.8"/><circle cx="12" cy="4" r="1.8"/><circle cx="12" cy="12" r="1.8"/><path d="M5.6 7.2l4.8-2.4M5.6 8.8l4.8 2.4"/></symbol><symbol id="i-ev" viewBox="0 0 16 16"><path d="M3 13l2.5-2.5M6 3h7v7l-3 3H6z"/><path d="M8.5 6.5h2.5M8.5 9h1.5"/></symbol><symbol id="i-pol" viewBox="0 0 16 16"><path d="M8 2l5 2.2v3.6c0 3-2.2 4.9-5 6-2.8-1.1-5-3-5-6V4.2z"/><path d="M6 8l1.5 1.5L10.5 6.5"/></symbol></defs></svg>
-    <div class="xf-grid">
-      <div class="xf today" aria-label="Bugün: ekibiniz araştırmak için sistemler ve belgeler arasında gidip gelir, sonra karar verir">
-        <div class="xf-head"><span class="lbl">Bugün</span><p class="xf-role"><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Ekibiniz</span> = araştırmacı + karar verici</p></div>
-        <div class="xf-node ev">Olay</div>
-        <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-box human">
-          <div class="xf-box-h"><span>Saatler süren insan araştırması</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Ekibiniz</span></div>
-          <div class="tangle" data-edges='[["n1","n2","f","Farklı şirket unvanı"],["n2","n3","f",""],["n3","n4","f","Eksik kanıt"],["n4","n3","b",""],["n3","n5","f",""],["n5","n2","b","Hangi kayıt güncel?"],["n5","n6","f",""],["n6","n7","f","Kim kimle bağlantılı?"],["n7","n6","b","Başka bir şirketi ara"],["n7","n8","f","Tekrar kontrol et"]]'>
-            <svg class="tangle-paths" aria-hidden="true"><defs><marker id="tg-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z"/></marker></defs></svg>
-            <ol class="tangle-nodes"><li class="tn tn-a" id="n1"><svg class="i" aria-hidden="true"><use href="#i-crm"/></svg><span><b>CRM</b><small>Şirketi bul</small></span></li><li class="tn tn-b" id="n2"><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg><span><b>Ticaret Sicili</b><small>Son tescili ara</small></span></li><li class="tn tn-c" id="n3"><svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg><span><b>PDF</b><small>İndir ve oku</small></span></li><li class="tn tn-d" id="n4"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span><b>E-posta</b><small>Eksik belgeyi iste</small></span></li><li class="tn tn-e" id="n5"><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg><span><b>Excel tablosu</b><small>Önceki kayıtla karşılaştır</small></span></li><li class="tn tn-f" id="n6"><svg class="i" aria-hidden="true"><use href="#i-web"/></svg><span><b>Tarayıcı</b><small>İlişkili şirketi ara</small></span></li><li class="tn tn-g" id="n7"><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg><span><b>Ticaret Sicili</b><small>Ortağı doğrula</small></span></li><li class="tn tn-h" id="n8"><svg class="i" aria-hidden="true"><use href="#i-notes"/></svg><span><b>Notlar</b><small>Neyin değiştiğini yeniden kur</small></span></li></ol>
-          </div>
-          <div class="frag"><span>Dağınık kanıt</span><i aria-hidden="true">→</i><span>İnsan muhakemesi</span></div>
-        </div>
-        <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-node dec"><span>Karar ver</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Ekibiniz</span></div>
-        <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-node">Uygula</div>
+    <header class="o-head"><p class="lab sec-k"><span>§03</span><span lang="en">Investigation</span>'lar</p><h2 class="o-h2"><span lang="en">Deepin</span> <b>neyi araştırsın?</b></h2><p class="o-p">Bir platform değil, bir <span lang="en">Investigation</span> satın alırsınız. Ekibinizin en çok zaman harcadığı <span lang="en">Investigation</span> ile başlayın.</p></header>
+    <ol class="ix"><li class="ix-row"><details>
+  <summary><span class="ix-n">01</span><span class="ix-name"><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="ix-sp"><span class="nm">deep<b>in</b>.risk</span></span><span class="chip st-production">Canlı kullanımda</span><span class="ix-plus" aria-hidden="true"></span></summary>
+  <div class="ix-body"><p class="ix-head">Çalıştığınız her şirketi ve önemli her değişikliği bilin.</p><div class="ix-trail"><div><span class="lab">İnceler</span><ul><li>Sahiplik</li><li>Ortaklar</li><li>Yöneticiler</li><li>Temsil yetkisi</li><li>İlişkili şirketler</li><li>Finansal durum</li><li>Geçmiş değişiklikler</li><li>Önemli şirket olayları</li></ul></div><i aria-hidden="true"></i><div><span class="lab">Sunar</span><ul class="out"><li>Kaynaklarıyla şirket risk dosyası</li><li>Değişiklik uyarıları</li><li>Onaya sunulan risk önerisi</li></ul></div></div><a class="ix-go" href="risk/"><span lang="en">Company</span> <span lang="en">Investigation</span>&#x27;ı inceleyin →</a></div>
+</details></li><li class="ix-row"><details>
+  <summary><span class="ix-n">02</span><span class="ix-name">Chargeback <span lang="en">Investigation</span></span><span class="ix-sp"><span class="nm">deep<b>in</b>.finance</span></span><span class="chip st-deploying">Kurulumda</span><span class="ix-plus" aria-hidden="true"></span></summary>
+  <div class="ix-body"><p class="ix-head">Her kart itirazı, kanıtları hazır bir vaka olarak gelir.</p><div class="ix-trail"><div><span class="lab">İnceler</span><ul><li>İşlem</li><li>İtiraz vakası</li><li>Kanıt</li><li>Kart şeması kuralları</li><li>Politikalar</li><li>Geçmiş bilgiler</li><li>Üye işyeri ve şirket bağlamı</li></ul></div><i aria-hidden="true"></i><div><span class="lab">Sunar</span><ul class="out"><li>Kanıt paketi</li><li>Gerekçe</li><li>Öneri</li><li>İnsan onayı</li><li>Aksiyon hazırlığı</li></ul></div></div><a class="ix-go" href="finance/">Chargeback <span lang="en">Investigation</span>&#x27;ı inceleyin →</a></div>
+</details></li><li class="ix-row minor"><details>
+  <summary><span class="ix-n">03</span><span class="ix-name"><span lang="en">Security</span> <span lang="en">Investigation</span></span><span class="ix-sp"><span class="nm">deep<b>in</b>.security</span></span><span class="chip st-exploring">Keşif aşamasında</span><span class="ix-plus" aria-hidden="true"></span></summary>
+  <div class="ix-body"><p class="ix-head">Güvenlik alarmlarını kanıta dayalı <span lang="en">Investigation</span>&#x27;lara dönüştürün.</p><a class="ix-go" href="security/">İnceleyin →</a></div>
+</details></li><li class="ix-row minor"><details>
+  <summary><span class="ix-n">04</span><span class="ix-name"><span lang="en">Operational</span> <span lang="en">Investigation</span></span><span class="ix-sp"><span class="nm">deep<b>in</b>.energy</span></span><span class="chip st-exploring">Keşif aşamasında</span><span class="ix-plus" aria-hidden="true"></span></summary>
+  <div class="ix-body"><p class="ix-head">Anomalileri, sapmaları ve operasyonel kök nedenleri araştırın.</p><a class="ix-go" href="energy/">İnceleyin →</a></div>
+</details></li><li class="ix-row more"><a href="#contact"><span class="ix-n">+</span><span class="ix-name">Aradığınız <span lang="en">Investigation</span> burada yok mu?</span><span class="ix-more">İşlerimizin çoğu, henüz kimsenin otomatikleştirmediği bir vakayla başlıyor. <b>Ekibinizin neyi araştırdığını anlatın →</b></span></a></li></ol>
+  </div>
+</section>
+
+<section class="o-sec tint" id="spaces">
+  <div class="wrap">
+    <header class="o-head"><p class="lab sec-k"><span>§04</span>Space'ler</p><h2 class="o-h2">Bir alanda tekrarlandıkça <b><span lang="en">Investigation</span> bir Space'e dönüşür.</b></h2><p class="o-p">Space tekrarla kazanılır: aynı türden <span lang="en">Investigation</span> aynı alanda tekrarlanır ve geride yeniden kullanılabilir yetenekler bırakır. İki Space, tek bir dil.</p></header>
+    <div class="gm">
+  <div class="gm-head"><a class="gm-sp a" href="risk/"><span class="nm">deep<b>in</b>.risk</span><span class="chip st-production">Canlı kullanımda</span><span class="gm-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span></a><span class="gm-lbl lab">Ortak dil</span><a class="gm-sp b" href="finance/"><span class="nm">deep<b>in</b>.finance</span><span class="chip st-deploying">Kurulumda</span><span class="gm-inv">Chargeback <span lang="en">Investigation</span></span></a></div>
+  <ol class="gm-rows"><li class="gm-row"><span class="gm-a">Bir şirket değişir: yeni imza yetkilisi, sermaye azaltımı</span><span class="gm-k"><i></i>Sinyal</span><span class="gm-b">Bir itiraz gelir: ₺4.850 · ürün teslim edilmedi</span></li><li class="gm-row"><span class="gm-a">Ticaret sicili · şirket kayıtları · ilişki grafiği</span><span class="gm-k"><i></i>Kaynaklar</span><span class="gm-b">İşlem · 3-D Secure kaydı · üye işyeri profili · kart şeması kuralları</span></li><li class="gm-row"><span class="gm-a">Yetki değişti · sermaye −%40 · izlenen şirketlerle bağlantı</span><span class="gm-k"><i></i>Kanıt</span><span class="gm-b">Kart sahibi doğrulandı · teslimat kanıtı yok</span></li><li class="gm-row"><span class="gm-a">Risk seviyesini yükselt: Orta → Yüksek</span><span class="gm-k"><i></i>Öneri</span><span class="gm-b">İtirazı kabul et · üye işyerini işaretle</span></li><li class="gm-row hum"><span class="gm-a">Risk analisti karar verir</span><span class="gm-k"><i></i>İnsan kararı</span><span class="gm-b">İtiraz analisti karar verir</span></li></ol>
+</div>
+<p class="note gm-note">Kurgusal şirketlerle hazırlanmış temsilî vakalar.</p>
+<div class="gm-explore"><span class="lab">Keşif aşamasında</span><a href="security/"><span class="nm">deep<b>in</b>.security</span><span>Güvenlik <span lang="en">Investigation</span>&#x27;ı</span></a><a href="energy/"><span class="nm">deep<b>in</b>.energy</span><span>Enerji ve operasyonel <span lang="en">Investigation</span></span></a></div>
+  </div>
+</section>
+
+<section class="o-sec quiet" id="customers">
+  <div class="wrap">
+    <header class="o-head"><p class="lab sec-k"><span>§05</span>Müşteriler</p><h2 class="o-h2">Gerçek kurumsal ortamlarda <b>kanıtlandı.</b></h2><p class="o-p">Her referans, gerçekte ulaştığı olgunluk seviyesiyle gösterilir.</p></header>
+    <ul class="pf-list"><li><span class="pf-name">Hayat Finans</span><span class="pf-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="pf-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span></li><li><span class="pf-name">PayTR</span><span class="pf-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="pf-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span></li><li><span class="pf-name">SOCAR</span><span class="pf-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="pf-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span></li><li><span class="pf-name">DGPays</span><span class="pf-inv"><span lang="en">Company</span> + Financial <span lang="en">Investigation</span></span><span class="pf-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Ürüne gömülü</span></span></li><li><span class="pf-name">Visa / Ziraat Bankası</span><span class="pf-inv">Chargeback <span lang="en">Investigation</span></span><span class="pf-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="chip st-contracted">Sözleşmeli · Geliştirmede</span></span></li><li><span class="pf-name">GreenChimney</span><span class="pf-inv"><span lang="en">Operational</span> <span lang="en">Investigation</span></span><span class="pf-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span></li></ul><div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Sözleşme imzalandı</span><span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Ürüne gömülü ya da kurulumda</span><span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>Canlı kullanımda</span></div>
+  </div>
+</section>
+
+<section class="under" id="enterprise" data-under>
+  <div class="under-track"><div class="under-sticky">
+    <div class="slab" aria-hidden="true"><p class="slab-h"><span lang="en">Deepin</span> <span lang="en">Investigation</span>'ları yürütür. <b>Farklı alanlarda, tekrar tekrar.</b></p><div class="slab-in"><span class="">Sinyal</span><i aria-hidden="true"></i><span class=""><span lang="en">Investigation</span></span><i aria-hidden="true"></i><span class="">Kanıt</span><i aria-hidden="true"></i><span class="hum">İnsan kararı</span></div></div>
+    <div class="wrap under-grid">
+      <div class="under-copy">
+        <p class="lab sec-k"><span>§06</span>Space'lerin altında</p>
+        <h2 class="o-h2">Her <span lang="en">Investigation</span>'ın altında <b>bir organizasyon var.</b></h2>
+        <p class="under-name"><span lang="en">Deepin</span> <span lang="en">Harness</span></p>
+        <p class="o-p"><span lang="en">Deepin</span> <span lang="en">Harness</span>; yapay zekâya rol, yetenek, kurumsal bilgi, politika ve kontrol kazandırır. Böylece agent'lar tek başına çalışan asistanlar gibi değil, kurumun bir parçası olarak çalışır.</p>
+        <a class="o-link" href="harness/"><span lang="en">Deepin</span> <span lang="en">Harness</span>'ı keşfedin →</a>
       </div>
-
-      <div class="xf with" aria-label="Deepin ile: aynı sistemler ve belgeler Deepin içinde ele alınır; ekibiniz kanıtı inceler ve karar verir">
-        <div class="xf-head"><span class="lbl"><span lang="en">Deepin</span> ile</span><p class="xf-role"><span class="who-d"><img src="assets/favicon-64.png" alt="" width="14" height="14"><span lang="en">Deepin</span></span> = araştırmacı · <span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Ekibiniz</span> = karar sahibi</p></div>
-        <div class="xf-node ev">Olay</div>
-        <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-box deepin">
-          <div class="xf-box-h"><span><span lang="en">Deepin</span> araştırır</span><span class="who-d"><img src="assets/favicon-64.png" alt="" width="14" height="14"><span lang="en">Deepin</span></span></div>
-          <ul class="contained"><li><svg class="i" aria-hidden="true"><use href="#i-crm"/></svg>CRM</li><li><svg class="i" aria-hidden="true"><use href="#i-reg"/></svg>Ticaret Sicili</li><li><svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg>Belgeler</li><li><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>E-posta</li><li><svg class="i" aria-hidden="true"><use href="#i-sheet"/></svg>Tablolar</li><li><svg class="i" aria-hidden="true"><use href="#i-web"/></svg>Web ve dış kaynaklar</li><li><svg class="i" aria-hidden="true"><use href="#i-hist"/></svg>Geçmiş kayıtlar</li><li><svg class="i" aria-hidden="true"><use href="#i-rel"/></svg>İlişkiler</li><li><svg class="i" aria-hidden="true"><use href="#i-ev"/></svg>Kanıt</li><li><svg class="i" aria-hidden="true"><use href="#i-pol"/></svg>Politikalar</li></ul>
-          <p class="xf-micro">Araştırma işini <span lang="en">Deepin</span> yapar.</p>
-        </div>
-        <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-node rec">Kanıta dayalı öneri</div>
-        <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-box you">
-          <div class="xf-box-h"><span>Ekibiniz</span><span class="who-h"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.6"/><path d="M3 14c.8-2.8 2.7-4.2 5-4.2s4.2 1.4 5 4.2"/></svg>Karar sahibi</span></div>
-          <div class="xf-you"><span>Kanıtı incele</span><span class="xf-ok">Onayla</span><span>Reddet</span></div>
-          <p class="xf-micro">Muhakeme sizde kalır.</p>
-        </div>
-        <div class="xf-arr" aria-hidden="true"></div>
-        <div class="xf-node act">Aksiyon</div>
-      </div>
+      <div class="under-vis"><figure class="topo"><svg viewBox="0 0 640 492" class="topo-svg" role="img" aria-label="Deepin Harness: yetki sahibi rollerden oluşan bir organizasyon; agent&#x27;lar ortak bilgi, politika, hafıza ve değerlendirme üzerinde, yetenekler aracılığıyla bir görev üzerinde çalışır">
+  <rect class="t-org" x="6" y="6" width="628" height="380" rx="18"/>
+  <text x="26" y="32" class="t-k">Organizasyon</text>
+  <circle class="t-hub" cx="320" cy="34" r="4"/>
+  <g class="t-edges"><path pathLength="1" d="M320 40 C320 60 130 60 130 86"/><path pathLength="1" d="M320 40 C320 60 320 60 320 86"/><path pathLength="1" d="M320 40 C320 60 510 60 510 86"/><path pathLength="1" d="M130 126 V178"/><path pathLength="1" d="M320 126 V178"/><path pathLength="1" d="M510 126 V178"/><path pathLength="1" d="M130 204 C130 236 320 232 320 258"/><path pathLength="1" d="M320 204 C320 236 320 232 320 258"/><path pathLength="1" d="M510 204 C510 236 320 232 320 258"/><path pathLength="1" d="M320 284 V306"/><path pathLength="1" d="M320 332 V352"/><path pathLength="1" class="tie" d="M130 204 V400"/><path pathLength="1" class="tie" d="M510 204 V400"/><path pathLength="1" class="tie" d="M320 378 V400"/></g>
+  <g class="t-node" style="--d:0"><circle cx="130" cy="92" r="6"/><text x="130" y="72" text-anchor="middle" class="t-l">Rol</text><text x="130" y="118" text-anchor="middle" class="t-a">Yetki</text></g><g class="t-node" style="--d:1"><circle cx="320" cy="92" r="6"/><text x="320" y="72" text-anchor="middle" class="t-l">Rol</text><text x="320" y="118" text-anchor="middle" class="t-a">Yetki</text></g><g class="t-node" style="--d:2"><circle cx="510" cy="92" r="6"/><text x="510" y="72" text-anchor="middle" class="t-l">Rol</text><text x="510" y="118" text-anchor="middle" class="t-a">Yetki</text></g><g class="t-node" style="--d:3"><rect x="96" y="178" width="68" height="26" rx="13"/><text x="130" y="195" text-anchor="middle">Agent</text></g><g class="t-node" style="--d:4"><rect x="286" y="178" width="68" height="26" rx="13"/><text x="320" y="195" text-anchor="middle">Agent</text></g><g class="t-node" style="--d:5"><rect x="476" y="178" width="68" height="26" rx="13"/><text x="510" y="195" text-anchor="middle">Agent</text></g>
+  <g class="t-node" style="--d:6"><rect x="270" y="258" width="100" height="26" rx="13" class="t-task"/><text x="320" y="275" text-anchor="middle">Görev</text></g>
+  <g class="t-node" style="--d:7"><rect x="262" y="306" width="116" height="26" rx="7"/><text x="320" y="323" text-anchor="middle">Yetenek</text>
+    <text x="320" y="368" text-anchor="middle" class="t-a">Araç · Servis</text></g>
+  <g class="t-str" style="--d:8"><text x="24" y="412" class="t-s">Bilgi</text><path pathLength="1" d="M128 408 H616"/></g><g class="t-str" style="--d:9"><text x="24" y="434" class="t-s">Politika</text><path pathLength="1" d="M128 430 H616"/></g><g class="t-str" style="--d:10"><text x="24" y="456" class="t-s">Hafıza</text><path pathLength="1" d="M128 452 H616"/></g><g class="t-str" style="--d:11"><text x="24" y="478" class="t-s">Değerlendirme</text><path pathLength="1" d="M128 474 H616"/></g>
+  <circle class="t-signal" r="4"><animateMotion dur="7s" repeatCount="indefinite" path="M320 34 C320 60 130 60 130 92 V191 C130 236 320 232 320 271 V319"/></circle>
+</svg><ol class="topo-m"><li>Organizasyon</li><li>Rol · Yetki</li><li>Agent</li><li>Görev</li><li>Yetenek</li><li>Araç · Servis</li></ol><div class="topo-ms"><span>Bilgi</span><span>Politika</span><span>Hafıza</span><span>Değerlendirme</span></div></figure></div>
     </div>
-  </div>
-</section>
-
-<section class="sec" id="evidence">
-  <div class="wrap">
-    <div class="ev-grid">
-      <div>
-        <div class="sec-head" style="margin-bottom:36px">
-          <p class="eyebrow">Kanıt</p>
-          <h2 class="h2">Önce kanıt, <b>sonra karar.</b></h2>
-          <p class="lede"><span lang="en">Deepin</span> size bir yapay zekâ cevabı vermez. Bir <span lang="en">Investigation</span> verir: her gerekçe, her kaynak ve son onayı veren bir kişi.</p>
-        </div>
-        <ol class="evidence"><li><span class="n">01</span><div><h3>Kaynak</h3><p>Her bulgu, geldiği kayda, belgeye ya da sisteme bağlanır.</p></div></li><li><span class="n">02</span><div><h3>Kanıt</h3><p>Olgular toplanır, tarihlenir ve vakayla birlikte saklanır.</p></div></li><li><span class="n">03</span><div><h3>Gerekçe</h3><p>Kanıttan sonuca giden mantık, uygulanan politikayla birlikte yazılır.</p></div></li><li><span class="n">04</span><div><h3>Öneri</h3><p>Önerilen bir karar; asla sessizce alınan bir karar değil.</p></div></li><li><span class="n">05</span><div><h3>İnsan onayı</h3><p>Hiçbir şey değişmeden önce bir kişi onaylar, düzenler ya da reddeder.</p></div></li></ol>
-      </div>
-      <figure class="evui" style="margin:0" aria-label="Kanıtlarıyla örnek öneri">
-        <div class="evui-top"><span>Northwind Lojistik A.Ş. · INV-2026-0418</span><span class="chip st-wait">Onay bekliyor</span></div>
-        <div class="evui-body">
-          <div class="rec"><span class="lbl">Öneri</span><strong>Şirket risk seviyesini yükselt</strong><span>Orta → Yüksek</span></div>
-          <div>
-            <div class="lbl">Neden?</div>
-            <ol class="why">
-              <li data-ref="1"><span class="n">01</span><span>Temsil yetkisi değişti</span><span class="ref">[1]</span></li>
-              <li data-ref="2"><span class="n">02</span><span>Yeni ortak tespit edildi</span><span class="ref">[2]</span></li>
-              <li data-ref="3"><span class="n">03</span><span>İlişkili şirket yeniden yapılandırmaya girdi</span><span class="ref">[3]</span></li>
-            </ol>
-          </div>
-          <div>
-            <div class="lbl">Kanıt</div>
-            <ol class="srcstack">
-              <li data-ref="1"><span class="n">1</span><span><strong>Ticaret Sicili Gazetesi</strong><small>12 Eyl 2026</small></span><span class="kind">Resmî kayıt</span></li>
-              <li data-ref="2"><span class="n">2</span><span><strong>Ticaret Sicili Gazetesi</strong><small>18 Eyl 2026</small></span><span class="kind">Resmî kayıt</span></li>
-              <li data-ref="3"><span class="n">3</span><span><strong>Dış kaynak</strong><small>20 Eyl 2026</small></span><span class="kind">Haber</span></li>
-            </ol>
-          </div>
-          <div class="evui-actions"><p>Kurgusal bir şirketle hazırlanmış örnek vaka.</p><div><span>Düzenle</span><span>Reddet</span><span class="ok">Onayla</span></div></div>
-        </div>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec tone" id="customers">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Müşteriler</p>
-      <h2 class="h2">Gerçek kurumsal ortamlarda <b>kanıtlandı.</b></h2>
-      <p class="lede">Her referans, gerçekte ulaştığı olgunluk seviyesiyle gösterilir.</p>
-    </div>
-    <ul class="proof-grid"><li class="proof-card">
-  <strong>Hayat Finans</strong>
-  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
-</li><li class="proof-card">
-  <strong>PayTR</strong>
-  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
-</li><li class="proof-card">
-  <strong>SOCAR</strong>
-  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
-</li><li class="proof-card">
-  <strong>DGPays</strong>
-  <span class="proof-inv"><span lang="en">Company</span> + Financial <span lang="en">Investigation</span></span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Ürüne gömülü</span></span>
-</li><li class="proof-card">
-  <strong>Visa / Ziraat Bankası</strong>
-  <span class="proof-inv">Chargeback <span lang="en">Investigation</span></span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="chip st-contracted">Sözleşmeli · Geliştirmede</span></span>
-</li><li class="proof-card">
-  <strong>GreenChimney</strong>
-  <span class="proof-inv"><span lang="en">Operational</span> <span lang="en">Investigation</span></span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
-</li></ul>
-    <div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Sözleşme imzalandı</span><span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Ürüne gömülü ya da kurulumda</span><span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>Canlı kullanımda</span></div>
-  </div>
-</section>
-
-<section class="sec dots" id="spaces">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Space'ler</p>
-      <h2 class="h2">Bir Space <b>tekrarla kazanılır.</b></h2>
-      <p class="lede">Bir Space, teknik parçalardan oluşan bir paket değildir. Aynı türden <span lang="en">Investigation</span> bir alanda tekrarlandıkça ve geride yeniden kullanılabilir yetenekler bıraktıkça oluşur.</p>
-    </div>
-    <div class="layers" aria-label="Bir Space nasıl oluşur">
-      <span class="caps-row"><span>Agent'lar</span><span>Araçlar</span><span>Veri</span><span>Bilgi</span><span>Politikalar</span><span>Değerlendirmeler</span><span>Bağlantılar</span></span>
-      <span class="via">mümkün kılar</span><span class="obj"><span lang="en">Investigation</span>'lar</span><span class="via">tekrarlanır ve birikir</span><span class="obj sp">Space</span>
-    </div>
-    <div class="spaces-proven"><div class="growth">
-  <ol class="g-stages"><li><span class="g-lbl">Tek <span lang="en">Investigation</span></span><span class="g-chips"><span class="new"><span lang="en">Company</span> <span lang="en">Investigation</span></span></span></li><li><span class="g-lbl">Tekrarlanan</span><span class="g-chips"><span class=""><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="new"><span lang="en">Supplier</span> <span lang="en">Investigation</span></span></span></li><li><span class="g-lbl">Biriken</span><span class="g-chips"><span class=""><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class=""><span lang="en">Supplier</span> <span lang="en">Investigation</span></span><span class="new">Merchant <span lang="en">Investigation</span></span><span class="new"><span lang="en">Continuous</span> <span lang="en">Monitoring</span></span></span></li></ol>
-  <div class="g-down" aria-hidden="true"></div>
-  <a class="g-space" href="risk/">
-    <span class="g-top"><span class="nm">deep<b>in</b>.risk</span><span class="chip st-production">Canlı kullanımda</span></span>
-    <span class="g-title">Şirket ve üçüncü taraf <span lang="en">Investigation</span>&#x27;ı</span>
-    <span class="g-meta"><span>Ana <span lang="en">Investigation</span></span><b><span lang="en">Company</span> <span lang="en">Investigation</span></b></span>
-    <span class="g-note">Kurumsal istihbarat ile üçüncü taraf risk ve GRC araçlarınız arasında konumlanır.</span>
-    <span class="go"><span lang="en">deepin.risk</span> sayfasına git →</span>
-  </a>
-</div><div class="growth">
-  <ol class="g-stages"><li><span class="g-lbl">Tek <span lang="en">Investigation</span></span><span class="g-chips"><span class="new">Chargeback</span></span></li><li><span class="g-lbl">Tekrarlanan</span><span class="g-chips"><span class="">Chargeback</span><span class="new">Fraud</span></span></li><li><span class="g-lbl">Biriken</span><span class="g-chips"><span class="">Chargeback</span><span class="">Fraud</span><span class="new">Merchant Risk</span><span class="new">KYC / KYB</span></span></li></ol>
-  <div class="g-down" aria-hidden="true"></div>
-  <a class="g-space" href="finance/">
-    <span class="g-top"><span class="nm">deep<b>in</b>.finance</span><span class="chip st-deploying">Kurulumda</span></span>
-    <span class="g-title">Finansal operasyonlar ve <span lang="en">Investigation</span></span>
-    <span class="g-meta"><span>Ana <span lang="en">Investigation</span></span><b>Chargeback <span lang="en">Investigation</span></b></span>
-    <span class="g-note">Kart itirazlarıyla başlar, ardından yakın finansal <span lang="en">Investigation</span>&#x27;lara genişler.</span>
-    <span class="go"><span lang="en">deepin.finance</span> sayfasına git →</span>
-  </a>
-</div></div>
-<div class="spaces-explore"><span class="lbl">Keşif aşamasında</span><a class="x-space" href="security/"><span class="nm">deep<b>in</b>.security</span><span>Güvenlik <span lang="en">Investigation</span>&#x27;ı</span><span class="chip st-exploring">Keşif aşamasında</span></a><a class="x-space" href="energy/"><span class="nm">deep<b>in</b>.energy</span><span>Enerji ve operasyonel <span lang="en">Investigation</span></span><span class="chip st-exploring">Keşif aşamasında</span></a></div>
-  </div>
-</section>
-
-<section class="sec tone" id="enterprise">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Space'lerin altında</p>
-      <h2 class="h2">Her <span lang="en">Investigation</span>'ın <b>arkasındaki organizasyon.</b></h2>
-      <p class="lede"><span lang="en">Deepin</span> <span lang="en">Harness</span>; yapay zekâya rol, yetenek, kurumsal bilgi, politika ve kontrol kazandırır. Böylece agent'lar tek başına çalışan asistanlar gibi değil, kurumun bir parçası olarak çalışır.</p>
-    </div>
-    <div class="harness">
-      <div style="display:grid;gap:18px;justify-items:start">
-        <div class="hx-mini" aria-label="Deepin Harness, deepin.risk ve deepin.finance'in altında çalışır">
-          <div class="lbl"><span><span lang="en">Deepin</span> <span lang="en">Harness</span></span><span>sizin ortamınızda çalışır</span></div>
-          <div class="hxm-pillars"><span>Organizasyon</span><span>Bilgi</span><span>Yönetişim</span></div>
-          <svg class="hxm-join" viewBox="0 0 300 36" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0 C50 22 150 14 150 36 M150 0 V36 M250 0 C250 22 150 14 150 36"/></svg>
-          <div class="hxm-work">Yapay zekâ ile yürütülen iş</div>
-          <svg class="hxm-split" viewBox="0 0 300 36" preserveAspectRatio="none" aria-hidden="true"><path d="M150 0 C150 22 75 14 75 36 M150 0 C150 22 225 14 225 36"/></svg>
-          <div class="hxm-spaces"><a href="risk/"><span class="nm">deep<b>in</b>.risk</span><span><span lang="en">Company</span> <span lang="en">Investigation</span></span></a><a href="finance/"><span class="nm">deep<b>in</b>.finance</span><span>Chargeback <span lang="en">Investigation</span></span></a></div>
-        </div>
-        <a class="inv-cta" href="harness/"><span lang="en">Deepin</span> <span lang="en">Harness</span>'ı keşfedin →</a>
-      </div>
-      <div style="display:grid;gap:16px">
-        <div class="lbl">Regüle kurumlar için tasarlandı</div>
-        <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg><span lang="en">On-premise</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg><span lang="en">Air-gapped</span> kurulum</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Rol tabanlı erişim</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Denetim izi</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Veri soy ağacı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Politika uygulama</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Değerlendirmeler</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>İnsan onayı</li></ul>
-        <div class="datanote">
+  </div></div>
+  <div class="wrap under-ent">
+    <p class="lab">Regüle kurumlar için tasarlandı</p>
+    <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg><span lang="en">On-premise</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg><span lang="en">Air-gapped</span> kurulum</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Rol tabanlı erişim</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Denetim izi</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Veri soy ağacı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Politika uygulama</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9.5l3.5 3.5L15 5"/></svg>Değerlendirmeler</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>İnsan onayı</li></ul>
+    <div class="datanote">
   <strong>Verileriniz sizde kalır.</strong>
   <p><span lang="en">Deepin</span> avantajını müşteri verisini alarak kurmaz. Kayıtlarınız her zaman sizindir. Bir kurulumdan diğerine taşıdığımız şey, bir <span lang="en">Investigation</span>&#x27;ın nasıl çözüldüğüdür:</p>
   <ul class="assets"><li><span lang="en">Investigation</span> şablonları</li><li>Bağlantı kalıpları</li><li>İş akışları</li><li>Değerlendirmeler</li><li>Politika kalıpları</li><li>Agent yetenekleri</li></ul>
 </div>
-      </div>
-    </div>
   </div>
 </section>
 
-<section class="band" id="contact">
+<section class="o-close" id="contact">
   <div class="wrap">
-    <p class="eyebrow">Buradan başlayın</p>
-    <h2>Bize <b>bir <span lang="en">Investigation</span> getirin.</b></h2>
-    <ol class="band-steps">
-      <li><h3>İşi bize gösterin</h3><p>Ekibinizin bugün neyi araştırdığını gösterin.</p></li>
-      <li><h3>Gerçek bir vakayla çalışalım</h3><p>Gerçek vaka, gerçek sistemler ve ölçülebilir başarı kriterleri.</p></li>
-      <li><h3>Canlıya alalım</h3><p><span lang="en">Investigation</span>'ı operasyonel ortamınıza kuralım.</p></li>
-    </ol>
-    <p class="next">Sonra: <b><span lang="en">Deepin</span> sırada neyi araştırsın?</b></p>
+    <p class="lab sec-k"><span>§07</span>Buradan başlayın</p>
+    <h2 class="mega">Bize <b>bir <span lang="en">Investigation</span> getirin.</b></h2>
+    <ol class="close-steps"><li><span class="lab">01</span><h3>İşi bize gösterin</h3><p>Ekibinizin bugün neyi araştırdığını gösterin.</p></li><li><span class="lab">02</span><h3>Gerçek bir vakayla çalışalım</h3><p>Gerçek vaka, gerçek sistemler ve ölçülebilir başarı kriterleri.</p></li><li><span class="lab">03</span><h3>Canlıya alalım</h3><p><span lang="en">Investigation</span>&#x27;ı operasyonel ortamınıza kuralım.</p></li></ol>
+    <p class="o-next">Sonra: <b><span lang="en">Deepin</span> sırada neyi araştırsın?</b></p>
     <div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div>
   </div>
 </section>
@@ -1460,6 +1672,145 @@ span[lang="en"]{display:contents}
   if(!reduce){
     var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){if(!raf)loop()}else{cancelAnimationFrame(raf);raf=null}});
     io.observe(c);
+  }
+})();
+
+
+/* DEEPIN / ORGANISM — homepage motion. Every movement answers a product question:
+   an event arrives, the Investigation organizes, evidence emerges, a person decides,
+   and the organization underneath becomes visible. Reduced motion: the same states,
+   switched by the step buttons, without movement. */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NSV='http://www.w3.org/2000/svg';
+  function sm(p,a,b){var t=Math.min(1,Math.max(0,(p-a)/(b-a)));return t*t*(3-2*t)}
+  function lerp(a,b,t){return a+(b-a)*t}
+  var navH=function(){var n=document.querySelector('.nav');return n?n.offsetHeight:64};
+
+  /* ---------------------------------------------------------------- the Investigation scene */
+  var scene=document.querySelector('[data-scene]');
+  if(scene){
+    var stage=scene.querySelector('.stage'),svg=stage.querySelector('.stage-lines');
+    var phs=[].slice.call(scene.querySelectorAll('.ph')),steps=[].slice.call(scene.querySelectorAll('[data-step]'));
+    var nodes={};[].slice.call(stage.querySelectorAll('[data-node]')).forEach(function(n){nodes[n.getAttribute('data-node')]=n});
+    var notes=[].slice.call(stage.querySelectorAll('.st-tn'));
+    var tangle=JSON.parse(stage.getAttribute('data-tangle')||'[]');
+    var srcIds=['reg1','reg2','graph','pdf','crm','mail','sheet','web'];
+    var rel={reg1:'E1',reg2:'E2',graph:'E3'};
+    // [x,y,rotation] in % of the stage: scattered (today) and organized (with Deepin)
+    var L={
+      wide:{
+        chaos:{co:[50,50,0],reg1:[24,17,-5],reg2:[69,77,4],graph:[84,51,5],pdf:[70,19,3],crm:[16,45,-4],mail:[27,79,5],sheet:[49,90,-2],web:[88,25,-6]},
+        order:{co:[50,7,0],reg1:[14,20,0],reg2:[14,30,0],graph:[14,40,0],pdf:[14,51,0],crm:[14,60,0],mail:[14,69,0],sheet:[14,78,0],web:[14,87,0]},
+        ev:{E1:[47,25],E2:[47,46],E3:[47,67]},find:[80.5,40],dec:[80.5,77],vertical:false
+      },
+      tall:{
+        chaos:{co:[50,48,0],reg1:[27,13,-5],reg2:[72,83,4],graph:[74,29,5],pdf:[27,31,3],crm:[25,66,-4],mail:[71,64,5],sheet:[30,89,-2],web:[73,11,-6]},
+        order:{co:[50,4.5,0],reg1:[26,12,0],reg2:[74,12,0],graph:[26,20,0],pdf:[74,20,0],crm:[26,28,0],mail:[74,28,0],sheet:[26,36,0],web:[74,36,0]},
+        ev:{E1:[50,47],E2:[50,57],E3:[50,67]},find:[50,66],dec:[50,89],vertical:true
+      }
+    };
+    var P=reduce?1:0,layout=null,W=0,H=0;
+    function pick(){layout=stage.clientWidth<560?L.tall:L.wide;W=stage.clientWidth;H=stage.clientHeight;svg.setAttribute('viewBox','0 0 '+W+' '+H)}
+    function place(n,x,y,r,o,s){n.style.setProperty('--x',x.toFixed(2));n.style.setProperty('--y',y.toFixed(2));n.style.setProperty('--r',(r||0).toFixed(2));n.style.setProperty('--o',o.toFixed(3));n.style.setProperty('--s',(s||1).toFixed(3))}
+    function box(id){var n=nodes[id];if(!n)return null;var x=parseFloat(n.style.getPropertyValue('--x'))/100*W,y=parseFloat(n.style.getPropertyValue('--y'))/100*H;return{x:x,y:y,w:n.offsetWidth,h:n.offsetHeight}}
+    function path(d,cls,o){var p=document.createElementNS(NSV,'path');p.setAttribute('d',d);p.setAttribute('class',cls);p.style.opacity=o;svg.appendChild(p)}
+    function curve(a,b,bend){var mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1,nx=-dy/l,ny=dx/l;
+      return{d:'M'+a[0]+' '+a[1]+' Q'+(mx+nx*bend)+' '+(my+ny*bend)+' '+b[0]+' '+b[1],m:[mx+nx*bend/2,my+ny*bend/2]}}
+    function render(){
+      var p=P,org=sm(p,.14,.34),chaosO=1-sm(p,.1,.26),dim=sm(p,.86,.96);
+      var ph=p<.14?0:p<.4?1:p<.6?2:p<.8?3:4;
+      stage.classList.toggle('org',org>.5);stage.classList.toggle('ev',p>.4);stage.classList.toggle('dimmed',dim>0);
+      stage.style.setProperty('--dim',dim.toFixed(3));
+      phs.forEach(function(x,i){x.classList.toggle('on',i===ph)});
+      steps.forEach(function(b,i){b.classList.toggle('on',i===ph);b.setAttribute('aria-pressed',i===ph?'true':'false')});
+      var fo=sm(p,.6,.7),dO=sm(p,.8,.88),tall=layout.vertical,lift=tall?fo*18:0;
+      ['co'].concat(srcIds).forEach(function(id){var a=layout.chaos[id],b=layout.order[id];place(nodes[id],lerp(a[0],b[0],org),lerp(a[1],b[1],org),lerp(a[2],b[2],org),tall?1-.85*fo:1)});
+      var evO={};
+      ['E1','E2','E3'].forEach(function(id,i){var o=sm(p,.4+.045*i,.5+.045*i),c=layout.ev[id];evO[id]=o;place(nodes[id],c[0],c[1]+(1-o)*3-lift,0,o,.94+.06*o)});
+      place(nodes.find,layout.find[0],layout.find[1]+(1-fo)*3,0,fo,.95+.05*fo);
+      place(nodes.dec,layout.dec[0],layout.dec[1]+(1-dO)*3,0,dO,(.95+.05*dO)*(1+dim*.06));
+      // lines
+      while(svg.firstChild)svg.removeChild(svg.firstChild);
+      if(chaosO>.01){tangle.forEach(function(t,i){var A=box(t[0]),B=box(t[1]);if(!A||!B)return;var c=curve([A.x,A.y],[B.x,B.y],(i%2?1:-1)*Math.min(60,W*.06));path(c.d,'ch',chaosO*.9);
+        notes.forEach(function(n){if(n.getAttribute('data-a')===t[0]&&n.getAttribute('data-b')===t[1]){n.style.left=c.m[0]+'px';n.style.top=c.m[1]+'px';n.style.setProperty('--o',chaosO.toFixed(3))}})})}
+      else notes.forEach(function(n){n.style.setProperty('--o','0')});
+      Object.keys(rel).forEach(function(s){var o=evO[rel[s]];if(o<.01)return;var A=box(s),B=box(rel[s]);
+        if(layout.vertical){path('M'+A.x+' '+(A.y+A.h/2)+' C'+A.x+' '+(B.y-40)+' '+(B.x-B.w/2+20)+' '+(B.y-B.h/2-20)+' '+(B.x-B.w/2+20)+' '+(B.y-B.h/2),'or',o*(1-dim*.5))}
+        else{var x1=A.x+A.w/2,x2=B.x-B.w/2,m=(x2-x1)/2;path('M'+x1+' '+A.y+' C'+(x1+m)+' '+A.y+' '+(x2-m)+' '+B.y+' '+x2+' '+B.y,'or',o*(1-dim*.5))}});
+      if(fo>.01){['E1','E2','E3'].forEach(function(id){var A=box(id),B=box('find');
+        if(layout.vertical){if(id!=='E3')return;path('M'+A.x+' '+(A.y+A.h/2)+' V'+(B.y-B.h/2),'or',fo)}
+        else{var x1=A.x+A.w/2,x2=B.x-B.w/2,m=(x2-x1)/2;path('M'+x1+' '+A.y+' C'+(x1+m)+' '+A.y+' '+(x2-m)+' '+B.y+' '+x2+' '+B.y,'or',fo)}})}
+      if(dO>.01){var A=box('find'),B=box('dec');path('M'+A.x+' '+(A.y+A.h/2)+' V'+(B.y-B.h/2),'hu',dO)}
+    }
+    var scrollMode=false;
+    function measure(){
+      pick();
+      scrollMode=!reduce&&window.innerHeight>=520;
+      scene.classList.toggle('is-scroll',scrollMode);
+      if(scrollMode){scene.style.setProperty('--len',window.innerWidth<860?5:5.2)}
+      onScroll();
+    }
+    function onScroll(){
+      if(scrollMode){var r=scene.getBoundingClientRect(),nh=navH(),span=scene.offsetHeight-window.innerHeight+nh;P=Math.min(1,Math.max(0,(nh-r.top)/span))}
+      render();
+    }
+    var anchors=[.05,.3,.52,.72,.97];
+    steps.forEach(function(b,i){b.addEventListener('click',function(){
+      if(scrollMode){var top=scene.getBoundingClientRect().top+window.scrollY,span=scene.offsetHeight-window.innerHeight+navH();window.scrollTo({top:top-navH()+anchors[i]*span,behavior:'smooth'})}
+      else{P=anchors[i];render()}
+    })});
+    scene.classList.add('js-on');
+    var raf=null;window.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=null;onScroll()})},{passive:true});
+    window.addEventListener('resize',function(){clearTimeout(window.__sc);window.__sc=setTimeout(measure,120)});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(render);
+    measure();
+  }
+
+  /* ---------------------------------------------------------------- the decision */
+  document.querySelectorAll('[data-dcard]').forEach(function(card){
+    var cites=[].slice.call(card.querySelectorAll('[data-cite]')),slips=[].slice.call(card.querySelectorAll('[data-slip]'));
+    function lit(id){cites.forEach(function(c){c.classList.toggle('lit',c.getAttribute('data-cite')===id)});slips.forEach(function(s){s.classList.toggle('lit',s.getAttribute('data-slip')===id)})}
+    cites.concat(slips).forEach(function(x){var id=x.getAttribute('data-cite')||x.getAttribute('data-slip');
+      x.addEventListener('mouseenter',function(){lit(id)});x.addEventListener('mouseleave',function(){lit(null)});
+      x.addEventListener('click',function(){lit(id)})});
+    var res=card.querySelector('.d-res'),more=[].slice.call(card.querySelectorAll('.d-next li')),btns=[].slice.call(card.querySelectorAll('[data-act]'));
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      var a=b.getAttribute('data-act');
+      if(a==='further'){res.hidden=true;more.forEach(function(li,i){li.hidden=true;setTimeout(function(){li.hidden=false},reduce?0:i*450)})}
+      else{more.forEach(function(li){li.hidden=true});res.textContent=b.getAttribute('data-msg');res.className='d-res '+a;res.hidden=false}
+    })});
+  });
+
+  /* ---------------------------------------------------------------- lifting the floor */
+  var under=document.querySelector('[data-under]');
+  if(under){
+    var slab=under.querySelector('.slab'),topo=under.querySelector('.topo'),copy=under.querySelector('.under-copy'),uScroll=false;
+    function uMeasure(){uScroll=!reduce&&window.innerWidth>860&&window.innerHeight>=600;under.classList.toggle('is-scroll',uScroll);uUpdate()}
+    function uUpdate(){
+      var q=1;
+      if(uScroll){var tr=under.querySelector('.under-track'),r=tr.getBoundingClientRect();q=Math.min(1,Math.max(0,-r.top/(tr.offsetHeight-window.innerHeight)))}
+      else if(!reduce){var r2=under.getBoundingClientRect();q=r2.top<window.innerHeight*.75?1:0}
+      slab.style.setProperty('--lift',uScroll?sm(q,.06,.4).toFixed(3):1);
+      copy.style.setProperty('--copy',uScroll?sm(q,.22,.46).toFixed(3):1);
+      topo.style.setProperty('--draw',uScroll?sm(q,.3,.78).toFixed(3):(reduce?1:q));
+      var rr=under.getBoundingClientRect(),lifted=!uScroll||sm(q,.06,.4)>.6;document.body.classList.toggle('on-dark',lifted&&rr.top<window.innerHeight/2&&rr.bottom>window.innerHeight/2);
+    }
+    under.classList.add('js-on');
+    if(!reduce)topo.style.transition='none';
+    var uraf=null;window.addEventListener('scroll',function(){if(!uraf)uraf=requestAnimationFrame(function(){uraf=null;uUpdate()})},{passive:true});
+    window.addEventListener('resize',function(){clearTimeout(window.__un);window.__un=setTimeout(uMeasure,120)});
+    uMeasure();
+  }
+
+  /* ---------------------------------------------------------------- the rail: where the signal is */
+  var rail=[].slice.call(document.querySelectorAll('.rail a'));
+  if(rail.length&&'IntersectionObserver' in window){
+    var ids=rail.map(function(a){return a.getAttribute('data-rail')});
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(!x.isIntersecting)return;var k=ids.indexOf(x.target.id);
+      rail.forEach(function(a,i){a.classList.toggle('on',i===k);a.classList.toggle('done',i<k)})})},{rootMargin:'-45% 0px -50% 0px'});
+    ids.forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s)});
   }
 })();
 

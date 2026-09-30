@@ -27,13 +27,14 @@ SRC = os.path.join(ROOT, "src")
 sys.path.insert(0, SRC)
 import risk_components  # noqa: E402
 import harness_components  # noqa: E402
+import organism_components  # noqa: E402
 
 LOCALES = [("tr", ""), ("en", "en/")]          # (language, output folder); first is the default
 PAGES = ["home", "risk", "finance", "security", "energy", "harness"]
 PAGE_DIR = {"home": ""}                        # output folder per page inside a locale
 SUB = {"home": "", "harness": " harness"}     # sub-brand after the logo (".risk"; a leading space means a word, not a Space)
 
-BASE_CSS = open(os.path.join(SRC, "base.css"), encoding="utf-8").read()
+BASE_CSS = open(os.path.join(SRC, "base.css"), encoding="utf-8").read() + "\n" + open(os.path.join(SRC, "organism.css"), encoding="utf-8").read()
 BASE_JS = open(os.path.join(SRC, "base.js"), encoding="utf-8").read()
 UI_ALL = json.load(open(os.path.join(SRC, "i18n", "ui.json"), encoding="utf-8"))
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
@@ -230,6 +231,7 @@ COMPONENTS = {
 }
 COMPONENTS.update(risk_components.COMPONENTS)
 COMPONENTS.update(harness_components.COMPONENTS)
+COMPONENTS.update(organism_components.COMPONENTS)
 
 
 # ---------------------------------------------------------------- chrome
@@ -257,18 +259,23 @@ def lang_switch(ctx):
 
 
 def nav(page, ctx):
-    links = "".join(f'<a href="{h}">{e(t)}</a>' for t, h in DATA["nav"][page])
+    """One global navigation on every page: Deepin, the two Spaces, Harness, customers."""
     root = ctx["root"]
     home = "#top" if page == "home" else root
-    subspan = sub_brand(page)
-    back = "" if page == "home" else f'<a class="back" href="{root}">{e(UI["back_space"] if page == "risk" else UI["back_home"])}</a>'
+    items = [("home", "Deepin", root or "./"), ("risk", "deepin.risk", f"{root}risk/"),
+             ("finance", "deepin.finance", f"{root}finance/"), ("harness", "Harness", f"{root}harness/"),
+             ("customers", UI["customers"], f"{root}#customers" if root else "#customers")]
+    cur = ' aria-current="page"'
+    links = "".join(f'<a href="{h}"{cur if k == page else ""}>{e(t)}</a>' for k, t, h in items)
     login = f'<a class="login" href="https://platform.deepin.space">{e(UI["login"])}</a>' if page == "home" else ""
     cta_href = "#request" if page == "risk" else "#contact"
     return f'''<header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="{home}" aria-label="{e(UI["home_label"])}">{logo_imgs(ctx["assets"])}{subspan}</a>
+    <a class="brand" href="{home}" aria-label="{e(UI["home_label"])}">{logo_imgs(ctx["assets"])}{sub_brand(page)}</a>
     <nav class="nav-links" aria-label="{e(UI["aria_main"])}">{links}</nav>
-    <div class="nav-cta">{lang_switch(ctx)}{back}{login}<a class="btn btn-primary btn-sm" href="{cta_href}">{e(UI["cta"][page])}</a></div>
+    <div class="nav-cta">{lang_switch(ctx)}{login}<a class="btn btn-primary btn-sm" href="{cta_href}">{e(UI["cta"][page])}</a>
+      <details class="menu"><summary aria-label="{e(UI["aria_main"])}"><span></span><span></span></summary><nav class="menu-panel" aria-label="{e(UI["aria_main"])}">{links}<a class="menu-cta" href="{cta_href}">{e(UI["cta"][page])} →</a></nav></details>
+    </div>
   </div>
 </header>'''
 
@@ -356,6 +363,7 @@ def build():
             page_depth = PAGE_DIR.get(page, page + "/").count("/")
             ctx = {
                 "lang": lang,
+                "ui": UI,
                 "assets": "../" * depth,          # to the site root (shared assets)
                 "root": "../" * page_depth,       # to this language's home page
                 "alt": {l: "../" * depth + page_path(d, page) for l, d in LOCALES},
@@ -366,6 +374,7 @@ def build():
             cpath = os.path.join(SRC, "content", f"{page}.{lang}.json")
             ctx["content"] = json.load(open(cpath, encoding="utf-8")) if os.path.exists(cpath) else {}
             risk_components.set_locale(ctx["content"])
+            organism_components.set_data(DATA, STATUS)
 
             meta, body = front_matter(open(src, encoding="utf-8").read())
             meta = {k: fill(v, ctx["content"]) for k, v in meta.items()}
@@ -375,6 +384,8 @@ def build():
                 body, chrome_nav, chrome_footer = (mark_english(x) for x in (body, chrome_nav, chrome_footer))
             style = open(os.path.join(SRC, "styles", f"{page}.css"), encoding="utf-8").read()
             css = BASE_CSS.replace('url("assets/', f'url("{ctx["assets"]}assets/') + "\n" + style
+            jpath = os.path.join(SRC, "scripts", f"{page}.js")
+            page_js = open(jpath, encoding="utf-8").read() if os.path.exists(jpath) else ""
             url = f"https://deepin.space/{out}"
             alternates = "\n".join(f'<link rel="alternate" hreflang="{l}" href="https://deepin.space/{page_path(d, page)}">' for l, d in LOCALES)
             alternates += f'\n<link rel="alternate" hreflang="x-default" href="https://deepin.space/{page_path(LOCALES[0][1], page)}">'
@@ -396,6 +407,7 @@ def build():
 <meta property="og:locale" content="{"tr_TR" if lang == "tr" else "en_US"}">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
+<meta name="generator" content="deepin/organism">
 <link rel="canonical" href="{url}">
 {alternates}
 <link rel="icon" type="image/png" href="{ctx["assets"]}assets/favicon-64.png">
@@ -405,7 +417,7 @@ def build():
 {css}
 </style>
 </head>
-<body>
+<body class="pg-{page}">
 {chrome_nav}
 <main>
 {body.strip()}
@@ -413,6 +425,7 @@ def build():
 {chrome_footer}
 <script>
 {BASE_JS}
+{page_js}
 </script>
 </body>
 </html>
