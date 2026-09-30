@@ -102,8 +102,8 @@ def org_decision(arg, ctx):
     d = ctx["content"]["decision"]
     ev = {i: (t, src) for i, t, src in ctx["content"]["scene"]["evidence"]}
     chain = "".join(f'<li class="{"hum" if n == len(d["chain"]) - 1 else ""}">{e(x)}</li>' for n, x in enumerate(d["chain"]))
-    why = "".join(f'<li data-cite="{e(r)}"><span>{e(t)}</span><sup>{e(r)}</sup></li>' for t, r in d["why"])
-    slips = "".join(f'<li class="slip" data-slip="{e(i)}"><span class="ev-id">{e(i)}</span><b>{e(t)}</b><small>{e(src)}</small></li>'
+    why = "".join(f'<li data-cite="{e(r)}" tabindex="0"><span>{e(t)}</span><sup>{e(r)}</sup></li>' for t, r in d["why"])
+    slips = "".join(f'<li class="slip" data-slip="{e(i)}" tabindex="0"><span class="ev-id">{e(i)}</span><b>{e(t)}</b><small>{e(src)}</small></li>'
                     for i, (t, src) in ev.items())
     btns = "".join(f'<button type="button" class="d-btn d-{k}" data-act="{k}" data-msg="{e(m, quote=True)}">{e(t)}</button>' for k, t, m in d["actions"])
     further = "".join(f'<li hidden>{e(x)}</li>' for x in d["further"])

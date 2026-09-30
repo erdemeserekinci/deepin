@@ -24,7 +24,7 @@
     "mi_note": "İzleme sinyali yakalar. Deepin sinyali araştırır.",
     "ev_eyebrow": "Önce kanıt, sonra karar",
     "ev_h2": "deepin.risk yalnızca skoru değil, <b>nedenini de verir.</b>",
-    "ev_lede": "Risk seviyesi ürünün kendisi değil, Investigation'ın son satırıdır. Her değişiklik bulgularıyla, kaynaklarıyla ve onları birbirine bağlayan gerekçeyle gelir; kararı ekibiniz verir.",
+    "ev_lede": "Deepin bir risk skoru üretmekle yetinmez. Her sonuç, bulguları, kanıtları ve gerekçesiyle birlikte gelir; kararı ekibiniz verir.",
     "layer_eyebrow": "deepin.risk nerede durur",
     "layer_h2": "Risk yapınızdaki <b>Investigation katmanı.</b>",
     "layer_lede": "TPRM ya da GRC sisteminiz süreci yönetir. Deepin sürecin arkasındaki şirketi araştırır.",
@@ -404,7 +404,7 @@
       "label": "Ekibiniz",
       "items": [
         "Kanıtı inceler",
-        "Muhakeme eder",
+        "Karar verir",
         "Onaylar ya da reddeder"
       ]
     }

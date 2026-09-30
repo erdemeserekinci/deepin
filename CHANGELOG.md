@@ -137,6 +137,13 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - **Menü:** tüm sayfalarda tek genel menü (Deepin · deepin.risk · deepin.finance · Harness · Müşteriler); dar ekranlarda açılır menü. Ana sayfada geniş ekranlarda sayfanın hangi aşamasında olduğunuzu gösteren ince bir "durum rayı".
 - **Hareket ve erişilebilirlik:** hareket azaltma tercihinde sahneler adım düğmeleriyle, hareketsiz çalışır; JavaScript olmadan son durum görünür. Yeni bağımlılık yok; sahneler DOM + SVG ile, az sayıda öğeyle çiziliyor.
 
+**Son hassas geçiş (yeniden tasarım yok)**
+- Metin: Risk'te "Deepin bir risk skoru üretmekle yetinmez…" ve "Karar verir"; Finance'te kart şeması süreleri, "Vakadan karara.", "insan onayını koruyarak" düzeltmeleri; Harness Ar-Ge metninde "Organizational Reasoning" terimi; "Onayladınız", "Bir örneği izleyin"; Harness referans cümlesi "…Investigation'larla şekilleniyor" (daha temkinli).
+- Görsel: ana sayfadaki müşteri satırı ince bir çizgiyle ayrılıp kanıt gibi okunuyor; Harness'ta Organizasyon, Organizational Reasoning ve yönetilen iş öne çıktı, bilgi/değerlendirme/izlenebilirlik ikincil katman oldu; tabletlerde Investigation sahnesi düzeldi; mobilde başlık satırı ve Finance durum etiketi taşmıyor.
+- Hareket: yalnızca "Deepin onu yürütür" satırı gelir; sinyal daha seyrek atar; kaydırma ipucu üç kez oynar; hareket azaltmada Harness topolojisindeki sinyal de durur.
+- Erişilebilirlik: kanıt vurgusu klavyeyle de çalışır; küçük etiketlerin kontrastı 4.0'dan 5.85'e çıktı.
+- Kullanılmayan eski Harness bileşenleri ve stilleri kaldırıldı.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.

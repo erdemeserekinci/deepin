@@ -725,7 +725,7 @@ span[lang="en"]{display:contents}
 .sec.dots::after{opacity:.5}
 
 /* ---- type system ---- */
-.lab{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.4}
+.lab{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--muted) 70%,var(--ink));line-height:1.4}
 .sec-k{display:flex;align-items:center;gap:14px;margin:0 0 22px}
 .sec-k span{color:var(--accent)}
 .sec-k::after{content:"";flex:0 1 72px;height:1px;background:var(--hair)}
@@ -734,7 +734,7 @@ span[lang="en"]{display:contents}
 .mega{font-size:clamp(46px,8.6vw,132px);font-weight:300;line-height:.95;letter-spacing:-.05em;text-wrap:balance}
 .mega b{font-weight:600;color:var(--accent)}
 .o-p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--ink-2);max-width:54ch;margin-top:22px}
-.note{font-size:12.5px;color:var(--muted)}
+.note{font-size:12.5px;color:color-mix(in srgb,var(--muted) 70%,var(--ink))}
 .o-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
 .o-link:hover{color:var(--ink)}
 h1,.h2{letter-spacing:-.035em}
@@ -835,6 +835,9 @@ footer .f-about p{max-width:40ch}
   .topo-ms span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.16);color:var(--deep-muted)}
 }
 body.on-dark .brand .sub{color:var(--deep-ink)}
+@media (prefers-reduced-motion: reduce){.t-signal{display:none}}
+
+@media (max-width:420px){.hero .chip.status{white-space:normal;max-width:100%}}
 
 /* =====================================================================
    DEEPIN / ORGANISM — homepage
@@ -853,26 +856,25 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 .o-h1 .l{display:inline}
 .o-h1 .l3{display:block;font-weight:600;color:var(--accent);margin-top:.08em;position:relative;width:max-content;max-width:100%}
 .o-h1 .l3::after{content:"";position:absolute;left:0;right:0;bottom:-.06em;height:.06em;border-radius:1em;background:var(--mint);transform-origin:left;transform:scaleX(0);animation:o-underline 1.1s var(--ease) 1.2s forwards}
-.o-h1 .l1,.o-h1 .l2{animation:o-rise .9s var(--ease) both}
-.o-h1 .l2{animation-delay:.12s}
 .o-h1 .l3{animation:o-rise .9s var(--ease) .75s both}
 @keyframes o-rise{from{opacity:0;transform:translateY(.25em)}to{opacity:1;transform:none}}
 @keyframes o-underline{to{transform:scaleX(1)}}
 .o-hero-foot{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:end;margin-top:6px}
 .o-lede{font-size:clamp(16px,1.25vw,18px);line-height:1.6;color:var(--ink-2);max-width:52ch}
 .o-hero .hero-ctas{margin-top:26px}
-.o-proof{margin-top:22px;font-size:13px;color:var(--muted)}
-.o-proof b{font-weight:500;color:var(--ink-2)}
+.o-proof{margin-top:30px;padding-top:14px;border-top:1px solid var(--hair);max-width:52ch;font-size:12.5px;color:var(--muted)}
+.o-proof b{font-weight:600;color:var(--ink)}
 .signal{justify-self:end;position:relative;display:grid;gap:6px;max-width:340px;padding:16px 18px 16px 40px;border-left:1px solid var(--hair)}
 .signal b{font-size:15px;font-weight:500;line-height:1.4}
 .sig-dot{position:absolute;left:14px;top:21px;width:9px;height:9px;border-radius:50%;background:var(--mint)}
-.sig-dot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid var(--mint);opacity:0;animation:o-ping 3.2s var(--ease) 1.6s infinite}
+.sig-dot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid var(--mint);opacity:0;animation:o-ping 5s var(--ease) 1.6s infinite}
 @keyframes o-ping{0%{opacity:.8;transform:scale(.4)}70%,100%{opacity:0;transform:scale(1.8)}}
 .sig-next{margin-top:6px;font-size:13px;color:var(--warn);font-weight:500}
 .thread{position:absolute;left:50%;bottom:0;width:1px;height:96px;background:linear-gradient(var(--hair),var(--mint))}
-.thread::after{content:"";position:absolute;left:-3px;bottom:0;width:7px;height:7px;border-radius:50%;background:var(--mint);animation:o-drop 2.6s var(--ease) 2s infinite}
+.thread::after{content:"";position:absolute;left:-3px;bottom:0;width:7px;height:7px;border-radius:50%;background:var(--mint);animation:o-drop 2.6s var(--ease) 2s 3}
 @keyframes o-drop{0%{transform:translateY(-96px);opacity:0}30%{opacity:1}100%{transform:none;opacity:0}}
 @media (max-width:860px){
+  .o-h1 .l3{width:auto}
   .o-hero{min-height:auto;padding-block:40px 110px}
   .o-hero-foot{grid-template-columns:minmax(0,1fr);gap:34px}
   .signal{justify-self:start}
@@ -948,6 +950,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 .st-dec b{font-size:15px;font-weight:600}
 .st-dec small{font-size:12px;color:var(--warn)}
 .stage.dimmed .st-src,.stage.dimmed .st-co{opacity:calc(var(--o,1) * (1 - var(--dim) * .65))}
+@media (min-width:861px) and (max-width:1120px){.scene-grid{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:32px}.st-ev b{font-size:12px}.st-find p{font-size:12px}}
 @media (max-width:860px){
   .scene-grid{grid-template-columns:minmax(0,1fr);gap:16px}
   .scene.js-on.is-scroll .scene-sticky{align-items:stretch;padding-block:14px 10px}
@@ -1191,7 +1194,7 @@ details[open] summary .ix-name{color:var(--accent)}
         <p class="o-lede">Bir risk, fraud ya da uyum kararından önce ekibiniz sistemlerde arama yapar, belgeleri okur ve kayıtları karşılaştırır. <span lang="en">Deepin</span> bu araştırmayı yapar, her bulgunun arkasındaki kanıtı gösterir ve karar için bir kişinin onayını bekler.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#contact">Bize bir <span lang="en">Investigation</span> getirin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-          <a class="btn btn-ghost" href="#investigation">Bir tanesini izleyin</a>
+          <a class="btn btn-ghost" href="#investigation">Bir örneği izleyin</a>
         </div>
         <p class="o-proof"><b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> ve <b>GreenChimney</b> bünyesinde canlı kullanımda</p>
       </div>
@@ -1236,10 +1239,10 @@ details[open] summary .ix-name{color:var(--accent)}
   <ol class="dchain" aria-hidden="true"><li class="">Kaynak</li><li class="">Kanıt</li><li class="">Gerekçe</li><li class="">Öneri</li><li class="hum">İnsan kararı</li></ol>
   <div class="dcard-body">
     <div class="drec"><span class="lab">Öneri</span><strong>Şirket risk seviyesini yükselt</strong><span class="drec-sub">Orta → Yüksek</span>
-      <span class="lab dwhy-k">Neden</span><ol class="dwhy"><li data-cite="E2"><span>Temsil yetkisi değişti</span><sup>E2</sup></li><li data-cite="E1"><span>Sermaye %40 azaltıldı</span><sup>E1</sup></li><li data-cite="E3"><span>Yeni imza yetkilisi, izlenen 2 şirketle bağlantılı</span><sup>E3</sup></li></ol></div>
-    <div class="dev"><span class="lab">Kanıt</span><ol class="slips"><li class="slip" data-slip="E1"><span class="ev-id">E1</span><b>Sermaye %40 azaltıldı</b><small>Ticaret Sicili Gazetesi · 12 Eyl</small></li><li class="slip" data-slip="E2"><span class="ev-id">E2</span><b>Temsil yetkisi değişti</b><small>Ticaret Sicili Gazetesi · 18 Eyl</small></li><li class="slip" data-slip="E3"><span class="ev-id">E3</span><b>Yeni imza yetkilisi, izlenen 2 şirkette ortak</b><small>İlişki grafiği</small></li></ol></div>
+      <span class="lab dwhy-k">Neden</span><ol class="dwhy"><li data-cite="E2" tabindex="0"><span>Temsil yetkisi değişti</span><sup>E2</sup></li><li data-cite="E1" tabindex="0"><span>Sermaye %40 azaltıldı</span><sup>E1</sup></li><li data-cite="E3" tabindex="0"><span>Yeni imza yetkilisi, izlenen 2 şirketle bağlantılı</span><sup>E3</sup></li></ol></div>
+    <div class="dev"><span class="lab">Kanıt</span><ol class="slips"><li class="slip" data-slip="E1" tabindex="0"><span class="ev-id">E1</span><b>Sermaye %40 azaltıldı</b><small>Ticaret Sicili Gazetesi · 12 Eyl</small></li><li class="slip" data-slip="E2" tabindex="0"><span class="ev-id">E2</span><b>Temsil yetkisi değişti</b><small>Ticaret Sicili Gazetesi · 18 Eyl</small></li><li class="slip" data-slip="E3" tabindex="0"><span class="ev-id">E3</span><b>Yeni imza yetkilisi, izlenen 2 şirkette ortak</b><small>İlişki grafiği</small></li></ol></div>
   </div>
-  <div class="dact"><div class="d-btns"><button type="button" class="d-btn d-approve" data-act="approve" data-msg="Sizin tarafınızdan onaylandı. Risk seviyesi güncellendi; vaka, kanıtı ve kararınız birlikte saklanıyor.">Onayla</button><button type="button" class="d-btn d-reject" data-act="reject" data-msg="Reddedildi. Risk seviyesi Orta olarak kalıyor ve gerekçeniz vakayla birlikte kaydediliyor.">Reddet</button><button type="button" class="d-btn d-further" data-act="further" data-msg="">Araştırmaya devam et</button></div><p class="d-res" aria-live="polite" hidden></p><ol class="d-next"><li hidden>Son finansal tabloları iste</li><li hidden>İmza yetkilisinin diğer şirketlerini incele</li><li hidden><span lang="en">Investigation</span>&#x27;ı 7 gün sonra yeniden çalıştır</li></ol></div>
+  <div class="dact"><div class="d-btns"><button type="button" class="d-btn d-approve" data-act="approve" data-msg="Onayladınız. Risk seviyesi güncellendi; vaka, kanıtı ve kararınız birlikte saklanıyor.">Onayla</button><button type="button" class="d-btn d-reject" data-act="reject" data-msg="Reddedildi. Risk seviyesi Orta olarak kalıyor ve gerekçeniz vakayla birlikte kaydediliyor.">Reddet</button><button type="button" class="d-btn d-further" data-act="further" data-msg="">Araştırmaya devam et</button></div><p class="d-res" aria-live="polite" hidden></p><ol class="d-next"><li hidden>Son finansal tabloları iste</li><li hidden>İmza yetkilisinin diğer şirketlerini incele</li><li hidden><span lang="en">Investigation</span>&#x27;ı 7 gün sonra yeniden çalıştır</li></ol></div>
 </div>
 <p class="note">Kurgusal bir şirketle hazırlanmış örnek vaka.</p>
   </div>
@@ -1718,7 +1721,7 @@ details[open] summary .ix-name{color:var(--accent)}
       }
     };
     var P=reduce?1:0,layout=null,W=0,H=0;
-    function pick(){layout=stage.clientWidth<560?L.tall:L.wide;W=stage.clientWidth;H=stage.clientHeight;svg.setAttribute('viewBox','0 0 '+W+' '+H)}
+    function pick(){layout=window.innerWidth<=860?L.tall:L.wide;W=stage.clientWidth;H=stage.clientHeight;svg.setAttribute('viewBox','0 0 '+W+' '+H)}
     function place(n,x,y,r,o,s){n.style.setProperty('--x',x.toFixed(2));n.style.setProperty('--y',y.toFixed(2));n.style.setProperty('--r',(r||0).toFixed(2));n.style.setProperty('--o',o.toFixed(3));n.style.setProperty('--s',(s||1).toFixed(3))}
     function box(id){var n=nodes[id];if(!n)return null;var x=parseFloat(n.style.getPropertyValue('--x'))/100*W,y=parseFloat(n.style.getPropertyValue('--y'))/100*H;return{x:x,y:y,w:n.offsetWidth,h:n.offsetHeight}}
     function path(d,cls,o){var p=document.createElementNS(NSV,'path');p.setAttribute('d',d);p.setAttribute('class',cls);p.style.opacity=o;svg.appendChild(p)}
@@ -1780,7 +1783,7 @@ details[open] summary .ix-name{color:var(--accent)}
     function lit(id){cites.forEach(function(c){c.classList.toggle('lit',c.getAttribute('data-cite')===id)});slips.forEach(function(s){s.classList.toggle('lit',s.getAttribute('data-slip')===id)})}
     cites.concat(slips).forEach(function(x){var id=x.getAttribute('data-cite')||x.getAttribute('data-slip');
       x.addEventListener('mouseenter',function(){lit(id)});x.addEventListener('mouseleave',function(){lit(null)});
-      x.addEventListener('click',function(){lit(id)})});
+      x.addEventListener('click',function(){lit(id)});x.addEventListener('focus',function(){lit(id)});x.addEventListener('blur',function(){lit(null)})});
     var res=card.querySelector('.d-res'),more=[].slice.call(card.querySelectorAll('.d-next li')),btns=[].slice.call(card.querySelectorAll('[data-act]'));
     btns.forEach(function(b){b.addEventListener('click',function(){
       btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});

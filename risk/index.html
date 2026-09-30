@@ -725,7 +725,7 @@ span[lang="en"]{display:contents}
 .sec.dots::after{opacity:.5}
 
 /* ---- type system ---- */
-.lab{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.4}
+.lab{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--muted) 70%,var(--ink));line-height:1.4}
 .sec-k{display:flex;align-items:center;gap:14px;margin:0 0 22px}
 .sec-k span{color:var(--accent)}
 .sec-k::after{content:"";flex:0 1 72px;height:1px;background:var(--hair)}
@@ -734,7 +734,7 @@ span[lang="en"]{display:contents}
 .mega{font-size:clamp(46px,8.6vw,132px);font-weight:300;line-height:.95;letter-spacing:-.05em;text-wrap:balance}
 .mega b{font-weight:600;color:var(--accent)}
 .o-p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--ink-2);max-width:54ch;margin-top:22px}
-.note{font-size:12.5px;color:var(--muted)}
+.note{font-size:12.5px;color:color-mix(in srgb,var(--muted) 70%,var(--ink))}
 .o-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
 .o-link:hover{color:var(--ink)}
 h1,.h2{letter-spacing:-.035em}
@@ -835,6 +835,9 @@ footer .f-about p{max-width:40ch}
   .topo-ms span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.16);color:var(--deep-muted)}
 }
 body.on-dark .brand .sub{color:var(--deep-ink)}
+@media (prefers-reduced-motion: reduce){.t-signal{display:none}}
+
+@media (max-width:420px){.hero .chip.status{white-space:normal;max-width:100%}}
 
 /* ================= risk badges ================= */
 .risk{display:inline-flex;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:6px;font-weight:500;white-space:nowrap}
@@ -1305,14 +1308,14 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     <div class="sec-head">
       <p class="eyebrow">Önce kanıt, sonra karar</p>
       <h2 class="h2"><span lang="en">deepin.risk</span> yalnızca skoru değil, <b>nedenini de verir.</b></h2>
-      <p class="lede">Risk seviyesi ürünün kendisi değil, <span lang="en">Investigation</span>'ın son satırıdır. Her değişiklik bulgularıyla, kaynaklarıyla ve onları birbirine bağlayan gerekçeyle gelir; kararı ekibiniz verir.</p>
+      <p class="lede"><span lang="en">Deepin</span> bir risk skoru üretmekle yetinmez. Her sonuç, bulguları, kanıtları ve gerekçesiyle birlikte gelir; kararı ekibiniz verir.</p>
     </div>
     <ol class="chain2" aria-label="Kaynaktan insan kararına"><li class="">Kaynak</li><li class="">Kanıt</li><li class="">Bulgu</li><li class="">Bağlam</li><li class="">Gerekçe</li><li class="">Öneri</li><li class="hd">İnsan kararı</li></ol>
     <div class="ev2">
       <div class="roles">
   <div class="role-d"><span class="lbl"><span lang="en">Deepin</span></span><ul><li>Algılar</li><li>Araştırır</li><li>Kanıt toplar</li><li>Karşılaştırır</li><li>Gerekçelendirir</li><li>Öneri sunar</li></ul></div>
   <div class="role-arrow" aria-hidden="true"></div>
-  <div class="role-t"><span class="lbl">Ekibiniz</span><ul><li>Kanıtı inceler</li><li>Muhakeme eder</li><li>Onaylar ya da reddeder</li></ul></div>
+  <div class="role-t"><span class="lbl">Ekibiniz</span><ul><li>Kanıtı inceler</li><li>Karar verir</li><li>Onaylar ya da reddeder</li></ul></div>
 </div>
       <figure class="evui rcx2" aria-label="Kanıtlarıyla risk bağlamı değişikliği (demo)">
   <div class="evui-top"><span>Akdeniz Endüstri A.Ş.</span><span class="chip st-wait">Risk bağlamı güncellendi</span></div>

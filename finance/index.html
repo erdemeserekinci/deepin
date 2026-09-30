@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>deepin.finance · Chargeback Investigation</title>
-<meta name="description" content="Kanıtı ekli Chargeback Investigation. deepin.finance itiraz vakasını hazırlar, kart şeması kurallarını ve politikalarınızı uygular, insan onayı için bir öneri hazırlar.">
+<meta name="description" content="Chargeback Investigation, kanıtıyla birlikte. deepin.finance itiraz vakasını hazırlar, kart şeması kurallarını ve politikalarınızı uygular, insan onayı için bir öneri hazırlar.">
 <meta property="og:title" content="deepin.finance · Chargeback Investigation">
-<meta property="og:description" content="Kanıtı ekli Chargeback Investigation. deepin.finance itiraz vakasını hazırlar, kart şeması kurallarını ve politikalarınızı uygular, insan onayı için bir öneri hazırlar.">
+<meta property="og:description" content="Chargeback Investigation, kanıtıyla birlikte. deepin.finance itiraz vakasını hazırlar, kart şeması kurallarını ve politikalarınızı uygular, insan onayı için bir öneri hazırlar.">
 <meta property="og:url" content="https://deepin.space/finance/">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
@@ -725,7 +725,7 @@ span[lang="en"]{display:contents}
 .sec.dots::after{opacity:.5}
 
 /* ---- type system ---- */
-.lab{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.4}
+.lab{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--muted) 70%,var(--ink));line-height:1.4}
 .sec-k{display:flex;align-items:center;gap:14px;margin:0 0 22px}
 .sec-k span{color:var(--accent)}
 .sec-k::after{content:"";flex:0 1 72px;height:1px;background:var(--hair)}
@@ -734,7 +734,7 @@ span[lang="en"]{display:contents}
 .mega{font-size:clamp(46px,8.6vw,132px);font-weight:300;line-height:.95;letter-spacing:-.05em;text-wrap:balance}
 .mega b{font-weight:600;color:var(--accent)}
 .o-p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--ink-2);max-width:54ch;margin-top:22px}
-.note{font-size:12.5px;color:var(--muted)}
+.note{font-size:12.5px;color:color-mix(in srgb,var(--muted) 70%,var(--ink))}
 .o-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
 .o-link:hover{color:var(--ink)}
 h1,.h2{letter-spacing:-.035em}
@@ -835,6 +835,9 @@ footer .f-about p{max-width:40ch}
   .topo-ms span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.16);color:var(--deep-muted)}
 }
 body.on-dark .brand .sub{color:var(--deep-ink)}
+@media (prefers-reduced-motion: reduce){.t-signal{display:none}}
+
+@media (max-width:420px){.hero .chip.status{white-space:normal;max-width:100%}}
 
 .amt{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
 .amt strong{font-size:26px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
@@ -896,7 +899,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     <div>
       <p class="eyebrow">Finansal Operasyonlar ve <span lang="en">Investigation</span></p>
       <h1>Chargeback <span lang="en">Investigation</span>. <b>Kanıtıyla birlikte.</b></h1>
-      <p class="lede">İtiraz ekipleri, kart şemasının belirlediği süreler dolmadan her vaka için işlem verisini, doğrulama kayıtlarını, üye işyeri bilgilerini ve belgeleri toplamak zorundadır. <span lang="en">deepin.finance</span> vakayı hazırlar, kurallarınızı ve politikalarınızı uygular ve ekibinizin onaylayabileceği bir karar hazırlar.</p>
+      <p class="lede">İtiraz ekipleri, kart şemalarının süreleri dolmadan her vaka için gerekli işlem verisini, doğrulama kayıtlarını, üye işyeri bilgilerini ve belgeleri toplamak zorunda. <span lang="en">deepin.finance</span> vakayı hazırlar, kurallarınızı ve politikalarınızı uygular ve ekibinizin onaylayabileceği bir karar hazırlar.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#contact">Demo talep edin
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
@@ -949,7 +952,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     </div>
     <div class="pains">
       <div><h3>Yüksek hacim</h3><p>Vakalar her gün gelir ve kuyruk nadiren boşalır.</p></div>
-      <div><h3>Katı süreler</h3><p>Kart şeması süreleri, yavaş kanıt toplamaya pek yer bırakmaz.</p></div>
+      <div><h3>Katı süreler</h3><p>Kart şemalarının süreleri, kanıt toplamak için fazla zaman bırakmaz.</p></div>
       <div><h3>Dağınık veri</h3><p>İşlem, doğrulama, üye işyeri ve belge verisi farklı sistemlerde durur.</p></div>
       <div><h3>Gerçek kayıplar</h3><p>Kaçırılan bir süre ya da yanlış bir karar; zarar yazılan bir tutara, bir ücrete ya da bir şikâyete dönüşür.</p></div>
     </div>
@@ -992,7 +995,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
       </div>
       <div class="panel">
         <div>
-          <div class="lbl">Vakadan karara</div>
+          <div class="lbl">Vakadan karara.</div>
           <div class="equation plain"><span>İşlem</span><i>+</i><span>Şirket</span><i>+</i><span>Kanıt</span></div>
           <div class="eq-down" aria-hidden="true"></div>
           <div class="equation"><span class="dr">Karara hazır vaka</span><i>→</i><span>İnsan onayı</span></div>
@@ -1074,7 +1077,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     <ol class="engage">
       <li><h3>Kuyruğu ölçün</h3><p>Aylık vaka hacmi, vaka başına süre, dokunulan sistemler ve risk altındaki kayıplar.</p></li>
       <li><h3>Gerçek vakalarla çalışın</h3><p>Kendi itirazlarınız, kendi sistemleriniz ve baştan birlikte belirlenen başarı kriterleri.</p></li>
-      <li><h3>Canlıya alın</h3><p>Her sonuçta insan onayı ile itiraz operasyonunuza kurun.</p></li>
+      <li><h3>Canlıya alın</h3><p>Her sonuçta insan onayını koruyarak itiraz operasyonunuza alın.</p></li>
     </ol>
   </div>
 </section>

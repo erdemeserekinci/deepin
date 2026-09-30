@@ -8,7 +8,7 @@
     "hero_l3": "Deepin onu yürütür.",
     "hero_lede": "Bir risk, fraud ya da uyum kararından önce ekibiniz sistemlerde arama yapar, belgeleri okur ve kayıtları karşılaştırır. Deepin bu araştırmayı yapar, her bulgunun arkasındaki kanıtı gösterir ve karar için bir kişinin onayını bekler.",
     "hero_cta": "Bize bir Investigation getirin",
-    "hero_cta2": "Bir tanesini izleyin",
+    "hero_cta2": "Bir örneği izleyin",
     "hero_proof": "<b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> ve <b>GreenChimney</b> bünyesinde canlı kullanımda",
     "sig_time": "18.09.2026 · 09:42",
     "sig_src": "Ticaret Sicili Gazetesi",
@@ -265,7 +265,7 @@
       [
         "approve",
         "Onayla",
-        "Sizin tarafınızdan onaylandı. Risk seviyesi güncellendi; vaka, kanıtı ve kararınız birlikte saklanıyor."
+        "Onayladınız. Risk seviyesi güncellendi; vaka, kanıtı ve kararınız birlikte saklanıyor."
       ],
       [
         "reject",
