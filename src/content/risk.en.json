@@ -1,83 +1,87 @@
 {
   "lang": "en",
   "copy": {
-    "title": "deepin.risk · Company Investigation",
-    "description": "Investigate every company you depend on. When a company changes, Deepin investigates what changed, why it matters and shows the evidence behind it.",
+    "title": "Deepin Risk · Company Intelligence",
+    "description": "Look deep into every company's history, relationships and risks. Deepin tracks changes at your customers, suppliers, dealers and business partners and explains what they mean, with evidence.",
     "demo_note": "Demo data with fictional companies.",
-    "hero_eyebrow": "Company & Third-Party Investigation",
-    "hero_h1": "Investigate every company <b>you depend on.</b>",
-    "hero_lede": "Companies change. Ownership changes. Authority changes. Relationships change. Financial conditions change. Deepin continuously investigates those changes, gathers the evidence and shows you what matters.",
-    "hero_cta": "Investigate a company",
+    "hero_eyebrow": "Company intelligence & risk monitoring",
+    "hero_h1": "Look <b>deeper</b> into every company.",
+    "hero_lede": "Your customers, suppliers, dealers and business partners keep changing. Deepin tracks these changes and explains what they mean, with evidence. Your team makes the call.",
+    "hero_cta": "Look into a company",
     "hero_cta2": "See how it works",
     "mon_shift_from": "Static Risk Report",
-    "mon_shift_to": "Living Investigation",
-    "mon_h2": "A company doesn't stay the same. <b>Why should its risk report?</b>",
-    "mon_lede": "Traditional risk assessment is a snapshot. Deepin maintains a living investigation: a material change causes the company to be investigated again.",
+    "mon_shift_to": "Living Intelligence",
+    "mon_h2": "Companies don't stay the same. <b>Why should their risk report?</b>",
+    "mon_lede": "Traditional risk assessment is a snapshot. Deepin keeps company intelligence live: a material change causes the company to be looked at again.",
     "mon_hint": "Select an event to see what changed.",
-    "dim_eyebrow": "Investigation",
+    "dim_eyebrow": "Company intelligence",
     "dim_h2": "What <b>changed?</b>",
-    "dim_lede": "Four dimensions of the same Company Investigation, asked again every time the company changes.",
+    "dim_lede": "Deepin looks at a company from four angles and asks the same questions again every time it changes.",
     "see_evidence": "See the evidence →",
-    "mi_eyebrow": "Continuous Investigation",
-    "mi_h2": "Monitoring tells you something changed. <b>Deepin investigates what it means.</b>",
-    "mi_key": "Event → Investigation → Meaning",
-    "mi_note": "Monitoring detects the signal. Deepin investigates the signal.",
     "ev_eyebrow": "Evidence before decision",
     "ev_h2": "Don't tell me the score. <b>Show me why.</b>",
-    "ev_lede": "The risk level is the last line of the investigation, not the product. Every change comes with its findings, its sources and the reasoning that connects them, and your team makes the call.",
-    "layer_eyebrow": "Where deepin.risk fits",
-    "layer_h2": "The investigation layer <b>in your risk stack.</b>",
-    "layer_lede": "Your TPRM or GRC system manages the process. Deepin investigates the company behind it.",
-    "layer_note1": "Deepin works alongside your existing risk stack.",
-    "layer_note2": "Deepin doesn't replace your risk workflow. It gives it investigated, evidence-backed company intelligence.",
+    "ev_lede": "Supplier Co.'s risk moved from Medium to High. Every change comes with its finding, its source and the reasoning; your team makes the call.",
+    "layer_eyebrow": "Added value",
+    "layer_h2": "How does Deepin Risk <b>add value?</b>",
+    "layer_lede": "Data providers give you company data. Deepin Risk turns it into researched, evidence-backed context and makes your company intelligence complete.",
     "uses_eyebrow": "Use cases",
-    "uses_h2": "One Company Investigation. <b>Multiple decisions.</b>",
-    "uses_lede": "The same investigation capability serves every team that decides about a company.",
+    "uses_h2": "One Company Intelligence capability. <b>A different decision in every sector.</b>",
+    "uses_lede": "The same capability serves credit decisions in banking, merchant decisions in fintech and supplier decisions in industry.",
     "proof_eyebrow": "Customers",
-    "proof_h2": "Company Investigation is already <b>running in production.</b>",
-    "proof_lede": "The same Company Investigation capability is already being used across different enterprise decisions. Each customer is shown at the maturity it has actually reached.",
+    "proof_h2": "Company Intelligence is already <b>running in production.</b>",
+    "proof_lede": "The same Company Intelligence capability is already being used across different enterprise decisions. Each customer is shown at the maturity it has actually reached.",
     "ent_eyebrow": "Enterprise",
     "ent_h2": "Built for the data <b>you cannot send outside.</b>",
     "ent_data_h": "Your company data stays yours.",
-    "ent_data_p": "Your watchlists, investigations and decisions remain yours. What improves across deployments is how Deepin investigates, never your records.",
-    "cta_eyebrow": "deepin.risk",
-    "cta_h2": "Give Deepin <b>a company to investigate.</b>",
+    "ent_data_p": "Your watchlists, analyses and decisions remain yours. What improves across deployments is how Deepin analyzes, never your records.",
+    "cta_eyebrow": "Deepin Risk",
+    "cta_h2": "Give Deepin <b>a company to look into.</b>",
     "cta_p": "Pick a company your team already knows. See what changed, what Deepin finds and the evidence behind it.",
-    "cta_primary": "Run a Company Investigation",
-    "cta_secondary": "Talk to Deepin"
+    "cta_primary": "Request Company Intelligence",
+    "cta_secondary": "Talk to Deepin",
+    "start_eyebrow": "How to get started",
+    "start_h2": "Three steps <b>to your first result.</b>",
+    "start_cta": "Start with one company",
+    "value_tagline": "From event to decision: <b>in seconds, with evidence.</b>",
+    "layer_note": "Works alongside your existing risk stack; it doesn't replace your workflow, it gives it decision-ready context."
   },
-  "live": {
-    "company": "Akdeniz Endüstri A.Ş.",
+  "hero_depth": {
     "mode": "Continuous monitoring",
-    "event": "New event detected",
-    "event_meta": "24 Sep 2026 · Trade Registry",
-    "started": "Investigation started",
-    "activity": [
-      "Registry history compared",
-      "Shareholders investigated",
-      "Representation authority checked",
-      "Related entities investigated",
-      "Financial context reviewed",
-      "External evidence collected"
+    "layers": [
+      {
+        "k": "Surface · monitoring tool",
+        "text": "Investment Holding became a shareholder.",
+        "meta": "18 Sep 2026 · Trade Registry"
+      },
+      {
+        "k": "1 level deep",
+        "text": "The holding was incorporated 4 months ago."
+      },
+      {
+        "k": "2 levels deep",
+        "text": "Its director K.A. became the company's sole signatory 6 days later."
+      },
+      {
+        "k": "3 levels deep",
+        "text": "K.A. also runs Related Company Ltd., now in restructuring."
+      }
     ],
-    "findings_label": "3 material changes",
-    "findings": [
-      "Representation authority changed",
-      "New shareholder detected",
-      "Related entity entered restructuring"
-    ],
-    "link": "View Investigation",
+    "bottom": "At depth",
+    "risk_label": "Risk",
+    "risk_from": "Medium",
+    "risk_to": "High",
+    "rec_label": "Recommendation",
+    "rec": "Review the open limit.",
+    "ev_meta": "3 findings · 2 official sources · your team decides",
+    "link": "See the full case",
     "status": [
-      "Event detected",
-      "Investigation started",
-      "Historical state loaded",
-      "Investigating shareholders",
-      "Checking authority",
-      "Reconstructing relationships",
-      "Reviewing financial context",
-      "Collecting evidence",
-      "3 material changes"
-    ]
+      "Surface",
+      "1 level deep",
+      "2 levels deep",
+      "3 levels deep",
+      "At depth"
+    ],
+    "company": "Supplier Co."
   },
   "report": {
     "label": "Traditional",
@@ -90,64 +94,142 @@
       "Relationships"
     ],
     "risk": "Low",
-    "stale": "Stale since March"
+    "stale": "Stale since July"
   },
   "timeline": {
-    "company": "Acme A.Ş.",
+    "company": "Supplier Co.",
     "ticks": [
       "Jan",
-      "Mar",
-      "Jun",
+      "Jul",
+      "Aug",
       "Sep"
     ],
     "start": {
-      "label": "Initial investigation",
+      "label": "Initial report",
       "risk": "Low"
     },
     "events": [
       {
         "tick": 1,
-        "change": "Shareholder changed",
-        "date": "12 Mar",
+        "change": "Share capital reduced",
+        "date": "15 Jul",
         "risk_from": "Low",
         "risk_to": "Medium",
-        "before": "Founding family holds 60%",
-        "after": "A new holding company holds 31.4%",
-        "source": "Trade Registry Gazette · 12 Mar 2026"
+        "before": "Share capital TRY 50 million",
+        "after": "Share capital cut by 40% to TRY 30 million",
+        "source": "Trade Registry Gazette · 15 Jul 2026"
       },
       {
         "tick": 2,
-        "change": "Authority changed",
-        "date": "18 Jun",
+        "change": "Branches closed",
+        "date": "28 Aug",
         "risk_from": "Medium",
         "risk_to": "Medium",
-        "before": "Joint signature by two directors",
-        "after": "One new director signs alone, without limit",
-        "source": "Trade Registry Gazette · 18 Jun 2026"
+        "before": "12 branches operating",
+        "after": "3 branches closed within 60 days",
+        "source": "Trade Registry Gazette · 28 Aug 2026"
       },
       {
         "tick": 3,
-        "change": "Related company restructuring",
-        "date": "11 Sep",
+        "change": "3 changes",
+        "date": "24 Sep",
         "risk_from": "Medium",
         "risk_to": "High",
-        "before": "Related company operating normally",
-        "after": "Restructuring application accepted by the court",
-        "source": "Official Court Record · 11 Sep 2026"
+        "before": "Founding family 60% · joint signature · related companies operating normally",
+        "after": "Investment Holding 31.4% · K.A. signs alone · Related Company in restructuring",
+        "source": "Trade Registry Gazette · Official Court Record · Sep 2026"
       }
     ],
-    "reopened": "Investigation reopened",
+    "reopened": "Company re-analyzed",
     "before_label": "Before",
     "after_label": "After",
-    "risk_label": "Risk context",
-    "loop": [
-      "Material change",
-      "Deepin detects",
-      "Investigation",
-      "Updated context"
-    ]
+    "risk_label": "Risk context"
   },
   "dimensions": [
+    {
+      "key": "Relationships changed",
+      "question": "Who is the company connected to now?",
+      "items": [
+        "Related companies",
+        "Shared executives",
+        "Shared shareholders",
+        "Shared addresses",
+        "Corporate groups",
+        "Multi-layer relationships"
+      ],
+      "visual": "graph",
+      "graph": {
+        "hint": "Select an entity",
+        "nodes": [
+          {
+            "id": "a",
+            "label": "Supplier Co.",
+            "x": 180,
+            "y": 55,
+            "kind": "subject",
+            "info": "The company being analyzed."
+          },
+          {
+            "id": "p",
+            "label": "K.A.",
+            "x": 60,
+            "y": 140,
+            "kind": "person",
+            "info": "Sole signatory at Supplier Co. since 24 Sep. Also a director of Investment Holding and Related Company."
+          },
+          {
+            "id": "k",
+            "label": "Investment Holding",
+            "x": 272,
+            "y": 140,
+            "kind": "entity",
+            "info": "Acquired 31.4% of Supplier Co. on 18 Sep. Incorporated 4 months ago; registered at the same address as Related Company."
+          },
+          {
+            "id": "t",
+            "label": "Related Company Ltd.",
+            "x": 180,
+            "y": 222,
+            "kind": "new",
+            "info": "Newly discovered relationship: run by K.A.; entered restructuring on 11 Sep."
+          }
+        ],
+        "edges": [
+          [
+            "a",
+            "p",
+            "signatory"
+          ],
+          [
+            "a",
+            "k",
+            "31.4%"
+          ],
+          [
+            "p",
+            "k",
+            "director",
+            "new"
+          ],
+          [
+            "p",
+            "t",
+            "director"
+          ],
+          [
+            "k",
+            "t",
+            "same address",
+            "new"
+          ]
+        ]
+      },
+      "evidence": {
+        "source": "Trade Registry records · Relationship analysis",
+        "excerpt": "K.A. holds roles in three companies; Investment Holding and Related Company share a registered address."
+      },
+      "tab": "Relationships"
+    },
     {
       "key": "Ownership changed",
       "question": "Who owns the company now?",
@@ -177,7 +259,7 @@
             28.6
           ],
           [
-            "Kuzey Holding (new)",
+            "Investment Holding",
             31.4,
             true
           ],
@@ -189,8 +271,9 @@
       },
       "evidence": {
         "source": "Trade Registry Gazette · 18 Sep 2026",
-        "excerpt": "Share transfer registered: 31.4% of shares transferred from the founding family to Kuzey Holding A.Ş., incorporated four months earlier."
-      }
+        "excerpt": "Share transfer registered: 31.4% of shares transferred from the founding family to Investment Holding, incorporated four months earlier."
+      },
+      "tab": "Ownership"
     },
     {
       "key": "Authority changed",
@@ -209,100 +292,24 @@
           "label": "Previous",
           "rule": "Joint signature, two of three",
           "people": [
-            "A. Demir",
-            "S. Kaya",
-            "M. Öz"
+            "S.T.",
+            "E.D.",
+            "H.Y."
           ]
         },
         "after": {
           "label": "Current",
           "rule": "Sole signature, no limit",
           "people": [
-            "M. Yılmaz (new)"
+            "K.A. (new)"
           ]
         }
       },
       "evidence": {
         "source": "Trade Registry Gazette · 24 Sep 2026",
-        "excerpt": "Board resolution registered: joint signature authority revoked; M. Yılmaz appointed with sole authority to represent the company."
-      }
-    },
-    {
-      "key": "Relationships changed",
-      "question": "Who is the company connected to now?",
-      "items": [
-        "Related companies",
-        "Shared executives",
-        "Shared shareholders",
-        "Shared addresses",
-        "Corporate groups",
-        "Multi-layer relationships"
-      ],
-      "visual": "graph",
-      "graph": {
-        "hint": "Select an entity",
-        "nodes": [
-          {
-            "id": "a",
-            "label": "Akdeniz Endüstri",
-            "x": 180,
-            "y": 70,
-            "kind": "subject",
-            "info": "The company under investigation."
-          },
-          {
-            "id": "p",
-            "label": "M. Yılmaz",
-            "x": 60,
-            "y": 150,
-            "kind": "person",
-            "info": "New sole signatory at Akdeniz Endüstri since 24 Sep. Also a director of Toros Ticaret."
-          },
-          {
-            "id": "t",
-            "label": "Toros Ticaret",
-            "x": 180,
-            "y": 225,
-            "kind": "new",
-            "info": "Newly discovered relationship: shares a director with Akdeniz Endüstri and entered restructuring on 11 Sep."
-          },
-          {
-            "id": "k",
-            "label": "Kuzey Holding",
-            "x": 300,
-            "y": 150,
-            "kind": "entity",
-            "info": "Acquired 31.4% of Akdeniz Endüstri on 18 Sep. Registered at the same address as Toros Ticaret."
-          }
-        ],
-        "edges": [
-          [
-            "a",
-            "p",
-            "signatory"
-          ],
-          [
-            "p",
-            "t",
-            "director"
-          ],
-          [
-            "a",
-            "k",
-            "31.4%"
-          ],
-          [
-            "k",
-            "t",
-            "same address",
-            "new"
-          ]
-        ]
+        "excerpt": "Board resolution registered: joint signature authority revoked; K.A. appointed with sole authority to represent the company."
       },
-      "evidence": {
-        "source": "Trade Registry records · Relationship analysis",
-        "excerpt": "M. Yılmaz appears as director in two companies; Kuzey Holding and Toros Ticaret share a registered address."
-      }
+      "tab": "Authority"
     },
     {
       "key": "Financial context changed",
@@ -331,52 +338,15 @@
         },
         {
           "date": "Sep",
-          "text": "Financial event enters the investigation",
+          "text": "Financial event added to the intelligence",
           "hot": true
         }
       ],
       "evidence": {
         "source": "Trade Registry Gazette · Official Court Record",
         "excerpt": "Capital reduction registered in July; branch closures registered in August; restructuring application of a related company accepted in September."
-      }
-    }
-  ],
-  "stages": [
-    {
-      "key": "Detect",
-      "q": "Something changed.",
-      "items": [
-        "Registry event",
-        "Financial event",
-        "External signal",
-        "Corporate event"
-      ],
-      "who": "Monitoring stops here"
-    },
-    {
-      "key": "Investigate",
-      "q": "What changed?",
-      "items": [
-        "Ownership",
-        "Authority",
-        "Relationships",
-        "History",
-        "Financial context",
-        "Related entities"
-      ],
-      "who": "Deepin"
-    },
-    {
-      "key": "Explain",
-      "q": "Why does it matter?",
-      "items": [
-        "Evidence",
-        "Context",
-        "Reasoning",
-        "Risk implications",
-        "Recommendation"
-      ],
-      "who": "Deepin"
+      },
+      "tab": "Financial"
     }
   ],
   "chain": [
@@ -393,7 +363,7 @@
       "label": "Deepin",
       "items": [
         "Detect",
-        "Investigate",
+        "Research",
         "Gather evidence",
         "Compare",
         "Reason",
@@ -410,7 +380,7 @@
     }
   },
   "context": {
-    "company": "Akdeniz Endüstri A.Ş.",
+    "company": "Supplier Co.",
     "label": "Risk context updated",
     "from": "Medium",
     "to": "High",
@@ -423,91 +393,150 @@
         "title": "Representation authority changed",
         "date": "24 Sep 2026",
         "source": "Trade Registry Gazette",
-        "excerpt": "Board resolution registered: joint signature authority revoked; a newly appointed director may represent the company alone, without limit."
+        "excerpt": "Board resolution registered: joint signature authority revoked; K.A. may represent the company alone, without limit."
       },
       {
         "title": "New shareholder acquired 31.4%",
         "date": "18 Sep 2026",
         "source": "Trade Registry Gazette",
-        "excerpt": "Share transfer registered: 31.4% of shares transferred to Kuzey Holding A.Ş., incorporated four months earlier."
+        "excerpt": "Share transfer registered: 31.4% of shares transferred to Investment Holding, incorporated four months earlier."
       },
       {
         "title": "Related company entered restructuring",
         "date": "11 Sep 2026",
         "source": "Official Court Record",
-        "excerpt": "Restructuring application accepted for Toros Ticaret Ltd., which shares a director with Akdeniz Endüstri A.Ş."
+        "excerpt": "Restructuring application accepted for Related Company Ltd., whose director is K.A.."
       }
     ],
     "reasoning_label": "Deepin reasoning",
     "reasoning": "Three material changes occurred within 13 days across ownership, authority and related-company structure.",
     "rec_label": "Recommendation",
-    "recommendation": "Review counterparty exposure.",
+    "recommendation": "Review the open limit.",
     "team_label": "Your team",
     "team_task": "Review the evidence",
     "approve": "Approve",
     "reject": "Reject",
-    "further": "Investigate further",
+    "further": "Dig deeper",
     "approved": "Approved by your team · recorded in the audit trail",
     "rejected": "Rejected by your team · recorded in the audit trail",
     "further_steps": [
-      "Follow-up investigation opened: Toros Ticaret Ltd.",
+      "Follow-up analysis opened: Related Company Ltd.",
       "Guarantees and shared obligations checked",
-      "Finding: Akdeniz Endüstri guarantees two loans of Toros Ticaret"
+      "Finding: Supplier Co. guarantees two loans of Related Company Ltd."
+    ],
+    "view_all": "Show all evidence",
+    "hide_all": "Hide evidence"
+  },
+  "value": {
+    "steps": [
+      {
+        "name": "Company data",
+        "q": "What happened?",
+        "ex": "Investment Holding became a shareholder.",
+        "by": "Registry & data providers"
+      },
+      {
+        "name": "Deepin Risk",
+        "q": "What does it mean?",
+        "ex": "The holding was incorporated 4 months ago; its director also runs a company in restructuring.",
+        "by": "Researched, evidence-backed context",
+        "risk_from": "Medium",
+        "risk_to": "High"
+      },
+      {
+        "name": "Your decision",
+        "q": "What should you do?",
+        "ex": "Review the open limit.",
+        "by": "Your team makes the call"
+      }
     ]
   },
-  "stack": {
-    "top": {
-      "name": "Corporate intelligence",
-      "role": "Company data",
-      "items": [
-        "Company information",
-        "Registry data",
-        "Financial information",
-        "External sources"
-      ]
-    },
-    "mid": {
-      "name": "deepin.risk",
-      "role": "The investigation layer",
-      "items": [
-        "Detect change",
-        "Investigate context",
-        "Reconstruct history",
-        "Discover relationships",
-        "Gather evidence",
-        "Explain what matters"
-      ]
-    },
-    "bottom": {
-      "name": "Your risk process",
-      "role": "Your TPRM, GRC and decision workflows",
-      "items": [
-        "Third-party risk",
-        "Credit risk",
-        "Compliance",
-        "Procurement",
-        "Merchant risk",
-        "Onboarding"
-      ]
-    }
-  },
-  "uses": {
-    "root": "Company Investigation",
-    "branches": [
+  "sectors": {
+    "who": "Who it tracks",
+    "decides": "Which decisions",
+    "items": [
       {
-        "name": "Third-party risk",
-        "then": "Procurement"
+        "name": "Banking & credit",
+        "who": [
+          "Borrowers",
+          "Guarantors",
+          "Group companies"
+        ],
+        "decisions": [
+          "Credit approval",
+          "Limit review",
+          "Early warning"
+        ]
       },
       {
-        "name": "Merchant risk",
-        "then": "Onboarding"
+        "name": "Payments & fintech",
+        "who": [
+          "Merchants",
+          "Business partners",
+          "Founders & signatories"
+        ],
+        "decisions": [
+          "Merchant onboarding",
+          "Ongoing monitoring",
+          "Risk-based limits"
+        ]
       },
       {
-        "name": "Credit risk",
-        "then": "Monitoring"
+        "name": "Energy & industry",
+        "who": [
+          "Suppliers",
+          "Dealers & distributors",
+          "Contractors"
+        ],
+        "decisions": [
+          "Supplier assessment",
+          "Procurement approval",
+          "Contract renewal"
+        ]
+      },
+      {
+        "name": "Factoring & leasing",
+        "who": [
+          "Buyers & debtors",
+          "Lessees",
+          "Group companies"
+        ],
+        "decisions": [
+          "Limit allocation",
+          "Collateral decisions",
+          "Collection priority"
+        ]
       }
-    ],
-    "footer": "Repeated across these decisions, one investigation capability becomes"
+    ]
+  },
+  "testimonials": {
+    "_note": "Cards show 'alias' (an indirect description) instead of the customer name; card details (product, context) come from the customer list in src/data.en.json. Set draft to true to show a 'pending approval' tag on a quote again.",
+    "eyebrow": "Customers",
+    "h2": "In the words of the teams <b>using it.</b>",
+    "lede": "From finance to energy, teams that decide with Deepin Risk, in their own words.",
+    "draft_label": "Sample quote · pending approval",
+    "quotes": {
+      "Hayat Finans": {
+        "quote": "When a customer's ownership changes, we now learn it the same day, with evidence, not weeks later. The file that goes to our credit committee is far clearer.",
+        "draft": false,
+        "alias": "Türkiye’s First Digital Bank"
+      },
+      "PayTR": {
+        "quote": "The hardest part of merchant onboarding was seeing the relationships behind a company. Deepin Risk puts those connections in front of us on one screen.",
+        "draft": false,
+        "alias": "Türkiye’s Leading Payment Technology Company"
+      },
+      "SOCAR": {
+        "quote": "In supplier assessment we see not just a score but the reason behind it. Our procurement team can now defend its decisions with the source.",
+        "draft": false,
+        "alias": "Türkiye’s Largest Integrated Energy Company"
+      },
+      "DGPays": {
+        "quote": "We embedded company and financial intelligence into our own product. Our customers see changes together with what they mean.",
+        "draft": false,
+        "alias": "A Fintech Company Operating on Three Continents"
+      }
+    }
   },
   "enterprise": [
     [
@@ -541,19 +570,19 @@
   ],
   "form": {
     "endpoint": "",
-    "title": "New Company Investigation",
+    "title": "New Company Intelligence request",
     "close": "Close",
     "step1": "Company & question",
     "step2": "Contact",
     "group_company": "Company",
-    "group_question": "Investigation question",
+    "group_question": "Your question",
     "group_contact": "Contact",
     "fields_company": [
       {
         "id": "company",
         "label": "Company name",
         "required": true,
-        "placeholder": "e.g. Akdeniz Endüstri A.Ş."
+        "placeholder": "Registered company name"
       },
       {
         "id": "website",
@@ -594,15 +623,44 @@
     ],
     "next": "Continue",
     "back": "Back",
-    "submit": "Investigate this company",
-    "done": "Your email app should open with the investigation request filled in. If it doesn't, write to info@deepin.space and we will take it from there.",
-    "email_subject": "Company Investigation request"
+    "submit": "Look into this company",
+    "done": "Your email app should open with the request filled in. If it doesn't, write to info@deepin.space and we will take it from there.",
+    "email_subject": "Company Intelligence request"
   },
   "ui": {
     "levels": {
       "Low": "Low",
       "Medium": "Medium",
       "High": "High"
+    },
+    "living": "Living intelligence",
+    "aria_depth": "One case, from the surface to depth (demo)",
+    "aria_tabs": "Change dimensions",
+    "aria_value": "Company data plus Deepin Risk equals a decision"
+  },
+  "terms": {
+    "Company + Financial Investigation": "Company + Financial Intelligence",
+    "Company Investigation": "Company Intelligence"
+  },
+  "trust": {
+    "label": "Compliance and deployment",
+    "items": [
+      "KVKK compliant",
+      "Aligned with BDDK outsourcing rules"
+    ]
+  },
+  "start": [
+    {
+      "t": "Share your company list",
+      "p": "Send the customers, suppliers or dealers you want to track. You can also start with a single company."
+    },
+    {
+      "t": "See the first analysis",
+      "p": "Deepin lays out each company's history, relationships and material changes, with the evidence."
+    },
+    {
+      "t": "Switch to continuous monitoring",
+      "p": "When something material changes, you see what it means and the recommendation right away; your team makes the call."
     }
-  }
+  ]
 }
