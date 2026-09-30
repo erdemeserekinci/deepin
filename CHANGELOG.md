@@ -1,6 +1,6 @@
 # deepin.space: yapılanlar ve kararlar
 
-Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, alınan kararları ve açık kalan konuları özetler. Sitenin nasıl üretildiği ve düzenlendiği README.md dosyasında anlatılıyor.
+Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, alınan kararları ve açık kalan konuları özetler. Sitenin nasıl üretildiği ve düzenlendiği README.md dosyasında anlatılıyor.
 
 ## Özet
 
@@ -113,6 +113,10 @@ Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Üst bölümdeki örnek vaka tamamen kurgusal hâle getirildi: sayılar değişti (aynı birimde 5 bilgisayar, 22 kişilik birim, 3 günlük kayıt, 100'den fazla iç adres, 140'tan fazla kapı, denemelerin %91'i engellendi) ve alt not "Kurgusal örnek vaka; kurum, kişiler ve sayılar temsilidir." oldu. Davranış ölçümü grafiği yeni sayılarla yeniden üretildi.
 - Tanıtım videosu iki dilde yeniden çekildi. Demo verisi kurgusal bir haftaya (14-20 Eylül 2026), genel ürün adlarına ve kurgusal servis ve birim adlarına taşındı; MITRE ATT&CK sayfasında seçili teknik kutusunun alt satırının kesilmesi düzeltildi. Seslendirme, müzik, kapak ve altyazı aynı.
 - `security/demo/` aynı veriyle güncellendi (demo sayfası, iki örnek video, önizlemeler, belgeler). Kendi senaryosunu yazmak isteyen için tanıtım videosunun senaryosu (`kaynak/senaryolar/reklam.json`) ve seslendirme ile müzik araçları (`kaynak/ses_yap.py`, `kaynak/ses_ekle.swift`) eklendi; kullanımı `VIDEO_REHBERI.md` içinde. Ses kayıtları depoya konmuyor.
+### 30 Eylül
+
+**deepin.security sayfasından demoya bağlantı**
+- /security ve /en/security sayfalarında "Neredeyiz" bölümünün altına küçük bir not eklendi. Not, demoyu yeni sekmede açıyor: Türkçe sayfadan `security/demo/`, İngilizce sayfadan `security/demo/en/`.
 
 ## Alınan kararlar
 
@@ -124,7 +128,7 @@ Bu belge 26–29 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 
 ## Açık konular
 
-- **deepin.security demosu:** `security/demo/` yayına çıkınca herkese açık olur (arama motorlarına kapalı). /security sayfasından demoya bağlantı henüz verilmedi.
+- **deepin.security demosu:** `security/demo/` herkese açık (arama motorlarına kapalı). /security sayfasından küçük bir notla bağlantı veriliyor.
 - **Türkçe metinler:** Tamamı gözden geçirilmeli, özellikle risk demo metinleri ve müşteri durum etiketleri.
 - **Fontlar:** Eski siteye erişilemediği için Poppins tahmini yapıldı. Eski siteyle karşılaştırılıp doğrulanmalı.
 - **Müşteri logoları:** Şu an isimler gösteriliyor. Logo dosyaları gelirse `proof.show_logos` açılabilir.
