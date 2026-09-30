@@ -1,0 +1,275 @@
+{
+  "copy": {
+    "title": "Deepin Harness · Kurumsal yapay zekâ çalışma ortamı",
+    "description": "Deepin Harness, her Deepin Investigation'ının ve Space'inin altında çalışan kurumsal çalışma ortamıdır. Agent'lara rol, yetki, yetenek, bilgi, politika ve kontrol vererek yapay zekânın bir kurumun içinde çalışmasını sağlar.",
+    "hero_eyebrow": "Deepin Harness",
+    "hero_h1": "Yapay zekâyı <b>bir organizasyon gibi çalıştırın.</b>",
+    "hero_lede": "Deepin Harness, her Deepin Investigation'ının ve Space'inin altında çalışan ortamdır. Agent'lara bir kurumun içinde çalışabilmeleri için gereken rolleri, yetenekleri, bilgiyi, politikaları ve kontrolleri verir.",
+    "hero_line": "Modeller akıl yürütür. Yetenekler iş yapar. Politikalar sınırı çizer. <b>Harness hepsini birlikte yürütür.</b>",
+    "hero_cta": "Mimariyi inceleyin",
+    "hero_cta2": "Çalışırken görün: deepin.risk →",
+    "hero_note": "<b>deepin.risk</b> ve <b>deepin.finance</b> bunun üzerinde çalışır",
+
+    "problem_eyebrow": "Sorun",
+    "problem_h2": "Agent kurmak kolay. <b>Organizasyon kurmak zor.</b>",
+    "problem_lede": "Bir model ve birkaç araçla çalışan bir agent bugün işe yarar işler yapabiliyor. Zor kısım, o agent'ın bir kurumun içinde çalışması gerektiğinde başlıyor.",
+    "problem_simple": "Sıradan bir agent",
+    "problem_simple_cap": "Bir agent akıl yürütebilir ve araç çağırabilir.",
+    "problem_q": "Kurumun onun etrafında sorduğu sorular",
+    "problem_land": "Kurumsal yapay zekâ bir <b>organizasyon problemidir.</b>",
+
+    "model_eyebrow": "Organizasyon modeli",
+    "model_h2": "Yapay zekâya <b>organizasyonda bir yer verin.</b>",
+    "model_lede": "Kurumsal bir agent, araçları olan isimsiz bir model olmamalı. Deepin Harness'ta açık bir organizasyon bağlamında çalışır: neyden sorumlu olduğu, neyi yapabileceği ve hangi kurallara bağlı olduğu bellidir.",
+
+    "rsn_eyebrow": "Organizational Reasoning",
+    "rsn_h2": "Organizasyonun içinde <b>akıl yürütün.</b>",
+    "rsn_lede": "Roller sorumluluğu belirler. Yetki, iş devretme ve karar hakkını belirler. Yetenekler neyin yapılabileceğini belirler. Politikalar sınırları çizer.",
+
+    "rt_eyebrow": "Çalışma ortamı",
+    "rt_h2": "Model çağrısından <b>yönetilen işe.</b>",
+    "rt_lede": "İş Harness'a girer, organizasyonun bağlamı ve kuralları altında yürütülür ve arkasında denetlenebilir bir iz bırakır.",
+    "rt_quote": "Modeller akıl yürütür. Yetenekler iş yapar. Politikalar sınırı çizer. <b>Harness hepsini birlikte yürütür.</b>",
+    "rt_side": "Bir model çağrısı bir prompt'a yanıt verir. Yönetilen iş ise kimin istediğini, hangi rolle, hangi yetenekle, hangi politika altında yapıldığını ve kimin onayladığını bilir.",
+
+    "cl_eyebrow": "İş birliği",
+    "cl_h2": "Agent'lar <b>tek başına çalışmaz.</b>",
+    "cl_lede": "Gerçek Investigation'lar ortak iştir. Roller iş devreder, aynı kanıtın üzerine kurar ve kararı bir kişiye bırakır.",
+
+    "gv_eyebrow": "Yönetişim",
+    "gv_h2": "Otonomi <b>sınır ister.</b>",
+    "gv_lede": "Kurumsal yapay zekâ harekete geçebilmeli. Yine de her adım rol, yetki, politika ve kısıtlardan geçer ve üç sonuçtan biriyle biter.",
+    "gv_controls": "Kontroller",
+    "gv_note": "Kontroller her kurulumda, kurumun kendi kurallarına göre yapılandırılır.",
+
+    "km_eyebrow": "Bilgi ve hafıza",
+    "km_h2": "Bir organizasyon <b>hatırlamalı.</b>",
+    "km_lede": "İş her seferinde sıfırdan başlamamalı. Organizasyonun bildikleri ve önceki Investigation'larda öğrendikleri, işi yapan rollerin elinin altında olur.",
+
+    "ev_eyebrow": "Değerlendirme",
+    "ev_h2": "Her adım kanıt bırakır. <b>Her davranış değerlendirilebilir.</b>",
+    "ev_lede": "Modeller değişir. Prompt'lar değişir. Araçlar değişir. Bilgi ve politikalar değişir. Bu yüzden kurumsal yapay zekâ, yalnızca devreye alınırken değil, sürekli değerlendirilmelidir.",
+
+    "ob_eyebrow": "İzlenebilirlik",
+    "ob_h2": "Ne olduğunu bilin. <b>Nedenini de.</b>",
+    "ob_lede": "Bir Investigation'ın her adımı; kimin, hangi rolle, hangi yetenekle, hangi kaynağa bakarak ve hangi politika altında hareket ettiğiyle birlikte kaydedilir. Deepin'in geri kalanıyla aynı ilke: önce kanıt, sonra karar.",
+
+    "sp_eyebrow": "Harness ve Space'ler",
+    "sp_h2": "Tek Harness. <b>Alana özel Space'ler.</b>",
+    "sp_lede": "Bir Space, bir iş alanı için yeniden kullanılabilir rolleri, yetenekleri, veri kaynaklarını, bilgiyi, politikaları, değerlendirmeleri ve Investigation'ları bir araya getirir.",
+
+    "pf_eyebrow": "Kullanımda",
+    "pf_h2": "Gerçek Investigation'ların <b>altında şekilleniyor.</b>",
+    "pf_lede": "Harness'ın yetenekleri tek başına yürütülen bir framework denemesinde değil, somut kurumsal Investigation'ların altında şekilleniyor. Her referans, gerçekte ulaştığı olgunlukla gösterilir.",
+
+    "rs_eyebrow": "Ar-Ge",
+    "rs_h2": "Araştırmaya dayanan <b>bir mimari.</b>",
+    "rs_lede": "Deepin Harness; organizasyon içinde akıl yürütme, yönetilen agent iş birliği, kısıtları gözeten planlama ve sürekli değerlendirme alanlarındaki Ar-Ge çalışmalarıyla gelişmeye devam ediyor.",
+    "rs_support": "TÜBİTAK destekli Ar-Ge",
+
+    "band_eyebrow": "Deepin Harness",
+    "band_h2": "Kurumunuzun içinde çalışabilen <b>yapay zekâ kurun.</b>",
+    "band_p": "Gerçek bir Investigation'la başlayın ya da Deepin Harness ile mevcut bir kurumsal iş akışına yönetilen yapay zekâ getirin.",
+    "band_cta": "Bize bir Investigation getirin",
+    "band_cta_subject": "Investigation",
+    "band_cta2": "Deepin Harness'ı konuşalım",
+    "band_cta2_subject": "Deepin%20Harness",
+    "band_next": "Bir agent daha kurmayın. <b>Bir organizasyon kurun.</b>",
+    "band_links": "Space'lerde görün:"
+  },
+
+  "hero_org": {
+    "title": "Deepin Harness · çalışma ortamı",
+    "labels": ["Organizasyon yüklendi", "Roller atandı", "Agent'lar çalışıyor", "Yetenek, bilgi, politika", "Görev hazır", "İnsan onayı bekleniyor", "Aksiyon · kaydedildi"],
+    "org": "Organizasyon",
+    "role": "Rol",
+    "agent": "Agent",
+    "res": ["Yetenekler", "Bilgi", "Politikalar"],
+    "task": "Görev",
+    "approval": "İnsan onayı",
+    "action": "Aksiyon",
+    "aria": "Deepin Harness çalışma ortamı: organizasyon agent'lara rol verir; agent'lar yetenek, bilgi ve politikaları kullanarak bir görevi tamamlar, görev aksiyondan önce insan onayına gider."
+  },
+
+  "problem": {
+    "stack": ["Model", "Agent", "Araçlar"],
+    "questions": [
+      "Sorumlusu kim?",
+      "Rolü ne?",
+      "Neyi yapmaya yetkili?",
+      "Hangi verilere erişebilir?",
+      "Ona kim iş verebilir?",
+      "Hangi yetenekleri kullanabilir?",
+      "Hangi politikalar onu sınırlar?",
+      "Ne zaman insan onayı gerekir?",
+      "Hata yaparsa ne olur?",
+      "Davranışı nasıl değerlendirilir?",
+      "Her adımı denetlenebilir mi?"
+    ]
+  },
+
+  "model": {
+    "aria": "Deepin Harness'ın kavramsal organizasyon modeli",
+    "org": ["Organizasyon", "Rollerin, yetkinin, bilginin, politikaların ve yeteneklerin içinde var olduğu sınır."],
+    "groups": ["Kim, hangi kurallarla", "İşi yapmak", "Ne biliyor"],
+    "nodes": {
+      "role": ["Rol", "Neyden sorumlu?", ""],
+      "auth": ["Yetki", "Kim karar verebilir, onaylayabilir, iş devredebilir ya da harekete geçebilir?", ""],
+      "pol": ["Politika · Kısıt", "Bu adım hangi koşullarda atılabilir?", ""],
+      "agent": ["Agent", "İşi rolünün içinde yapar.", ""],
+      "task": ["Görev", "Ne yapılması gerekiyor?", ""],
+      "cap": ["Yetenek", "Ne yapabilir?", ""],
+      "tool": ["Araç", "Yeteneğin kullandığı teknik yol.", "API · MCP aracı · sorgu · model · fonksiyon"],
+      "svc": ["Servis", "Kuruma açılan iç ya da dış sistemler.", "ERP · CRM · core banking · sicil servisi · doküman sistemi"],
+      "know": ["Bilgi", "Rollerin ve agent'ların kullanabildiği kurumsal bilgi.", "Dokümanlar · graflar · yapılandırılmış veri · önceki Investigation'lar · kurumsal hafıza"]
+    },
+    "note": "Kavramsal bir model; bir sınıf diyagramı değil. <b>Yetenek ≠ Araç:</b> yetenek neyin yapılabileceğidir; araç bunu yapmanın teknik yollarından biridir. <b>Yetki ≠ Politika:</b> yetki kimin karar verebileceğini, onaylayabileceğini, iş devredebileceğini ya da harekete geçebileceğini söyler; politika bunun hangi kurallarla olacağını."
+  },
+
+  "reasoning": {
+    "pair": [
+      ["Organizasyon", "Yapı ve durum: kim var, neyden sorumlu, neyi yapabilir."],
+      ["Organizational Reasoning", "Zaman içindeki davranış: bir şey olduğunda organizasyonun kimin neyi yapacağına nasıl karar verdiği."]
+    ],
+    "state": "Organizasyonun mevcut durumu",
+    "event": "Olay ya da hedef",
+    "checks": ["Sorumlu kim?", "Hangi yetki var?", "Hangi yetenekler kullanılabilir?", "Hangi politikalar adımı sınırlıyor?"],
+    "outcomes": ["Harekete geç", "Devret", "Birlikte çalış"],
+    "next": "Organizasyonun yeni durumu",
+    "loop": "ve bir sonraki olayla yeniden",
+    "note": "Bu, agent'lar arasında prompt taşımaktan fazlası: her adım organizasyonun kendi rollerine, yetkisine ve kurallarına göre yanıtlanır.",
+    "aria": "Organizational Reasoning akışı"
+  },
+
+  "runtime": {
+    "in": "Talep ya da olay",
+    "box": "Deepin Harness",
+    "trace": "Bıraktığı iz",
+    "out": "Kurumsal sistemler",
+    "layers": [
+      ["Kimlik ve rol", "kim"],
+      ["Bağlam ve hafıza", "bağlam"],
+      ["Planlama", "plan"],
+      ["Yetenek seçimi", "yetenek"],
+      ["Araç ve servis çalıştırma", "çağrı"],
+      ["Politika denetimi", "politika"],
+      ["İnsan onayı", "onay"],
+      ["Durum ve iş akışı", "durum"],
+      ["Değerlendirme", "puan"],
+      ["Denetim ve izlenebilirlik", "iz"]
+    ],
+    "human": 6
+  },
+
+  "collab": {
+    "label": "Örnek · Company Investigation",
+    "nodes": {
+      "inv": ["Company Investigation", "Tetikleyici: yeni imza yetkilisi tescil edildi"],
+      "lead": ["Investigation sorumlusu", "Rol · planlar ve iş devreder"],
+      "reg": ["Sicil rolü", "Resmî kayıtları inceler"],
+      "fin": ["Finansal rol", "Finansal tabloları okur"],
+      "regc": ["Sicil yeteneği", ""],
+      "finc": ["Finansal yetenek", ""],
+      "ev": ["Ortak kanıt", "Kaynaklarıyla birlikte bulgular"],
+      "eval": ["Değerlendirme", "Kanıt yeterli ve tutarlı mı?"],
+      "dec": ["İnsan kararı", "Bir kişi onaylar ya da reddeder"]
+    },
+    "note": "Temsilî bir örnek. Rol adları fikri göstermek içindir; ürünün sabit parçaları değildir.",
+    "concepts": [
+      ["Sorumluluk", "Her rol işin bir parçasının sahibidir."],
+      ["Devretme", "Sorumlu, işi buna yetkisi ve yeteneği olan rollere verir."],
+      ["İş birliği", "Roller birbirinin bulgularının üzerine kurar."],
+      ["Ortak kanıt", "Bulgular, kaynaklarıyla birlikte tek bir vakada toplanır."],
+      ["Değerlendirme", "Sonuç bir kişiye ulaşmadan kontrol edilir."],
+      ["İnsan yetkisi", "Kararı bir kişi verir."]
+    ]
+  },
+
+  "gate": {
+    "try": "Bir talep seçin",
+    "request": "Aksiyon talebi",
+    "checks": ["Rol", "Yetki", "Politika", "Kısıt"],
+    "outcomes": ["Çalıştır", "İnsan onayı", "Reddet"],
+    "examples": [
+      {"label": "Son sicil kaydını oku", "res": ["ok", "ok", "ok", "ok"], "out": 0, "why": "Rolün, yetkinin ve izleme politikasının içinde. Çalışır ve adım kaydedilir."},
+      {"label": "Tedarikçinin risk seviyesini yükselt", "res": ["ok", "wait", "ok", "ok"], "out": 1, "why": "Risk seviyesini değiştirmek bir karardır. Agent kanıtıyla birlikte önerir, bir kişi onaylar."},
+      {"label": "Şirket dosyasını kurum dışına gönder", "res": ["ok", "ok", "no", "skip"], "out": 2, "why": "Politika, vaka dosyalarının kurum dışına çıkmasına izin vermez. Talep reddedilir ve kaydedilir."}
+    ],
+    "chips": [
+      ["user", "Rol tabanlı erişim"],
+      ["key", "Yetki sınırları"],
+      ["shield", "Politika uygulama"],
+      ["hand", "İnsan onayı"],
+      ["doc", "Denetim izi"],
+      ["net", "Veri soy ağacı"],
+      ["lock", "On-premise"],
+      ["air", "Air-gapped kurulum"]
+    ]
+  },
+
+  "knowledge": {
+    "sources": ["Dokümanlar", "Yapılandırılmış veri", "Bilgi grafı", "Önceki Investigation'lar", "Politikalar", "Kararlar", "Değerlendirme sonuçları"],
+    "hub": "Kurumsal bilgi",
+    "hub_sub": "İş için ortak bağlam",
+    "users": ["Roller", "Agent'lar", "Investigation'lar"],
+    "loop": "Her Investigation, yeniden kullanılabilir kurumsal bağlama katkı yapabilir.",
+    "data_h": "Sizde kalır.",
+    "data_p": "Bu bilgi sizin kurulumunuzda durur ve sizindir. Müşteriler arasında paylaşılmaz. Bir kurulumdan diğerine taşınan şey Investigation'ların nasıl çözüldüğüdür; kayıtlarınız asla.",
+    "aria": "Bilgi kaynakları kurumsal bilgide toplanır; roller, agent'lar ve Investigation'lar bu bilgiyi kullanır"
+  },
+
+  "evaluation": {
+    "changes_lbl": "Sürekli değişen",
+    "changes": ["Modeller", "Prompt'lar", "Araçlar", "Bilgi", "Politikalar"],
+    "flow": ["Görev", "İz", "Sonuç"],
+    "eval": "Değerlendirme",
+    "criteria": [
+      ["Doğruluk", "Bulgu doğru mu?"],
+      ["Kanıt kalitesi", "Her iddianın kaynağı var mı?"],
+      ["Politikaya uyum", "Kuralların içinde kaldı mı?"],
+      ["Araç davranışı", "Araçlar beklendiği gibi çağrıldı mı?"],
+      ["Maliyet", "Çalıştırmanın maliyeti ne oldu?"],
+      ["Gecikme", "Ne kadar sürdü?"]
+    ],
+    "result": "Gerileme ya da iyileşme",
+    "result_sub": "insanlar inceler ve devreye alır",
+    "note": "Değerlendirme iyileştirmeye yol gösterir. Sistem kendini sessizce değiştirmez; değişiklikleri insanlar inceler ve devreye alır."
+  },
+
+  "trace": {
+    "title": "INV-2026-0418 · Northwind Lojistik A.Ş.",
+    "hint": "Arkasındaki kaydı görmek için bir adım seçin.",
+    "note": "Kurgusal bir şirketle örnek iz.",
+    "fields": ["Kim", "Rol", "Yetenek", "Kaynak", "Kanıt", "Politika", "Karar", "Zaman"],
+    "date": "18 Eyl 2026",
+    "rows": [
+      ["09:42:01", "Investigation başladı", ["Investigation sorumlusu (agent)", "Investigation sorumlusu", "Vaka açma", "Ticaret Sicili Gazetesi · 18 Eyl", "Northwind Lojistik A.Ş. için yeni imza yetkilisi tescil edildi", "Tedarikçi izleme politikası", "Company Investigation açıldı"]],
+      ["09:42:03", "Sicil yeteneği çağrıldı", ["Sicil agent'ı", "Sicil rolü", "Sicil sorgusu", "Ticaret Sicili Gazetesi", "—", "Resmî kayıtlara okuma erişimi", "—"]],
+      ["09:42:04", "3 belge alındı", ["Sicil agent'ı", "Sicil rolü", "Sicil sorgusu", "Ticaret Sicili Gazetesi · 12 ve 18 Eyl", "3 ilan vakaya eklendi", "—", "—"]],
+      ["09:42:09", "Ortaklık değişikliği bulundu", ["Sicil agent'ı", "Sicil rolü", "Değişiklik tespiti", "18 Eyl ilanı", "Yeni ortak ve temsil yetkisinde değişiklik", "—", "—"]],
+      ["09:42:13", "İlişkili şirket incelendi", ["Investigation sorumlusu (agent)", "Investigation sorumlusu", "İlişki grafı", "İlişki grafı", "Yeni imza yetkilisi, izlenen 2 şirkette ortak", "—", "İlişkili şirket vakaya eklendi"]],
+      ["09:42:18", "Politika kontrolü geçti", ["Harness politika denetimi", "—", "Politika uygulama", "Tedarikçi risk politikası", "30 gün içinde sermaye azaltımı ve yetki değişikliği", "Yüksek tedarikçi riski kuralı", "Öneri hazırlanabilir"]],
+      ["09:42:21", "Kanıt bir araya getirildi", ["Investigation sorumlusu (agent)", "Investigation sorumlusu", "Kanıt paketi", "4 kaynak", "Her biri kaynağına bağlı 3 bulgu", "—", "Öneri: risk seviyesi Orta → Yüksek"]],
+      ["09:42:24", "İnsan onayı istendi", ["Investigation sorumlusu (agent)", "Investigation sorumlusu", "Onay talebi", "Kanıt paketi", "3 bulgu, 4 kaynak", "Risk seviyesi değişikliği insan onayı gerektirir", "Risk analistinin onayı bekleniyor"]]
+    ],
+    "human": 7
+  },
+
+  "spaces": {
+    "chips": ["Organizasyon", "Akıl yürütme", "Bilgi", "Yönetişim", "Değerlendirme"],
+    "risk": ["Company Investigation", "Kanıt + bulgular", "İnsan kararı"],
+    "finance": ["Chargeback Investigation", "Kanıt + öneri", "İnsan kararı"],
+    "legend": [
+      ["Harness", "Yeniden kullanılabilir kurumsal çalışma ortamı."],
+      ["Space", "Bir iş alanı için uygulama."],
+      ["Investigation", "Somut iş."]
+    ]
+  },
+
+  "research": [
+    ["Organizational Reasoning", "Role, yetkiye, organizasyonun durumuna ve kısıtlara göre akıl yürütme."],
+    ["Yönetilen iş birliği", "Yetki sınırlarını koruyarak roller arasında iş devretme ve birlikte çalışma."],
+    ["Kısıtları gözeten planlama", "Politikalara, yetkiye ve operasyonel kısıtlara uyarak hedefe doğru plan yapma."],
+    ["Sürekli değerlendirme", "Modeller, araçlar ve organizasyon bağlamı değiştikçe izleri, sonuçları ve davranışı değerlendirme."]
+  ]
+}

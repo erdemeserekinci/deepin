@@ -250,6 +250,10 @@
         "#enterprise"
       ],
       [
+        "Harness",
+        "harness/"
+      ],
+      [
         "Company",
         "#company"
       ]
@@ -332,6 +336,24 @@
       [
         "Status",
         "#status"
+      ]
+    ],
+    "harness": [
+      [
+        "Organization",
+        "#model"
+      ],
+      [
+        "Reasoning",
+        "#reasoning"
+      ],
+      [
+        "Governance",
+        "#governance"
+      ],
+      [
+        "Evaluation",
+        "#evaluation"
       ]
     ]
   },

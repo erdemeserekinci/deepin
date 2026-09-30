@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>deepin.energy · Operational Investigation</title>
-<meta name="description" content="Investigate anomalies, deviations and operational root causes. deepin.energy is an exploration area at Deepin.">
-<meta property="og:title" content="deepin.energy · Operational Investigation">
-<meta property="og:description" content="Investigate anomalies, deviations and operational root causes. deepin.energy is an exploration area at Deepin.">
-<meta property="og:url" content="https://deepin.space/en/energy/">
+<title>Deepin Harness · Enterprise AI runtime</title>
+<meta name="description" content="Deepin Harness is the enterprise runtime underneath every Deepin Investigation and Space. It gives agents roles, authority, capabilities, knowledge, policies and controls, so AI can work inside an organization.">
+<meta property="og:title" content="Deepin Harness · Enterprise AI runtime">
+<meta property="og:description" content="Deepin Harness is the enterprise runtime underneath every Deepin Investigation and Space. It gives agents roles, authority, capabilities, knowledge, policies and controls, so AI can work inside an organization.">
+<meta property="og:url" content="https://deepin.space/en/harness/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
-<link rel="canonical" href="https://deepin.space/en/energy/">
-<link rel="alternate" hreflang="tr" href="https://deepin.space/energy/">
-<link rel="alternate" hreflang="en" href="https://deepin.space/en/energy/">
-<link rel="alternate" hreflang="x-default" href="https://deepin.space/energy/">
-<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a={"tr": "../../energy/"};if(s&&a[s]){var u=a[s];if(!/(^|\.)deepin\.space$/.test(location.hostname)&&/\/$/.test(u))u+="index.html";location.replace(u+location.hash)}}catch(e){}})()</script>
+<link rel="canonical" href="https://deepin.space/en/harness/">
+<link rel="alternate" hreflang="tr" href="https://deepin.space/harness/">
+<link rel="alternate" hreflang="en" href="https://deepin.space/en/harness/">
+<link rel="alternate" hreflang="x-default" href="https://deepin.space/harness/">
+<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a={"tr": "../../harness/"};if(s&&a[s]){var u=a[s];if(!/(^|\.)deepin\.space$/.test(location.hostname)&&/\/$/.test(u))u+="index.html";location.replace(u+location.hash)}}catch(e){}})()</script>
 <link rel="icon" type="image/png" href="../../assets/favicon-64.png">
 <link rel="apple-touch-icon" href="../../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -698,93 +698,665 @@ footer .langs{justify-self:start;margin-top:10px}
 /* English terms inside Turkish text stay part of the same text run (no flex gaps around them) */
 span[lang="en"]{display:contents}
 
-.statusbox{display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:start;padding:28px;border-radius:18px;border:1px dashed var(--line);background:var(--surface)}
-@media (max-width:620px){.statusbox{grid-template-columns:1fr}}
-.statusbox p{color:var(--ink-2);max-width:62ch}
-.statusbox p + p{margin-top:10px}
-.inv-panel{max-width:860px}
+/* =================================================================== deepin harness */
+:root{--deny:#B4432F;--deny-soft:#FBE9E5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--deny:#F18F80;--deny-soft:#3A1F1A}}
+:root[data-theme="dark"]{--deny:#F18F80;--deny-soft:#3A1F1A}
+
+.hero{padding-block:52px 64px}
+.hero .lede{max-width:56ch}
+.hero-line{margin-top:16px;font-size:17px;font-weight:500;color:var(--ink);max-width:46ch}
+.hero-line b{color:var(--accent);font-weight:600}
+.hero-note{margin-top:26px;font-size:13px;color:var(--muted)}
+.hero-note b{font-weight:500;color:var(--ink-2)}
+
+/* connectors drawn by base.js between [data-n] nodes of a [data-links] figure */
+[data-links]{position:relative;--links:1}
+svg.links{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;z-index:0}
+svg.links path{fill:none;stroke:rgba(var(--dot),.5);stroke-width:1.4;stroke-linecap:round}
+svg.links path.d{stroke:rgba(183,121,31,.6);stroke-dasharray:4 4}
+svg.links path.nd{stroke:rgba(var(--dot),.45);stroke-dasharray:2 5}
+svg.links path.w{stroke:rgba(183,121,31,.7)}
+svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
+@keyframes lk-flow{to{stroke-dashoffset:-16}}
+.mk-a{fill:var(--accent)}
+.mk-w{fill:var(--warn)}
+@media (prefers-reduced-motion: reduce){svg.links path.fl{animation:none}}
+
+/* ---- hero: organization runtime ---- */
+.ho{margin:0}
+.ho .ho-body{padding:18px 18px 22px;display:grid;justify-items:center;gap:30px}
+.ho-org{justify-self:stretch;position:relative;z-index:1;text-align:center;padding:8px 10px;border-radius:12px;border:1.5px dashed rgba(var(--dot),.5);background:var(--soft-2);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.ho-cols{justify-self:stretch;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ho-col{display:grid;justify-items:center;gap:26px}
+.ho-n{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:500;white-space:nowrap;max-width:100%}
+.ho-role{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--soft);border-color:transparent}
+.ho-agent{border-color:rgba(var(--dot),.5)}
+.ho-agent::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint)}
+.ho-res{font-size:12.5px;color:var(--ink-2);border-style:dashed;border-radius:9px}
+.ho-task{padding:8px 24px;font-weight:600;border-color:var(--accent);box-shadow:0 0 0 4px rgba(var(--dot),.08)}
+.ho-ap{background:var(--warn-soft);color:var(--warn);border-color:rgba(183,121,31,.45)}
+.ho-act{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+@media (max-width:420px){.ho .ho-body{padding:16px 12px 20px}.ho-n{padding:5px 9px;font-size:12px}.ho-res{font-size:11.5px}.ho-role{font-size:10px}}
+
+/* ---- problem ---- */
+.hp{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:24px;align-items:stretch}
+@media (max-width:860px){.hp{grid-template-columns:minmax(0,1fr)}}
+.hp-simple,.hp-qs{border-radius:18px;padding:22px 24px}
+.hp-simple{border:1px solid var(--line);background:var(--surface);display:grid;justify-items:center;align-content:center;gap:14px;text-align:center}
+.hp-simple .lbl{margin:0}
+.hp-stack{display:grid;justify-items:center}
+.hp-stack>span{padding:8px 22px;border-radius:999px;border:1px solid var(--line);background:var(--soft-2);font-weight:500;font-size:14px;min-width:120px;text-align:center}
+.hp-stack>span:nth-child(3){border-color:rgba(var(--dot),.5);background:var(--surface)}
+.hp-stack i{display:block;width:2px;height:20px;background:rgba(var(--dot),.5);position:relative}
+.hp-stack i::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top:6px solid rgba(var(--dot),.7);border-bottom:0}
+.hp-simple p{font-size:14px;color:var(--muted);max-width:26ch}
+.hp-qs{border:1px dashed rgba(183,121,31,.45);background:var(--surface)}
+.hp-q{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+@media (max-width:520px){.hp-q{grid-template-columns:1fr}}
+.hp-q li{display:flex;gap:10px;align-items:baseline;font-size:14.5px;line-height:1.4}
+.hp-q li::before{content:"?";flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--warn-soft);color:var(--warn);font-size:11px;font-weight:700;transform:translateY(3px)}
+.hp-land{margin:36px auto 0;text-align:center;max-width:none}
+
+/* ---- organization model ---- */
+.om{margin:0;border:1.5px dashed rgba(var(--dot),.45);border-radius:22px;padding:18px 22px 22px;background:var(--bg)}
+.om-org{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-bottom:26px}
+.om-t{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.om-org>span:last-child{font-size:13.5px;color:var(--ink-2)}
+.om-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:46px 18px}
+.om-g{display:none}
+.om-n{position:relative;z-index:1;display:grid;gap:4px;align-content:start;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.om-q{font-size:14.5px;font-weight:500;line-height:1.35}
+.om-n small{font-size:12px;color:var(--muted);line-height:1.45}
+.om-n.om-gov{border-color:rgba(183,121,31,.45)}
+.om-n.om-gov .om-t{color:var(--warn)}
+.om-n.core{background:var(--soft);border-color:var(--accent);box-shadow:0 0 0 4px rgba(var(--dot),.07)}
+.om-n.tech{border-style:dashed}
+.om-role{grid-area:1/1/2/3}.om-auth{grid-area:1/3/2/5}.om-pol{grid-area:1/5/2/7}
+.om-agent{grid-area:2/3/3/5}
+.om-task{grid-area:3/1/4/3}.om-cap{grid-area:3/3/4/5}.om-know{grid-area:3/5/4/7}
+.om-tool{grid-area:4/2/5/4}.om-svc{grid-area:4/4/5/6}
+.om-note{margin-top:22px;font-size:13.5px;color:var(--ink-2);max-width:92ch}
+.om-note b{color:var(--ink);font-weight:600}
+@media (max-width:760px){
+  .om{padding:16px}
+  .om-grid{--links:0;grid-template-columns:minmax(0,1fr);gap:8px;padding-left:14px;border-left:2px solid rgba(var(--dot),.3)}
+  .om-grid>.om-n{grid-area:auto}
+  .om-g{display:block;margin:14px 0 2px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .om-g:first-child{margin-top:0}
+}
+
+/* ---- organizational reasoning ---- */
+.rs-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:30px}
+@media (max-width:700px){.rs-pair{grid-template-columns:1fr}}
+.rs-pair>div{display:grid;gap:4px;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.rs-pair>div:last-child{border-color:var(--accent);background:var(--soft)}
+.rs-pair p{font-size:14px;color:var(--ink-2)}
+.rs{margin:0}
+.rs-flow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,1.5fr) minmax(0,.95fr) minmax(0,1fr);gap:34px;align-items:center}
+.rs-flow>*{position:relative}
+.rs-flow>*:not(:last-child)::after{content:"→";position:absolute;right:-25px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:16px}
+.rs-n{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-size:14.5px;font-weight:500;text-align:center;line-height:1.35}
+.rs-state{background:var(--soft-2)}
+.rs-state.next{background:var(--soft);border-color:var(--accent)}
+.rs-checks{list-style:none;margin:0;padding:10px;border-radius:14px;border:1px dashed rgba(var(--dot),.55);background:var(--surface);display:grid;gap:6px;counter-reset:q}
+.rs-checks li{display:flex;gap:8px;align-items:baseline;font-size:13.5px;padding:7px 10px;border-radius:9px;background:var(--soft-2);line-height:1.35}
+.rs-checks li::before{counter-increment:q;content:counter(q);font-family:var(--mono);font-size:11px;color:var(--accent)}
+.rs-out{display:grid;gap:6px;padding:10px}
+.rs-out>span{padding:6px 10px;border-radius:999px;border:1px solid rgba(var(--dot),.5);font-size:13.5px;background:var(--surface)}
+.rs-loop{margin:14px 9% 0;height:30px;border:1.5px dashed rgba(var(--dot),.45);border-top:0;border-radius:0 0 18px 18px;position:relative}
+.rs-loop>span{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);padding:0 10px;background:var(--sec-bg);font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+.rs-note{margin-top:30px;font-size:14px;color:var(--ink-2);max-width:72ch}
+.rs [data-s],.rt [data-s]{transition:opacity .45s ease,box-shadow .45s ease,background .45s ease}
+.rs.playing [data-s].later{opacity:.28}
+.rs.playing [data-s].on{box-shadow:0 0 0 2px rgba(var(--dot),.45)}
+@media (max-width:960px){
+  .rs-flow{grid-template-columns:minmax(0,1fr);gap:30px;max-width:460px;margin-inline:auto}
+  .rs-flow>*:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-26px;transform:translateX(-50%)}
+  .rs-loop{border:0;height:auto;margin:22px 0 0;text-align:center}
+  .rs-loop>span{position:static;transform:none;white-space:normal}
+}
+
+/* ---- runtime ---- */
+.rt-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+@media (max-width:900px){.rt-grid{grid-template-columns:minmax(0,1fr);gap:32px}}
+.rt{margin:0;display:grid;justify-items:center}
+.rt-io{position:relative;z-index:1;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rt-io.out{color:var(--ink-2)}
+.rt-box{position:relative;justify-self:stretch;margin:24px 0;padding:14px;border-radius:18px;border:1.5px solid var(--accent);background:var(--surface);box-shadow:var(--shadow)}
+.rt-box::before,.rt-box::after{content:"";position:absolute;left:50%;width:2px;height:24px;background:rgba(var(--dot),.5)}
+.rt-box::before{top:-25px}.rt-box::after{bottom:-25px}
+.rt-h{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.rt-h>span:last-child{color:var(--muted)}
+.rt-layers{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.rt-layers li{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 10px;border-radius:9px;background:var(--soft-2);font-size:14px}
+.rt-layers .n{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.rt-layers .tr{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.rt-layers .tr::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.rt-layers li.hum{background:var(--warn-soft)}
+.rt-layers li.hum .n,.rt-layers li.hum .tr{color:var(--warn)}
+.rt-layers li.hum .tr::before{background:var(--warn)}
+.rt.playing [data-s].later{opacity:.35}
+.rt.playing [data-s].later .tr::before{background:var(--line)}
+.rt.playing [data-s].on{box-shadow:0 0 0 2px rgba(var(--dot),.45);background:var(--soft)}
+.rt.playing [data-s].on .tr::before{background:var(--mint)}
+.rt-side .quote{max-width:24ch}
+.rt-p{margin-top:18px;color:var(--ink-2);max-width:48ch}
+
+/* ---- collaboration ---- */
+.cl-wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:start}
+@media (max-width:900px){.cl-wrap{grid-template-columns:minmax(0,1fr);gap:28px}}
+.cl{margin:0;padding:18px;border-radius:18px;border:1px solid var(--line);background:var(--surface)}
+.cl-top{margin-bottom:18px}
+.cl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 14px}
+.cl-n{position:relative;z-index:1;justify-self:center;display:grid;gap:2px;text-align:center;padding:9px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);max-width:100%}
+.cl-n b{font-size:14px;font-weight:600;line-height:1.3}
+.cl-n small{font-size:12px;color:var(--muted);line-height:1.35}
+.cl-n.wide{grid-column:1/-1}
+.cl-inv{background:var(--soft-2)}
+.cl-n.role{border-color:rgba(var(--dot),.55)}
+.cl-n.cl-cap{border-style:dashed;background:var(--soft-2)}
+.cl-n.cl-cap b{font-weight:500;font-size:13px}
+.cl-n.ev{background:var(--soft);border-color:var(--accent)}
+.cl-n.hum{background:var(--warn-soft);border-color:rgba(183,121,31,.45)}
+.cl-n.hum b{color:var(--warn)}
+.cl-note{margin-top:16px;font-size:12.5px;color:var(--muted)}
+.cl-concepts{list-style:none;margin:0;padding:0;display:grid}
+.cl-concepts li{display:grid;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cl-concepts li:first-child{padding-top:0}
+.cl-concepts b{font-weight:600}
+.cl-concepts li>span{font-size:14px;color:var(--ink-2)}
+@media (max-width:420px){.cl{padding:14px 10px}.cl-n{padding:8px 10px}.cl-n b{font-size:13px}.cl-n small{font-size:11.5px}}
+
+/* ---- governance gate ---- */
+.gt{padding:20px;border-radius:18px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.gt-pick{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.gt-btns{display:flex;flex-wrap:wrap;gap:8px}
+.gt-btn{font:500 13px/1.3 var(--font);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer;text-align:left}
+.gt-btn:hover{border-color:var(--accent)}
+.gt-btn.sel{background:var(--soft);border-color:var(--accent);color:var(--ink)}
+.gt-flow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.1fr) minmax(0,.9fr);gap:34px;align-items:center;margin-top:22px}
+.gt-flow>*{position:relative}
+.gt-flow>*:not(:last-child)::after{content:"→";position:absolute;right:-25px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:16px}
+.gt-req{display:grid;gap:6px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--soft-2)}
+.gt-req b{font-size:14.5px;font-weight:600;line-height:1.35}
+.gt-checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.gt-checks li{display:grid;justify-items:center;gap:6px;padding:10px 4px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:500;text-align:center;transition:border-color .25s,background .25s,opacity .25s}
+.gt-ic{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:700}
+.gt-checks li[data-state="ok"] .gt-ic{background:var(--soft);color:var(--accent)}
+.gt-checks li[data-state="ok"] .gt-ic::before{content:"✓"}
+.gt-checks li[data-state="wait"]{border-color:rgba(183,121,31,.5);background:var(--warn-soft)}
+.gt-checks li[data-state="wait"] .gt-ic{background:var(--surface);color:var(--warn)}
+.gt-checks li[data-state="wait"] .gt-ic::before{content:"!"}
+.gt-checks li[data-state="no"]{border-color:var(--deny);background:var(--deny-soft)}
+.gt-checks li[data-state="no"] .gt-ic{background:var(--surface);color:var(--deny)}
+.gt-checks li[data-state="no"] .gt-ic::before{content:"✕"}
+.gt-checks li[data-state="skip"]{opacity:.4}
+.gt-checks li[data-state="skip"] .gt-ic{background:var(--soft-2);color:var(--muted)}
+.gt-checks li[data-state="skip"] .gt-ic::before{content:"–"}
+.gt-outs{display:grid;gap:6px}
+.gt-o{padding:7px 12px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;font-weight:500;color:var(--muted);text-align:center;transition:all .25s}
+.gt-o0.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.gt-o1.on{background:var(--warn-soft);border-color:rgba(183,121,31,.55);color:var(--warn)}
+.gt-o2.on{background:var(--deny-soft);border-color:var(--deny);color:var(--deny)}
+.gt-why{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+.gt-controls{margin-top:26px;display:grid;gap:10px}
+.gt-controls .lbl{margin:0}
+.gt-note{font-size:12.5px;color:var(--muted)}
+@media (max-width:860px){
+  .gt-flow{grid-template-columns:minmax(0,1fr);gap:30px}
+  .gt-flow>*:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-26px;transform:translateX(-50%)}
+  .gt-outs{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:420px){.gt{padding:16px 14px}.gt-checks{grid-template-columns:repeat(2,minmax(0,1fr))}.gt-outs{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- knowledge ---- */
+.km{margin:0}
+.km-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,.75fr);gap:0 90px;align-items:center}
+.km-arr{display:none}
+.km-src,.km-use{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.km-src li,.km-use li{position:relative;z-index:1;padding:7px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-size:13.5px}
+.km-src li{justify-self:end}
+.km-use li{justify-self:start;border-color:rgba(var(--dot),.55);font-weight:500}
+.km-hub{position:relative;z-index:1;display:grid;gap:4px;padding:26px 20px;border-radius:18px;border:1.5px solid var(--accent);background:var(--soft);text-align:center;box-shadow:0 0 0 6px rgba(var(--dot),.07)}
+.km-hub b{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.km-hub>span{font-size:13px;color:var(--muted)}
+.km-loop{margin-top:24px;text-align:center;font-size:15px;font-weight:500}
+.km-ic{font-style:normal;color:var(--accent);margin-right:8px}
+.km-data{margin-top:24px}
+@media (max-width:760px){
+  .km-grid{--links:0;grid-template-columns:minmax(0,1fr);gap:0}
+  .km-src,.km-use{display:flex;flex-wrap:wrap;justify-content:center}
+  .km-arr{display:block;justify-self:center;width:2px;height:28px;margin:6px 0;background:rgba(var(--dot),.5);position:relative}
+  .km-arr::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top:6px solid var(--accent);border-bottom:0}
+}
+
+/* ---- evaluation ---- */
+.ev-changes{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:28px}
+.ev-changes>span:not(.lbl){padding:5px 12px;border-radius:999px;border:1px dashed rgba(183,121,31,.5);background:var(--surface);font-size:13px}
+.ev-changes>span:not(.lbl)::before{content:"↻ ";color:var(--warn)}
+.evl{margin:0;display:grid;justify-items:center}
+.ev-flow{display:flex;flex-direction:column;align-items:center}
+.ev-n{padding:8px 20px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:500;font-size:14px}
+.ev-flow i{display:block;width:2px;height:22px;background:rgba(var(--dot),.55);position:relative}
+.ev-flow i::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top:6px solid var(--accent);border-bottom:0}
+.ev-card{width:100%;max-width:880px;padding:16px;border-radius:18px;border:1.5px solid var(--accent);background:var(--surface);box-shadow:var(--shadow)}
+.ev-card-h{margin-bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.ev-crit{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ev-crit li{display:grid;gap:2px;padding:10px 12px;border-radius:10px;background:var(--soft-2)}
+.ev-crit b{font-weight:600;font-size:14px}
+.ev-crit li>span{font-size:12.5px;color:var(--muted)}
+.ev-down{display:block;width:2px;height:28px;background:rgba(var(--dot),.55)}
+.ev-res{display:grid;gap:2px;padding:10px 20px;border-radius:14px;border:1px solid var(--accent);background:var(--soft);text-align:center}
+.ev-res b{font-weight:600}
+.ev-res>span{font-size:12.5px;color:var(--muted)}
+.ev-note{margin-top:22px;font-size:14px;color:var(--ink-2);text-align:center;max-width:64ch}
+@media (max-width:760px){.ev-crit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.ev-crit{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- observability ---- */
+.ob{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;align-items:start}
+@media (max-width:860px){.ob{grid-template-columns:minmax(0,1fr)}}
+.tr-list{border-radius:18px;border:1px solid var(--line);background:var(--surface);overflow:hidden}
+.tr-top{padding:12px 18px;border-bottom:1px solid var(--line);background:var(--soft-2)}
+.tr-list ol{list-style:none;margin:0;padding:8px}
+.tr-row{width:100%;display:grid;grid-template-columns:74px minmax(0,1fr);gap:12px;align-items:center;padding:9px 12px;border:0;border-radius:10px;background:none;color:var(--ink);font:inherit;font-size:14px;text-align:left;cursor:pointer}
+.tr-row time{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.tr-row:hover{background:var(--soft-2)}
+.tr-row.sel{background:var(--soft);box-shadow:inset 3px 0 0 var(--accent)}
+.tr-row.hum>span,.tr-row.hum time{color:var(--warn)}
+.tr-row.hum.sel{background:var(--warn-soft);box-shadow:inset 3px 0 0 var(--warn)}
+.tr-hint{padding:0 20px 14px;font-size:12.5px;color:var(--muted)}
+.tr-insp{position:sticky;top:88px;padding:18px;border-radius:18px;border:1.5px solid var(--accent);background:var(--surface);box-shadow:var(--shadow)}
+@media (max-width:860px){.tr-insp{position:static}}
+.tr-ph{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin-bottom:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tr-ph time{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.tr-ph b{font-size:16px;font-weight:600}
+.tr-panel dl{margin:0;display:grid}
+.tr-panel dl div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.tr-panel dl div:last-child{border-bottom:0}
+.tr-panel dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.tr-panel dd{margin:0;font-size:14px}
+.tr-panel dd.muted{color:var(--muted)}
+.tr-note{margin-top:12px;font-size:12px;color:var(--muted)}
+@media (max-width:420px){.tr-panel dl div{grid-template-columns:1fr;gap:2px}.tr-row{grid-template-columns:64px minmax(0,1fr);gap:8px;padding:9px 8px}}
+
+/* ---- harness -> spaces ---- */
+.hs{margin:0;display:grid}
+.hs-harness{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 18px;padding:16px 20px;border-radius:18px;background:var(--band);color:var(--band-ink)}
+.hs-name{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.hs-chips{display:flex;flex-wrap:wrap;gap:6px}
+.hs-chips>span{padding:4px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.25);font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:#B9D3CA}
+.hs-split{display:block;width:100%;height:44px}
+.hs-split path{fill:none;stroke:rgba(var(--dot),.6);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.hs-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.hs-card{display:grid;gap:12px;align-content:start;padding:20px 22px;border-radius:18px;border:1px solid var(--line);background:var(--surface);text-decoration:none;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.hs-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.hs-top{display:flex;justify-content:space-between;align-items:center}
+.hs-top .nm{font-size:24px}
+.hs-card ol{list-style:none;margin:0;padding:0;display:grid}
+.hs-card li{position:relative;padding:7px 0 7px 24px;font-size:14.5px}
+.hs-card li::before{content:"";position:absolute;left:4px;top:50%;width:8px;height:8px;margin-top:-5px;border-radius:50%;border:2px solid var(--accent);background:var(--surface)}
+.hs-card li:not(:last-child)::after{content:"";position:absolute;left:8px;top:calc(50% + 6px);height:calc(100% - 12px);width:2px;background:rgba(var(--dot),.35)}
+.hs-card li:first-child{font-weight:600}
+.hs-card li.hum{color:var(--warn);font-weight:500}
+.hs-card li.hum::before{border-color:var(--warn);background:var(--warn-soft)}
+.hs-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.hs-legend div{display:grid;gap:2px;padding-left:14px;border-left:2px solid var(--accent)}
+.hs-legend b{font-weight:600}
+.hs-legend>div>span{font-size:14px;color:var(--ink-2)}
+@media (max-width:620px){
+  .hs-split{display:none}
+  .hs-cards{grid-template-columns:minmax(0,1fr);margin-top:14px}
+  .hs-legend{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---- proof ---- */
+.pf{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.pf{grid-template-columns:minmax(0,1fr)}}
+.pf-group{padding:20px 22px;border-radius:18px;border:1px solid var(--line);background:var(--surface)}
+.pf-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;text-decoration:none}
+.pf-h .nm{font-size:22px}
+.pf-h>span:last-child{font-size:14px;color:var(--muted)}
+.pf-group ul{list-style:none;margin:14px 0 0;padding:0}
+.pf-group li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px;padding:11px 0;border-top:1px solid var(--line)}
+.pf-group li strong{font-weight:600}
+.pf-group .proof-st{margin:0}
+
+/* ---- research ---- */
+.rsx{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.rsx{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.rsx{grid-template-columns:minmax(0,1fr)}}
+.rsx li{display:grid;gap:8px;align-content:start;padding:20px;border-radius:16px;border:1px solid var(--line);background:var(--surface)}
+.rsx .n{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.rsx h3{font-size:16px;font-weight:600}
+.rsx p{font-size:13.5px;color:var(--ink-2)}
+.rs-support{margin-top:20px}
+.rs-support>span{display:inline-flex;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+
+/* ---- closing band ---- */
+.band-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.band .btn-ghost{background:transparent;color:#E7F5F0;border-color:rgba(231,245,240,.3)}
+.band .btn-ghost:hover{border-color:#28DCA8}
+.band-spaces{font-size:14px!important}
+.band-spaces a{color:#28DCA8;text-decoration:none;margin-left:10px;white-space:nowrap}
+.band-spaces a:hover{text-decoration:underline;text-underline-offset:3px}
 
 </style>
 </head>
 <body>
 <header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.energy</span></a>
-    <nav class="nav-links" aria-label="Main"><a href="#investigation">What it investigates</a><a href="#status">Status</a></nav>
-    <div class="nav-cta"><span class="langs" role="group" aria-label="Language"><a href="../../energy/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="../../en/energy/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></span><a class="back" href="../">← deepin.space</a><a class="btn btn-primary btn-sm" href="#contact">Bring us a case</a></div>
+    <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub sub-word">harness</span></a>
+    <nav class="nav-links" aria-label="Main"><a href="#model">Organization</a><a href="#reasoning">Reasoning</a><a href="#governance">Governance</a><a href="#evaluation">Evaluation</a></nav>
+    <div class="nav-cta"><span class="langs" role="group" aria-label="Language"><a href="../../harness/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="../../en/harness/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></span><a class="back" href="../">← deepin.space</a><a class="btn btn-primary btn-sm" href="#contact">Bring us an investigation</a></div>
   </div>
 </header>
 <main>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <marker id="lk-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-a" d="M0 0L8 4L0 8z"/></marker>
+  <marker id="lk-w" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-w" d="M0 0L8 4L0 8z"/></marker>
+</defs></svg>
+
 <section class="hero">
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <p class="eyebrow">Operational Investigation</p>
-      <h1>Investigate anomalies, deviations and <b>operational root causes.</b></h1>
-      <p class="lede">When output drops or a reading drifts, engineers compare sensor data, maintenance logs and past events to find the cause. Deepin can run that investigation and propose the next step for a person to approve.</p>
+      <p class="eyebrow">Deepin Harness</p>
+      <h1>Run AI <b>as an organization.</b></h1>
+      <p class="lede">Deepin Harness is the runtime underneath every Deepin Investigation and Space. It gives agents the roles, capabilities, knowledge, policies and controls they need to work inside an enterprise.</p>
+      <p class="hero-line">Models reason. Capabilities act. Policies govern. <b>Harness orchestrates.</b></p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact">Bring us a case <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn btn-ghost" href="#status">Where we are</a>
+        <a class="btn btn-primary" href="#model">Explore the architecture <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="../risk/">See it in action: deepin.risk →</a>
       </div>
-      <span class="chip st-exploring status">Exploring</span>
+      <p class="hero-note"><span>Runs underneath <b>deepin.risk</b> and <b>deepin.finance</b></span></p>
     </div>
-    <figure class="case" style="margin:0" aria-label="Sample case">
-      <div class="case-top"><span class="case-id">OPS-2026-0602 · Output deviation</span><span class="chip st-wait">Awaiting approval</span></div>
-      <div class="case-body">
-        <div class="trigger"><span class="k">Trigger</span><span>Unit 3 output 7% below expected for six hours</span><small>Plant monitoring · 21 Sep 2026</small></div>
-        <div class="srcs" aria-label="Sources"><span>Sensor data</span><span>Maintenance log</span><span>Weather data</span><span>Past events</span></div>
-        <ul class="finds"><li><span class="k">Sensors</span><span>Inlet pressure drop began after 04:10</span><span class="src">Sensor data</span></li><li><span class="k">Maintenance</span><span>Inlet filter replaced two days earlier</span><span class="src">Maintenance log</span></li><li><span class="k">History</span><span>Two similar events followed filter work in 2025</span><span class="src">Past events</span></li></ul>
-        <p class="reason"><span class="lbl" style="display:block;margin-bottom:4px">Finding</span>The deviation is not explained by weather or load. It matches earlier cases where a newly fitted filter restricted flow.</p>
-        <div class="propose"><p>Schedule inspection of Unit 3 inlet</p><div class="acts"><span>Send to analyst</span><span class="ok">Approve</span></div></div>
-      </div>
-      <figcaption class="case-note">Illustrative case. This investigation is still being explored.</figcaption>
-    </figure>
+    <figure class="case ho" data-live data-labels="[&quot;Organization loaded&quot;, &quot;Roles assigned&quot;, &quot;Agents at work&quot;, &quot;Capabilities, knowledge, policies&quot;, &quot;Task assembled&quot;, &quot;Awaiting human approval&quot;, &quot;Action \u00b7 logged&quot;]" aria-label="Deepin Harness runtime: an organization gives roles to agents; agents use capabilities, knowledge and policies to complete a task, which goes to human approval before action.">
+  <div class="case-top"><span class="case-id">Deepin Harness · runtime</span><span class="chip st-production" data-live-status>Action · logged</span></div>
+  <div class="ho-body" data-links="[[&quot;o&quot;, &quot;r1&quot;, &quot;fl&quot;], [&quot;o&quot;, &quot;r2&quot;, &quot;fl&quot;], [&quot;o&quot;, &quot;r3&quot;, &quot;fl&quot;], [&quot;r1&quot;, &quot;a1&quot;, &quot;&quot;], [&quot;r2&quot;, &quot;a2&quot;, &quot;&quot;], [&quot;r3&quot;, &quot;a3&quot;, &quot;&quot;], [&quot;a1&quot;, &quot;c1&quot;, &quot;&quot;], [&quot;a2&quot;, &quot;c2&quot;, &quot;&quot;], [&quot;a3&quot;, &quot;c3&quot;, &quot;&quot;], [&quot;c1&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;c2&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;c3&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;t&quot;, &quot;h&quot;, &quot;w&quot;], [&quot;h&quot;, &quot;x&quot;, &quot;&quot;]]">
+    <div class="ho-org" data-n="o" data-s="0"><span>Organization</span></div>
+    <div class="ho-cols"><div class="ho-col">
+        <span class="ho-n ho-role" data-n="r1" data-s="1">Role</span>
+        <span class="ho-n ho-agent" data-n="a1" data-s="2">Agent</span>
+        <span class="ho-n ho-res" data-n="c1" data-s="3">Capabilities</span>
+      </div><div class="ho-col">
+        <span class="ho-n ho-role" data-n="r2" data-s="1">Role</span>
+        <span class="ho-n ho-agent" data-n="a2" data-s="2">Agent</span>
+        <span class="ho-n ho-res" data-n="c2" data-s="3">Knowledge</span>
+      </div><div class="ho-col">
+        <span class="ho-n ho-role" data-n="r3" data-s="1">Role</span>
+        <span class="ho-n ho-agent" data-n="a3" data-s="2">Agent</span>
+        <span class="ho-n ho-res" data-n="c3" data-s="3">Policies</span>
+      </div></div>
+    <span class="ho-n ho-task" data-n="t" data-s="4">Task</span>
+    <span class="ho-n ho-ap" data-n="h" data-s="5">Human approval</span>
+    <span class="ho-n ho-act" data-n="x" data-s="6">Action</span>
+  </div>
+</figure>
   </div>
 </section>
 
-<section class="sec" id="investigation">
+<section class="sec" id="problem">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">What it investigates</p>
-      <h2 class="h2">From a deviation to <b>a likely root cause.</b></h2>
+      <p class="eyebrow">The problem</p>
+      <h2 class="h2">Agents are easy. <b>Organizations are hard.</b></h2>
+      <p class="lede">A model with a few tools can already do useful work. The hard part starts when that agent has to work inside a company.</p>
     </div>
-    <div class="inv inv-primary inv-panel">
-      <div class="inv-cols" style="border-top:0;padding-top:0">
-        <div><div class="lbl">Investigates</div><ul class="inv-list in"><li>Sensor and SCADA readings</li><li>Maintenance and work orders</li><li>Operating conditions</li><li>Weather and external data</li><li>Past incidents</li><li>Operating procedures</li></ul></div>
-        <div><div class="lbl">Delivers</div><ul class="inv-list out"><li>Evidence package</li><li>Likely root cause with reasoning</li><li>Recommended next step</li><li>Human approval</li><li>Audit trail</li></ul></div>
-      </div>
-    </div>
+    <div class="hp">
+  <div class="hp-simple">
+    <div class="lbl">A common agent</div>
+    <div class="hp-stack"><span>Model</span><i aria-hidden="true"></i><span>Agent</span><i aria-hidden="true"></i><span>Tools</span></div>
+    <p>An agent can reason and call tools.</p>
+  </div>
+  <div class="hp-qs">
+    <div class="lbl">What an enterprise asks around it</div>
+    <ul class="hp-q"><li>Who is responsible?</li><li>What role does it have?</li><li>What is it allowed to do?</li><li>Which data can it access?</li><li>Who can delegate work to it?</li><li>Which capabilities can it use?</li><li>Which policies constrain it?</li><li>When is human approval required?</li><li>What happens when it fails?</li><li>How is its behavior evaluated?</li><li>Can every action be audited?</li></ul>
+  </div>
+</div>
+<p class="quote hp-land">Enterprise AI is an <b>organization problem.</b></p>
   </div>
 </section>
 
-<section class="sec tone" id="status">
+<section class="sec tone" id="model">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Where we are</p>
-      <h2 class="h2">Exploring, <b>not yet a Space.</b></h2>
+      <p class="eyebrow">Organization model</p>
+      <h2 class="h2">Give AI a place <b>in the organization.</b></h2>
+      <p class="lede">An enterprise agent should not be an anonymous model with tools. In Deepin Harness it works inside an explicit organizational context: what it is responsible for, what it may do, and under which rules.</p>
     </div>
-    <div class="statusbox">
-      <span class="chip st-exploring">Exploring</span>
-      <div><p>Our operational work started with SEÖS, a vertical solution in production at GreenChimney and approaching its second year. It shows that an operational investigation can run beyond the pilot stage.</p><p>deepin.energy is not a Space yet. We are looking for the investigation that repeats across energy and industrial operators.</p>
-        <p><a class="go" href="../#spaces">How a Space is earned →</a></p>
-      </div>
+    <figure class="om" aria-label="Conceptual organization model of Deepin Harness">
+  <div class="om-org"><span class="om-t">Organization</span><span>The boundary in which roles, authority, knowledge, policies and capabilities exist.</span></div>
+  <div class="om-grid" data-links="[[&quot;role&quot;, &quot;agent&quot;, &quot;&quot;], [&quot;auth&quot;, &quot;agent&quot;, &quot;d&quot;], [&quot;pol&quot;, &quot;agent&quot;, &quot;d&quot;], [&quot;agent&quot;, &quot;task&quot;, &quot;&quot;], [&quot;task&quot;, &quot;cap&quot;, &quot;&quot;], [&quot;cap&quot;, &quot;tool&quot;, &quot;&quot;], [&quot;cap&quot;, &quot;svc&quot;, &quot;&quot;], [&quot;agent&quot;, &quot;know&quot;, &quot;nd&quot;]]">
+    <span class="om-g">Who, and under which rules</span><div class="om-n om-role " data-n="role"><span class="om-t">Role</span><span class="om-q">What is it responsible for?</span></div><div class="om-n om-auth om-gov" data-n="auth"><span class="om-t">Authority</span><span class="om-q">Who may decide, approve, delegate or act?</span></div><div class="om-n om-pol om-gov" data-n="pol"><span class="om-t">Policy · Constraint</span><span class="om-q">Under what conditions may this happen?</span></div>
+    <span class="om-g">Doing the work</span><div class="om-n om-agent core" data-n="agent"><span class="om-t">Agent</span><span class="om-q">Does the work, within its role.</span></div><div class="om-n om-task " data-n="task"><span class="om-t">Task</span><span class="om-q">What needs to be done?</span></div><div class="om-n om-cap " data-n="cap"><span class="om-t">Capability</span><span class="om-q">What can it do?</span></div><div class="om-n om-tool tech" data-n="tool"><span class="om-t">Tool</span><span class="om-q">A technical way a capability gets done.</span><small>API · MCP tool · query · model · function</small></div><div class="om-n om-svc tech" data-n="svc"><span class="om-t">Service</span><span class="om-q">Internal or external systems exposed to the organization.</span><small>ERP · CRM · core banking · registry service · document system</small></div>
+    <span class="om-g">What it knows</span><div class="om-n om-know " data-n="know"><span class="om-t">Knowledge</span><span class="om-q">Organizational information available to roles and agents.</span><small>Documents · graphs · structured data · previous Investigations · organizational memory</small></div>
+  </div>
+  <figcaption class="om-note">A conceptual model, not a class diagram. <b>Capability ≠ Tool:</b> a capability is what can be done; a tool is one technical way to do it. <b>Authority ≠ Policy:</b> authority is who may decide, approve, delegate or act; policy is the rules under which it happens.</figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="sec" id="reasoning">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Organizational Reasoning</p>
+      <h2 class="h2">Reason <b>within the organization.</b></h2>
+      <p class="lede">Roles define responsibility. Authority defines delegation and decision rights. Capabilities define what can be done. Policies define the boundaries.</p>
     </div>
+    <div class="rs-pair"><div><span class="om-t">Organization</span><p>Structure and state: who exists, what they are responsible for, what they may do.</p></div><div><span class="om-t">Organizational Reasoning</span><p>Behavior over time: how the organization works out who should do what when something happens.</p></div></div>
+<figure class="rs" data-live aria-label="Organizational Reasoning flow">
+  <div class="rs-flow">
+    <div class="rs-n rs-state" data-s="0">Current organizational state</div>
+    <div class="rs-n rs-event" data-s="1">Event or goal</div>
+    <ol class="rs-checks"><li data-s="2">Who is responsible?</li><li data-s="3">What authority exists?</li><li data-s="4">Which capabilities are available?</li><li data-s="5">Which policies constrain the action?</li></ol>
+    <div class="rs-n rs-out" data-s="6"><span>Act</span><span>Delegate</span><span>Collaborate</span></div>
+    <div class="rs-n rs-state next" data-s="7">New organizational state</div>
+  </div>
+  <div class="rs-loop" aria-hidden="true"><span>↺ and again, with the next event</span></div>
+  <figcaption class="rs-note">This is more than routing prompts between agents: each step is answered against the organization&#x27;s own roles, authority and rules.</figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="sec tone" id="runtime">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Runtime</p>
+      <h2 class="h2">From model call <b>to governed work.</b></h2>
+      <p class="lede">Work enters the Harness, runs under organizational context and governance, and leaves an auditable trace.</p>
+    </div>
+    <div class="rt-grid">
+  <figure class="rt" data-live aria-label="Deepin Harness">
+    <span class="rt-io">Request or event</span>
+    <div class="rt-box">
+      <div class="rt-h"><span>Deepin Harness</span><span>Leaves a trace</span></div>
+      <ol class="rt-layers"><li data-s="0" class=""><span class="n">01</span><span class="l">Identity &amp; role</span><span class="tr">who</span></li><li data-s="1" class=""><span class="n">02</span><span class="l">Context &amp; memory</span><span class="tr">context</span></li><li data-s="2" class=""><span class="n">03</span><span class="l">Planning</span><span class="tr">plan</span></li><li data-s="3" class=""><span class="n">04</span><span class="l">Capability selection</span><span class="tr">capability</span></li><li data-s="4" class=""><span class="n">05</span><span class="l">Tool &amp; service execution</span><span class="tr">call</span></li><li data-s="5" class=""><span class="n">06</span><span class="l">Policy enforcement</span><span class="tr">policy</span></li><li data-s="6" class="hum"><span class="n">07</span><span class="l">Human approval</span><span class="tr">approval</span></li><li data-s="7" class=""><span class="n">08</span><span class="l">State &amp; workflow</span><span class="tr">state</span></li><li data-s="8" class=""><span class="n">09</span><span class="l">Evaluation</span><span class="tr">score</span></li><li data-s="9" class=""><span class="n">10</span><span class="l">Audit &amp; observability</span><span class="tr">trace</span></li></ol>
+    </div>
+    <span class="rt-io out">Enterprise systems</span>
+  </figure>
+  <div class="rt-side">
+    <p class="quote">Models reason. Capabilities act. Policies govern. <b>Harness orchestrates.</b></p>
+    <p class="rt-p">A model call answers a prompt. Governed work knows who asked, in which role, with which capability, under which policy, and who approved it.</p>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="sec" id="collaboration">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Collaboration</p>
+      <h2 class="h2">Agents <b>don't work alone.</b></h2>
+      <p class="lede">Real Investigations are shared work. Roles delegate, build on shared evidence and hand the decision to a person.</p>
+    </div>
+    <div class="cl-wrap">
+  <figure class="cl">
+    <div class="cl-top"><span class="lbl" style="margin:0">Example · Company Investigation</span></div>
+    <div class="cl-grid" data-links="[[&quot;inv&quot;, &quot;lead&quot;, &quot;&quot;], [&quot;lead&quot;, &quot;reg&quot;, &quot;&quot;], [&quot;lead&quot;, &quot;fin&quot;, &quot;&quot;], [&quot;reg&quot;, &quot;regc&quot;, &quot;&quot;], [&quot;fin&quot;, &quot;finc&quot;, &quot;&quot;], [&quot;regc&quot;, &quot;ev&quot;, &quot;&quot;], [&quot;finc&quot;, &quot;ev&quot;, &quot;&quot;], [&quot;ev&quot;, &quot;eval&quot;, &quot;&quot;], [&quot;eval&quot;, &quot;dec&quot;, &quot;w&quot;]]">
+      <div class="cl-n cl-inv wide" data-n="inv"><b>Company Investigation</b><small>Trigger: new signatory registered</small></div><div class="cl-n cl-lead wide role" data-n="lead"><b>Investigation lead</b><small>Role · plans and delegates</small></div><div class="cl-n cl-reg role" data-n="reg"><b>Registry role</b><small>Checks official filings</small></div><div class="cl-n cl-fin role" data-n="fin"><b>Financial role</b><small>Reads financial statements</small></div>
+      <div class="cl-n cl-regc cl-cap" data-n="regc"><b>Registry capability</b></div><div class="cl-n cl-finc cl-cap" data-n="finc"><b>Financial capability</b></div><div class="cl-n cl-ev wide ev" data-n="ev"><b>Shared evidence</b><small>Findings with their sources</small></div><div class="cl-n cl-eval wide" data-n="eval"><b>Evaluation</b><small>Is the evidence sufficient and consistent?</small></div><div class="cl-n cl-dec wide hum" data-n="dec"><b>Human decision</b><small>A person approves or rejects</small></div>
+    </div>
+    <figcaption class="cl-note">Illustrative. Role names show the idea; they are not fixed product components.</figcaption>
+  </figure>
+  <ul class="cl-concepts"><li><b>Responsibility</b><span>Each role owns part of the work.</span></li><li><b>Delegation</b><span>The lead hands work to roles with the authority and capability for it.</span></li><li><b>Collaboration</b><span>Roles build on each other&#x27;s findings.</span></li><li><b>Shared evidence</b><span>Findings land in one case, each with its source.</span></li><li><b>Evaluation</b><span>The result is checked before it reaches a person.</span></li><li><b>Human authority</b><span>A person makes the decision.</span></li></ul>
+</div>
+  </div>
+</section>
+
+<section class="sec tone" id="governance">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Governance</p>
+      <h2 class="h2">Autonomy <b>needs boundaries.</b></h2>
+      <p class="lede">Enterprise AI should be able to act. Every action still passes through role, authority, policy and constraints, and ends in one of three outcomes.</p>
+    </div>
+    <div class="gt" data-gate>
+  <div class="gt-pick"><span class="lbl" style="margin:0">Pick a request</span><div class="gt-btns"><button type="button" class="gt-btn sel" aria-pressed="true" data-res="[&quot;ok&quot;, &quot;ok&quot;, &quot;ok&quot;, &quot;ok&quot;]" data-out="0" data-why="Within the role, the authority and the monitoring policy. It runs, and the step is logged.">Read the latest registry filing</button><button type="button" class="gt-btn" aria-pressed="false" data-res="[&quot;ok&quot;, &quot;wait&quot;, &quot;ok&quot;, &quot;ok&quot;]" data-out="1" data-why="Changing a risk level is a decision. The agent proposes it with the evidence; a person approves.">Raise the supplier&#x27;s risk level</button><button type="button" class="gt-btn" aria-pressed="false" data-res="[&quot;ok&quot;, &quot;ok&quot;, &quot;no&quot;, &quot;skip&quot;]" data-out="2" data-why="Policy does not allow case files to leave the organization. The request is denied and recorded.">Send the company file to an outside party</button></div></div>
+  <div class="gt-flow">
+    <span class="gt-req"><span class="lbl" style="margin:0">Action request</span><b data-gate-label>Read the latest registry filing</b></span>
+    <ol class="gt-checks"><li data-state="ok"><span class="gt-ic" aria-hidden="true"></span>Role</li><li data-state="ok"><span class="gt-ic" aria-hidden="true"></span>Authority</li><li data-state="ok"><span class="gt-ic" aria-hidden="true"></span>Policy</li><li data-state="ok"><span class="gt-ic" aria-hidden="true"></span>Constraint</li></ol>
+    <div class="gt-outs"><span class="gt-o gt-o0 on">Execute</span><span class="gt-o gt-o1">Human approval</span><span class="gt-o gt-o2">Deny</span></div>
+  </div>
+  <p class="gt-why" data-gate-why aria-live="polite">Within the role, the authority and the monitoring policy. It runs, and the step is logged.</p>
+</div>
+<div class="gt-controls">
+  <div class="lbl">Controls</div>
+  <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Role-based access</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="6" cy="9" r="3"/><path d="M9 9h7M13 9v3M15.5 9v2"/></svg>Authority boundaries</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Policy enforcement</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>Human approval</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Audit trail</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Data lineage</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg>On-premise</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg>Air-gapped deployment</li></ul>
+  <p class="gt-note">Controls are configured for each deployment, to the organization&#x27;s own rules.</p>
+</div>
+  </div>
+</section>
+
+<section class="sec" id="knowledge">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Knowledge &amp; memory</p>
+      <h2 class="h2">An organization <b>should remember.</b></h2>
+      <p class="lede">Work should not start from zero every time. What the organization knows, and what it learned in earlier Investigations, is available to the roles doing the work.</p>
+    </div>
+    <figure class="km" aria-label="Knowledge sources flow into organizational knowledge, which roles, agents and Investigations use">
+  <div class="km-grid" data-links="[[&quot;s0&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s1&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s2&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s3&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s4&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s5&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s6&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;hub&quot;, &quot;u0&quot;, &quot;&quot;], [&quot;hub&quot;, &quot;u1&quot;, &quot;&quot;], [&quot;hub&quot;, &quot;u2&quot;, &quot;&quot;]]" data-links-dir="h">
+    <ul class="km-src"><li data-n="s0">Documents</li><li data-n="s1">Structured data</li><li data-n="s2">Knowledge graph</li><li data-n="s3">Previous Investigations</li><li data-n="s4">Policies</li><li data-n="s5">Decisions</li><li data-n="s6">Evaluation results</li></ul>
+    <span class="km-arr" aria-hidden="true"></span>
+    <div class="km-hub" data-n="hub"><b>Organizational knowledge</b><span>Shared context for the work</span></div>
+    <span class="km-arr" aria-hidden="true"></span>
+    <ul class="km-use"><li data-n="u0">Roles</li><li data-n="u1">Agents</li><li data-n="u2">Investigations</li></ul>
+  </div>
+  <p class="km-loop"><i class="km-ic" aria-hidden="true">↺</i>Every Investigation can contribute reusable organizational context.</p>
+</figure>
+<div class="datanote km-data"><strong>It stays yours.</strong><p>This knowledge lives in your deployment and belongs to you. It is not shared between customers. What carries from one deployment to the next is how Investigations are solved, never your records.</p></div>
+  </div>
+</section>
+
+<section class="sec tone" id="evaluation">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Evaluation</p>
+      <h2 class="h2">Every action leaves evidence. <b>Every behavior can be evaluated.</b></h2>
+      <p class="lede">Models change. Prompts change. Tools change. Knowledge and policies change. So enterprise AI needs evaluation that keeps running, not a test at launch.</p>
+    </div>
+    <div class="ev-changes"><span class="lbl" style="margin:0">Always changing</span><span>Models</span><span>Prompts</span><span>Tools</span><span>Knowledge</span><span>Policies</span></div>
+<figure class="evl">
+  <div class="ev-flow"><span class="ev-n">Task</span><i aria-hidden="true"></i><span class="ev-n">Trace</span><i aria-hidden="true"></i><span class="ev-n">Outcome</span><i aria-hidden="true"></i></div>
+  <div class="ev-card">
+    <div class="ev-card-h">Evaluation</div>
+    <ul class="ev-crit"><li><b>Correctness</b><span>Is the finding right?</span></li><li><b>Evidence quality</b><span>Is every claim sourced?</span></li><li><b>Policy compliance</b><span>Did it stay inside the rules?</span></li><li><b>Tool behavior</b><span>Were tools called as expected?</span></li><li><b>Cost</b><span>What did the run cost?</span></li><li><b>Latency</b><span>How long did it take?</span></li></ul>
+  </div>
+  <i class="ev-down" aria-hidden="true"></i>
+  <div class="ev-res"><b>Regression or improvement</b><span>reviewed and released by people</span></div>
+  <figcaption class="ev-note">Evaluation informs improvement. The system does not change itself silently; people review changes and release them.</figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="sec" id="observability">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Observability</p>
+      <h2 class="h2">Know what happened. <b>And why.</b></h2>
+      <p class="lede">Every step of an Investigation is recorded with who acted, in which role, with which capability, on which source and under which policy. It is the same principle as the rest of Deepin: evidence before decision.</p>
+    </div>
+    <div class="ob" data-trace>
+  <div class="tr-list">
+    <div class="tr-top"><span class="case-id">INV-2026-0418 · Northwind Lojistik A.Ş.</span></div>
+    <ol><li><button type="button" class="tr-row" aria-pressed="false" data-tr="0"><time>09:42:01</time><span>Investigation started</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="1"><time>09:42:03</time><span>Registry capability invoked</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="2"><time>09:42:04</time><span>3 documents retrieved</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="3"><time>09:42:09</time><span>Ownership change detected</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="4"><time>09:42:13</time><span>Related company investigated</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="5"><time>09:42:18</time><span>Policy check passed</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="6"><time>09:42:21</time><span>Evidence assembled</span></button></li><li><button type="button" class="tr-row hum sel" aria-pressed="true" data-tr="7"><time>09:42:24</time><span>Human approval requested</span></button></li></ol>
+    <p class="tr-hint">Select a step to see the record behind it.</p>
+  </div>
+  <div class="tr-insp"><div class="tr-panel" data-trp="0" hidden><div class="tr-ph"><time>09:42:01</time><b>Investigation started</b></div><dl><div><dt>Who acted</dt><dd>Investigation lead (agent)</dd></div><div><dt>Role</dt><dd>Investigation lead</dd></div><div><dt>Capability</dt><dd>Open case</dd></div><div><dt>Source</dt><dd>Trade Registry Gazette · 18 Sep</dd></div><div><dt>Evidence</dt><dd>New signatory registered for Northwind Lojistik A.Ş.</dd></div><div><dt>Policy</dt><dd>Supplier monitoring policy</dd></div><div><dt>Decision</dt><dd>Company Investigation opened</dd></div><div><dt>When</dt><dd>18 Sep 2026 · 09:42:01</dd></div></dl></div><div class="tr-panel" data-trp="1" hidden><div class="tr-ph"><time>09:42:03</time><b>Registry capability invoked</b></div><dl><div><dt>Who acted</dt><dd>Registry agent</dd></div><div><dt>Role</dt><dd>Registry role</dd></div><div><dt>Capability</dt><dd>Registry lookup</dd></div><div><dt>Source</dt><dd>Trade Registry Gazette</dd></div><div><dt>Evidence</dt><dd class="muted">—</dd></div><div><dt>Policy</dt><dd>Read access to official records</dd></div><div><dt>Decision</dt><dd class="muted">—</dd></div><div><dt>When</dt><dd>18 Sep 2026 · 09:42:03</dd></div></dl></div><div class="tr-panel" data-trp="2" hidden><div class="tr-ph"><time>09:42:04</time><b>3 documents retrieved</b></div><dl><div><dt>Who acted</dt><dd>Registry agent</dd></div><div><dt>Role</dt><dd>Registry role</dd></div><div><dt>Capability</dt><dd>Registry lookup</dd></div><div><dt>Source</dt><dd>Trade Registry Gazette · 12 and 18 Sep</dd></div><div><dt>Evidence</dt><dd>3 filings attached to the case</dd></div><div><dt>Policy</dt><dd class="muted">—</dd></div><div><dt>Decision</dt><dd class="muted">—</dd></div><div><dt>When</dt><dd>18 Sep 2026 · 09:42:04</dd></div></dl></div><div class="tr-panel" data-trp="3" hidden><div class="tr-ph"><time>09:42:09</time><b>Ownership change detected</b></div><dl><div><dt>Who acted</dt><dd>Registry agent</dd></div><div><dt>Role</dt><dd>Registry role</dd></div><div><dt>Capability</dt><dd>Change detection</dd></div><div><dt>Source</dt><dd>Filing of 18 Sep</dd></div><div><dt>Evidence</dt><dd>New shareholder and change of representation authority</dd></div><div><dt>Policy</dt><dd class="muted">—</dd></div><div><dt>Decision</dt><dd class="muted">—</dd></div><div><dt>When</dt><dd>18 Sep 2026 · 09:42:09</dd></div></dl></div><div class="tr-panel" data-trp="4" hidden><div class="tr-ph"><time>09:42:13</time><b>Related company investigated</b></div><dl><div><dt>Who acted</dt><dd>Investigation lead (agent)</dd></div><div><dt>Role</dt><dd>Investigation lead</dd></div><div><dt>Capability</dt><dd>Relationship graph</dd></div><div><dt>Source</dt><dd>Relationship graph</dd></div><div><dt>Evidence</dt><dd>New signatory is a partner in 2 watched companies</dd></div><div><dt>Policy</dt><dd class="muted">—</dd></div><div><dt>Decision</dt><dd>Related company added to the case</dd></div><div><dt>When</dt><dd>18 Sep 2026 · 09:42:13</dd></div></dl></div><div class="tr-panel" data-trp="5" hidden><div class="tr-ph"><time>09:42:18</time><b>Policy check passed</b></div><dl><div><dt>Who acted</dt><dd>Harness policy check</dd></div><div><dt>Role</dt><dd class="muted">—</dd></div><div><dt>Capability</dt><dd>Policy enforcement</dd></div><div><dt>Source</dt><dd>Supplier risk policy</dd></div><div><dt>Evidence</dt><dd>Capital reduction and authority change within 30 days</dd></div><div><dt>Policy</dt><dd>Elevated supplier risk rule</dd></div><div><dt>Decision</dt><dd>Recommendation may proceed</dd></div><div><dt>When</dt><dd>18 Sep 2026 · 09:42:18</dd></div></dl></div><div class="tr-panel" data-trp="6" hidden><div class="tr-ph"><time>09:42:21</time><b>Evidence assembled</b></div><dl><div><dt>Who acted</dt><dd>Investigation lead (agent)</dd></div><div><dt>Role</dt><dd>Investigation lead</dd></div><div><dt>Capability</dt><dd>Evidence package</dd></div><div><dt>Source</dt><dd>4 sources</dd></div><div><dt>Evidence</dt><dd>3 findings, each linked to its source</dd></div><div><dt>Policy</dt><dd class="muted">—</dd></div><div><dt>Decision</dt><dd>Recommendation: risk level Medium → High</dd></div><div><dt>When</dt><dd>18 Sep 2026 · 09:42:21</dd></div></dl></div><div class="tr-panel" data-trp="7"><div class="tr-ph"><time>09:42:24</time><b>Human approval requested</b></div><dl><div><dt>Who acted</dt><dd>Investigation lead (agent)</dd></div><div><dt>Role</dt><dd>Investigation lead</dd></div><div><dt>Capability</dt><dd>Approval request</dd></div><div><dt>Source</dt><dd>Evidence package</dd></div><div><dt>Evidence</dt><dd>3 findings, 4 sources</dd></div><div><dt>Policy</dt><dd>Risk level changes require human approval</dd></div><div><dt>Decision</dt><dd>Waiting for the risk analyst</dd></div><div><dt>When</dt><dd>18 Sep 2026 · 09:42:24</dd></div></dl></div><p class="tr-note">Sample trace with a fictional company.</p></div>
+</div>
+  </div>
+</section>
+
+<section class="sec tone dots" id="spaces">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Harness and Spaces</p>
+      <h2 class="h2">One Harness. <b>Domain-specific Spaces.</b></h2>
+      <p class="lede">A Space packages reusable roles, capabilities, data sources, knowledge, policies, evaluations and Investigations for a business domain.</p>
+    </div>
+    <figure class="hs">
+  <div class="hs-harness"><span class="hs-name">Deepin Harness</span><span class="hs-chips"><span>Organization</span><span>Reasoning</span><span>Knowledge</span><span>Governance</span><span>Evaluation</span></span></div>
+  <svg class="hs-split" viewBox="0 0 400 44" preserveAspectRatio="none" aria-hidden="true"><path d="M200 0 V14 C200 30 100 22 100 44 M200 14 C200 30 300 22 300 44"/></svg>
+  <div class="hs-cards"><a class="hs-card" href="../risk/"><span class="hs-top"><span class="nm">deep<b>in</b>.risk</span><span class="go">→</span></span><ol><li class="">Company Investigation</li><li class="">Evidence + findings</li><li class="hum">Human decision</li></ol></a><a class="hs-card" href="../finance/"><span class="hs-top"><span class="nm">deep<b>in</b>.finance</span><span class="go">→</span></span><ol><li class="">Chargeback Investigation</li><li class="">Evidence + recommendation</li><li class="hum">Human decision</li></ol></a></div>
+</figure>
+<div class="hs-legend"><div><b>Harness</b><span>The reusable enterprise runtime.</span></div><div><b>Space</b><span>The implementation for one business domain.</span></div><div><b>Investigation</b><span>The concrete business work.</span></div></div>
+  </div>
+</section>
+
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">In use</p>
+      <h2 class="h2">Built underneath <b>real Investigations.</b></h2>
+      <p class="lede">Harness capabilities are shaped underneath concrete enterprise Investigations, not in an isolated framework experiment. Each reference is shown at the maturity it has actually reached.</p>
+    </div>
+    <div class="pf">
+      <div class="pf-group">
+  <a class="pf-h" href="../risk/"><span class="nm">deep<b>in</b>.risk</span><span>Company Investigation</span></a>
+  <ul><li><strong>Hayat Finans</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong>PayTR</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong>SOCAR</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong>DGPays</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Embedded</span></span></li></ul>
+</div>
+      <div class="pf-group">
+  <a class="pf-h" href="../finance/"><span class="nm">deep<b>in</b>.finance</span><span>Chargeback Investigation</span></a>
+  <ul><li><strong>Visa / Ziraat Bankası</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="chip st-contracted">Contracted · In development</span></span></li></ul>
+</div>
+    </div>
+    <div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Contracted</span><span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Embedded or deploying</span><span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>In production</span></div>
+  </div>
+</section>
+
+<section class="sec tone" id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">R&amp;D</p>
+      <h2 class="h2">Research-backed <b>architecture.</b></h2>
+      <p class="lede">Deepin Harness is continuously developed through R&amp;D in organizational reasoning, governed agent collaboration, constraint-aware planning and continuous evaluation.</p>
+    </div>
+    <ol class="rsx"><li><span class="n">01</span><h3>Organizational Reasoning</h3><p>Reasoning according to role, authority, organizational state and constraints.</p></li><li><span class="n">02</span><h3>Governed Collaboration</h3><p>Delegation and collaboration between roles while preserving authority boundaries.</p></li><li><span class="n">03</span><h3>Constraint-Aware Planning</h3><p>Planning toward goals while respecting policies, authority and operational constraints.</p></li><li><span class="n">04</span><h3>Continuous Evaluation</h3><p>Evaluating traces, outcomes and behavior as models, tools and organizational context change.</p></li></ol>
+    <p class="rs-support"><span>TÜBİTAK-supported R&amp;D</span></p>
   </div>
 </section>
 
 <section class="band" id="contact">
   <div class="wrap">
-    <p class="eyebrow">deepin.energy</p>
-    <h2>What does your team investigate <b>after something goes wrong?</b></h2>
-    <p>Tell us about the anomaly or deviation that costs you most. We will show you how Deepin would investigate it.</p>
+    <p class="eyebrow">Deepin Harness</p>
+    <h2>Build AI that can work <b>inside your organization.</b></h2>
+    <p>Start from a real Investigation, or use Deepin Harness to bring governed AI into an existing enterprise workflow.</p>
+    <div class="band-ctas">
+      <a class="btn btn-primary" href="mailto:info@deepin.space?subject=Investigation">Bring us an Investigation <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a class="btn btn-ghost" href="mailto:info@deepin.space?subject=Deepin%20Harness">Talk about Deepin Harness</a>
+    </div>
     <div class="mail"><code id="email">info@deepin.space</code><button class="copy" id="copyBtn" type="button" data-copied="Copied" data-selected="Selected">Copy email</button></div>
+    <p class="band-spaces">See it in a Space: <a href="../risk/">deepin.risk →</a> <a href="../finance/">deepin.finance →</a></p>
+    <p class="next">Don't deploy another agent. <b>Build an organization.</b></p>
   </div>
 </section>
 </main>
 <footer id="company">
   <div class="wrap">
     <div class="f-about">
-      <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.energy</span></a>
+      <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub sub-word">harness</span></a>
       <p>Deepin builds Enterprise Investigation &amp; Decision Automation: agents that investigate business cases, show the evidence and wait for a person to approve.</p>
       <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
     </div>
@@ -794,7 +1366,7 @@ span[lang="en"]{display:contents}
       <a href="https://platform.deepin.space">Log in</a>
       <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
-    <div class="f-col"><span class="lbl">Contact</span><span>info@deepin.space</span><span class="f-copy">© 2026 Deepin</span><span class="langs" role="group" aria-label="Language"><a href="../../energy/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="../../en/energy/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></span></div>
+    <div class="f-col"><span class="lbl">Contact</span><span>info@deepin.space</span><span class="f-copy">© 2026 Deepin</span><span class="langs" role="group" aria-label="Language"><a href="../../harness/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="../../en/harness/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></span></div>
   </div>
 </footer>
 <script>

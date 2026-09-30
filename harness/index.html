@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>deepin.risk · Company Investigation</title>
-<meta name="description" content="Bağlı olduğunuz her şirketi araştırın. Bir şirket değiştiğinde Deepin neyin değiştiğini, neden önemli olduğunu araştırır ve arkasındaki kanıtı gösterir.">
-<meta property="og:title" content="deepin.risk · Company Investigation">
-<meta property="og:description" content="Bağlı olduğunuz her şirketi araştırın. Bir şirket değiştiğinde Deepin neyin değiştiğini, neden önemli olduğunu araştırır ve arkasındaki kanıtı gösterir.">
-<meta property="og:url" content="https://deepin.space/risk/">
+<title>Deepin Harness · Kurumsal yapay zekâ çalışma ortamı</title>
+<meta name="description" content="Deepin Harness, her Deepin Investigation&#x27;ının ve Space&#x27;inin altında çalışan kurumsal çalışma ortamıdır. Agent&#x27;lara rol, yetki, yetenek, bilgi, politika ve kontrol vererek yapay zekânın bir kurumun içinde çalışmasını sağlar.">
+<meta property="og:title" content="Deepin Harness · Kurumsal yapay zekâ çalışma ortamı">
+<meta property="og:description" content="Deepin Harness, her Deepin Investigation&#x27;ının ve Space&#x27;inin altında çalışan kurumsal çalışma ortamıdır. Agent&#x27;lara rol, yetki, yetenek, bilgi, politika ve kontrol vererek yapay zekânın bir kurumun içinde çalışmasını sağlar.">
+<meta property="og:url" content="https://deepin.space/harness/">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
-<link rel="canonical" href="https://deepin.space/risk/">
-<link rel="alternate" hreflang="tr" href="https://deepin.space/risk/">
-<link rel="alternate" hreflang="en" href="https://deepin.space/en/risk/">
-<link rel="alternate" hreflang="x-default" href="https://deepin.space/risk/">
-<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a={"en": "../en/risk/"};if(s&&a[s]){var u=a[s];if(!/(^|\.)deepin\.space$/.test(location.hostname)&&/\/$/.test(u))u+="index.html";location.replace(u+location.hash)}}catch(e){}})()</script>
+<link rel="canonical" href="https://deepin.space/harness/">
+<link rel="alternate" hreflang="tr" href="https://deepin.space/harness/">
+<link rel="alternate" hreflang="en" href="https://deepin.space/en/harness/">
+<link rel="alternate" hreflang="x-default" href="https://deepin.space/harness/">
+<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a={"en": "../en/harness/"};if(s&&a[s]){var u=a[s];if(!/(^|\.)deepin\.space$/.test(location.hostname)&&/\/$/.test(u))u+="index.html";location.replace(u+location.hash)}}catch(e){}})()</script>
 <link rel="icon" type="image/png" href="../assets/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -698,620 +698,665 @@ footer .langs{justify-self:start;margin-top:10px}
 /* English terms inside Turkish text stay part of the same text run (no flex gaps around them) */
 span[lang="en"]{display:contents}
 
-/* ================= risk badges ================= */
-.risk{display:inline-flex;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:6px;font-weight:500;white-space:nowrap}
-.r-low{background:var(--soft);color:var(--mint-ink)}
-.r-medium{background:var(--warn-soft);color:var(--warn)}
-.r-high{background:#FBE4DF;color:#A23B26}
-:root[data-theme="dark"] .r-high{background:#3A1F19;color:#F2A08C}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .r-high{background:#3A1F19;color:#F2A08C}}
+/* =================================================================== deepin harness */
+:root{--deny:#B4432F;--deny-soft:#FBE9E5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--deny:#F18F80;--deny-soft:#3A1F1A}}
+:root[data-theme="dark"]{--deny:#F18F80;--deny-soft:#3A1F1A}
 
-/* ================= 1. hero ================= */
-.ci{margin:0}
-.ci .ci-top{align-items:flex-start}
-.ci-top strong{display:block;font-size:17px;font-weight:600;margin-top:2px}
-.ci-event{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--warn-soft)}
-.ci-event b{display:block;font-size:14px;font-weight:600}
-.ci-event small{color:var(--muted);font-size:12px}
-.ci-pulse{flex:none;width:10px;height:10px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 4px rgba(183,121,31,.18)}
-.ci-start{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;border-radius:6px}
-.ci-start::after{content:"";flex:1;height:1px;background:var(--line)}
-.ci-activity{list-style:none;margin:-4px 0 0;padding:0;display:grid;gap:2px;font-size:14px}
-.ci-activity li{display:flex;gap:10px;align-items:center;padding:4px 6px;border-radius:8px}
-.ck{flex:none;width:16px;height:16px;fill:var(--accent);stroke:none}
-.ck path{fill:none;stroke:var(--accent-ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.case.playing .ci-activity li.later .ck{fill:none;stroke:var(--line);stroke-width:1.5}
-.case.playing .ci-activity li.later .ck path{stroke:transparent}
-.ci-findings{padding:14px 16px;border-radius:12px;background:var(--soft);display:grid;gap:8px}
-.ci-findings .lbl{color:var(--accent)}
-.ci-findings ol{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px;font-weight:500}
-.ci-findings li{display:flex;gap:12px}
-.ci-findings .n{font-family:var(--mono);font-size:12px;color:var(--accent);padding-top:2px}
-.ci-link{justify-self:start}
+.hero{padding-block:52px 64px}
+.hero .lede{max-width:56ch}
+.hero-line{margin-top:16px;font-size:17px;font-weight:500;color:var(--ink);max-width:46ch}
+.hero-line b{color:var(--accent);font-weight:600}
+.hero-note{margin-top:26px;font-size:13px;color:var(--muted)}
+.hero-note b{font-weight:500;color:var(--ink-2)}
 
-/* ================= 2. living investigation ================= */
-#monitoring{padding-block:clamp(64px,7vw,104px)}
-.shift{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;font-size:clamp(22px,2.8vw,32px);font-weight:300;letter-spacing:-.01em;margin-bottom:6px}
-.shift s{color:var(--muted);text-decoration-thickness:1.5px;text-decoration-color:rgba(var(--dot),.6)}
-.shift i{font-style:normal;color:var(--accent)}
-.shift b{font-weight:700;color:var(--accent)}
-.liv{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:stretch}
-@media (max-width:960px){.liv{grid-template-columns:1fr}}
-.liv>*{min-width:0}
-.rep{display:grid;gap:10px;align-content:start}
-.rep-doc{position:relative;padding:20px;border-radius:14px;border:1px dashed var(--line);background:var(--surface);display:grid;gap:12px;overflow:hidden}
-.rep-head small{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:block}
-.rep-head b{font-weight:600}
-.rep-doc ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px;color:var(--ink-2)}
-.rep-doc li{display:flex;justify-content:space-between;border-bottom:1px dotted var(--line);padding-bottom:4px}
-.rep-doc li span{color:var(--muted)}
-.rep-risk{display:flex;justify-content:space-between;align-items:center}
-.rep-stale{justify-self:start;background:var(--warn-soft);color:var(--warn);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
-.rep-doc{filter:saturate(.6)}
-.liv-tl{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 26px 24px;box-shadow:var(--shadow);display:grid;gap:10px}
-.liv-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
-.liv-head .lbl{color:var(--accent)}
-.liv-head strong{font-size:17px;font-weight:600}
-.liv-hint{margin-left:auto;font-size:12px;color:var(--muted)}
-.lt-axis{position:relative;height:16px;margin:6px 10px 0;font-family:var(--mono);font-size:11px;color:var(--muted)}
-.lt-axis span{position:absolute;left:var(--x);transform:translateX(-50%)}
-.lt-axis span:first-child{transform:none}.lt-axis span:last-child{transform:translateX(-100%)}
-.lt-track{position:relative;list-style:none;margin:0 10px;padding:0;height:92px}
-.lt-track::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(var(--dot),.35),var(--accent))}
-.lt-pt{position:absolute;top:0;left:var(--x);transform:translateX(-50%)}
-.lt-pt.start{transform:none}
-.lt-pt.end{transform:translateX(-100%)}
-.lt-btn{all:unset;cursor:pointer;display:grid;justify-items:center;gap:8px;text-align:center;border-radius:10px;padding:0 4px 6px}
-.lt-pt.end .lt-btn{justify-items:end;text-align:right}
-.lt-pt.start .lt-lbl{display:grid;justify-items:start;gap:4px;margin-top:8px}
-.lt-dot{width:16px;height:16px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);position:relative;z-index:1;display:block}
-.lt-btn .lt-dot{background:var(--accent);box-shadow:0 0 0 5px rgba(var(--dot),.15);transition:box-shadow .2s}
-.lt-btn.sel .lt-dot{box-shadow:0 0 0 7px rgba(var(--dot),.3)}
-.lt-lbl{display:grid;gap:1px;font-size:13px;max-width:170px}
-.lt-lbl small{font-family:var(--mono);font-size:11px;color:var(--muted)}
-.lt-lbl b{font-weight:600}
-.lt-btn.sel .lt-lbl b{color:var(--accent)}
-.lt-btn:hover .lt-lbl b{text-decoration:underline;text-underline-offset:3px}
-.lt-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.lt-panel{border-radius:14px;background:var(--soft);padding:16px 18px;display:grid;gap:12px}
-.lt-ba{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center}
-.lt-ba p{font-size:14px;color:var(--ink-2)}
-.lt-ba .after p{color:var(--ink);font-weight:500}
-.lt-arrow{color:var(--accent);font-size:18px}
-.lt-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;font-size:13px;padding-top:10px;border-top:1px solid rgba(var(--dot),.2)}
-.lt-re{font-weight:600;color:var(--accent)}
-.lt-risk{display:inline-flex;align-items:center;gap:8px}
-.lt-meta small{color:var(--muted);margin-left:auto}
-.loop{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 34px;align-items:center;font-size:14px}
-.loop li{position:relative;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:500}
-.loop li + li::before{content:"→";position:absolute;left:-24px;top:50%;transform:translateY(-50%);color:var(--muted)}
-.loop li:first-child{border-color:var(--warn);color:var(--warn)}
-.loop li:nth-child(2){border-color:var(--accent);color:var(--accent)}
-.loop li:last-child{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+/* connectors drawn by base.js between [data-n] nodes of a [data-links] figure */
+[data-links]{position:relative;--links:1}
+svg.links{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;z-index:0}
+svg.links path{fill:none;stroke:rgba(var(--dot),.5);stroke-width:1.4;stroke-linecap:round}
+svg.links path.d{stroke:rgba(183,121,31,.6);stroke-dasharray:4 4}
+svg.links path.nd{stroke:rgba(var(--dot),.45);stroke-dasharray:2 5}
+svg.links path.w{stroke:rgba(183,121,31,.7)}
+svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
+@keyframes lk-flow{to{stroke-dashoffset:-16}}
+.mk-a{fill:var(--accent)}
+.mk-w{fill:var(--warn)}
+@media (prefers-reduced-motion: reduce){svg.links path.fl{animation:none}}
+
+/* ---- hero: organization runtime ---- */
+.ho{margin:0}
+.ho .ho-body{padding:18px 18px 22px;display:grid;justify-items:center;gap:30px}
+.ho-org{justify-self:stretch;position:relative;z-index:1;text-align:center;padding:8px 10px;border-radius:12px;border:1.5px dashed rgba(var(--dot),.5);background:var(--soft-2);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.ho-cols{justify-self:stretch;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ho-col{display:grid;justify-items:center;gap:26px}
+.ho-n{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:500;white-space:nowrap;max-width:100%}
+.ho-role{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--soft);border-color:transparent}
+.ho-agent{border-color:rgba(var(--dot),.5)}
+.ho-agent::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint)}
+.ho-res{font-size:12.5px;color:var(--ink-2);border-style:dashed;border-radius:9px}
+.ho-task{padding:8px 24px;font-weight:600;border-color:var(--accent);box-shadow:0 0 0 4px rgba(var(--dot),.08)}
+.ho-ap{background:var(--warn-soft);color:var(--warn);border-color:rgba(183,121,31,.45)}
+.ho-act{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+@media (max-width:420px){.ho .ho-body{padding:16px 12px 20px}.ho-n{padding:5px 9px;font-size:12px}.ho-res{font-size:11.5px}.ho-role{font-size:10px}}
+
+/* ---- problem ---- */
+.hp{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:24px;align-items:stretch}
+@media (max-width:860px){.hp{grid-template-columns:minmax(0,1fr)}}
+.hp-simple,.hp-qs{border-radius:18px;padding:22px 24px}
+.hp-simple{border:1px solid var(--line);background:var(--surface);display:grid;justify-items:center;align-content:center;gap:14px;text-align:center}
+.hp-simple .lbl{margin:0}
+.hp-stack{display:grid;justify-items:center}
+.hp-stack>span{padding:8px 22px;border-radius:999px;border:1px solid var(--line);background:var(--soft-2);font-weight:500;font-size:14px;min-width:120px;text-align:center}
+.hp-stack>span:nth-child(3){border-color:rgba(var(--dot),.5);background:var(--surface)}
+.hp-stack i{display:block;width:2px;height:20px;background:rgba(var(--dot),.5);position:relative}
+.hp-stack i::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top:6px solid rgba(var(--dot),.7);border-bottom:0}
+.hp-simple p{font-size:14px;color:var(--muted);max-width:26ch}
+.hp-qs{border:1px dashed rgba(183,121,31,.45);background:var(--surface)}
+.hp-q{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+@media (max-width:520px){.hp-q{grid-template-columns:1fr}}
+.hp-q li{display:flex;gap:10px;align-items:baseline;font-size:14.5px;line-height:1.4}
+.hp-q li::before{content:"?";flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--warn-soft);color:var(--warn);font-size:11px;font-weight:700;transform:translateY(3px)}
+.hp-land{margin:36px auto 0;text-align:center;max-width:none}
+
+/* ---- organization model ---- */
+.om{margin:0;border:1.5px dashed rgba(var(--dot),.45);border-radius:22px;padding:18px 22px 22px;background:var(--bg)}
+.om-org{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-bottom:26px}
+.om-t{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.om-org>span:last-child{font-size:13.5px;color:var(--ink-2)}
+.om-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:46px 18px}
+.om-g{display:none}
+.om-n{position:relative;z-index:1;display:grid;gap:4px;align-content:start;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.om-q{font-size:14.5px;font-weight:500;line-height:1.35}
+.om-n small{font-size:12px;color:var(--muted);line-height:1.45}
+.om-n.om-gov{border-color:rgba(183,121,31,.45)}
+.om-n.om-gov .om-t{color:var(--warn)}
+.om-n.core{background:var(--soft);border-color:var(--accent);box-shadow:0 0 0 4px rgba(var(--dot),.07)}
+.om-n.tech{border-style:dashed}
+.om-role{grid-area:1/1/2/3}.om-auth{grid-area:1/3/2/5}.om-pol{grid-area:1/5/2/7}
+.om-agent{grid-area:2/3/3/5}
+.om-task{grid-area:3/1/4/3}.om-cap{grid-area:3/3/4/5}.om-know{grid-area:3/5/4/7}
+.om-tool{grid-area:4/2/5/4}.om-svc{grid-area:4/4/5/6}
+.om-note{margin-top:22px;font-size:13.5px;color:var(--ink-2);max-width:92ch}
+.om-note b{color:var(--ink);font-weight:600}
 @media (max-width:760px){
-  .liv-tl{padding:18px}
-  .liv-hint{margin-left:0;width:100%}
-  .lt-axis{display:none}
-  .lt-track{height:auto;margin:6px 0 0;display:grid;gap:12px;padding-left:28px}
-  .lt-track::before{left:7px;right:auto;top:6px;bottom:6px;width:2px;height:auto;background:linear-gradient(rgba(var(--dot),.35),var(--accent))}
-  .lt-pt,.lt-pt.start,.lt-pt.end{position:relative;left:auto;transform:none}
-  .lt-btn,.lt-pt.end .lt-btn{justify-items:start;text-align:left;display:block;padding:0}
-  .lt-dot{position:absolute;left:-28px;top:2px}
-  .lt-pt.start .lt-lbl{margin:0}
-  .lt-lbl{max-width:none}
-  .lt-ba{grid-template-columns:1fr;gap:6px}
-  .lt-arrow{transform:rotate(90deg);justify-self:start}
-  .lt-meta small{margin-left:0}
-  .loop{flex-direction:column;align-items:flex-start;gap:18px}
-  .loop li + li::before{content:"↓";left:16px;top:-19px;transform:none}
+  .om{padding:16px}
+  .om-grid{--links:0;grid-template-columns:minmax(0,1fr);gap:8px;padding-left:14px;border-left:2px solid rgba(var(--dot),.3)}
+  .om-grid>.om-n{grid-area:auto}
+  .om-g{display:block;margin:14px 0 2px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .om-g:first-child{margin-top:0}
 }
 
-/* ================= 3. what changed ================= */
-.dims{display:grid;border-top:1px solid var(--line)}
-.dim{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;padding:34px 0;border-bottom:1px solid var(--line);align-items:start}
-@media (max-width:860px){.dim{grid-template-columns:1fr;gap:18px;padding:26px 0}}
-.dim>*{min-width:0}
-.dim-q{display:grid;gap:10px;align-content:start}
-.dim-key{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--warn)}
-.dim h3{font-size:clamp(20px,2.2vw,26px);font-weight:300;letter-spacing:-.01em}
-.dim-items{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--ink-2)}
-.dim-items li{display:flex;gap:8px;align-items:center}
-.dim-items li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.dim-note{font-size:12px;color:var(--muted)}
-.dim-a{display:grid;gap:10px}
-.viz{padding:18px;border-radius:14px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
-.own{display:grid;gap:14px}
-.own-row{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:center}
-.own-bar{display:flex;gap:3px;border-radius:8px;overflow:hidden;min-height:48px}
-.own-seg{display:grid;align-content:center;padding:6px 10px;background:var(--soft-2);border:1px solid var(--line);min-width:0}
-.own-seg:first-child{border-radius:8px 0 0 8px}.own-seg:last-child{border-radius:0 8px 8px 0}
-.own-seg b{font-size:14px;font-weight:600}
-.own-seg small{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.own-seg.new{background:var(--warn-soft);border-color:var(--warn)}
-.own-seg.new b,.own-seg.new small{color:var(--warn)}
-.auth{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}
-.auth-card{padding:14px;border-radius:12px;border:1px solid var(--line);display:grid;gap:6px}
-.auth-card b{font-size:14px;font-weight:600}
-.auth-card ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.auth-card li{font-size:12px;padding:3px 9px;border-radius:999px;background:var(--soft-2);border:1px solid var(--line)}
-.auth-card.was{opacity:.75;border-style:dashed}
-.auth-card.now{border-color:var(--warn);background:var(--warn-soft)}
-.auth-card.now li{background:var(--surface);border-color:var(--warn);color:var(--warn);font-weight:600}
-.auth-arrow{color:var(--warn);font-size:18px}
-@media (max-width:520px){.own-row{grid-template-columns:1fr;gap:6px}.own-bar{flex-direction:column;gap:4px}.own-seg{flex:none!important;border-radius:8px!important;grid-template-columns:auto 1fr;gap:10px;align-items:baseline}.own-seg small{white-space:normal}.auth{grid-template-columns:1fr}.auth-arrow{transform:rotate(90deg);justify-self:center}}
-.rgraph{padding:12px 14px}
-.rgraph svg{width:100%;height:auto;display:block;max-height:260px}
-.ge{stroke:var(--line);stroke-width:1.5}
-.ge.new{stroke:var(--warn);stroke-dasharray:5 4;stroke-width:2}
-.gel{fill:var(--muted);font-family:var(--mono);font-size:9.5px}
-.gn{cursor:pointer;outline:none}
-.gn rect{fill:var(--surface);stroke:var(--line);stroke-width:1.5;transition:stroke .15s}
-.gn text{fill:var(--ink);font-family:var(--font);font-size:12px;font-weight:500;pointer-events:none}
-.gn.subject rect{fill:var(--soft);stroke:var(--accent);stroke-width:2}
-.gn.person rect{stroke:var(--accent)}
-.gn.new rect{fill:var(--warn-soft);stroke:var(--warn);stroke-width:2}
-.gn:hover rect,.gn:focus-visible rect{stroke:var(--accent);stroke-width:2.5}
-.gn.sel rect{stroke-width:3}
-.rg-info{font-size:13px;color:var(--ink-2);min-height:40px;padding:8px 4px 0;border-top:1px solid var(--line)}
-.fin{list-style:none;margin:0;display:grid;gap:0;position:relative;padding:14px 18px 14px 38px}
-.fin::before{content:"";position:absolute;left:26px;top:22px;bottom:26px;width:2px;background:linear-gradient(var(--line),var(--accent))}
-.fin li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:8px;padding:8px 0;font-size:14px;color:var(--ink-2)}
-.fin li::before{content:"";position:absolute;left:-18px;top:14px;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--muted)}
-.fin small{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:2px}
-.fin li.hot{color:var(--accent);font-weight:600}
-.fin li.hot::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px rgba(var(--dot),.18)}
-.see-ev summary{cursor:pointer;list-style:none;font-size:14px;font-weight:500;color:var(--accent);display:inline-block;border-radius:6px}
-.see-ev summary::-webkit-details-marker{display:none}
-.see-ev summary:hover{text-decoration:underline;text-underline-offset:4px}
-.see-ev-body{margin-top:8px;padding:12px 14px;border-left:2px solid var(--accent);background:var(--soft-2);border-radius:0 10px 10px 0;display:grid;gap:4px}
-.see-ev-body small{font-family:var(--mono);font-size:11px;color:var(--muted)}
-.see-ev-body p{font-size:13px;color:var(--ink-2)}
+/* ---- organizational reasoning ---- */
+.rs-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:30px}
+@media (max-width:700px){.rs-pair{grid-template-columns:1fr}}
+.rs-pair>div{display:grid;gap:4px;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.rs-pair>div:last-child{border-color:var(--accent);background:var(--soft)}
+.rs-pair p{font-size:14px;color:var(--ink-2)}
+.rs{margin:0}
+.rs-flow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,1.5fr) minmax(0,.95fr) minmax(0,1fr);gap:34px;align-items:center}
+.rs-flow>*{position:relative}
+.rs-flow>*:not(:last-child)::after{content:"→";position:absolute;right:-25px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:16px}
+.rs-n{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-size:14.5px;font-weight:500;text-align:center;line-height:1.35}
+.rs-state{background:var(--soft-2)}
+.rs-state.next{background:var(--soft);border-color:var(--accent)}
+.rs-checks{list-style:none;margin:0;padding:10px;border-radius:14px;border:1px dashed rgba(var(--dot),.55);background:var(--surface);display:grid;gap:6px;counter-reset:q}
+.rs-checks li{display:flex;gap:8px;align-items:baseline;font-size:13.5px;padding:7px 10px;border-radius:9px;background:var(--soft-2);line-height:1.35}
+.rs-checks li::before{counter-increment:q;content:counter(q);font-family:var(--mono);font-size:11px;color:var(--accent)}
+.rs-out{display:grid;gap:6px;padding:10px}
+.rs-out>span{padding:6px 10px;border-radius:999px;border:1px solid rgba(var(--dot),.5);font-size:13.5px;background:var(--surface)}
+.rs-loop{margin:14px 9% 0;height:30px;border:1.5px dashed rgba(var(--dot),.45);border-top:0;border-radius:0 0 18px 18px;position:relative}
+.rs-loop>span{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);padding:0 10px;background:var(--sec-bg);font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+.rs-note{margin-top:30px;font-size:14px;color:var(--ink-2);max-width:72ch}
+.rs [data-s],.rt [data-s]{transition:opacity .45s ease,box-shadow .45s ease,background .45s ease}
+.rs.playing [data-s].later{opacity:.28}
+.rs.playing [data-s].on{box-shadow:0 0 0 2px rgba(var(--dot),.45)}
+@media (max-width:960px){
+  .rs-flow{grid-template-columns:minmax(0,1fr);gap:30px;max-width:460px;margin-inline:auto}
+  .rs-flow>*:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-26px;transform:translateX(-50%)}
+  .rs-loop{border:0;height:auto;margin:22px 0 0;text-align:center}
+  .rs-loop>span{position:static;transform:none;white-space:normal}
+}
 
-/* ================= 4. monitoring vs investigation ================= */
-.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:.8fr 1fr 1fr;gap:34px}
-@media (max-width:860px){.stages{grid-template-columns:1fr;gap:30px}}
-.stage{position:relative;padding:20px;border-radius:16px;display:grid;gap:8px;align-content:start}
-.stage + .stage::before{content:"→";position:absolute;left:-26px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:18px}
-@media (max-width:860px){.stage + .stage::before{content:"↓";left:24px;top:-28px;transform:none}}
-.stage.mon{border:1px dashed var(--line)}
-.stage.inv{background:var(--surface);border:1px solid var(--accent)}
-.stage-k{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.stage.inv .stage-k{color:var(--accent)}
-.stage b{font-size:19px;font-weight:600}
-.stage ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.stage li{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
-.stage.inv li{border-color:rgba(var(--dot),.4);color:var(--ink)}
-.stage-who{margin-top:6px;font-size:12px;font-weight:600;color:var(--muted)}
-.stage.inv .stage-who{color:var(--accent)}
-.mi-key{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center}
-.mi-key strong{font-size:clamp(18px,2vw,22px);font-weight:600;color:var(--accent)}
-.mi-key span{color:var(--ink-2);font-size:15px}
+/* ---- runtime ---- */
+.rt-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+@media (max-width:900px){.rt-grid{grid-template-columns:minmax(0,1fr);gap:32px}}
+.rt{margin:0;display:grid;justify-items:center}
+.rt-io{position:relative;z-index:1;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rt-io.out{color:var(--ink-2)}
+.rt-box{position:relative;justify-self:stretch;margin:24px 0;padding:14px;border-radius:18px;border:1.5px solid var(--accent);background:var(--surface);box-shadow:var(--shadow)}
+.rt-box::before,.rt-box::after{content:"";position:absolute;left:50%;width:2px;height:24px;background:rgba(var(--dot),.5)}
+.rt-box::before{top:-25px}.rt-box::after{bottom:-25px}
+.rt-h{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.rt-h>span:last-child{color:var(--muted)}
+.rt-layers{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.rt-layers li{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 10px;border-radius:9px;background:var(--soft-2);font-size:14px}
+.rt-layers .n{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.rt-layers .tr{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.rt-layers .tr::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.rt-layers li.hum{background:var(--warn-soft)}
+.rt-layers li.hum .n,.rt-layers li.hum .tr{color:var(--warn)}
+.rt-layers li.hum .tr::before{background:var(--warn)}
+.rt.playing [data-s].later{opacity:.35}
+.rt.playing [data-s].later .tr::before{background:var(--line)}
+.rt.playing [data-s].on{box-shadow:0 0 0 2px rgba(var(--dot),.45);background:var(--soft)}
+.rt.playing [data-s].on .tr::before{background:var(--mint)}
+.rt-side .quote{max-width:24ch}
+.rt-p{margin-top:18px;color:var(--ink-2);max-width:48ch}
 
-/* ================= 5. evidence ================= */
-#evidence{padding-block:clamp(64px,7vw,104px)}
-.chain2{list-style:none;margin:0 0 36px;padding:0;display:flex;flex-wrap:wrap;gap:8px 26px;font-size:13px}
-.chain2 li{position:relative;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
-.chain2 li + li::before{content:"→";position:absolute;left:-19px;top:50%;transform:translateY(-50%);color:var(--muted)}
-.chain2 li.hd{background:var(--warn-soft);border-color:var(--warn);color:var(--warn);font-weight:600}
-.ev2{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:start}
-@media (max-width:960px){.ev2{grid-template-columns:1fr;gap:32px}}
-.ev2>*{min-width:0}
-.roles{display:grid;gap:0;position:sticky;top:96px}
-@media (max-width:960px){.roles{position:static}}
-.role-d,.role-t{padding:20px;border-radius:16px;display:grid;gap:10px}
-.role-d{background:var(--soft);border:1px solid var(--accent)}
-.role-d .lbl{color:var(--accent)}
-.role-t{background:var(--surface);border:1.5px solid var(--warn)}
-.role-t .lbl{color:var(--warn)}
-.roles ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:15px;font-weight:500}
-.roles li{display:flex;gap:10px;align-items:center}
-.role-d li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.role-t li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--warn)}
-.role-arrow{height:28px;margin-left:28px;border-left:2px dashed rgba(var(--dot),.5)}
-.rcx2 .evui-body{gap:22px}
-.rcx-bar{display:flex;align-items:center;gap:14px}
-.rcx-bar .risk{font-size:14px;padding:6px 14px}
-.rcx-line{flex:1;height:2px;background:linear-gradient(90deg,var(--warn),#C0492F);position:relative}
-.rcx-line::after{content:"";position:absolute;right:-2px;top:-5px;border:6px solid transparent;border-left:8px solid #C0492F;border-right:0}
-.why3s{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}
-.why3{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:14px;border-radius:12px;border:1px solid var(--line)}
-.why3 .n{font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:2px}
-.why3 b{display:block;font-weight:600}
-.why3 small{font-size:12px;color:var(--muted)}
-.why3 .src{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:13px}
-.ev-d{margin-top:8px}
-.ev-d summary{cursor:pointer;list-style:none;display:inline-flex;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;border:1px solid var(--accent);color:var(--accent)}
-.ev-d summary::-webkit-details-marker{display:none}
-.ev-d[open] summary{background:var(--accent);color:var(--accent-ink)}
-.ev-d blockquote{margin:10px 0 0;padding:10px 12px;border-left:2px solid var(--accent);background:var(--soft-2);border-radius:0 8px 8px 0;font-size:13px;color:var(--ink-2)}
-.rcx-reason{padding:14px 16px;border-radius:12px;background:var(--soft-2);border:1px solid var(--line)}
-.rcx-reason p{font-size:15px}
-.rcx-rec{padding:14px 16px;border-radius:12px;background:var(--soft);display:grid;gap:2px}
-.rcx-rec strong{font-size:18px;font-weight:600}
-.rcx-team{padding:16px;border-radius:12px;border:1.5px solid var(--warn);display:grid;gap:12px}
-.rcx-team-h{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
-.rcx-team-h .lbl{color:var(--warn)}
-.rcx-team-h span:last-child{font-weight:500}
-.rcx-acts{display:flex;flex-wrap:wrap;gap:8px}
-.rcx-acts .btn:disabled{opacity:.5;cursor:default}
-.rcx-result{font-size:13px;font-weight:500;padding:8px 12px;border-radius:8px;background:var(--soft);color:var(--mint-ink)}
-.rcx-result.reject{background:var(--warn-soft);color:var(--warn)}
-.rcx-further{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
-.rcx-further li{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:8px;background:var(--soft-2);border:1px solid var(--line)}
-.rcx-further li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.rcx-further li:last-child{border-color:var(--accent);font-weight:600}
-.rcx-further li.in{animation:rise .35s ease both}
-@keyframes rise{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}
-.rcx-note{font-size:12px;color:var(--muted)}
+/* ---- collaboration ---- */
+.cl-wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:start}
+@media (max-width:900px){.cl-wrap{grid-template-columns:minmax(0,1fr);gap:28px}}
+.cl{margin:0;padding:18px;border-radius:18px;border:1px solid var(--line);background:var(--surface)}
+.cl-top{margin-bottom:18px}
+.cl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 14px}
+.cl-n{position:relative;z-index:1;justify-self:center;display:grid;gap:2px;text-align:center;padding:9px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);max-width:100%}
+.cl-n b{font-size:14px;font-weight:600;line-height:1.3}
+.cl-n small{font-size:12px;color:var(--muted);line-height:1.35}
+.cl-n.wide{grid-column:1/-1}
+.cl-inv{background:var(--soft-2)}
+.cl-n.role{border-color:rgba(var(--dot),.55)}
+.cl-n.cl-cap{border-style:dashed;background:var(--soft-2)}
+.cl-n.cl-cap b{font-weight:500;font-size:13px}
+.cl-n.ev{background:var(--soft);border-color:var(--accent)}
+.cl-n.hum{background:var(--warn-soft);border-color:rgba(183,121,31,.45)}
+.cl-n.hum b{color:var(--warn)}
+.cl-note{margin-top:16px;font-size:12.5px;color:var(--muted)}
+.cl-concepts{list-style:none;margin:0;padding:0;display:grid}
+.cl-concepts li{display:grid;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cl-concepts li:first-child{padding-top:0}
+.cl-concepts b{font-weight:600}
+.cl-concepts li>span{font-size:14px;color:var(--ink-2)}
+@media (max-width:420px){.cl{padding:14px 10px}.cl-n{padding:8px 10px}.cl-n b{font-size:13px}.cl-n small{font-size:11.5px}}
 
-/* ================= 6. stack ================= */
-.layer-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
-@media (max-width:960px){.layer-grid{grid-template-columns:1fr;gap:32px}}
-.layer-grid>*{min-width:0}
-.notes{display:grid;gap:10px;margin-top:20px}
-.notes p{font-size:15px;padding-left:14px;border-left:2px solid var(--accent)}
-.notes p:first-child{font-weight:600}
-.stack{list-style:none;margin:0;padding:0;display:grid}
-.stk{display:grid;grid-template-columns:180px 1fr;gap:16px;align-items:center;padding:16px 20px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
-.stk.mid{border:1.5px solid var(--accent);background:var(--soft);box-shadow:var(--shadow);padding-block:22px}
-.stk-h{display:grid;gap:2px}
-.stk-n{font-weight:600}
-.stk.mid .stk-n{font-size:22px;font-weight:300}
-.stk.mid .stk-n b{font-weight:700;color:var(--accent)}
-.stk-h small{font-size:12px;color:var(--muted)}
-.stk ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.stk li{font-size:13px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);background:var(--bg)}
-.stk.mid li{border-color:rgba(var(--dot),.45);background:var(--surface);color:var(--ink);font-weight:500}
-.stk-arrow{height:22px;margin-left:40px;border-left:2px dashed rgba(var(--dot),.5)}
-@media (max-width:620px){.stk{grid-template-columns:1fr;gap:10px}}
+/* ---- governance gate ---- */
+.gt{padding:20px;border-radius:18px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.gt-pick{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.gt-btns{display:flex;flex-wrap:wrap;gap:8px}
+.gt-btn{font:500 13px/1.3 var(--font);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer;text-align:left}
+.gt-btn:hover{border-color:var(--accent)}
+.gt-btn.sel{background:var(--soft);border-color:var(--accent);color:var(--ink)}
+.gt-flow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.1fr) minmax(0,.9fr);gap:34px;align-items:center;margin-top:22px}
+.gt-flow>*{position:relative}
+.gt-flow>*:not(:last-child)::after{content:"→";position:absolute;right:-25px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:16px}
+.gt-req{display:grid;gap:6px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--soft-2)}
+.gt-req b{font-size:14.5px;font-weight:600;line-height:1.35}
+.gt-checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.gt-checks li{display:grid;justify-items:center;gap:6px;padding:10px 4px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:500;text-align:center;transition:border-color .25s,background .25s,opacity .25s}
+.gt-ic{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:700}
+.gt-checks li[data-state="ok"] .gt-ic{background:var(--soft);color:var(--accent)}
+.gt-checks li[data-state="ok"] .gt-ic::before{content:"✓"}
+.gt-checks li[data-state="wait"]{border-color:rgba(183,121,31,.5);background:var(--warn-soft)}
+.gt-checks li[data-state="wait"] .gt-ic{background:var(--surface);color:var(--warn)}
+.gt-checks li[data-state="wait"] .gt-ic::before{content:"!"}
+.gt-checks li[data-state="no"]{border-color:var(--deny);background:var(--deny-soft)}
+.gt-checks li[data-state="no"] .gt-ic{background:var(--surface);color:var(--deny)}
+.gt-checks li[data-state="no"] .gt-ic::before{content:"✕"}
+.gt-checks li[data-state="skip"]{opacity:.4}
+.gt-checks li[data-state="skip"] .gt-ic{background:var(--soft-2);color:var(--muted)}
+.gt-checks li[data-state="skip"] .gt-ic::before{content:"–"}
+.gt-outs{display:grid;gap:6px}
+.gt-o{padding:7px 12px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;font-weight:500;color:var(--muted);text-align:center;transition:all .25s}
+.gt-o0.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.gt-o1.on{background:var(--warn-soft);border-color:rgba(183,121,31,.55);color:var(--warn)}
+.gt-o2.on{background:var(--deny-soft);border-color:var(--deny);color:var(--deny)}
+.gt-why{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:14px;color:var(--ink-2)}
+.gt-controls{margin-top:26px;display:grid;gap:10px}
+.gt-controls .lbl{margin:0}
+.gt-note{font-size:12.5px;color:var(--muted)}
+@media (max-width:860px){
+  .gt-flow{grid-template-columns:minmax(0,1fr);gap:30px}
+  .gt-flow>*:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-26px;transform:translateX(-50%)}
+  .gt-outs{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:420px){.gt{padding:16px 14px}.gt-checks{grid-template-columns:repeat(2,minmax(0,1fr))}.gt-outs{grid-template-columns:minmax(0,1fr)}}
 
-/* ================= 7. one to many ================= */
-.o2m{display:grid;justify-items:center;gap:0}
-.o2m-root{padding:12px 22px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:600;position:relative}
-.o2m-root::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:26px;background:var(--accent)}
-.o2m-br{list-style:none;margin:26px 0 0;padding:26px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:100%;max-width:820px;position:relative}
-.o2m-br::before{content:"";position:absolute;top:0;left:calc(100%/6);right:calc(100%/6);height:2px;background:var(--accent)}
-.o2m-br li{position:relative;display:grid;justify-items:center;gap:22px}
-.o2m-br li::before{content:"";position:absolute;top:-26px;left:50%;width:2px;height:26px;background:var(--accent)}
-.o2m-br .u1,.o2m-br .u2{padding:10px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-weight:500;text-align:center;width:100%;position:relative}
-.o2m-br .u1{border-color:var(--accent)}
-.o2m-br .u2{color:var(--ink-2)}
-.o2m-br .u2::before{content:"";position:absolute;left:50%;top:-22px;height:22px;border-left:2px dashed rgba(var(--dot),.5)}
-.o2m-foot{margin-top:28px;font-size:15px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:center;text-align:center}
-.o2m-foot .nm{font-size:22px}
+/* ---- knowledge ---- */
+.km{margin:0}
+.km-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,.75fr);gap:0 90px;align-items:center}
+.km-arr{display:none}
+.km-src,.km-use{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.km-src li,.km-use li{position:relative;z-index:1;padding:7px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-size:13.5px}
+.km-src li{justify-self:end}
+.km-use li{justify-self:start;border-color:rgba(var(--dot),.55);font-weight:500}
+.km-hub{position:relative;z-index:1;display:grid;gap:4px;padding:26px 20px;border-radius:18px;border:1.5px solid var(--accent);background:var(--soft);text-align:center;box-shadow:0 0 0 6px rgba(var(--dot),.07)}
+.km-hub b{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.km-hub>span{font-size:13px;color:var(--muted)}
+.km-loop{margin-top:24px;text-align:center;font-size:15px;font-weight:500}
+.km-ic{font-style:normal;color:var(--accent);margin-right:8px}
+.km-data{margin-top:24px}
+@media (max-width:760px){
+  .km-grid{--links:0;grid-template-columns:minmax(0,1fr);gap:0}
+  .km-src,.km-use{display:flex;flex-wrap:wrap;justify-content:center}
+  .km-arr{display:block;justify-self:center;width:2px;height:28px;margin:6px 0;background:rgba(var(--dot),.5);position:relative}
+  .km-arr::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top:6px solid var(--accent);border-bottom:0}
+}
+
+/* ---- evaluation ---- */
+.ev-changes{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:28px}
+.ev-changes>span:not(.lbl){padding:5px 12px;border-radius:999px;border:1px dashed rgba(183,121,31,.5);background:var(--surface);font-size:13px}
+.ev-changes>span:not(.lbl)::before{content:"↻ ";color:var(--warn)}
+.evl{margin:0;display:grid;justify-items:center}
+.ev-flow{display:flex;flex-direction:column;align-items:center}
+.ev-n{padding:8px 20px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:500;font-size:14px}
+.ev-flow i{display:block;width:2px;height:22px;background:rgba(var(--dot),.55);position:relative}
+.ev-flow i::after{content:"";position:absolute;bottom:-1px;left:-4px;border:5px solid transparent;border-top:6px solid var(--accent);border-bottom:0}
+.ev-card{width:100%;max-width:880px;padding:16px;border-radius:18px;border:1.5px solid var(--accent);background:var(--surface);box-shadow:var(--shadow)}
+.ev-card-h{margin-bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.ev-crit{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ev-crit li{display:grid;gap:2px;padding:10px 12px;border-radius:10px;background:var(--soft-2)}
+.ev-crit b{font-weight:600;font-size:14px}
+.ev-crit li>span{font-size:12.5px;color:var(--muted)}
+.ev-down{display:block;width:2px;height:28px;background:rgba(var(--dot),.55)}
+.ev-res{display:grid;gap:2px;padding:10px 20px;border-radius:14px;border:1px solid var(--accent);background:var(--soft);text-align:center}
+.ev-res b{font-weight:600}
+.ev-res>span{font-size:12.5px;color:var(--muted)}
+.ev-note{margin-top:22px;font-size:14px;color:var(--ink-2);text-align:center;max-width:64ch}
+@media (max-width:760px){.ev-crit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.ev-crit{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- observability ---- */
+.ob{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;align-items:start}
+@media (max-width:860px){.ob{grid-template-columns:minmax(0,1fr)}}
+.tr-list{border-radius:18px;border:1px solid var(--line);background:var(--surface);overflow:hidden}
+.tr-top{padding:12px 18px;border-bottom:1px solid var(--line);background:var(--soft-2)}
+.tr-list ol{list-style:none;margin:0;padding:8px}
+.tr-row{width:100%;display:grid;grid-template-columns:74px minmax(0,1fr);gap:12px;align-items:center;padding:9px 12px;border:0;border-radius:10px;background:none;color:var(--ink);font:inherit;font-size:14px;text-align:left;cursor:pointer}
+.tr-row time{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.tr-row:hover{background:var(--soft-2)}
+.tr-row.sel{background:var(--soft);box-shadow:inset 3px 0 0 var(--accent)}
+.tr-row.hum>span,.tr-row.hum time{color:var(--warn)}
+.tr-row.hum.sel{background:var(--warn-soft);box-shadow:inset 3px 0 0 var(--warn)}
+.tr-hint{padding:0 20px 14px;font-size:12.5px;color:var(--muted)}
+.tr-insp{position:sticky;top:88px;padding:18px;border-radius:18px;border:1.5px solid var(--accent);background:var(--surface);box-shadow:var(--shadow)}
+@media (max-width:860px){.tr-insp{position:static}}
+.tr-ph{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin-bottom:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tr-ph time{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.tr-ph b{font-size:16px;font-weight:600}
+.tr-panel dl{margin:0;display:grid}
+.tr-panel dl div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.tr-panel dl div:last-child{border-bottom:0}
+.tr-panel dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.tr-panel dd{margin:0;font-size:14px}
+.tr-panel dd.muted{color:var(--muted)}
+.tr-note{margin-top:12px;font-size:12px;color:var(--muted)}
+@media (max-width:420px){.tr-panel dl div{grid-template-columns:1fr;gap:2px}.tr-row{grid-template-columns:64px minmax(0,1fr);gap:8px;padding:9px 8px}}
+
+/* ---- harness -> spaces ---- */
+.hs{margin:0;display:grid}
+.hs-harness{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 18px;padding:16px 20px;border-radius:18px;background:var(--band);color:var(--band-ink)}
+.hs-name{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.hs-chips{display:flex;flex-wrap:wrap;gap:6px}
+.hs-chips>span{padding:4px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.25);font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:#B9D3CA}
+.hs-split{display:block;width:100%;height:44px}
+.hs-split path{fill:none;stroke:rgba(var(--dot),.6);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.hs-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.hs-card{display:grid;gap:12px;align-content:start;padding:20px 22px;border-radius:18px;border:1px solid var(--line);background:var(--surface);text-decoration:none;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.hs-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.hs-top{display:flex;justify-content:space-between;align-items:center}
+.hs-top .nm{font-size:24px}
+.hs-card ol{list-style:none;margin:0;padding:0;display:grid}
+.hs-card li{position:relative;padding:7px 0 7px 24px;font-size:14.5px}
+.hs-card li::before{content:"";position:absolute;left:4px;top:50%;width:8px;height:8px;margin-top:-5px;border-radius:50%;border:2px solid var(--accent);background:var(--surface)}
+.hs-card li:not(:last-child)::after{content:"";position:absolute;left:8px;top:calc(50% + 6px);height:calc(100% - 12px);width:2px;background:rgba(var(--dot),.35)}
+.hs-card li:first-child{font-weight:600}
+.hs-card li.hum{color:var(--warn);font-weight:500}
+.hs-card li.hum::before{border-color:var(--warn);background:var(--warn-soft)}
+.hs-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.hs-legend div{display:grid;gap:2px;padding-left:14px;border-left:2px solid var(--accent)}
+.hs-legend b{font-weight:600}
+.hs-legend>div>span{font-size:14px;color:var(--ink-2)}
 @media (max-width:620px){
-  .o2m-br{grid-template-columns:1fr;gap:12px;padding-top:0;margin-top:26px}
-  .o2m-br::before{display:none}
-  .o2m-br li{grid-template-columns:1fr 1fr;gap:8px;justify-items:stretch}
-  .o2m-br li::before{display:none}
-  .o2m-br .u2::before{display:none}
-  .o2m-root::after{display:none}
+  .hs-split{display:none}
+  .hs-cards{grid-template-columns:minmax(0,1fr);margin-top:14px}
+  .hs-legend{grid-template-columns:minmax(0,1fr)}
 }
 
-/* ================= 8. proof ================= */
-.proof-ctx{font-size:13px;color:var(--muted)}
+/* ---- proof ---- */
+.pf{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.pf{grid-template-columns:minmax(0,1fr)}}
+.pf-group{padding:20px 22px;border-radius:18px;border:1px solid var(--line);background:var(--surface)}
+.pf-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;text-decoration:none}
+.pf-h .nm{font-size:22px}
+.pf-h>span:last-child{font-size:14px;color:var(--muted)}
+.pf-group ul{list-style:none;margin:14px 0 0;padding:0}
+.pf-group li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px;padding:11px 0;border-top:1px solid var(--line)}
+.pf-group li strong{font-weight:600}
+.pf-group .proof-st{margin:0}
 
-/* ================= 9. enterprise ================= */
-.ent-row{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-@media (max-width:900px){.ent-row{grid-template-columns:1fr;gap:24px}}
-.ent-row .datanote{margin:0}
+/* ---- research ---- */
+.rsx{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.rsx{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.rsx{grid-template-columns:minmax(0,1fr)}}
+.rsx li{display:grid;gap:8px;align-content:start;padding:20px;border-radius:16px;border:1px solid var(--line);background:var(--surface)}
+.rsx .n{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.rsx h3{font-size:16px;font-weight:600}
+.rsx p{font-size:13.5px;color:var(--ink-2)}
+.rs-support{margin-top:20px}
+.rs-support>span{display:inline-flex;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
 
-/* ================= 10. cta + request ================= */
-.band .wrap.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;justify-items:stretch}
-@media (max-width:900px){.band .wrap.cta-grid{grid-template-columns:1fr;gap:32px}}
-.cta-copy{display:grid;gap:22px;align-content:start}
-.cta-btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.cta-alt{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
-.cta-alt span{color:#B9D3CA;font-size:14px}
-.rq{background:var(--surface);color:var(--ink);border-radius:18px;padding:24px;box-shadow:0 20px 50px -20px rgba(0,0,0,.5);display:grid;gap:16px}
-.rq-top{display:flex;justify-content:space-between;align-items:center}
-.rq-top b{font-weight:600}
-.rq-close{all:unset;display:none}
-.rq-steps{list-style:none;margin:0;padding:0;display:flex;gap:16px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-.rq-steps li{padding-bottom:6px;border-bottom:2px solid var(--line)}
-.rq-steps li.on{color:var(--accent);border-bottom-color:var(--accent)}
-.rq-page{border:0;margin:0;padding:0;display:grid;gap:16px;min-width:0}
-.rq-group{display:grid;gap:10px}
-.rq-group .lbl{color:var(--accent)}
-.rq label{display:grid;gap:6px;font-size:13px;font-weight:500}
-.rq label span span{color:var(--accent)}
-.rq input,.rq textarea{font:400 15px/1.4 var(--font);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 12px;width:100%;resize:vertical}
-.rq input:focus,.rq textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
-.rq [aria-invalid="true"]{border-color:#C0492F;background:#FDF1EE}
-.rq-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:4px}
-.rq-done{font-size:14px;color:var(--ink-2);padding:14px 16px;border-radius:12px;background:var(--soft)}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.cta-mobile{display:none}
-@media (max-width:760px){
-  .cta-mobile{display:inline-flex}
-  .rq-wrap{display:none}
-  .rq-wrap.open{display:block;position:fixed;inset:0;z-index:50;background:rgba(2,20,16,.55);padding:env(safe-area-inset-top,0px) 0 0}
-  .rq-wrap.open .rq{position:absolute;left:0;right:0;bottom:0;max-height:92%;overflow:auto;border-radius:20px 20px 0 0;padding:20px 18px calc(24px + env(safe-area-inset-bottom,0px))}
-  .rq-close{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--soft-2);font-size:22px;cursor:pointer;color:var(--ink)}
-}
-.noscroll,.noscroll body{overflow:hidden}
+/* ---- closing band ---- */
+.band-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.band .btn-ghost{background:transparent;color:#E7F5F0;border-color:rgba(231,245,240,.3)}
+.band .btn-ghost:hover{border-color:#28DCA8}
+.band-spaces{font-size:14px!important}
+.band-spaces a{color:#28DCA8;text-decoration:none;margin-left:10px;white-space:nowrap}
+.band-spaces a:hover{text-decoration:underline;text-underline-offset:3px}
 
 </style>
 </head>
 <body>
 <header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.risk</span></a>
-    <nav class="nav-links" aria-label="Ana menü"><a href="#investigation"><span lang="en">Investigation</span></a><a href="#monitoring">İzleme</a><a href="#evidence">Kanıt</a><a href="#uses">Kullanım</a><a href="#customers">Müşteriler</a><a href="#enterprise">Kurumsal</a></nav>
-    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="../risk/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/risk/" hreflang="en" lang="en" title="English">EN</a></span><a class="back" href="../"><span lang="en">Deepin</span> →</a><a class="btn btn-primary btn-sm" href="#request"><span lang="en">Investigation</span> başlatın</a></div>
+    <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub sub-word">harness</span></a>
+    <nav class="nav-links" aria-label="Ana menü"><a href="#model">Organizasyon</a><a href="#reasoning">Akıl yürütme</a><a href="#governance">Yönetişim</a><a href="#evaluation">Değerlendirme</a></nav>
+    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="../harness/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/harness/" hreflang="en" lang="en" title="English">EN</a></span><a class="back" href="../">← <span lang="en">deepin.space</span></a><a class="btn btn-primary btn-sm" href="#contact">Bize bir <span lang="en">Investigation</span> getirin</a></div>
   </div>
 </header>
 <main>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <marker id="lk-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-a" d="M0 0L8 4L0 8z"/></marker>
+  <marker id="lk-w" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-w" d="M0 0L8 4L0 8z"/></marker>
+</defs></svg>
+
 <section class="hero">
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <p class="eyebrow">Şirket ve Üçüncü Taraf <span lang="en">Investigation</span></p>
-      <h1>Bağlı olduğunuz her şirketi <b>araştırın.</b></h1>
-      <p class="lede">Şirketler değişir. Sahiplik değişir. Yetkiler değişir. İlişkiler değişir. Finansal durum değişir. <span lang="en">Deepin</span> bu değişiklikleri sürekli araştırır, kanıtı toplar ve önemli olanı size gösterir.</p>
+      <p class="eyebrow"><span lang="en">Deepin</span> <span lang="en">Harness</span></p>
+      <h1>Yapay zekâyı <b>bir organizasyon gibi çalıştırın.</b></h1>
+      <p class="lede"><span lang="en">Deepin</span> <span lang="en">Harness</span>, her <span lang="en">Deepin</span> <span lang="en">Investigation</span>'ının ve Space'inin altında çalışan ortamdır. Agent'lara bir kurumun içinde çalışabilmeleri için gereken rolleri, yetenekleri, bilgiyi, politikaları ve kontrolleri verir.</p>
+      <p class="hero-line">Modeller akıl yürütür. Yetenekler iş yapar. Politikalar sınırı çizer. <b><span lang="en">Harness</span> hepsini birlikte yürütür.</b></p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#request">Bir şirketi araştırın <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn btn-ghost" href="#monitoring">Nasıl çalıştığını görün</a>
+        <a class="btn btn-primary" href="#model">Mimariyi inceleyin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="../risk/">Çalışırken görün: <span lang="en">deepin.risk</span> →</a>
       </div>
+      <p class="hero-note"><span><b><span lang="en">deepin.risk</span></b> ve <b><span lang="en">deepin.finance</span></b> bunun üzerinde çalışır</span></p>
     </div>
-    <figure class="case ci" data-live data-labels="[&quot;Olay algılandı&quot;, &quot;Investigation başladı&quot;, &quot;Geçmiş durum yüklendi&quot;, &quot;Ortaklar araştırılıyor&quot;, &quot;Yetki kontrol ediliyor&quot;, &quot;İlişkiler yeniden kuruluyor&quot;, &quot;Finansal bağlam inceleniyor&quot;, &quot;Kanıt toplanıyor&quot;, &quot;3 önemli değişiklik&quot;]" aria-label="Canlı Company Investigation (demo)">
-  <div class="case-top ci-top">
-    <div><span class="lbl">Sürekli izleme</span><strong>Akdeniz Endüstri A.Ş.</strong></div>
-    <span class="chip st-wait" data-live-status>3 önemli değişiklik</span>
+    <figure class="case ho" data-live data-labels="[&quot;Organizasyon y\u00fcklendi&quot;, &quot;Roller atand\u0131&quot;, &quot;Agent&#x27;lar \u00e7al\u0131\u015f\u0131yor&quot;, &quot;Yetenek, bilgi, politika&quot;, &quot;G\u00f6rev haz\u0131r&quot;, &quot;\u0130nsan onay\u0131 bekleniyor&quot;, &quot;Aksiyon \u00b7 kaydedildi&quot;]" aria-label="Deepin Harness çalışma ortamı: organizasyon agent&#x27;lara rol verir; agent&#x27;lar yetenek, bilgi ve politikaları kullanarak bir görevi tamamlar, görev aksiyondan önce insan onayına gider.">
+  <div class="case-top"><span class="case-id"><span lang="en">Deepin</span> <span lang="en">Harness</span> · çalışma ortamı</span><span class="chip st-production" data-live-status>Aksiyon · kaydedildi</span></div>
+  <div class="ho-body" data-links="[[&quot;o&quot;, &quot;r1&quot;, &quot;fl&quot;], [&quot;o&quot;, &quot;r2&quot;, &quot;fl&quot;], [&quot;o&quot;, &quot;r3&quot;, &quot;fl&quot;], [&quot;r1&quot;, &quot;a1&quot;, &quot;&quot;], [&quot;r2&quot;, &quot;a2&quot;, &quot;&quot;], [&quot;r3&quot;, &quot;a3&quot;, &quot;&quot;], [&quot;a1&quot;, &quot;c1&quot;, &quot;&quot;], [&quot;a2&quot;, &quot;c2&quot;, &quot;&quot;], [&quot;a3&quot;, &quot;c3&quot;, &quot;&quot;], [&quot;c1&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;c2&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;c3&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;t&quot;, &quot;h&quot;, &quot;w&quot;], [&quot;h&quot;, &quot;x&quot;, &quot;&quot;]]">
+    <div class="ho-org" data-n="o" data-s="0"><span>Organizasyon</span></div>
+    <div class="ho-cols"><div class="ho-col">
+        <span class="ho-n ho-role" data-n="r1" data-s="1">Rol</span>
+        <span class="ho-n ho-agent" data-n="a1" data-s="2">Agent</span>
+        <span class="ho-n ho-res" data-n="c1" data-s="3">Yetenekler</span>
+      </div><div class="ho-col">
+        <span class="ho-n ho-role" data-n="r2" data-s="1">Rol</span>
+        <span class="ho-n ho-agent" data-n="a2" data-s="2">Agent</span>
+        <span class="ho-n ho-res" data-n="c2" data-s="3">Bilgi</span>
+      </div><div class="ho-col">
+        <span class="ho-n ho-role" data-n="r3" data-s="1">Rol</span>
+        <span class="ho-n ho-agent" data-n="a3" data-s="2">Agent</span>
+        <span class="ho-n ho-res" data-n="c3" data-s="3">Politikalar</span>
+      </div></div>
+    <span class="ho-n ho-task" data-n="t" data-s="4">Görev</span>
+    <span class="ho-n ho-ap" data-n="h" data-s="5">İnsan onayı</span>
+    <span class="ho-n ho-act" data-n="x" data-s="6">Aksiyon</span>
   </div>
-  <ol class="live-bar" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
-  <div class="case-body">
-    <div class="ci-event" data-s="0"><span class="ci-pulse" aria-hidden="true"></span><div><b>Yeni olay algılandı</b><small>24 Eyl 2026 · Ticaret Sicili</small></div></div>
-    <div class="ci-start" data-s="1"><span><span lang="en">Investigation</span> başladı</span></div>
-    <ul class="ci-activity"><li data-s="2"><svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5 8.2l2 2 4-4.4"/></svg><span>Sicil geçmişi karşılaştırıldı</span></li><li data-s="3"><svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5 8.2l2 2 4-4.4"/></svg><span>Ortaklar araştırıldı</span></li><li data-s="4"><svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5 8.2l2 2 4-4.4"/></svg><span>Temsil yetkisi kontrol edildi</span></li><li data-s="5"><svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5 8.2l2 2 4-4.4"/></svg><span>İlişkili şirketler araştırıldı</span></li><li data-s="6"><svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5 8.2l2 2 4-4.4"/></svg><span>Finansal bağlam incelendi</span></li><li data-s="7"><svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5 8.2l2 2 4-4.4"/></svg><span>Dış kanıtlar toplandı</span></li></ul>
-    <div class="ci-findings" data-s="8"><span class="lbl">3 önemli değişiklik</span><ol><li><span class="n">01</span>Temsil yetkisi değişti</li><li><span class="n">02</span>Yeni ortak tespit edildi</li><li><span class="n">03</span>İlişkili şirket yeniden yapılandırmaya girdi</li></ol></div>
-    <a class="btn btn-ghost btn-sm ci-link" href="#evidence" data-s="8"><span lang="en">Investigation</span>&#x27;ı görüntüle →</a>
-  </div>
-  <figcaption class="case-note">Kurgusal şirketlerle hazırlanmış demo verisi.</figcaption>
 </figure>
   </div>
 </section>
 
-<section class="sec tone" id="monitoring">
+<section class="sec" id="problem">
   <div class="wrap">
     <div class="sec-head">
-      <p class="shift"><s>Statik Risk Raporu</s><i aria-hidden="true">→</i><b>Canlı <span lang="en">Investigation</span></b></p>
-      <h2 class="h2">Bir şirket aynı kalmıyor. <b>Risk raporu neden aynı kalsın?</b></h2>
-      <p class="lede">Geleneksel risk değerlendirmesi bir anlık görüntüdür. <span lang="en">Deepin</span> canlı bir <span lang="en">Investigation</span> sürdürür: önemli bir değişiklik, şirketin yeniden araştırılmasını başlatır.</p>
+      <p class="eyebrow">Sorun</p>
+      <h2 class="h2">Agent kurmak kolay. <b>Organizasyon kurmak zor.</b></h2>
+      <p class="lede">Bir model ve birkaç araçla çalışan bir agent bugün işe yarar işler yapabiliyor. Zor kısım, o agent'ın bir kurumun içinde çalışması gerektiğinde başlıyor.</p>
     </div>
-    <div class="liv">
-  <div class="rep">
-  <span class="lbl">Geleneksel</span>
-  <div class="rep-doc">
-    <div class="rep-head"><small>Ocak</small><b>Şirket Risk Raporu</b></div>
-    <ul><li>Sahiplik<span aria-hidden="true">✓</span></li><li>Yönetim<span aria-hidden="true">✓</span></li><li>Finansallar<span aria-hidden="true">✓</span></li><li>İlişkiler<span aria-hidden="true">✓</span></li></ul>
-    <div class="rep-risk"><span class="lbl">Risk</span><span class="risk r-low">Düşük</span></div>
-    <span class="rep-stale">Mart&#x27;tan beri eski</span>
+    <div class="hp">
+  <div class="hp-simple">
+    <div class="lbl">Sıradan bir agent</div>
+    <div class="hp-stack"><span>Model</span><i aria-hidden="true"></i><span>Agent</span><i aria-hidden="true"></i><span>Araçlar</span></div>
+    <p>Bir agent akıl yürütebilir ve araç çağırabilir.</p>
+  </div>
+  <div class="hp-qs">
+    <div class="lbl">Kurumun onun etrafında sorduğu sorular</div>
+    <ul class="hp-q"><li>Sorumlusu kim?</li><li>Rolü ne?</li><li>Neyi yapmaya yetkili?</li><li>Hangi verilere erişebilir?</li><li>Ona kim iş verebilir?</li><li>Hangi yetenekleri kullanabilir?</li><li>Hangi politikalar onu sınırlar?</li><li>Ne zaman insan onayı gerekir?</li><li>Hata yaparsa ne olur?</li><li>Davranışı nasıl değerlendirilir?</li><li>Her adımı denetlenebilir mi?</li></ul>
   </div>
 </div>
-  <div class="liv-tl">
-    <div class="liv-head"><span class="lbl">Canlı <span lang="en">Investigation</span></span><strong>Acme A.Ş.</strong><small class="liv-hint">Neyin değiştiğini görmek için bir olay seçin.</small></div>
-    <div class="lt-axis" aria-hidden="true"><span style="--x:0%">Oca</span><span style="--x:33.33%">Mar</span><span style="--x:66.67%">Haz</span><span style="--x:100%">Eyl</span></div>
-    <ol class="lt-track"><li class="lt-pt start" style="--x:0%"><span class="lt-dot"></span><span class="lt-lbl"><b>İlk <span lang="en">Investigation</span></b><span class="risk r-low">Düşük</span></span></li><li class="lt-pt" style="--x:33.33%"><button type="button" class="lt-btn" data-ev="0" aria-pressed="false"><span class="lt-dot"></span><span class="lt-lbl"><small>12 Mar</small><b>Ortak değişti</b></span></button></li><li class="lt-pt" style="--x:66.67%"><button type="button" class="lt-btn" data-ev="1" aria-pressed="false"><span class="lt-dot"></span><span class="lt-lbl"><small>18 Haz</small><b>Yetki değişti</b></span></button></li><li class="lt-pt end" style="--x:100%"><button type="button" class="lt-btn sel" data-ev="2" aria-pressed="true"><span class="lt-dot"></span><span class="lt-lbl"><small>11 Eyl</small><b>İlişkili şirket yeniden yapılandırmada</b></span></button></li></ol>
-    <div class="lt-panels" aria-live="polite"><div class="lt-panel" data-panel="0" hidden>
-  <div class="lt-ba"><div><span class="lbl">Önce</span><p>Kurucu aile %60 paya sahip</p></div><span class="lt-arrow" aria-hidden="true">→</span><div class="after"><span class="lbl">Sonra</span><p>Yeni bir holding şirketi %31,4 paya sahip</p></div></div>
-  <div class="lt-meta"><span class="lt-re">↻ <span lang="en">Investigation</span> yeniden açıldı</span><span class="lt-risk"><span class="lbl">Risk bağlamı</span><span class="risk r-low">Düşük</span><span aria-hidden="true">→</span><span class="risk r-medium">Orta</span></span><small>Ticaret Sicili Gazetesi · 12 Mar 2026</small></div>
-</div><div class="lt-panel" data-panel="1" hidden>
-  <div class="lt-ba"><div><span class="lbl">Önce</span><p>İki yönetici müşterek imza ile temsil ediyor</p></div><span class="lt-arrow" aria-hidden="true">→</span><div class="after"><span class="lbl">Sonra</span><p>Yeni bir yönetici tek başına ve sınırsız imza yetkisine sahip</p></div></div>
-  <div class="lt-meta"><span class="lt-re">↻ <span lang="en">Investigation</span> yeniden açıldı</span><span class="lt-risk"><span class="lbl">Risk bağlamı</span><span class="risk r-medium">Orta</span></span><small>Ticaret Sicili Gazetesi · 18 Haz 2026</small></div>
-</div><div class="lt-panel" data-panel="2">
-  <div class="lt-ba"><div><span class="lbl">Önce</span><p>İlişkili şirket olağan faaliyetinde</p></div><span class="lt-arrow" aria-hidden="true">→</span><div class="after"><span class="lbl">Sonra</span><p>Yeniden yapılandırma başvurusu mahkemece kabul edildi</p></div></div>
-  <div class="lt-meta"><span class="lt-re">↻ <span lang="en">Investigation</span> yeniden açıldı</span><span class="lt-risk"><span class="lbl">Risk bağlamı</span><span class="risk r-medium">Orta</span><span aria-hidden="true">→</span><span class="risk r-high">Yüksek</span></span><small>Resmî mahkeme kaydı · 11 Eyl 2026</small></div>
-</div></div>
-  </div>
-</div>
-<ol class="loop" aria-label="Önemli bir değişiklik algılandığında ne olur"><li>Önemli değişiklik</li><li><span lang="en">Deepin</span> algılar</li><li><span lang="en">Investigation</span></li><li>Güncel bağlam</li></ol>
+<p class="quote hp-land">Kurumsal yapay zekâ bir <b>organizasyon problemidir.</b></p>
   </div>
 </section>
 
-<section class="sec" id="investigation">
+<section class="sec tone" id="model">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span lang="en">Investigation</span></p>
-      <h2 class="h2">Ne <b>değişti?</b></h2>
-      <p class="lede"><span lang="en">Company</span> <span lang="en">Investigation</span> bu dört boyuta bakar ve şirket her değiştiğinde aynı soruları yeniden sorar.</p>
+      <p class="eyebrow">Organizasyon modeli</p>
+      <h2 class="h2">Yapay zekâya <b>organizasyonda bir yer verin.</b></h2>
+      <p class="lede">Kurumsal bir agent, araçları olan isimsiz bir model olmamalı. <span lang="en">Deepin</span> <span lang="en">Harness</span>'ta açık bir organizasyon bağlamında çalışır: neyden sorumlu olduğu, neyi yapabileceği ve hangi kurallara bağlı olduğu bellidir.</p>
     </div>
-    <div class="dims"><article class="dim">
-  <div class="dim-q"><span class="dim-key">Sahiplik değişti</span><h3>Şirketin sahibi artık kim?</h3><ul class="dim-items"><li>Ortaklık değişiklikleri</li><li>Pay oranları</li><li>Sahiplik zincirleri</li><li>Sermaye artırımları</li><li>Sermaye azaltımları</li><li>Pay devirleri</li></ul></div>
-  <div class="dim-a"><div class="viz own"><div class="own-row"><span class="lbl">Önce</span><div class="own-bar"><span class="own-seg" style="flex:60"><b>60%</b><small>Kurucu aile</small></span><span class="own-seg" style="flex:40"><b>40%</b><small>Diğer ortaklar</small></span></div></div><div class="own-row"><span class="lbl">Sonra</span><div class="own-bar"><span class="own-seg" style="flex:28.6"><b>28.6%</b><small>Kurucu aile</small></span><span class="own-seg new" style="flex:31.4"><b>31.4%</b><small>Kuzey Holding (yeni)</small></span><span class="own-seg" style="flex:40"><b>40%</b><small>Diğer ortaklar</small></span></div></div></div><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret Sicili Gazetesi · 18 Eyl 2026</small><p>Pay devri tescil edildi: payların %31,4&#x27;ü kurucu aileden, dört ay önce kurulan Kuzey Holding A.Ş.&#x27;ye devredildi.</p></div></details></div>
-</article><article class="dim">
-  <div class="dim-q"><span class="dim-key">Yetki değişti</span><h3>Şirket adına artık kim hareket edebiliyor?</h3><ul class="dim-items"><li>Yetkili temsilciler</li><li>Temsil hakları</li><li>İmza grupları</li><li>İç yönergeler</li><li>Yetki değişiklikleri</li><li>Yönetim değişiklikleri</li></ul></div>
-  <div class="dim-a"><div class="viz auth"><div class="auth-card was"><span class="lbl">Önceki</span><b>Müşterek imza, üç kişiden ikisi</b><ul><li>A. Demir</li><li>S. Kaya</li><li>M. Öz</li></ul></div><span class="auth-arrow" aria-hidden="true">→</span><div class="auth-card now"><span class="lbl">Güncel</span><b>Tek imza, sınırsız</b><ul><li>M. Yılmaz (yeni)</li></ul></div></div><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret Sicili Gazetesi · 24 Eyl 2026</small><p>Yönetim kurulu kararı tescil edildi: müşterek imza yetkisi kaldırıldı; M. Yılmaz şirketi tek başına temsile yetkili olarak atandı.</p></div></details></div>
-</article><article class="dim">
-  <div class="dim-q"><span class="dim-key">İlişkiler değişti</span><h3>Şirket artık kimlerle bağlantılı?</h3><ul class="dim-items"><li>İlişkili şirketler</li><li>Ortak yöneticiler</li><li>Ortak hissedarlar</li><li>Ortak adresler</li><li>Şirket grupları</li><li>Çok katmanlı ilişkiler</li></ul></div>
-  <div class="dim-a"><div class="viz rgraph">
-  <svg viewBox="0 0 360 250" role="group" aria-label="İlişki grafiği"><line class="ge" x1="180" y1="70" x2="60" y2="150"/><text class="gel" x="120.0" y="104.0" text-anchor="middle">imza yetkilisi</text><line class="ge" x1="60" y1="150" x2="180" y2="225"/><text class="gel" x="120.0" y="181.5" text-anchor="middle">yönetici</text><line class="ge" x1="180" y1="70" x2="300" y2="150"/><text class="gel" x="240.0" y="104.0" text-anchor="middle">%31,4</text><line class="ge new" x1="300" y1="150" x2="180" y2="225"/><text class="gel" x="240.0" y="181.5" text-anchor="middle">aynı adres</text><g class="gn subject" tabindex="0" role="button" data-info="Araştırılan şirket." aria-label="Akdeniz Endüstri">
-  <rect x="110" y="55" width="140" height="30" rx="15"/>
-  <text x="180" y="74" text-anchor="middle">Akdeniz Endüstri</text></g><g class="gn person" tabindex="0" role="button" data-info="24 Eyl&#x27;den beri Akdeniz Endüstri&#x27;nin tek imza yetkilisi. Aynı zamanda Toros Ticaret&#x27;in yöneticisi." aria-label="M. Yılmaz">
-  <rect x="12" y="135" width="96" height="30" rx="15"/>
-  <text x="60" y="154" text-anchor="middle">M. Yılmaz</text></g><g class="gn new" tabindex="0" role="button" data-info="Yeni keşfedilen ilişki: Akdeniz Endüstri ile ortak yöneticiye sahip ve 11 Eyl&#x27;de yeniden yapılandırmaya girdi." aria-label="Toros Ticaret">
-  <rect x="121" y="210" width="118" height="30" rx="15"/>
-  <text x="180" y="229" text-anchor="middle">Toros Ticaret</text></g><g class="gn entity" tabindex="0" role="button" data-info="18 Eyl&#x27;de Akdeniz Endüstri&#x27;nin %31,4&#x27;ünü aldı. Toros Ticaret ile aynı adreste kayıtlı." aria-label="Kuzey Holding">
-  <rect x="241" y="135" width="118" height="30" rx="15"/>
-  <text x="300" y="154" text-anchor="middle">Kuzey Holding</text></g></svg>
-  <p class="rg-info" aria-live="polite"><span class="lbl">Bir kuruma dokunun</span></p>
-</div><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret sicili kayıtları · İlişki analizi</small><p>M. Yılmaz iki şirkette yönetici olarak görünüyor; Kuzey Holding ile Toros Ticaret aynı kayıtlı adresi paylaşıyor.</p></div></details></div>
-</article><article class="dim">
-  <div class="dim-q"><span class="dim-key">Finansal bağlam değişti</span><h3>Şirketin finansal bağlamı önemli ölçüde değişti mi?</h3><ul class="dim-items"><li>Finansal tablolar</li><li>Sermaye yapısı</li><li>Yeniden yapılandırma sinyalleri</li><li>Önemli finansal olaylar</li><li>Şirkete özgü göstergeler</li></ul><p class="dim-note">Finansal verinin erişilebilir olduğu durumlarda.</p></div>
-  <div class="dim-a"><ol class="viz fin"><li class=""><small>Tem</small><span>Sermaye %40 azaltıldı</span></li><li class=""><small>Ağu</small><span>60 gün içinde üç şube kapandı</span></li><li class=""><small>Eyl</small><span>İlişkili şirket yeniden yapılandırmaya girdi</span></li><li class="hot"><small>Eyl</small><span>Finansal olay <span lang="en">Investigation</span>&#x27;a giriyor</span></li></ol><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret Sicili Gazetesi · Resmî mahkeme kaydı</small><p>Temmuz&#x27;da sermaye azaltımı, Ağustos&#x27;ta şube kapanışları tescil edildi; Eylül&#x27;de ilişkili bir şirketin yeniden yapılandırma başvurusu kabul edildi.</p></div></details></div>
-</article></div>
+    <figure class="om" aria-label="Deepin Harness&#x27;ın kavramsal organizasyon modeli">
+  <div class="om-org"><span class="om-t">Organizasyon</span><span>Rollerin, yetkinin, bilginin, politikaların ve yeteneklerin içinde var olduğu sınır.</span></div>
+  <div class="om-grid" data-links="[[&quot;role&quot;, &quot;agent&quot;, &quot;&quot;], [&quot;auth&quot;, &quot;agent&quot;, &quot;d&quot;], [&quot;pol&quot;, &quot;agent&quot;, &quot;d&quot;], [&quot;agent&quot;, &quot;task&quot;, &quot;&quot;], [&quot;task&quot;, &quot;cap&quot;, &quot;&quot;], [&quot;cap&quot;, &quot;tool&quot;, &quot;&quot;], [&quot;cap&quot;, &quot;svc&quot;, &quot;&quot;], [&quot;agent&quot;, &quot;know&quot;, &quot;nd&quot;]]">
+    <span class="om-g">Kim, hangi kurallarla</span><div class="om-n om-role " data-n="role"><span class="om-t">Rol</span><span class="om-q">Neyden sorumlu?</span></div><div class="om-n om-auth om-gov" data-n="auth"><span class="om-t">Yetki</span><span class="om-q">Kim karar verebilir, onaylayabilir, iş devredebilir ya da harekete geçebilir?</span></div><div class="om-n om-pol om-gov" data-n="pol"><span class="om-t">Politika · Kısıt</span><span class="om-q">Bu adım hangi koşullarda atılabilir?</span></div>
+    <span class="om-g">İşi yapmak</span><div class="om-n om-agent core" data-n="agent"><span class="om-t">Agent</span><span class="om-q">İşi rolünün içinde yapar.</span></div><div class="om-n om-task " data-n="task"><span class="om-t">Görev</span><span class="om-q">Ne yapılması gerekiyor?</span></div><div class="om-n om-cap " data-n="cap"><span class="om-t">Yetenek</span><span class="om-q">Ne yapabilir?</span></div><div class="om-n om-tool tech" data-n="tool"><span class="om-t">Araç</span><span class="om-q">Yeteneğin kullandığı teknik yol.</span><small>API · MCP aracı · sorgu · model · fonksiyon</small></div><div class="om-n om-svc tech" data-n="svc"><span class="om-t">Servis</span><span class="om-q">Kuruma açılan iç ya da dış sistemler.</span><small>ERP · CRM · core banking · sicil servisi · doküman sistemi</small></div>
+    <span class="om-g">Ne biliyor</span><div class="om-n om-know " data-n="know"><span class="om-t">Bilgi</span><span class="om-q">Rollerin ve agent&#x27;ların kullanabildiği kurumsal bilgi.</span><small>Dokümanlar · graflar · yapılandırılmış veri · önceki <span lang="en">Investigation</span>&#x27;lar · kurumsal hafıza</small></div>
   </div>
-</section>
-
-<section class="sec tone" id="meaning">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Sürekli <span lang="en">Investigation</span></p>
-      <h2 class="h2">İzleme bir şeyin değiştiğini söyler. <b><span lang="en">Deepin</span> bunun ne anlama geldiğini araştırır.</b></h2>
-    </div>
-    <ol class="stages"><li class="stage mon"><span class="stage-k">Algıla</span><b>Bir şey değişti.</b><ul><li>Sicil olayı</li><li>Finansal olay</li><li>Dış sinyal</li><li>Şirket olayı</li></ul><span class="stage-who">İzleme burada durur</span></li><li class="stage inv"><span class="stage-k">Araştır</span><b>Ne değişti?</b><ul><li>Sahiplik</li><li>Yetki</li><li>İlişkiler</li><li>Geçmiş</li><li>Finansal bağlam</li><li>İlişkili şirketler</li></ul><span class="stage-who"><span lang="en">Deepin</span></span></li><li class="stage inv"><span class="stage-k">Açıkla</span><b>Neden önemli?</b><ul><li>Kanıt</li><li>Bağlam</li><li>Gerekçe</li><li>Risk etkileri</li><li>Öneri</li></ul><span class="stage-who"><span lang="en">Deepin</span></span></li></ol>
-    <div class="mi-key"><strong>Olay → <span lang="en">Investigation</span> → Anlam</strong><span>İzleme sinyali yakalar. <span lang="en">Deepin</span> sinyali araştırır.</span></div>
-  </div>
-</section>
-
-<section class="sec" id="evidence">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Önce kanıt, sonra karar</p>
-      <h2 class="h2"><span lang="en">deepin.risk</span> yalnızca skoru değil, <b>nedenini de verir.</b></h2>
-      <p class="lede">Risk seviyesi ürünün kendisi değil, <span lang="en">Investigation</span>'ın son satırıdır. Her değişiklik bulgularıyla, kaynaklarıyla ve onları birbirine bağlayan gerekçeyle gelir; kararı ekibiniz verir.</p>
-    </div>
-    <ol class="chain2" aria-label="Kaynaktan insan kararına"><li class="">Kaynak</li><li class="">Kanıt</li><li class="">Bulgu</li><li class="">Bağlam</li><li class="">Gerekçe</li><li class="">Öneri</li><li class="hd">İnsan kararı</li></ol>
-    <div class="ev2">
-      <div class="roles">
-  <div class="role-d"><span class="lbl"><span lang="en">Deepin</span></span><ul><li>Algılar</li><li>Araştırır</li><li>Kanıt toplar</li><li>Karşılaştırır</li><li>Gerekçelendirir</li><li>Öneri sunar</li></ul></div>
-  <div class="role-arrow" aria-hidden="true"></div>
-  <div class="role-t"><span class="lbl">Ekibiniz</span><ul><li>Kanıtı inceler</li><li>Muhakeme eder</li><li>Onaylar ya da reddeder</li></ul></div>
-</div>
-      <figure class="evui rcx2" aria-label="Kanıtlarıyla risk bağlamı değişikliği (demo)">
-  <div class="evui-top"><span>Akdeniz Endüstri A.Ş.</span><span class="chip st-wait">Risk bağlamı güncellendi</span></div>
-  <div class="evui-body">
-    <div class="rcx-bar"><span><span class="risk r-medium">Orta</span></span><span class="rcx-line" aria-hidden="true"></span><span><span class="risk r-high">Yüksek</span></span></div>
-    <div><div class="lbl">Neden değişti?</div><ol class="why3s"><li class="why3">
-  <span class="n">01</span>
-  <div><b>Temsil yetkisi değişti</b><small>24 Eyl 2026</small>
-    <p class="src"><span class="lbl">Kaynak</span>Ticaret Sicili Gazetesi</p>
-    <details class="ev-d"><summary data-hide="Kanıtı gizle" data-view="Kanıtı gör">Kanıtı gör</summary><blockquote>Yönetim kurulu kararı tescil edildi: müşterek imza yetkisi kaldırıldı; yeni atanan bir yönetici şirketi tek başına ve sınırsız temsil edebiliyor.</blockquote></details>
-  </div>
-</li><li class="why3">
-  <span class="n">02</span>
-  <div><b>Yeni ortak %31,4 pay aldı</b><small>18 Eyl 2026</small>
-    <p class="src"><span class="lbl">Kaynak</span>Ticaret Sicili Gazetesi</p>
-    <details class="ev-d"><summary data-hide="Kanıtı gizle" data-view="Kanıtı gör">Kanıtı gör</summary><blockquote>Pay devri tescil edildi: payların %31,4&#x27;ü, dört ay önce kurulan Kuzey Holding A.Ş.&#x27;ye devredildi.</blockquote></details>
-  </div>
-</li><li class="why3">
-  <span class="n">03</span>
-  <div><b>İlişkili şirket yeniden yapılandırmaya girdi</b><small>11 Eyl 2026</small>
-    <p class="src"><span class="lbl">Kaynak</span>Resmî mahkeme kaydı</p>
-    <details class="ev-d"><summary data-hide="Kanıtı gizle" data-view="Kanıtı gör">Kanıtı gör</summary><blockquote>Akdeniz Endüstri A.Ş. ile ortak yöneticiye sahip Toros Ticaret Ltd.&#x27;nin yeniden yapılandırma başvurusu kabul edildi.</blockquote></details>
-  </div>
-</li></ol></div>
-    <div class="rcx-reason"><div class="lbl"><span lang="en">Deepin</span> gerekçesi</div><p>13 gün içinde sahiplik, yetki ve ilişkili şirket yapısında üç önemli değişiklik gerçekleşti.</p></div>
-    <div class="rcx-rec"><div class="lbl">Öneri</div><strong>Karşı taraf maruziyetini gözden geçirin.</strong></div>
-    <div class="rcx-team" data-decision>
-      <div class="rcx-team-h"><span class="lbl">Ekibiniz</span><span>Kanıtı inceleyin</span></div>
-      <div class="rcx-acts">
-        <button type="button" class="btn btn-primary btn-sm" data-act="approve" data-msg="Ekibiniz onayladı · denetim izine kaydedildi">Onayla</button>
-        <button type="button" class="btn btn-ghost btn-sm" data-act="reject" data-msg="Ekibiniz reddetti · denetim izine kaydedildi">Reddet</button>
-        <button type="button" class="btn btn-ghost btn-sm" data-act="further">Daha fazla araştır →</button>
-      </div>
-      <p class="rcx-result" role="status" hidden></p>
-      <ol class="rcx-further" aria-live="polite"><li hidden>Takip <span lang="en">Investigation</span>&#x27;ı açıldı: Toros Ticaret Ltd.</li><li hidden>Kefaletler ve ortak yükümlülükler kontrol edildi</li><li hidden>Bulgu: Akdeniz Endüstri, Toros Ticaret&#x27;in iki kredisine kefil</li></ol>
-    </div>
-    <p class="rcx-note">Kurgusal şirketlerle hazırlanmış demo verisi.</p>
-  </div>
+  <figcaption class="om-note">Kavramsal bir model; bir sınıf diyagramı değil. <b>Yetenek ≠ Araç:</b> yetenek neyin yapılabileceğidir; araç bunu yapmanın teknik yollarından biridir. <b>Yetki ≠ Politika:</b> yetki kimin karar verebileceğini, onaylayabileceğini, iş devredebileceğini ya da harekete geçebileceğini söyler; politika bunun hangi kurallarla olacağını.</figcaption>
 </figure>
-    </div>
   </div>
 </section>
 
-<section class="sec tone" id="fit">
-  <div class="wrap">
-    <div class="layer-grid">
-      <div class="sec-head" style="margin:0">
-        <p class="eyebrow"><span lang="en">deepin.risk</span> nerede durur</p>
-        <h2 class="h2">Risk yapınızdaki <b><span lang="en">Investigation</span> katmanı.</b></h2>
-        <p class="lede">TPRM ya da GRC sisteminiz süreci yönetir. <span lang="en">Deepin</span> sürecin arkasındaki şirketi araştırır.</p>
-        <div class="notes"><p><span lang="en">Deepin</span> mevcut risk yapınızla birlikte çalışır.</p><p><span lang="en">Deepin</span> risk iş akışınızın yerini almaz. Ona araştırılmış, kanıta dayalı şirket bilgisi sağlar.</p></div>
-      </div>
-      <ol class="stack"><li class="stk top"><div class="stk-h"><span class="stk-n">Kurumsal istihbarat</span><small>Şirket verisi</small></div><ul><li>Şirket bilgileri</li><li>Sicil verisi</li><li>Finansal bilgiler</li><li>Dış kaynaklar</li></ul></li><li class="stk-arrow" aria-hidden="true"></li><li class="stk mid"><div class="stk-h"><span class="stk-n">deep<b>in</b>.risk</span><small><span lang="en">Investigation</span> katmanı</small></div><ul><li>Değişikliği algılar</li><li>Bağlamı araştırır</li><li>Geçmişi yeniden kurar</li><li>İlişkileri keşfeder</li><li>Kanıt toplar</li><li>Neyin önemli olduğunu açıklar</li></ul></li><li class="stk-arrow" aria-hidden="true"></li><li class="stk bot"><div class="stk-h"><span class="stk-n">Risk süreciniz</span><small>TPRM, GRC ve karar iş akışlarınız</small></div><ul><li>Üçüncü taraf riski</li><li>Kredi riski</li><li>Uyum</li><li>Satın alma</li><li>Üye işyeri riski</li><li>Müşteri kabulü</li></ul></li></ol>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="uses">
+<section class="sec" id="reasoning">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Kullanım alanları</p>
-      <h2 class="h2">Tek <span lang="en">Company</span> <span lang="en">Investigation</span>. <b>Birden çok karar.</b></h2>
-      <p class="lede">Aynı <span lang="en">Investigation</span> yeteneği, bir şirket hakkında karar veren her ekibe hizmet eder.</p>
+      <p class="eyebrow"><span lang="en">Organizational</span> <span lang="en">Reasoning</span></p>
+      <h2 class="h2">Organizasyonun içinde <b>akıl yürütün.</b></h2>
+      <p class="lede">Roller sorumluluğu belirler. Yetki, iş devretme ve karar hakkını belirler. Yetenekler neyin yapılabileceğini belirler. Politikalar sınırları çizer.</p>
     </div>
-    <div class="o2m">
-  <div class="o2m-root"><span lang="en">Company</span> <span lang="en">Investigation</span></div>
-  <ol class="o2m-br"><li><span class="u1">Üçüncü taraf riski</span><span class="u2">Satın alma</span></li><li><span class="u1">Üye işyeri riski</span><span class="u2">Müşteri kabulü</span></li><li><span class="u1">Kredi riski</span><span class="u2">İzleme</span></li></ol>
-  <p class="o2m-foot">Bu kararlarda tekrarlandıkça tek bir <span lang="en">Investigation</span> yeteneği şuna dönüşür: <span class="nm">deep<b>in</b>.risk</span></p>
+    <div class="rs-pair"><div><span class="om-t">Organizasyon</span><p>Yapı ve durum: kim var, neyden sorumlu, neyi yapabilir.</p></div><div><span class="om-t"><span lang="en">Organizational</span> <span lang="en">Reasoning</span></span><p>Zaman içindeki davranış: bir şey olduğunda organizasyonun kimin neyi yapacağına nasıl karar verdiği.</p></div></div>
+<figure class="rs" data-live aria-label="Organizational Reasoning akışı">
+  <div class="rs-flow">
+    <div class="rs-n rs-state" data-s="0">Organizasyonun mevcut durumu</div>
+    <div class="rs-n rs-event" data-s="1">Olay ya da hedef</div>
+    <ol class="rs-checks"><li data-s="2">Sorumlu kim?</li><li data-s="3">Hangi yetki var?</li><li data-s="4">Hangi yetenekler kullanılabilir?</li><li data-s="5">Hangi politikalar adımı sınırlıyor?</li></ol>
+    <div class="rs-n rs-out" data-s="6"><span>Harekete geç</span><span>Devret</span><span>Birlikte çalış</span></div>
+    <div class="rs-n rs-state next" data-s="7">Organizasyonun yeni durumu</div>
+  </div>
+  <div class="rs-loop" aria-hidden="true"><span>↺ ve bir sonraki olayla yeniden</span></div>
+  <figcaption class="rs-note">Bu, agent&#x27;lar arasında prompt taşımaktan fazlası: her adım organizasyonun kendi rollerine, yetkisine ve kurallarına göre yanıtlanır.</figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="sec tone" id="runtime">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Çalışma ortamı</p>
+      <h2 class="h2">Model çağrısından <b>yönetilen işe.</b></h2>
+      <p class="lede">İş <span lang="en">Harness</span>'a girer, organizasyonun bağlamı ve kuralları altında yürütülür ve arkasında denetlenebilir bir iz bırakır.</p>
+    </div>
+    <div class="rt-grid">
+  <figure class="rt" data-live aria-label="Deepin Harness">
+    <span class="rt-io">Talep ya da olay</span>
+    <div class="rt-box">
+      <div class="rt-h"><span><span lang="en">Deepin</span> <span lang="en">Harness</span></span><span>Bıraktığı iz</span></div>
+      <ol class="rt-layers"><li data-s="0" class=""><span class="n">01</span><span class="l">Kimlik ve rol</span><span class="tr">kim</span></li><li data-s="1" class=""><span class="n">02</span><span class="l">Bağlam ve hafıza</span><span class="tr">bağlam</span></li><li data-s="2" class=""><span class="n">03</span><span class="l">Planlama</span><span class="tr">plan</span></li><li data-s="3" class=""><span class="n">04</span><span class="l">Yetenek seçimi</span><span class="tr">yetenek</span></li><li data-s="4" class=""><span class="n">05</span><span class="l">Araç ve servis çalıştırma</span><span class="tr">çağrı</span></li><li data-s="5" class=""><span class="n">06</span><span class="l">Politika denetimi</span><span class="tr">politika</span></li><li data-s="6" class="hum"><span class="n">07</span><span class="l">İnsan onayı</span><span class="tr">onay</span></li><li data-s="7" class=""><span class="n">08</span><span class="l">Durum ve iş akışı</span><span class="tr">durum</span></li><li data-s="8" class=""><span class="n">09</span><span class="l">Değerlendirme</span><span class="tr">puan</span></li><li data-s="9" class=""><span class="n">10</span><span class="l">Denetim ve izlenebilirlik</span><span class="tr">iz</span></li></ol>
+    </div>
+    <span class="rt-io out">Kurumsal sistemler</span>
+  </figure>
+  <div class="rt-side">
+    <p class="quote">Modeller akıl yürütür. Yetenekler iş yapar. Politikalar sınırı çizer. <b><span lang="en">Harness</span> hepsini birlikte yürütür.</b></p>
+    <p class="rt-p">Bir model çağrısı bir prompt&#x27;a yanıt verir. Yönetilen iş ise kimin istediğini, hangi rolle, hangi yetenekle, hangi politika altında yapıldığını ve kimin onayladığını bilir.</p>
+  </div>
 </div>
   </div>
 </section>
 
-<section class="sec tone" id="customers">
+<section class="sec" id="collaboration">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Müşteriler</p>
-      <h2 class="h2"><span lang="en">Company</span> <span lang="en">Investigation</span> <b>canlı kullanımda.</b></h2>
-      <p class="lede">Aynı <span lang="en">Company</span> <span lang="en">Investigation</span> yeteneği, farklı kurumsal kararlarda şimdiden kullanılıyor. Her müşteri, gerçekte ulaştığı olgunluk seviyesiyle gösterilir.</p>
+      <p class="eyebrow">İş birliği</p>
+      <h2 class="h2">Agent'lar <b>tek başına çalışmaz.</b></h2>
+      <p class="lede">Gerçek <span lang="en">Investigation</span>'lar ortak iştir. Roller iş devreder, aynı kanıtın üzerine kurar ve kararı bir kişiye bırakır.</p>
     </div>
-    <ul class="proof-grid n4"><li class="proof-card">
-  <strong>Hayat Finans</strong>
-  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="proof-ctx">Finansal / şirket riski</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
-</li><li class="proof-card">
-  <strong>PayTR</strong>
-  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="proof-ctx">Üye işyeri / şirket riski</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
-</li><li class="proof-card">
-  <strong>SOCAR</strong>
-  <span class="proof-inv"><span lang="en">Company</span> <span lang="en">Investigation</span></span><span class="proof-ctx">Üçüncü taraf / şirket riski</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span>
-</li><li class="proof-card">
-  <strong>DGPays</strong>
-  <span class="proof-inv"><span lang="en">Company</span> + Financial <span lang="en">Investigation</span></span><span class="proof-ctx">Ürüne gömülü çözüm</span>
-  <span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Ürüne gömülü</span></span>
-</li></ul>
+    <div class="cl-wrap">
+  <figure class="cl">
+    <div class="cl-top"><span class="lbl" style="margin:0">Örnek · <span lang="en">Company</span> <span lang="en">Investigation</span></span></div>
+    <div class="cl-grid" data-links="[[&quot;inv&quot;, &quot;lead&quot;, &quot;&quot;], [&quot;lead&quot;, &quot;reg&quot;, &quot;&quot;], [&quot;lead&quot;, &quot;fin&quot;, &quot;&quot;], [&quot;reg&quot;, &quot;regc&quot;, &quot;&quot;], [&quot;fin&quot;, &quot;finc&quot;, &quot;&quot;], [&quot;regc&quot;, &quot;ev&quot;, &quot;&quot;], [&quot;finc&quot;, &quot;ev&quot;, &quot;&quot;], [&quot;ev&quot;, &quot;eval&quot;, &quot;&quot;], [&quot;eval&quot;, &quot;dec&quot;, &quot;w&quot;]]">
+      <div class="cl-n cl-inv wide" data-n="inv"><b><span lang="en">Company</span> <span lang="en">Investigation</span></b><small>Tetikleyici: yeni imza yetkilisi tescil edildi</small></div><div class="cl-n cl-lead wide role" data-n="lead"><b><span lang="en">Investigation</span> sorumlusu</b><small>Rol · planlar ve iş devreder</small></div><div class="cl-n cl-reg role" data-n="reg"><b>Sicil rolü</b><small>Resmî kayıtları inceler</small></div><div class="cl-n cl-fin role" data-n="fin"><b>Finansal rol</b><small>Finansal tabloları okur</small></div>
+      <div class="cl-n cl-regc cl-cap" data-n="regc"><b>Sicil yeteneği</b></div><div class="cl-n cl-finc cl-cap" data-n="finc"><b>Finansal yetenek</b></div><div class="cl-n cl-ev wide ev" data-n="ev"><b>Ortak kanıt</b><small>Kaynaklarıyla birlikte bulgular</small></div><div class="cl-n cl-eval wide" data-n="eval"><b>Değerlendirme</b><small>Kanıt yeterli ve tutarlı mı?</small></div><div class="cl-n cl-dec wide hum" data-n="dec"><b>İnsan kararı</b><small>Bir kişi onaylar ya da reddeder</small></div>
+    </div>
+    <figcaption class="cl-note">Temsilî bir örnek. Rol adları fikri göstermek içindir; ürünün sabit parçaları değildir.</figcaption>
+  </figure>
+  <ul class="cl-concepts"><li><b>Sorumluluk</b><span>Her rol işin bir parçasının sahibidir.</span></li><li><b>Devretme</b><span>Sorumlu, işi buna yetkisi ve yeteneği olan rollere verir.</span></li><li><b>İş birliği</b><span>Roller birbirinin bulgularının üzerine kurar.</span></li><li><b>Ortak kanıt</b><span>Bulgular, kaynaklarıyla birlikte tek bir vakada toplanır.</span></li><li><b>Değerlendirme</b><span>Sonuç bir kişiye ulaşmadan kontrol edilir.</span></li><li><b>İnsan yetkisi</b><span>Kararı bir kişi verir.</span></li></ul>
+</div>
+  </div>
+</section>
+
+<section class="sec tone" id="governance">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Yönetişim</p>
+      <h2 class="h2">Otonomi <b>sınır ister.</b></h2>
+      <p class="lede">Kurumsal yapay zekâ harekete geçebilmeli. Yine de her adım rol, yetki, politika ve kısıtlardan geçer ve üç sonuçtan biriyle biter.</p>
+    </div>
+    <div class="gt" data-gate>
+  <div class="gt-pick"><span class="lbl" style="margin:0">Bir talep seçin</span><div class="gt-btns"><button type="button" class="gt-btn sel" aria-pressed="true" data-res="[&quot;ok&quot;, &quot;ok&quot;, &quot;ok&quot;, &quot;ok&quot;]" data-out="0" data-why="Rolün, yetkinin ve izleme politikasının içinde. Çalışır ve adım kaydedilir.">Son sicil kaydını oku</button><button type="button" class="gt-btn" aria-pressed="false" data-res="[&quot;ok&quot;, &quot;wait&quot;, &quot;ok&quot;, &quot;ok&quot;]" data-out="1" data-why="Risk seviyesini değiştirmek bir karardır. Agent kanıtıyla birlikte önerir, bir kişi onaylar.">Tedarikçinin risk seviyesini yükselt</button><button type="button" class="gt-btn" aria-pressed="false" data-res="[&quot;ok&quot;, &quot;ok&quot;, &quot;no&quot;, &quot;skip&quot;]" data-out="2" data-why="Politika, vaka dosyalarının kurum dışına çıkmasına izin vermez. Talep reddedilir ve kaydedilir.">Şirket dosyasını kurum dışına gönder</button></div></div>
+  <div class="gt-flow">
+    <span class="gt-req"><span class="lbl" style="margin:0">Aksiyon talebi</span><b data-gate-label>Son sicil kaydını oku</b></span>
+    <ol class="gt-checks"><li data-state="ok"><span class="gt-ic" aria-hidden="true"></span>Rol</li><li data-state="ok"><span class="gt-ic" aria-hidden="true"></span>Yetki</li><li data-state="ok"><span class="gt-ic" aria-hidden="true"></span>Politika</li><li data-state="ok"><span class="gt-ic" aria-hidden="true"></span>Kısıt</li></ol>
+    <div class="gt-outs"><span class="gt-o gt-o0 on">Çalıştır</span><span class="gt-o gt-o1">İnsan onayı</span><span class="gt-o gt-o2">Reddet</span></div>
+  </div>
+  <p class="gt-why" data-gate-why aria-live="polite">Rolün, yetkinin ve izleme politikasının içinde. Çalışır ve adım kaydedilir.</p>
+</div>
+<div class="gt-controls">
+  <div class="lbl">Kontroller</div>
+  <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>Rol tabanlı erişim</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="6" cy="9" r="3"/><path d="M9 9h7M13 9v3M15.5 9v2"/></svg>Yetki sınırları</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Politika uygulama</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>İnsan onayı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Denetim izi</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Veri soy ağacı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg><span lang="en">On-premise</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg><span lang="en">Air-gapped</span> kurulum</li></ul>
+  <p class="gt-note">Kontroller her kurulumda, kurumun kendi kurallarına göre yapılandırılır.</p>
+</div>
+  </div>
+</section>
+
+<section class="sec" id="knowledge">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Bilgi ve hafıza</p>
+      <h2 class="h2">Bir organizasyon <b>hatırlamalı.</b></h2>
+      <p class="lede">İş her seferinde sıfırdan başlamamalı. Organizasyonun bildikleri ve önceki <span lang="en">Investigation</span>'larda öğrendikleri, işi yapan rollerin elinin altında olur.</p>
+    </div>
+    <figure class="km" aria-label="Bilgi kaynakları kurumsal bilgide toplanır; roller, agent&#x27;lar ve Investigation&#x27;lar bu bilgiyi kullanır">
+  <div class="km-grid" data-links="[[&quot;s0&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s1&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s2&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s3&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s4&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s5&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;s6&quot;, &quot;hub&quot;, &quot;nd&quot;], [&quot;hub&quot;, &quot;u0&quot;, &quot;&quot;], [&quot;hub&quot;, &quot;u1&quot;, &quot;&quot;], [&quot;hub&quot;, &quot;u2&quot;, &quot;&quot;]]" data-links-dir="h">
+    <ul class="km-src"><li data-n="s0">Dokümanlar</li><li data-n="s1">Yapılandırılmış veri</li><li data-n="s2">Bilgi grafı</li><li data-n="s3">Önceki <span lang="en">Investigation</span>&#x27;lar</li><li data-n="s4">Politikalar</li><li data-n="s5">Kararlar</li><li data-n="s6">Değerlendirme sonuçları</li></ul>
+    <span class="km-arr" aria-hidden="true"></span>
+    <div class="km-hub" data-n="hub"><b>Kurumsal bilgi</b><span>İş için ortak bağlam</span></div>
+    <span class="km-arr" aria-hidden="true"></span>
+    <ul class="km-use"><li data-n="u0">Roller</li><li data-n="u1">Agent&#x27;lar</li><li data-n="u2"><span lang="en">Investigation</span>&#x27;lar</li></ul>
+  </div>
+  <p class="km-loop"><i class="km-ic" aria-hidden="true">↺</i>Her <span lang="en">Investigation</span>, yeniden kullanılabilir kurumsal bağlama katkı yapabilir.</p>
+</figure>
+<div class="datanote km-data"><strong>Sizde kalır.</strong><p>Bu bilgi sizin kurulumunuzda durur ve sizindir. Müşteriler arasında paylaşılmaz. Bir kurulumdan diğerine taşınan şey <span lang="en">Investigation</span>&#x27;ların nasıl çözüldüğüdür; kayıtlarınız asla.</p></div>
+  </div>
+</section>
+
+<section class="sec tone" id="evaluation">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Değerlendirme</p>
+      <h2 class="h2">Her adım kanıt bırakır. <b>Her davranış değerlendirilebilir.</b></h2>
+      <p class="lede">Modeller değişir. Prompt'lar değişir. Araçlar değişir. Bilgi ve politikalar değişir. Bu yüzden kurumsal yapay zekâ, yalnızca devreye alınırken değil, sürekli değerlendirilmelidir.</p>
+    </div>
+    <div class="ev-changes"><span class="lbl" style="margin:0">Sürekli değişen</span><span>Modeller</span><span>Prompt&#x27;lar</span><span>Araçlar</span><span>Bilgi</span><span>Politikalar</span></div>
+<figure class="evl">
+  <div class="ev-flow"><span class="ev-n">Görev</span><i aria-hidden="true"></i><span class="ev-n">İz</span><i aria-hidden="true"></i><span class="ev-n">Sonuç</span><i aria-hidden="true"></i></div>
+  <div class="ev-card">
+    <div class="ev-card-h">Değerlendirme</div>
+    <ul class="ev-crit"><li><b>Doğruluk</b><span>Bulgu doğru mu?</span></li><li><b>Kanıt kalitesi</b><span>Her iddianın kaynağı var mı?</span></li><li><b>Politikaya uyum</b><span>Kuralların içinde kaldı mı?</span></li><li><b>Araç davranışı</b><span>Araçlar beklendiği gibi çağrıldı mı?</span></li><li><b>Maliyet</b><span>Çalıştırmanın maliyeti ne oldu?</span></li><li><b>Gecikme</b><span>Ne kadar sürdü?</span></li></ul>
+  </div>
+  <i class="ev-down" aria-hidden="true"></i>
+  <div class="ev-res"><b>Gerileme ya da iyileşme</b><span>insanlar inceler ve devreye alır</span></div>
+  <figcaption class="ev-note">Değerlendirme iyileştirmeye yol gösterir. Sistem kendini sessizce değiştirmez; değişiklikleri insanlar inceler ve devreye alır.</figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="sec" id="observability">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">İzlenebilirlik</p>
+      <h2 class="h2">Ne olduğunu bilin. <b>Nedenini de.</b></h2>
+      <p class="lede">Bir <span lang="en">Investigation</span>'ın her adımı; kimin, hangi rolle, hangi yetenekle, hangi kaynağa bakarak ve hangi politika altında hareket ettiğiyle birlikte kaydedilir. <span lang="en">Deepin</span>'in geri kalanıyla aynı ilke: önce kanıt, sonra karar.</p>
+    </div>
+    <div class="ob" data-trace>
+  <div class="tr-list">
+    <div class="tr-top"><span class="case-id">INV-2026-0418 · Northwind Lojistik A.Ş.</span></div>
+    <ol><li><button type="button" class="tr-row" aria-pressed="false" data-tr="0"><time>09:42:01</time><span><span lang="en">Investigation</span> başladı</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="1"><time>09:42:03</time><span>Sicil yeteneği çağrıldı</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="2"><time>09:42:04</time><span>3 belge alındı</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="3"><time>09:42:09</time><span>Ortaklık değişikliği bulundu</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="4"><time>09:42:13</time><span>İlişkili şirket incelendi</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="5"><time>09:42:18</time><span>Politika kontrolü geçti</span></button></li><li><button type="button" class="tr-row" aria-pressed="false" data-tr="6"><time>09:42:21</time><span>Kanıt bir araya getirildi</span></button></li><li><button type="button" class="tr-row hum sel" aria-pressed="true" data-tr="7"><time>09:42:24</time><span>İnsan onayı istendi</span></button></li></ol>
+    <p class="tr-hint">Arkasındaki kaydı görmek için bir adım seçin.</p>
+  </div>
+  <div class="tr-insp"><div class="tr-panel" data-trp="0" hidden><div class="tr-ph"><time>09:42:01</time><b><span lang="en">Investigation</span> başladı</b></div><dl><div><dt>Kim</dt><dd><span lang="en">Investigation</span> sorumlusu (agent)</dd></div><div><dt>Rol</dt><dd><span lang="en">Investigation</span> sorumlusu</dd></div><div><dt>Yetenek</dt><dd>Vaka açma</dd></div><div><dt>Kaynak</dt><dd>Ticaret Sicili Gazetesi · 18 Eyl</dd></div><div><dt>Kanıt</dt><dd>Northwind Lojistik A.Ş. için yeni imza yetkilisi tescil edildi</dd></div><div><dt>Politika</dt><dd>Tedarikçi izleme politikası</dd></div><div><dt>Karar</dt><dd><span lang="en">Company</span> <span lang="en">Investigation</span> açıldı</dd></div><div><dt>Zaman</dt><dd>18 Eyl 2026 · 09:42:01</dd></div></dl></div><div class="tr-panel" data-trp="1" hidden><div class="tr-ph"><time>09:42:03</time><b>Sicil yeteneği çağrıldı</b></div><dl><div><dt>Kim</dt><dd>Sicil agent&#x27;ı</dd></div><div><dt>Rol</dt><dd>Sicil rolü</dd></div><div><dt>Yetenek</dt><dd>Sicil sorgusu</dd></div><div><dt>Kaynak</dt><dd>Ticaret Sicili Gazetesi</dd></div><div><dt>Kanıt</dt><dd class="muted">—</dd></div><div><dt>Politika</dt><dd>Resmî kayıtlara okuma erişimi</dd></div><div><dt>Karar</dt><dd class="muted">—</dd></div><div><dt>Zaman</dt><dd>18 Eyl 2026 · 09:42:03</dd></div></dl></div><div class="tr-panel" data-trp="2" hidden><div class="tr-ph"><time>09:42:04</time><b>3 belge alındı</b></div><dl><div><dt>Kim</dt><dd>Sicil agent&#x27;ı</dd></div><div><dt>Rol</dt><dd>Sicil rolü</dd></div><div><dt>Yetenek</dt><dd>Sicil sorgusu</dd></div><div><dt>Kaynak</dt><dd>Ticaret Sicili Gazetesi · 12 ve 18 Eyl</dd></div><div><dt>Kanıt</dt><dd>3 ilan vakaya eklendi</dd></div><div><dt>Politika</dt><dd class="muted">—</dd></div><div><dt>Karar</dt><dd class="muted">—</dd></div><div><dt>Zaman</dt><dd>18 Eyl 2026 · 09:42:04</dd></div></dl></div><div class="tr-panel" data-trp="3" hidden><div class="tr-ph"><time>09:42:09</time><b>Ortaklık değişikliği bulundu</b></div><dl><div><dt>Kim</dt><dd>Sicil agent&#x27;ı</dd></div><div><dt>Rol</dt><dd>Sicil rolü</dd></div><div><dt>Yetenek</dt><dd>Değişiklik tespiti</dd></div><div><dt>Kaynak</dt><dd>18 Eyl ilanı</dd></div><div><dt>Kanıt</dt><dd>Yeni ortak ve temsil yetkisinde değişiklik</dd></div><div><dt>Politika</dt><dd class="muted">—</dd></div><div><dt>Karar</dt><dd class="muted">—</dd></div><div><dt>Zaman</dt><dd>18 Eyl 2026 · 09:42:09</dd></div></dl></div><div class="tr-panel" data-trp="4" hidden><div class="tr-ph"><time>09:42:13</time><b>İlişkili şirket incelendi</b></div><dl><div><dt>Kim</dt><dd><span lang="en">Investigation</span> sorumlusu (agent)</dd></div><div><dt>Rol</dt><dd><span lang="en">Investigation</span> sorumlusu</dd></div><div><dt>Yetenek</dt><dd>İlişki grafı</dd></div><div><dt>Kaynak</dt><dd>İlişki grafı</dd></div><div><dt>Kanıt</dt><dd>Yeni imza yetkilisi, izlenen 2 şirkette ortak</dd></div><div><dt>Politika</dt><dd class="muted">—</dd></div><div><dt>Karar</dt><dd>İlişkili şirket vakaya eklendi</dd></div><div><dt>Zaman</dt><dd>18 Eyl 2026 · 09:42:13</dd></div></dl></div><div class="tr-panel" data-trp="5" hidden><div class="tr-ph"><time>09:42:18</time><b>Politika kontrolü geçti</b></div><dl><div><dt>Kim</dt><dd><span lang="en">Harness</span> politika denetimi</dd></div><div><dt>Rol</dt><dd class="muted">—</dd></div><div><dt>Yetenek</dt><dd>Politika uygulama</dd></div><div><dt>Kaynak</dt><dd>Tedarikçi risk politikası</dd></div><div><dt>Kanıt</dt><dd>30 gün içinde sermaye azaltımı ve yetki değişikliği</dd></div><div><dt>Politika</dt><dd>Yüksek tedarikçi riski kuralı</dd></div><div><dt>Karar</dt><dd>Öneri hazırlanabilir</dd></div><div><dt>Zaman</dt><dd>18 Eyl 2026 · 09:42:18</dd></div></dl></div><div class="tr-panel" data-trp="6" hidden><div class="tr-ph"><time>09:42:21</time><b>Kanıt bir araya getirildi</b></div><dl><div><dt>Kim</dt><dd><span lang="en">Investigation</span> sorumlusu (agent)</dd></div><div><dt>Rol</dt><dd><span lang="en">Investigation</span> sorumlusu</dd></div><div><dt>Yetenek</dt><dd>Kanıt paketi</dd></div><div><dt>Kaynak</dt><dd>4 kaynak</dd></div><div><dt>Kanıt</dt><dd>Her biri kaynağına bağlı 3 bulgu</dd></div><div><dt>Politika</dt><dd class="muted">—</dd></div><div><dt>Karar</dt><dd>Öneri: risk seviyesi Orta → Yüksek</dd></div><div><dt>Zaman</dt><dd>18 Eyl 2026 · 09:42:21</dd></div></dl></div><div class="tr-panel" data-trp="7"><div class="tr-ph"><time>09:42:24</time><b>İnsan onayı istendi</b></div><dl><div><dt>Kim</dt><dd><span lang="en">Investigation</span> sorumlusu (agent)</dd></div><div><dt>Rol</dt><dd><span lang="en">Investigation</span> sorumlusu</dd></div><div><dt>Yetenek</dt><dd>Onay talebi</dd></div><div><dt>Kaynak</dt><dd>Kanıt paketi</dd></div><div><dt>Kanıt</dt><dd>3 bulgu, 4 kaynak</dd></div><div><dt>Politika</dt><dd>Risk seviyesi değişikliği insan onayı gerektirir</dd></div><div><dt>Karar</dt><dd>Risk analistinin onayı bekleniyor</dd></div><div><dt>Zaman</dt><dd>18 Eyl 2026 · 09:42:24</dd></div></dl></div><p class="tr-note">Kurgusal bir şirketle örnek iz.</p></div>
+</div>
+  </div>
+</section>
+
+<section class="sec tone dots" id="spaces">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow"><span lang="en">Harness</span> ve Space'ler</p>
+      <h2 class="h2">Tek <span lang="en">Harness</span>. <b>Alana özel Space'ler.</b></h2>
+      <p class="lede">Bir Space, bir iş alanı için yeniden kullanılabilir rolleri, yetenekleri, veri kaynaklarını, bilgiyi, politikaları, değerlendirmeleri ve <span lang="en">Investigation</span>'ları bir araya getirir.</p>
+    </div>
+    <figure class="hs">
+  <div class="hs-harness"><span class="hs-name"><span lang="en">Deepin</span> <span lang="en">Harness</span></span><span class="hs-chips"><span>Organizasyon</span><span>Akıl yürütme</span><span>Bilgi</span><span>Yönetişim</span><span>Değerlendirme</span></span></div>
+  <svg class="hs-split" viewBox="0 0 400 44" preserveAspectRatio="none" aria-hidden="true"><path d="M200 0 V14 C200 30 100 22 100 44 M200 14 C200 30 300 22 300 44"/></svg>
+  <div class="hs-cards"><a class="hs-card" href="../risk/"><span class="hs-top"><span class="nm">deep<b>in</b>.risk</span><span class="go">→</span></span><ol><li class=""><span lang="en">Company</span> <span lang="en">Investigation</span></li><li class="">Kanıt + bulgular</li><li class="hum">İnsan kararı</li></ol></a><a class="hs-card" href="../finance/"><span class="hs-top"><span class="nm">deep<b>in</b>.finance</span><span class="go">→</span></span><ol><li class="">Chargeback <span lang="en">Investigation</span></li><li class="">Kanıt + öneri</li><li class="hum">İnsan kararı</li></ol></a></div>
+</figure>
+<div class="hs-legend"><div><b><span lang="en">Harness</span></b><span>Yeniden kullanılabilir kurumsal çalışma ortamı.</span></div><div><b>Space</b><span>Bir iş alanı için uygulama.</span></div><div><b><span lang="en">Investigation</span></b><span>Somut iş.</span></div></div>
+  </div>
+</section>
+
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Kullanımda</p>
+      <h2 class="h2">Gerçek <span lang="en">Investigation</span>'ların <b>altında şekilleniyor.</b></h2>
+      <p class="lede"><span lang="en">Harness</span>'ın yetenekleri tek başına yürütülen bir framework denemesinde değil, somut kurumsal <span lang="en">Investigation</span>'ların altında şekilleniyor. Her referans, gerçekte ulaştığı olgunlukla gösterilir.</p>
+    </div>
+    <div class="pf">
+      <div class="pf-group">
+  <a class="pf-h" href="../risk/"><span class="nm">deep<b>in</b>.risk</span><span><span lang="en">Company</span> <span lang="en">Investigation</span></span></a>
+  <ul><li><strong>Hayat Finans</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span></li><li><strong>PayTR</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span></li><li><strong>SOCAR</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Canlı kullanımda</span></span></li><li><strong>DGPays</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Ürüne gömülü</span></span></li></ul>
+</div>
+      <div class="pf-group">
+  <a class="pf-h" href="../finance/"><span class="nm">deep<b>in</b>.finance</span><span>Chargeback <span lang="en">Investigation</span></span></a>
+  <ul><li><strong>Visa / Ziraat Bankası</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="chip st-contracted">Sözleşmeli · Geliştirmede</span></span></li></ul>
+</div>
+    </div>
     <div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Sözleşme imzalandı</span><span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Ürüne gömülü ya da kurulumda</span><span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>Canlı kullanımda</span></div>
   </div>
 </section>
 
-<section class="sec" id="enterprise">
+<section class="sec tone" id="research">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Kurumsal</p>
-      <h2 class="h2">Dışarı gönderemeyeceğiniz veriler <b>için tasarlandı.</b></h2>
+      <p class="eyebrow">Ar-Ge</p>
+      <h2 class="h2">Araştırmaya dayanan <b>bir mimari.</b></h2>
+      <p class="lede"><span lang="en">Deepin</span> <span lang="en">Harness</span>; organizasyon içinde akıl yürütme, yönetilen agent iş birliği, kısıtları gözeten planlama ve sürekli değerlendirme alanlarındaki Ar-Ge çalışmalarıyla gelişmeye devam ediyor.</p>
     </div>
-    <div class="ent-row">
-      <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg><span lang="en">On-premise</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg><span lang="en">Air-gapped</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>RBAC</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Denetim izi</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Veri soy ağacı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Politika uygulama</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>İnsan onayı</li></ul>
-      <div class="datanote"><strong>Şirket verileriniz sizde kalır.</strong><p>İzleme listeleriniz, <span lang="en">Investigation</span>'larınız ve kararlarınız her zaman sizindir. Kurulumlar arasında gelişen şey, <span lang="en">Deepin</span>'in nasıl araştırdığıdır; kayıtlarınız asla.</p></div>
-    </div>
+    <ol class="rsx"><li><span class="n">01</span><h3><span lang="en">Organizational</span> <span lang="en">Reasoning</span></h3><p>Role, yetkiye, organizasyonun durumuna ve kısıtlara göre akıl yürütme.</p></li><li><span class="n">02</span><h3>Yönetilen iş birliği</h3><p>Yetki sınırlarını koruyarak roller arasında iş devretme ve birlikte çalışma.</p></li><li><span class="n">03</span><h3>Kısıtları gözeten planlama</h3><p>Politikalara, yetkiye ve operasyonel kısıtlara uyarak hedefe doğru plan yapma.</p></li><li><span class="n">04</span><h3>Sürekli değerlendirme</h3><p>Modeller, araçlar ve organizasyon bağlamı değiştikçe izleri, sonuçları ve davranışı değerlendirme.</p></li></ol>
+    <p class="rs-support"><span>TÜBİTAK destekli Ar-Ge</span></p>
   </div>
 </section>
 
 <section class="band" id="contact">
-  <div class="wrap cta-grid">
-    <div class="cta-copy">
-      <p class="eyebrow"><span lang="en">deepin.risk</span></p>
-      <h2><span lang="en">Deepin</span>'e <b>araştıracağı bir şirket verin.</b></h2>
-      <p>Ekibinizin zaten tanıdığı bir şirket seçin. Neyin değiştiğini, <span lang="en">Deepin</span>'in ne bulduğunu ve arkasındaki kanıtı görün.</p>
-      <div class="cta-btns"><a class="btn btn-primary cta-mobile" href="#request"><span lang="en">Company</span> <span lang="en">Investigation</span> başlatın →</a></div>
-      <div class="cta-alt"><span><span lang="en">Deepin</span> ile konuşun:</span><div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div></div>
+  <div class="wrap">
+    <p class="eyebrow"><span lang="en">Deepin</span> <span lang="en">Harness</span></p>
+    <h2>Kurumunuzun içinde çalışabilen <b>yapay zekâ kurun.</b></h2>
+    <p>Gerçek bir <span lang="en">Investigation</span>'la başlayın ya da <span lang="en">Deepin</span> <span lang="en">Harness</span> ile mevcut bir kurumsal iş akışına yönetilen yapay zekâ getirin.</p>
+    <div class="band-ctas">
+      <a class="btn btn-primary" href="mailto:info@deepin.space?subject=Investigation">Bize bir <span lang="en">Investigation</span> getirin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a class="btn btn-ghost" href="mailto:info@deepin.space?subject=Deepin%20Harness"><span lang="en">Deepin</span> <span lang="en">Harness</span>'ı konuşalım</a>
     </div>
-    <div class="rq-wrap" id="request-sheet">
-<form class="rq" id="request" data-endpoint="" data-subject="Company Investigation talebi" novalidate>
-  <div class="rq-top"><b>Yeni <span lang="en">Company</span> <span lang="en">Investigation</span></b><button type="button" class="rq-close" data-close aria-label="Kapat">×</button></div>
-  <ol class="rq-steps" aria-hidden="true"><li class="on">1 · Şirket ve soru</li><li>2 · İletişim</li></ol>
-  <fieldset class="rq-page" data-page="1"><legend class="sr">Şirket ve soru</legend>
-    <div class="rq-group"><span class="lbl">Şirket</span><label for="rq-company"><span>Şirket adı <span aria-hidden="true">*</span></span><input id="rq-company" name="company" type="text" placeholder="örn. Akdeniz Endüstri A.Ş." required></label><label for="rq-website"><span>Web sitesi (biliniyorsa)</span><input id="rq-website" name="website" type="text" placeholder="ornek.com"></label><label for="rq-country"><span>Ülke</span><input id="rq-country" name="country" type="text" placeholder="Türkiye"></label></div>
-    <div class="rq-group"><span class="lbl"><span lang="en">Investigation</span> sorusu</span><label for="rq-question"><span>Neyi anlamaya çalışıyorsunuz?</span><textarea id="rq-question" name="question" rows="3" placeholder="Ortaklık değişiklikleri, temsil yetkisi, ilişkili şirketler, finansal bağlam..."></textarea></label></div>
-    <div class="rq-actions"><button class="btn btn-primary" type="button" data-next>Devam →</button></div>
-  </fieldset>
-  <fieldset class="rq-page" data-page="2"><legend class="sr">İletişim</legend>
-    <div class="rq-group"><span class="lbl">İletişim</span><label for="rq-name"><span>Ad soyad <span aria-hidden="true">*</span></span><input id="rq-name" name="name" type="text" required></label><label for="rq-org"><span>Kurum <span aria-hidden="true">*</span></span><input id="rq-org" name="org" type="text" required></label><label for="rq-email"><span>Kurumsal e-posta <span aria-hidden="true">*</span></span><input id="rq-email" name="email" type="email" required></label></div>
-    <div class="rq-actions"><button class="btn btn-ghost" type="button" data-back>Geri</button><button class="btn btn-primary" type="submit">Bu şirketi araştırın</button></div>
-  </fieldset>
-  <p class="rq-done" hidden role="status">E-posta uygulamanız talep bilgileri dolu şekilde açılmalı. Açılmazsa info@deepin.space adresine yazın, gerisini biz hallederiz.</p>
-</form>
-</div>
+    <div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div>
+    <p class="band-spaces">Space'lerde görün: <a href="../risk/"><span lang="en">deepin.risk</span> →</a> <a href="../finance/"><span lang="en">deepin.finance</span> →</a></p>
+    <p class="next">Bir agent daha kurmayın. <b>Bir organizasyon kurun.</b></p>
   </div>
 </section>
 </main>
 <footer id="company">
   <div class="wrap">
     <div class="f-about">
-      <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.risk</span></a>
+      <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub sub-word">harness</span></a>
       <p><span lang="en">Deepin</span>, <span lang="en">Enterprise</span> <span lang="en">Investigation</span> &amp; <span lang="en">Decision</span> <span lang="en">Automation</span> alanında çalışır: iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent&#x27;lar.</p>
       <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
     </div>
@@ -1321,7 +1366,7 @@ span[lang="en"]{display:contents}
       <a href="https://platform.deepin.space">Giriş</a>
       <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
-    <div class="f-col"><span class="lbl">İletişim</span><span>info@<span lang="en">deepin.space</span></span><span class="f-copy">© 2026 <span lang="en">Deepin</span></span><span class="langs" role="group" aria-label="Dil"><a href="../risk/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/risk/" hreflang="en" lang="en" title="English">EN</a></span></div>
+    <div class="f-col"><span class="lbl">İletişim</span><span>info@<span lang="en">deepin.space</span></span><span class="f-copy">© 2026 <span lang="en">Deepin</span></span><span class="langs" role="group" aria-label="Dil"><a href="../harness/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/harness/" hreflang="en" lang="en" title="English">EN</a></span></div>
   </div>
 </footer>
 <script>

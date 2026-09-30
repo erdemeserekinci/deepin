@@ -4,8 +4,8 @@
     python3 build.py
 
 Output
-  Turkish (default)  index.html, risk/, finance/, security/, energy/
-  English            en/index.html, en/risk/, en/finance/, en/security/, en/energy/
+  Turkish (default)  index.html, risk/, finance/, security/, energy/, harness/
+  English            en/index.html, en/risk/, en/finance/, en/security/, en/energy/, en/harness/
 
 Sources (src/)
   data.<lang>.json         investigations, spaces, customers, status labels, navigation
@@ -17,7 +17,8 @@ Sources (src/)
   base.css, base.js        design system and interactions
 
 Pages use <!--@component:arg--> markers; components are defined below and in
-src/risk_components.py.
+src/risk_components.py and src/harness_components.py. %ROOT% in a page is the
+relative path to that language's home page.
 """
 import html, json, os, re, sys
 
@@ -25,11 +26,12 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
 sys.path.insert(0, SRC)
 import risk_components  # noqa: E402
+import harness_components  # noqa: E402
 
 LOCALES = [("tr", ""), ("en", "en/")]          # (language, output folder); first is the default
-PAGES = ["home", "risk", "finance", "security", "energy"]
+PAGES = ["home", "risk", "finance", "security", "energy", "harness"]
 PAGE_DIR = {"home": ""}                        # output folder per page inside a locale
-SUB = {"home": ""}                             # sub-brand after the logo
+SUB = {"home": "", "harness": " harness"}     # sub-brand after the logo (".risk"; a leading space means a word, not a Space)
 
 BASE_CSS = open(os.path.join(SRC, "base.css"), encoding="utf-8").read()
 BASE_JS = open(os.path.join(SRC, "base.js"), encoding="utf-8").read()
@@ -136,6 +138,18 @@ def c_proof_grid(arg, ctx):
     return f'<ul class="proof-grid{cls}">{"".join(cards)}</ul>'
 
 
+def c_proof_space(space_id, ctx):
+    """Customers whose first Space is space_id, grouped under that Space and its primary Investigation."""
+    s = SPACE[space_id]
+    rows = "".join(
+        f'<li><strong>{e(c["name"])}</strong><span class="proof-st">{maturity(c["status"])}{status_chip(c["status"])}</span></li>'
+        for c in DATA["customers"] if c.get("spaces", [None])[0] == space_id)
+    return f'''<div class="pf-group">
+  <a class="pf-h" href="{ctx["root"]}{s["href"]}">{wordmark(space_id)}<span>{e(s["primary"])}</span></a>
+  <ul>{rows}</ul>
+</div>'''
+
+
 def c_proof_legend(arg, ctx):
     a, b, c = (e(x) for x in UI["legend"])
     return (f'<div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>{a}</span>'
@@ -206,6 +220,7 @@ COMPONENTS = {
     "investigation_catalog": c_investigation_catalog,
     "proof_grid": c_proof_grid,
     "proof_legend": c_proof_legend,
+    "proof_space": c_proof_space,
     "spaces_scene": c_spaces_scene,
     "space_growth": c_space_growth,
     "enterprise_chips": c_enterprise_chips,
@@ -214,12 +229,22 @@ COMPONENTS = {
     "copy_email": c_copy_email,
 }
 COMPONENTS.update(risk_components.COMPONENTS)
+COMPONENTS.update(harness_components.COMPONENTS)
 
 
 # ---------------------------------------------------------------- chrome
 def logo_imgs(assets):
     return (f'<img class="logo-l" src="{assets}assets/deepin-logo.png" alt="deepin" width="632" height="190">'
             f'<img class="logo-d" src="{assets}assets/deepin-logo-mint.png" alt="deepin" width="652" height="194">')
+
+
+def sub_brand(page):
+    sub = SUB.get(page, "." + page)
+    if not sub:
+        return ""
+    if sub.startswith(" "):
+        return f'<span class="sub sub-word">{e(sub.strip())}</span>'
+    return f'<span class="sub">{e(sub)}</span>'
 
 
 def lang_switch(ctx):
@@ -235,7 +260,7 @@ def nav(page, ctx):
     links = "".join(f'<a href="{h}">{e(t)}</a>' for t, h in DATA["nav"][page])
     root = ctx["root"]
     home = "#top" if page == "home" else root
-    subspan = f'<span class="sub">.{e(SUB.get(page, page))}</span>' if SUB.get(page, page) else ""
+    subspan = sub_brand(page)
     back = "" if page == "home" else f'<a class="back" href="{root}">{e(UI["back_space"] if page == "risk" else UI["back_home"])}</a>'
     login = f'<a class="login" href="https://platform.deepin.space">{e(UI["login"])}</a>' if page == "home" else ""
     cta_href = "#request" if page == "risk" else "#contact"
@@ -251,7 +276,7 @@ def nav(page, ctx):
 def footer(page, ctx):
     root = ctx["root"]
     home = "#top" if page == "home" else root
-    subspan = f'<span class="sub">.{e(SUB.get(page, page))}</span>' if SUB.get(page, page) else ""
+    subspan = sub_brand(page)
     spaces = "".join(f'<a href="{root}{s["href"]}">deepin.{s["id"]}</a>' for s in DATA["spaces"])
     return f'''<footer id="company">
   <div class="wrap">
@@ -262,7 +287,7 @@ def footer(page, ctx):
     </div>
     <nav class="f-col" aria-label="{e(UI["footer_spaces"])}"><span class="lbl">{e(UI["footer_spaces"])}</span>{spaces}</nav>
     <nav class="f-col" aria-label="{e(UI["footer_company"])}"><span class="lbl">{e(UI["footer_company"])}</span>
-      <a href="{root}#customers">{e(UI["customers"])}</a><a href="{root}#enterprise">{e(UI["enterprise"])}</a>
+      <a href="{root}harness/">Deepin Harness</a><a href="{root}#customers">{e(UI["customers"])}</a><a href="{root}#enterprise">{e(UI["enterprise"])}</a>
       <a href="https://platform.deepin.space">{e(UI["login"])}</a>
       <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
@@ -275,7 +300,7 @@ def footer(page, ctx):
 # English product terms inside Turkish pages are marked lang="en", so uppercase
 # labels render "INVESTIGATION" rather than the Turkish-cased "INVESTİGATİON".
 EN_TERMS = re.compile(r"\b(deepin\.[a-z]+|Deepin|Investigation|Enterprise|Decision|Automation|Continuous|Monitoring|"
-                      r"Security|Operational|Supplier|Harness|On-premise|Air-gapped|Fintech|fintech|Company)\b")
+                      r"Security|Operational|Supplier|Harness|On-premise|Air-gapped|Fintech|fintech|Company|Organizational|Reasoning)\b")
 
 
 def mark_english(markup):
@@ -309,7 +334,7 @@ def fill(text, content):
 
 
 def render(body, ctx):
-    body = fill(body, ctx["content"])
+    body = fill(body, ctx["content"]).replace("%ROOT%", ctx["root"])
 
     def rep(m):
         name, _, arg = m.group(1).partition(":")

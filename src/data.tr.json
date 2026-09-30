@@ -250,6 +250,10 @@
         "#enterprise"
       ],
       [
+        "Harness",
+        "harness/"
+      ],
+      [
         "Şirket",
         "#company"
       ]
@@ -332,6 +336,24 @@
       [
         "Durum",
         "#status"
+      ]
+    ],
+    "harness": [
+      [
+        "Organizasyon",
+        "#model"
+      ],
+      [
+        "Akıl yürütme",
+        "#reasoning"
+      ],
+      [
+        "Yönetişim",
+        "#governance"
+      ],
+      [
+        "Değerlendirme",
+        "#evaluation"
       ]
     ]
   },

@@ -118,6 +118,15 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 **deepin.security sayfasından demoya bağlantı**
 - /security ve /en/security sayfalarında "Neredeyiz" bölümünün altına küçük bir not eklendi. Not, demoyu yeni sekmede açıyor: Türkçe sayfadan `security/demo/`, İngilizce sayfadan `security/demo/en/`.
 
+**Deepin Harness sayfası ve ana sayfadaki Harness bölümü**
+- Yeni sayfa: /harness ve /en/harness. Harness, Investigation ve Space'lerin altında çalışan kurumsal ortam olarak anlatılıyor; agent framework'ü olarak değil.
+- Bölümler: Sorun (agent kurmak kolay, organizasyon kurmak zor), organizasyon modeli (Rol, Yetki, Politika · Kısıt, Agent, Görev, Yetenek, Araç, Servis, Bilgi), Organizational Reasoning, model çağrısından yönetilen işe, iş birliği (temsilî Company Investigation örneği), yönetişim (üç örnek talepli kapı), bilgi ve hafıza, değerlendirme, izlenebilirlik (tıklanabilir iz, kurgusal şirket), Harness ve Space'ler, kullanımdaki referanslar, Ar-Ge ("TÜBİTAK destekli Ar-Ge"), kapanış.
+- Kararlar: Galactica adı hiçbir yerde geçmiyor. Organizasyon modeli kavramsal; koddaki sınıfları anlatmıyor. Yetenek ≠ Araç ve Yetki ≠ Politika ayrımı sayfada açıkça yazıyor. Müşteri referansları mevcut olgunluk etiketleriyle, veri üzerinden gösteriliyor; yeni iddia eklenmedi.
+- Ana sayfada Spaces'ten sonraki "Altyapı" bölümü Harness bölümüne dönüştürüldü: "Her Investigation'ın arkasındaki organizasyon.", kompakt diyagram (Organizasyon · Bilgi · Yönetişim → yapay zekâ ile yürütülen iş → deepin.risk / deepin.finance) ve "Deepin Harness'ı keşfedin →". Sağdaki kurumsal özellikler ve "Verileriniz sizde kalır" notu aynen duruyor.
+- Ana menüye "Harness" eklendi (Kurumsal'dan sonra); alt bilgideki Şirket sütununa "Deepin Harness" bağlantısı eklendi. Dil tercihi Harness sayfasında da korunuyor.
+- Menü tüm sayfalarda 1160 px çerçeveye sığacak şekilde sıkılaştırıldı (bağlantı aralığı ve yazı boyutu biraz küçüldü; menü 1180 px altında gizleniyor). Önceden İngilizce risk ve security sayfalarında menü taşıyordu, o da düzeldi.
+- Türkçe metinde İngilizce terimlerin etrafında düğme ve etiketlerde oluşan fazladan boşluk giderildi ("Bize bir  Investigation  getirin" gibi).
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.
@@ -134,4 +143,5 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - **Müşteri logoları:** Şu an isimler gösteriliyor. Logo dosyaları gelirse `proof.show_logos` açılabilir.
 - **Talep formu:** Şu an e-posta uygulamasını açıyor. Bir form servisi bağlanırsa `form.endpoint` alanına adresi yazmak yeterli.
 - **Yönlendirme:** Eski risk.deepin.space adresi deepin.space/risk adresine 301 ile yönlendirilmeli.
+- **Harness metinleri:** Türkçe ve İngilizce metinler gözden geçirilmeli; özellikle yönetişim kontrolleri ve Ar-Ge bölümü.
 - **Energy:** Bu sayfa "keşif aşamasında". Somut bir müşteri ya da vaka oluştuğunda içeriği güncellenmeli.

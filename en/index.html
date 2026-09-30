@@ -690,6 +690,14 @@ footer .langs{justify-self:start;margin-top:10px}
 .inv-head{flex-wrap:wrap}.inv>*{min-width:0}@media (max-width:860px){.catalog-primary,.catalog-secondary{grid-template-columns:minmax(0,1fr)}}
 .nav-links a{white-space:nowrap}
 
+.brand .sub-word{margin-left:7px}
+/* nav fits seven links, the language switch and the CTA inside the 1160px frame */
+.nav-links{gap:18px;font-size:13.5px}
+@media (max-width:1180px){.nav-links{display:none}}
+.nav-cta{gap:14px}
+/* English terms inside Turkish text stay part of the same text run (no flex gaps around them) */
+span[lang="en"]{display:contents}
+
 .hero{padding-block:52px 64px}
 .hero .lede{max-width:54ch}
 .hero-note{margin-top:28px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
@@ -782,13 +790,30 @@ footer .langs{justify-self:start;margin-top:10px}
 @media (max-width:480px){.xf{padding:16px}.xf-tasks{gap:6px}.xf-tasks li{padding:8px}.xf-tasks small{display:none}.t-ic{display:none}}
 .h-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.h-grid span{min-width:0;overflow-wrap:anywhere;hyphens:auto}.h-box .lbl{flex-wrap:wrap;gap:4px 12px}@media (max-width:420px){.h-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+/* ---- homepage: Deepin Harness, compact ---- */
+.hx-mini{justify-self:stretch;padding:22px;border-radius:18px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);display:grid}
+.hx-mini .lbl{display:flex;justify-content:space-between;gap:10px;margin-bottom:14px}
+.hxm-pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.hxm-pillars>span{padding:9px 6px;border-radius:10px;background:var(--soft-2);border:1px solid var(--line);font-size:14px;font-weight:500;text-align:center}
+.hxm-join,.hxm-split{display:block;width:100%;height:30px}
+.hxm-join path,.hxm-split path{fill:none;stroke:rgba(var(--dot),.55);stroke-width:1.5;vector-effect:non-scaling-stroke;stroke-dasharray:3 4;animation:hxm-flow 1.6s linear infinite}
+@keyframes hxm-flow{to{stroke-dashoffset:-14}}
+@media (prefers-reduced-motion: reduce){.hxm-join path,.hxm-split path{animation:none}}
+.hxm-work{justify-self:center;padding:8px 22px;border-radius:999px;border:1px solid var(--accent);background:var(--soft);font-weight:600;font-size:14px;text-align:center}
+.hxm-spaces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.hxm-spaces a{display:grid;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);text-decoration:none;transition:border-color .15s}
+.hxm-spaces a:hover{border-color:var(--accent)}
+.hxm-spaces .nm{font-size:19px}
+.hxm-spaces a>span:last-child{font-size:13px;color:var(--ink-2)}
+@media (max-width:420px){.hx-mini{padding:16px}.hxm-pillars>span{font-size:13px}.hxm-spaces a{padding:10px}.hxm-spaces .nm{font-size:16px}}
+
 </style>
 </head>
 <body>
 <header class="nav" id="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Deepin home"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"></a>
-    <nav class="nav-links" aria-label="Main"><a href="#investigations">Investigations</a><a href="#spaces">Spaces</a><a href="#customers">Customers</a><a href="#how">How Deepin Works</a><a href="#enterprise">Enterprise</a><a href="#company">Company</a></nav>
+    <nav class="nav-links" aria-label="Main"><a href="#investigations">Investigations</a><a href="#spaces">Spaces</a><a href="#customers">Customers</a><a href="#how">How Deepin Works</a><a href="#enterprise">Enterprise</a><a href="harness/">Harness</a><a href="#company">Company</a></nav>
     <div class="nav-cta"><span class="langs" role="group" aria-label="Language"><a href="../" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="../en/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></span><a class="login" href="https://platform.deepin.space">Log in</a><a class="btn btn-primary btn-sm" href="#contact">Bring us an investigation</a></div>
   </div>
 </header>
@@ -1042,17 +1067,21 @@ footer .langs{justify-self:start;margin-top:10px}
 <section class="sec tone" id="enterprise">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Under the hood</p>
-      <h2 class="h2">The investigation system <b>behind every Deepin Space.</b></h2>
-      <p class="lede">You can build agents. Deepin gives you the investigation system around them.</p>
+      <p class="eyebrow">Under the Spaces</p>
+      <h2 class="h2">The organization <b>behind every Investigation.</b></h2>
+      <p class="lede">Deepin Harness gives AI roles, capabilities, knowledge, policies and controls, so agents work as part of an enterprise, not as isolated assistants.</p>
     </div>
     <div class="harness">
-      <div style="display:grid;gap:28px">
-        <div class="h-box" aria-label="Deepin Harness">
+      <div style="display:grid;gap:18px;justify-items:start">
+        <div class="hx-mini" aria-label="Deepin Harness runs underneath deepin.risk and deepin.finance">
           <div class="lbl"><span>Deepin Harness</span><span>runs in your environment</span></div>
-          <div class="h-grid"><span>Agents</span><span>Tools</span><span>Data</span><span>Knowledge</span><span>Workflows</span><span>Policies</span><span>Evaluations</span><span>Connectors</span><span>Memory</span></div>
-          <div class="h-flow"><span>Investigation</span><i>→</i><span class="hum">Human approval</span><i>→</i><span class="act">Action</span></div>
+          <div class="hxm-pillars"><span>Organization</span><span>Knowledge</span><span>Governance</span></div>
+          <svg class="hxm-join" viewBox="0 0 300 36" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0 C50 22 150 14 150 36 M150 0 V36 M250 0 C250 22 150 14 150 36"/></svg>
+          <div class="hxm-work">AI work</div>
+          <svg class="hxm-split" viewBox="0 0 300 36" preserveAspectRatio="none" aria-hidden="true"><path d="M150 0 C150 22 75 14 75 36 M150 0 C150 22 225 14 225 36"/></svg>
+          <div class="hxm-spaces"><a href="risk/"><span class="nm">deep<b>in</b>.risk</span><span>Company Investigation</span></a><a href="finance/"><span class="nm">deep<b>in</b>.finance</span><span>Chargeback Investigation</span></a></div>
         </div>
+        <a class="inv-cta" href="harness/">Explore Deepin Harness →</a>
       </div>
       <div style="display:grid;gap:16px">
         <div class="lbl">Built for regulated enterprises</div>
@@ -1090,7 +1119,7 @@ footer .langs{justify-self:start;margin-top:10px}
     </div>
     <nav class="f-col" aria-label="Spaces"><span class="lbl">Spaces</span><a href="risk/">deepin.risk</a><a href="finance/">deepin.finance</a><a href="security/">deepin.security</a><a href="energy/">deepin.energy</a></nav>
     <nav class="f-col" aria-label="Company"><span class="lbl">Company</span>
-      <a href="#customers">Customers</a><a href="#enterprise">Enterprise</a>
+      <a href="harness/">Deepin Harness</a><a href="#customers">Customers</a><a href="#enterprise">Enterprise</a>
       <a href="https://platform.deepin.space">Log in</a>
       <a href="https://www.linkedin.com/company/93368167">LinkedIn</a><a href="https://www.youtube.com/@deepin--space">YouTube</a>
     </nav>
@@ -1314,6 +1343,65 @@ footer .langs{justify-self:start;margin-top:10px}
       x.addEventListener('mouseenter',function(){lit(x.getAttribute('data-ref'))});
       x.addEventListener('mouseleave',function(){lit(null)});
     });
+  });
+
+  // connectors between [data-n] nodes of a [data-links] figure (edge: [from,to,kind]).
+  // A figure whose CSS sets --links:0 (stacked mobile layouts) gets no lines.
+  function drawLinks(){
+    document.querySelectorAll('[data-links]').forEach(function(w){
+      var svg=w.querySelector(':scope>svg.links');
+      if(!svg){svg=el('svg',{'class':'links','aria-hidden':'true'});w.insertBefore(svg,w.firstChild)}
+      while(svg.firstChild)svg.removeChild(svg.firstChild);
+      if(getComputedStyle(w).getPropertyValue('--links').trim()==='0'){svg.style.display='none';return}
+      svg.style.display='';
+      var edges=[];try{edges=JSON.parse(w.getAttribute('data-links')||'[]')}catch(e){}
+      var box=w.getBoundingClientRect();
+      svg.setAttribute('width',box.width);svg.setAttribute('height',box.height);
+      function r(id){var n=w.querySelector('[data-n="'+id+'"]');if(!n)return null;var b=n.getBoundingClientRect();
+        return{l:b.left-box.left,r:b.right-box.left,t:b.top-box.top,b:b.bottom-box.top,cx:(b.left+b.right)/2-box.left,cy:(b.top+b.bottom)/2-box.top}}
+      edges.forEach(function(ed){
+        var A=r(ed[0]),B=r(ed[1]),k=ed[2]||'',d,g=3;if(!A||!B)return;
+        var hz=w.getAttribute('data-links-dir')==='h'&&(B.l>=A.r-2||A.l>=B.r-2);
+        if(hz&&B.l>=A.r-2){var x1=A.r+g,x2=B.l-g,m=(x2-x1)/2;d='M'+x1+' '+A.cy+' C'+(x1+m)+' '+A.cy+' '+(x2-m)+' '+B.cy+' '+x2+' '+B.cy}
+        else if(hz){var x1=A.l-g,x2=B.r+g,m=(x1-x2)/2;d='M'+x1+' '+A.cy+' C'+(x1-m)+' '+A.cy+' '+(x2+m)+' '+B.cy+' '+x2+' '+B.cy}
+        else if(B.t>=A.b-2){var y1=A.b+g,y2=B.t-g,m=(y2-y1)/2;d='M'+A.cx+' '+y1+' C'+A.cx+' '+(y1+m)+' '+B.cx+' '+(y2-m)+' '+B.cx+' '+y2}
+        else if(A.t>=B.b-2){var y1=A.t-g,y2=B.b+g,m=(y1-y2)/2;d='M'+A.cx+' '+y1+' C'+A.cx+' '+(y1-m)+' '+B.cx+' '+(y2+m)+' '+B.cx+' '+y2}
+        else if(B.l>=A.r-2){var x1=A.r+g,x2=B.l-g,m=(x2-x1)/2;d='M'+x1+' '+A.cy+' C'+(x1+m)+' '+A.cy+' '+(x2-m)+' '+B.cy+' '+x2+' '+B.cy}
+        else{var x1=A.l-g,x2=B.r+g,m=(x1-x2)/2;d='M'+x1+' '+A.cy+' C'+(x1-m)+' '+A.cy+' '+(x2+m)+' '+B.cy+' '+x2+' '+B.cy}
+        var p=el('path',{d:d,'class':k});
+        if(k!=='nd')p.setAttribute('marker-end','url(#'+(k==='w'||k==='d'?'lk-w':'lk-a')+')');
+        svg.appendChild(p);
+      });
+    });
+  }
+  if(document.querySelector('[data-links]')){
+    drawLinks();
+    window.addEventListener('resize',function(){clearTimeout(window.__lk);window.__lk=setTimeout(drawLinks,120)});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawLinks);
+    window.addEventListener('load',drawLinks);
+  }
+
+  // governance gate: pick an example request, see which checks pass and the outcome
+  document.querySelectorAll('[data-gate]').forEach(function(g){
+    var btns=[].slice.call(g.querySelectorAll('.gt-btn')),checks=[].slice.call(g.querySelectorAll('.gt-checks li')),
+        outs=[].slice.call(g.querySelectorAll('.gt-o')),label=g.querySelector('[data-gate-label]'),why=g.querySelector('[data-gate-why]');
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      var res=JSON.parse(b.getAttribute('data-res')),out=+b.getAttribute('data-out');
+      btns.forEach(function(x){var on=x===b;x.classList.toggle('sel',on);x.setAttribute('aria-pressed',on?'true':'false')});
+      checks.forEach(function(li,i){li.setAttribute('data-state',res[i])});
+      outs.forEach(function(o,i){o.classList.toggle('on',i===out)});
+      label.textContent=b.textContent;why.textContent=b.getAttribute('data-why');
+    })});
+  });
+
+  // execution trace: select a step to inspect its record
+  document.querySelectorAll('[data-trace]').forEach(function(t){
+    var rows=[].slice.call(t.querySelectorAll('[data-tr]')),panels=[].slice.call(t.querySelectorAll('[data-trp]'));
+    rows.forEach(function(b){b.addEventListener('click',function(){
+      var i=b.getAttribute('data-tr');
+      rows.forEach(function(x){var on=x===b;x.classList.toggle('sel',on);x.setAttribute('aria-pressed',on?'true':'false')});
+      panels.forEach(function(p){p.hidden=p.getAttribute('data-trp')!==i});
+    })});
   });
 
   // dotted wave field, echoing the brand's hero texture

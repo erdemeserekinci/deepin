@@ -5,9 +5,9 @@ Statik site. Klasörün tamamı deepin.space kök dizinine yüklenir. Varsayıla
 | Dosya | Adres |
 |---|---|
 | `index.html` | https://deepin.space (Türkçe) |
-| `risk/`, `finance/`, `security/`, `energy/` | https://deepin.space/risk vb. (Türkçe) |
+| `risk/`, `finance/`, `security/`, `energy/`, `harness/` | https://deepin.space/risk vb. (Türkçe) |
 | `en/index.html` | https://deepin.space/en (İngilizce) |
-| `en/risk/`, `en/finance/`, `en/security/`, `en/energy/` | https://deepin.space/en/risk vb. (İngilizce) |
+| `en/risk/`, `en/finance/`, `en/security/`, `en/energy/`, `en/harness/` | https://deepin.space/en/risk vb. (İngilizce) |
 | `assets/` | Ortak görseller |
 | `security/demo/` | https://deepin.space/security/demo (deepin.security platform demosu, kurgusal veri, arama motorlarına kapalı; İngilizcesi `security/demo/en/`) |
 
@@ -28,6 +28,7 @@ python3 build.py
 - `src/pages/risk.html` + `src/content/risk.tr.json` / `risk.en.json`: deepin.risk sayfası tek şablon; tüm metinler ve demo verisi JSON dosyalarında.
 - `src/styles/*.css`: Sayfa stilleri (iki dil için ortak). `src/base.css`, `src/base.js`: Ortak tasarım sistemi ve etkileşimler.
 - `src/risk_components.py`: deepin.risk bileşenleri.
+- `src/pages/harness.html` + `src/content/harness.tr.json` / `harness.en.json` + `src/harness_components.py`: Deepin Harness sayfası (tek şablon; metinler JSON'da). Organizasyon modeli kavramsaldır; koddaki sınıfları anlatmaz.
 - Türkçe sayfalarda İngilizce ürün terimleri (Investigation, deepin.risk vb.) otomatik olarak `lang="en"` ile işaretlenir; büyük harfli etiketlerde "INVESTIGATION" doğru yazılır.
 
 Terminoloji: Türkçe metinlerde Investigation, Space ve ürün adları İngilizce bırakılır.

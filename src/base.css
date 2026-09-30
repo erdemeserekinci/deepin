@@ -665,3 +665,11 @@ footer .langs{justify-self:start;margin-top:10px}
 @media (max-width:520px){.nav .nav-cta .btn-primary{display:none}}
 .inv-head{flex-wrap:wrap}.inv>*{min-width:0}@media (max-width:860px){.catalog-primary,.catalog-secondary{grid-template-columns:minmax(0,1fr)}}
 .nav-links a{white-space:nowrap}
+
+.brand .sub-word{margin-left:7px}
+/* nav fits seven links, the language switch and the CTA inside the 1160px frame */
+.nav-links{gap:18px;font-size:13.5px}
+@media (max-width:1180px){.nav-links{display:none}}
+.nav-cta{gap:14px}
+/* English terms inside Turkish text stay part of the same text run (no flex gaps around them) */
+span[lang="en"]{display:contents}
