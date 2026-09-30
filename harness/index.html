@@ -739,7 +739,7 @@ span[lang="en"]{display:contents}
 .o-link:hover{color:var(--ink)}
 h1,.h2{letter-spacing:-.035em}
 .h2{font-size:clamp(30px,3.8vw,52px);line-height:1.05}
-.hero h1{font-size:clamp(40px,5.8vw,78px);line-height:1;letter-spacing:-.045em}
+.hero h1{font-size:clamp(38px,4.6vw,64px);line-height:1.02;letter-spacing:-.045em}
 .eyebrow{letter-spacing:.12em}
 .lede{line-height:1.6}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -804,6 +804,37 @@ footer .f-about p{max-width:40ch}
 
 /* ---- motion preference ---- */
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+/* ---- the organization underneath (Deepin Harness topology, shared) ---- */
+.topo{margin:0;--draw:1}
+.topo-svg{display:block;width:100%;height:auto;overflow:visible}
+.topo-svg text{fill:var(--deep-ink);font-family:var(--font);font-size:13px}
+.topo-svg .t-k,.topo-svg .t-s{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;fill:var(--deep-muted);text-transform:uppercase}
+.topo-svg .t-a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;fill:#E9B45A;text-transform:uppercase}
+.topo-svg .t-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--mint)}
+.t-org{fill:rgba(40,220,168,.03);stroke:var(--deep-line);stroke-dasharray:4 6;opacity:calc(var(--draw) * 1.4)}
+.t-hub{fill:var(--mint)}
+.t-edges path{fill:none;stroke:var(--deep-line);stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
+.t-edges path.tie{stroke:rgba(231,245,240,.14);stroke-dasharray:.012 .02;stroke-dashoffset:0;opacity:var(--draw)}
+.t-node{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
+.t-node circle{fill:var(--deep);stroke:var(--mint);stroke-width:1.6}
+.t-node rect{fill:var(--deep-2);stroke:var(--deep-line)}
+.t-node .t-task{stroke:var(--mint)}
+.t-str{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
+.t-str path{stroke:rgba(231,245,240,.22);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
+.t-signal{fill:var(--mint);opacity:clamp(0,calc((var(--draw) - .9) * 10),1)}
+.topo-m,.topo-ms{display:none}
+@media (max-width:860px){
+  .topo-svg{display:none}
+  .topo-m{display:grid;list-style:none;margin:0;padding:0;gap:0;justify-items:start}
+  .topo-m li{position:relative;padding:9px 16px;border-radius:999px;border:1px solid var(--deep-line);background:var(--deep-2);font-size:14px}
+  .topo-m li:first-child{border-style:dashed;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep-muted)}
+  .topo-m li:not(:last-child){margin-bottom:22px}
+  .topo-m li:not(:last-child)::after{content:"";position:absolute;left:24px;top:100%;width:1px;height:22px;background:var(--deep-line)}
+  .topo-ms{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(231,245,240,.14)}
+  .topo-ms span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.16);color:var(--deep-muted)}
+}
+body.on-dark .brand .sub{color:var(--deep-ink)}
 
 /* =================================================================== deepin harness */
 :root{--deny:#B4432F;--deny-soft:#FBE9E5}
@@ -1149,6 +1180,83 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
 .band-spaces a{color:#28DCA8;text-decoration:none;margin-left:10px;white-space:nowrap}
 .band-spaces a:hover{text-decoration:underline;text-underline-offset:3px}
 
+/* =================================================================== ORGANISM: Harness */
+/* hero: you are underneath now */
+.hx-dark{background:var(--deep);color:var(--deep-ink);padding-block:clamp(70px,9vw,120px) clamp(80px,10vw,130px)}
+.hx-dark .wrap{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+.hx-dark .eyebrow{color:var(--mint)}
+.hx-dark h1{color:var(--deep-ink);font-size:clamp(42px,5.4vw,82px);font-weight:300;letter-spacing:-.05em;line-height:.98}
+.hx-dark h1 b{color:var(--mint);font-weight:600}
+.hx-dark .lede{color:var(--deep-muted)}
+.hx-dark .hero-line{color:var(--deep-ink)}
+.hx-dark .hero-line b{color:var(--mint)}
+.hx-dark .hero-note{color:var(--deep-muted)}
+.hx-dark .hero-note b{color:var(--deep-ink)}
+.hx-dark .btn-primary{background:var(--mint);color:var(--deep)}
+.hx-dark .btn-ghost{background:transparent;color:var(--deep-ink);border-color:rgba(231,245,240,.25)}
+.hx-dark .btn-ghost:hover{border-color:var(--mint)}
+.hx-topo{min-width:0}
+.hx-topo .topo{--draw:1}
+@media (max-width:960px){.hx-dark .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* organizational reasoning, live: the same organization answers differently */
+.rl{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:stretch;margin-top:6px}
+.rl-left{display:grid;gap:12px;align-content:start}
+.rl-left .lab{margin:0}
+.rl-evs{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rl-ev{position:relative;width:100%;display:flex;gap:12px;align-items:flex-start;text-align:left;padding:14px 14px 14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font:500 14px/1.4 var(--font);color:var(--ink-2);cursor:pointer;transition:all .25s var(--ease)}
+.rl-ev i{flex:none;width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--hair)}
+.rl-ev:hover{border-color:var(--hair);color:var(--ink)}
+.rl-ev.on{border-color:var(--accent);background:var(--soft);color:var(--ink)}
+.rl-ev.on i{background:var(--mint);box-shadow:0 0 0 4px rgba(40,220,168,.2)}
+.rl-ev .rl-bar{position:absolute;left:16px;right:16px;bottom:6px;height:2px;border-radius:2px;background:var(--mint);transform-origin:left;transform:scaleX(0)}
+.rl-graph{position:relative;min-height:400px;border-radius:22px;border:1.5px dashed var(--hair);background:radial-gradient(circle at 1px 1px,var(--hair-2) 1px,transparent 1.5px) 0 0/20px 20px,var(--bg)}
+.rl-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.rl-lines path{fill:none;stroke-width:1.6;stroke-linecap:round}
+.rl-lines .del{stroke:var(--accent)}
+.rl-lines .col{stroke:var(--mint);stroke-dasharray:5 5}
+.rl-lines .up{stroke:var(--warn)}
+.rl-lines .block{stroke:var(--deny);stroke-dasharray:3 4}
+.rl-lines .x{stroke:var(--deny);stroke-width:2.2}
+.rl-lines .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:rl-draw .7s var(--ease) forwards}
+.rl-lines .col.draw,.rl-lines .block.draw{animation:none;stroke-dashoffset:0;opacity:0;animation:rl-fade .6s var(--ease) forwards}
+@keyframes rl-draw{to{stroke-dashoffset:0}}
+@keyframes rl-fade{to{opacity:1}}
+.rl-bound{position:absolute;right:14px;top:10px;font-size:10px}
+.rl-n{position:absolute;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);transform:translate(-50%,-50%);display:grid;gap:1px;text-align:center;padding:8px 13px;border-radius:12px;border:1px solid var(--line);background:var(--surface);white-space:nowrap;transition:all .35s var(--ease);z-index:1}
+.rl-n b{font-size:13px;font-weight:600}
+.rl-n small{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rl-n.rl-person{border-color:rgba(183,121,31,.35)}
+.rl-n.rl-person small{color:var(--warn)}
+.rl-n.on{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 5px rgba(40,220,168,.16);transform:translate(-50%,-50%) scale(1.06)}
+.rl-n.hit{border-color:var(--accent)}
+.rl-n.rl-person.hit{border-color:var(--warn);background:var(--warn-soft)}
+.rl-n.dim{opacity:.45}
+.rl-panel{display:grid;gap:14px;align-content:start}
+.rl-ans{margin:0;display:grid;border-top:1px solid var(--hair)}
+.rl-ans div{display:grid;gap:3px;padding:11px 0;border-bottom:1px solid var(--hair)}
+.rl-ans dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.rl-ans dd{margin:0;font-size:14px;line-height:1.4;transition:opacity .3s}
+.rl-panel.swap dd,.rl-panel.swap [data-out],.rl-panel.swap [data-state]{opacity:0}
+.rl-out,.rl-state{display:grid;gap:4px}
+.rl-out b{font-size:16px;font-weight:600;line-height:1.35;transition:opacity .3s}
+.rl-state{padding:12px 14px;border-radius:12px;background:var(--soft);border:1px solid rgba(var(--dot),.4)}
+.rl-state b{font-size:14px;font-weight:500;transition:opacity .3s}
+.rl-state.no{background:var(--deny-soft);border-color:var(--deny)}
+.rl-state.no .lab{color:var(--deny)}
+.rl-note{margin-top:18px;font-size:12.5px;color:var(--muted)}
+@media (max-width:1100px){.rl{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}.rl-panel{grid-column:1/-1;grid-template-columns:1.3fr 1fr;align-items:start}.rl-ans{grid-row:span 2}}
+@media (max-width:760px){
+  .rl{grid-template-columns:minmax(0,1fr)}
+  .rl-panel{grid-template-columns:minmax(0,1fr)}
+  .rl-graph{min-height:340px}
+  .rl-n{padding:6px 9px}.rl-n b{font-size:11.5px}.rl-n small{font-size:9px}
+  .rl-bound{display:none}
+}
+.rl-graph{overflow:clip}
+@media (max-width:1100px){.rl-n{left:clamp(19%,calc(var(--x) * 1%),81%)}}
+@media (max-width:760px){.rl-n{left:clamp(23%,calc(var(--x) * 1%),77%);white-space:normal;max-width:44%}}
+
 </style>
 </head>
 <body class="pg-harness">
@@ -1167,7 +1275,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   <marker id="lk-w" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-w" d="M0 0L8 4L0 8z"/></marker>
 </defs></svg>
 
-<section class="hero">
+<section class="hero hx-dark" data-dark>
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
@@ -1181,28 +1289,18 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
       </div>
       <p class="hero-note"><span><b><span lang="en">deepin.risk</span></b> ve <b><span lang="en">deepin.finance</span></b> bunun üzerinde çalışır</span></p>
     </div>
-    <figure class="case ho" data-live data-labels="[&quot;Organizasyon y\u00fcklendi&quot;, &quot;Roller atand\u0131&quot;, &quot;Agent&#x27;lar \u00e7al\u0131\u015f\u0131yor&quot;, &quot;Yetenek, bilgi, politika&quot;, &quot;G\u00f6rev haz\u0131r&quot;, &quot;\u0130nsan onay\u0131 bekleniyor&quot;, &quot;Aksiyon \u00b7 kaydedildi&quot;]" aria-label="Deepin Harness çalışma ortamı: organizasyon agent&#x27;lara rol verir; agent&#x27;lar yetenek, bilgi ve politikaları kullanarak bir görevi tamamlar, görev aksiyondan önce insan onayına gider.">
-  <div class="case-top"><span class="case-id"><span lang="en">Deepin</span> <span lang="en">Harness</span> · çalışma ortamı</span><span class="chip st-production" data-live-status>Aksiyon · kaydedildi</span></div>
-  <div class="ho-body" data-links="[[&quot;o&quot;, &quot;r1&quot;, &quot;fl&quot;], [&quot;o&quot;, &quot;r2&quot;, &quot;fl&quot;], [&quot;o&quot;, &quot;r3&quot;, &quot;fl&quot;], [&quot;r1&quot;, &quot;a1&quot;, &quot;&quot;], [&quot;r2&quot;, &quot;a2&quot;, &quot;&quot;], [&quot;r3&quot;, &quot;a3&quot;, &quot;&quot;], [&quot;a1&quot;, &quot;c1&quot;, &quot;&quot;], [&quot;a2&quot;, &quot;c2&quot;, &quot;&quot;], [&quot;a3&quot;, &quot;c3&quot;, &quot;&quot;], [&quot;c1&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;c2&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;c3&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;t&quot;, &quot;h&quot;, &quot;w&quot;], [&quot;h&quot;, &quot;x&quot;, &quot;&quot;]]">
-    <div class="ho-org" data-n="o" data-s="0"><span>Organizasyon</span></div>
-    <div class="ho-cols"><div class="ho-col">
-        <span class="ho-n ho-role" data-n="r1" data-s="1">Rol</span>
-        <span class="ho-n ho-agent" data-n="a1" data-s="2">Agent</span>
-        <span class="ho-n ho-res" data-n="c1" data-s="3">Yetenekler</span>
-      </div><div class="ho-col">
-        <span class="ho-n ho-role" data-n="r2" data-s="1">Rol</span>
-        <span class="ho-n ho-agent" data-n="a2" data-s="2">Agent</span>
-        <span class="ho-n ho-res" data-n="c2" data-s="3">Bilgi</span>
-      </div><div class="ho-col">
-        <span class="ho-n ho-role" data-n="r3" data-s="1">Rol</span>
-        <span class="ho-n ho-agent" data-n="a3" data-s="2">Agent</span>
-        <span class="ho-n ho-res" data-n="c3" data-s="3">Politikalar</span>
-      </div></div>
-    <span class="ho-n ho-task" data-n="t" data-s="4">Görev</span>
-    <span class="ho-n ho-ap" data-n="h" data-s="5">İnsan onayı</span>
-    <span class="ho-n ho-act" data-n="x" data-s="6">Aksiyon</span>
-  </div>
-</figure>
+    <div class="hx-topo"><figure class="topo"><svg viewBox="0 0 640 492" class="topo-svg" role="img" aria-label="Deepin Harness: yetki sahibi rollerden oluşan bir organizasyon; agent&#x27;lar ortak bilgi, politika, hafıza ve değerlendirme üzerinde, yetenekler aracılığıyla bir görev üzerinde çalışır">
+  <rect class="t-org" x="6" y="6" width="628" height="380" rx="18"/>
+  <text x="26" y="32" class="t-k">Organizasyon</text>
+  <circle class="t-hub" cx="320" cy="34" r="4"/>
+  <g class="t-edges"><path pathLength="1" d="M320 40 C320 60 130 60 130 86"/><path pathLength="1" d="M320 40 C320 60 320 60 320 86"/><path pathLength="1" d="M320 40 C320 60 510 60 510 86"/><path pathLength="1" d="M130 126 V178"/><path pathLength="1" d="M320 126 V178"/><path pathLength="1" d="M510 126 V178"/><path pathLength="1" d="M130 204 C130 236 320 232 320 258"/><path pathLength="1" d="M320 204 C320 236 320 232 320 258"/><path pathLength="1" d="M510 204 C510 236 320 232 320 258"/><path pathLength="1" d="M320 284 V306"/><path pathLength="1" d="M320 332 V352"/><path pathLength="1" class="tie" d="M130 204 V400"/><path pathLength="1" class="tie" d="M510 204 V400"/><path pathLength="1" class="tie" d="M320 378 V400"/></g>
+  <g class="t-node" style="--d:0"><circle cx="130" cy="92" r="6"/><text x="130" y="72" text-anchor="middle" class="t-l">Rol</text><text x="130" y="118" text-anchor="middle" class="t-a">Yetki</text></g><g class="t-node" style="--d:1"><circle cx="320" cy="92" r="6"/><text x="320" y="72" text-anchor="middle" class="t-l">Rol</text><text x="320" y="118" text-anchor="middle" class="t-a">Yetki</text></g><g class="t-node" style="--d:2"><circle cx="510" cy="92" r="6"/><text x="510" y="72" text-anchor="middle" class="t-l">Rol</text><text x="510" y="118" text-anchor="middle" class="t-a">Yetki</text></g><g class="t-node" style="--d:3"><rect x="96" y="178" width="68" height="26" rx="13"/><text x="130" y="195" text-anchor="middle">Agent</text></g><g class="t-node" style="--d:4"><rect x="286" y="178" width="68" height="26" rx="13"/><text x="320" y="195" text-anchor="middle">Agent</text></g><g class="t-node" style="--d:5"><rect x="476" y="178" width="68" height="26" rx="13"/><text x="510" y="195" text-anchor="middle">Agent</text></g>
+  <g class="t-node" style="--d:6"><rect x="270" y="258" width="100" height="26" rx="13" class="t-task"/><text x="320" y="275" text-anchor="middle">Görev</text></g>
+  <g class="t-node" style="--d:7"><rect x="262" y="306" width="116" height="26" rx="7"/><text x="320" y="323" text-anchor="middle">Yetenek</text>
+    <text x="320" y="368" text-anchor="middle" class="t-s">Araç · Servis</text></g>
+  <g class="t-str" style="--d:8"><text x="24" y="412" class="t-s">Bilgi</text><path pathLength="1" d="M128 408 H616"/></g><g class="t-str" style="--d:9"><text x="24" y="434" class="t-s">Politika</text><path pathLength="1" d="M128 430 H616"/></g><g class="t-str" style="--d:10"><text x="24" y="456" class="t-s">Hafıza</text><path pathLength="1" d="M128 452 H616"/></g><g class="t-str" style="--d:11"><text x="24" y="478" class="t-s">Değerlendirme</text><path pathLength="1" d="M128 474 H616"/></g>
+  <circle class="t-signal" r="4"><animateMotion dur="7s" repeatCount="indefinite" path="M320 34 C320 60 130 60 130 92 V191 C130 236 320 232 320 271 V319"/></circle>
+</svg><ol class="topo-m"><li>Organizasyon</li><li>Rol · Yetki</li><li>Agent</li><li>Görev</li><li>Yetenek</li><li>Araç · Servis</li></ol><div class="topo-ms"><span>Bilgi</span><span>Politika</span><span>Hafıza</span><span>Değerlendirme</span></div></figure></div>
   </div>
 </section>
 
@@ -1255,17 +1353,19 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
       <p class="lede">Roller sorumluluğu belirler. Yetki, iş devretme ve karar hakkını belirler. Yetenekler neyin yapılabileceğini belirler. Politikalar sınırları çizer.</p>
     </div>
     <div class="rs-pair"><div><span class="om-t">Organizasyon</span><p>Yapı ve durum: kim var, neyden sorumlu, neyi yapabilir.</p></div><div><span class="om-t"><span lang="en">Organizational</span> <span lang="en">Reasoning</span></span><p>Zaman içindeki davranış: bir şey olduğunda organizasyonun kimin neyi yapacağına nasıl karar verdiği.</p></div></div>
-<figure class="rs" data-live aria-label="Organizational Reasoning akışı">
-  <div class="rs-flow">
-    <div class="rs-n rs-state" data-s="0">Organizasyonun mevcut durumu</div>
-    <div class="rs-n rs-event" data-s="1">Olay ya da hedef</div>
-    <ol class="rs-checks"><li data-s="2">Sorumlu kim?</li><li data-s="3">Hangi yetki var?</li><li data-s="4">Hangi yetenekler kullanılabilir?</li><li data-s="5">Hangi politikalar adımı sınırlıyor?</li></ol>
-    <div class="rs-n rs-out" data-s="6"><span>Harekete geç</span><span>Devret</span><span>Birlikte çalış</span></div>
-    <div class="rs-n rs-state next" data-s="7">Organizasyonun yeni durumu</div>
+<div class="rl" data-rl="[{&quot;t&quot;: &quot;Bir tedarik\u00e7ide yeni imza yetkilisi tescil edildi&quot;, &quot;active&quot;: &quot;trp&quot;, &quot;edges&quot;: [[&quot;trp&quot;, &quot;reg&quot;, &quot;del&quot;], [&quot;trp&quot;, &quot;ana&quot;, &quot;up&quot;]], &quot;a&quot;: [&quot;\u00dc\u00e7\u00fcnc\u00fc taraf riski rol\u00fc&quot;, &quot;Ara\u015ft\u0131rabilir ve \u00f6nerebilir. Risk seviyesini bir ki\u015fi de\u011fi\u015ftirir.&quot;, &quot;Sicil sorgusu \u00b7 ili\u015fki grafi\u011fi \u00b7 de\u011fi\u015fiklik tespiti&quot;, &quot;Tedarik\u00e7i izleme politikas\u0131 izin veriyor&quot;], &quot;out&quot;: &quot;Sicil kontrol\u00fcn\u00fc devreder, sonra bulgulara g\u00f6re hareket eder&quot;, &quot;state&quot;: &quot;Vaka a\u00e7\u0131k \u00b7 \u00f6neri risk analistinin karar\u0131n\u0131 bekliyor&quot;, &quot;kind&quot;: &quot;ok&quot;}, {&quot;t&quot;: &quot;Chargeback geldi: \u00fcr\u00fcn teslim edilmedi&quot;, &quot;active&quot;: &quot;dsp&quot;, &quot;edges&quot;: [[&quot;dsp&quot;, &quot;trp&quot;, &quot;col&quot;], [&quot;dsp&quot;, &quot;dan&quot;, &quot;up&quot;]], &quot;a&quot;: [&quot;\u0130tiraz operasyonu rol\u00fc&quot;, &quot;Vakay\u0131 haz\u0131rlayabilir. Sorumlulu\u011fu kabul etmek onay gerektirir.&quot;, &quot;\u0130\u015flem sorgusu \u00b7 3-D Secure kayd\u0131 \u00b7 \u00fcye i\u015fyeri profili&quot;, &quot;Kart \u015femas\u0131 s\u00fcresi 6 g\u00fcn; yan\u0131t onay gerektirir&quot;], &quot;out&quot;: &quot;\u00dcye i\u015fyeri i\u00e7in \u00fc\u00e7\u00fcnc\u00fc taraf riskiyle birlikte \u00e7al\u0131\u015f\u0131r&quot;, &quot;state&quot;: &quot;Kan\u0131t paketi haz\u0131r \u00b7 itiraz analistinin karar\u0131n\u0131 bekliyor&quot;, &quot;kind&quot;: &quot;ok&quot;}, {&quot;t&quot;: &quot;Bir vaka dosyas\u0131n\u0131 kurum d\u0131\u015f\u0131na g\u00f6nderme talebi&quot;, &quot;active&quot;: &quot;lead&quot;, &quot;edges&quot;: [[&quot;lead&quot;, &quot;edge&quot;, &quot;block&quot;], [&quot;lead&quot;, &quot;cmp&quot;, &quot;up&quot;]], &quot;a&quot;: [&quot;Investigation sorumlusu&quot;, &quot;Hi\u00e7bir rol vaka dosyas\u0131n\u0131 kurum d\u0131\u015f\u0131na g\u00f6nderemez.&quot;, &quot;Vaka dosyas\u0131 d\u0131\u015fa aktar\u0131m\u0131 burada bir yetenek de\u011fil&quot;, &quot;Veri politikas\u0131: vaka dosyalar\u0131 kurum i\u00e7inde kal\u0131r&quot;], &quot;out&quot;: &quot;Talebi reddeder ve uyum sorumlusuna iletir&quot;, &quot;state&quot;: &quot;Talep reddedildi \u00b7 denetim izine kaydedildi&quot;, &quot;kind&quot;: &quot;no&quot;}]">
+  <div class="rl-left">
+    <span class="lab">Gelen</span>
+    <ol class="rl-evs"><li><button type="button" class="rl-ev on" data-ev="0" aria-pressed="true"><i aria-hidden="true"></i><span>Bir tedarikçide yeni imza yetkilisi tescil edildi</span></button></li><li><button type="button" class="rl-ev" data-ev="1" aria-pressed="false"><i aria-hidden="true"></i><span>Chargeback geldi: ürün teslim edilmedi</span></button></li><li><button type="button" class="rl-ev" data-ev="2" aria-pressed="false"><i aria-hidden="true"></i><span>Bir vaka dosyasını kurum dışına gönderme talebi</span></button></li></ol>
   </div>
-  <div class="rs-loop" aria-hidden="true"><span>↺ ve bir sonraki olayla yeniden</span></div>
-  <figcaption class="rs-note">Bu, agent&#x27;lar arasında prompt taşımaktan fazlası: her adım organizasyonun kendi rollerine, yetkisine ve kurallarına göre yanıtlanır.</figcaption>
-</figure>
+  <div class="rl-graph"><svg class="rl-lines" aria-hidden="true"></svg><span class="rl-bound lab">Organizasyon sınırı</span><div class="rl-n rl-agent on" data-role="trp" style="--x:21;--y:24"><b>Üçüncü taraf riski</b><small>agent</small></div><div class="rl-n rl-agent" data-role="reg" style="--x:13;--y:60"><b>Sicil</b><small>agent</small></div><div class="rl-n rl-agent" data-role="dsp" style="--x:79;--y:24"><b>İtiraz operasyonu</b><small>agent</small></div><div class="rl-n rl-agent" data-role="lead" style="--x:50;--y:50"><b><span lang="en">Investigation</span> sorumlusu</b><small>agent</small></div><div class="rl-n rl-person" data-role="ana" style="--x:31;--y:87"><b>Risk analisti</b><small>kişi</small></div><div class="rl-n rl-person" data-role="dan" style="--x:69;--y:87"><b>İtiraz analisti</b><small>kişi</small></div><div class="rl-n rl-person" data-role="cmp" style="--x:87;--y:60"><b>Uyum sorumlusu</b><small>kişi</small></div></div>
+  <div class="rl-panel" aria-live="polite">
+    <dl class="rl-ans"><div><dt>Sorumlu kim?</dt><dd data-a="0">Üçüncü taraf riski rolü</dd></div><div><dt>Hangi yetki var?</dt><dd data-a="1">Araştırabilir ve önerebilir. Risk seviyesini bir kişi değiştirir.</dd></div><div><dt>Ne yapılabilir?</dt><dd data-a="2">Sicil sorgusu · ilişki grafiği · değişiklik tespiti</dd></div><div><dt>Neye izin var?</dt><dd data-a="3">Tedarikçi izleme politikası izin veriyor</dd></div></dl>
+    <div class="rl-out"><span class="lab">Organizasyon</span><b data-out>Sicil kontrolünü devreder, sonra bulgulara göre hareket eder</b></div>
+    <div class="rl-state ok" data-state-box><span class="lab">Yeni durum</span><b data-state>Vaka açık · öneri risk analistinin kararını bekliyor</b></div>
+  </div>
+</div>
+<p class="rl-note">Temsilîdir. Roller, yetkiler ve politikalar örnektir; her kurum kendisininkini tanımlar.</p>
   </div>
 </section>
 
@@ -1293,28 +1393,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec" id="collaboration">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">İş birliği</p>
-      <h2 class="h2">Agent'lar <b>tek başına çalışmaz.</b></h2>
-      <p class="lede">Gerçek <span lang="en">Investigation</span>'lar ortak iştir. Roller iş devreder, aynı kanıtın üzerine kurar ve kararı bir kişiye bırakır.</p>
-    </div>
-    <div class="cl-wrap">
-  <figure class="cl">
-    <div class="cl-top"><span class="lbl" style="margin:0">Örnek · <span lang="en">Company</span> <span lang="en">Investigation</span></span></div>
-    <div class="cl-grid" data-links="[[&quot;inv&quot;, &quot;lead&quot;, &quot;&quot;], [&quot;lead&quot;, &quot;reg&quot;, &quot;&quot;], [&quot;lead&quot;, &quot;fin&quot;, &quot;&quot;], [&quot;reg&quot;, &quot;regc&quot;, &quot;&quot;], [&quot;fin&quot;, &quot;finc&quot;, &quot;&quot;], [&quot;regc&quot;, &quot;ev&quot;, &quot;&quot;], [&quot;finc&quot;, &quot;ev&quot;, &quot;&quot;], [&quot;ev&quot;, &quot;eval&quot;, &quot;&quot;], [&quot;eval&quot;, &quot;dec&quot;, &quot;w&quot;]]">
-      <div class="cl-n cl-inv wide" data-n="inv"><b><span lang="en">Company</span> <span lang="en">Investigation</span></b><small>Tetikleyici: yeni imza yetkilisi tescil edildi</small></div><div class="cl-n cl-lead wide role" data-n="lead"><b><span lang="en">Investigation</span> sorumlusu</b><small>Rol · planlar ve iş devreder</small></div><div class="cl-n cl-reg role" data-n="reg"><b>Sicil rolü</b><small>Resmî kayıtları inceler</small></div><div class="cl-n cl-fin role" data-n="fin"><b>Finansal rol</b><small>Finansal tabloları okur</small></div>
-      <div class="cl-n cl-regc cl-cap" data-n="regc"><b>Sicil yeteneği</b></div><div class="cl-n cl-finc cl-cap" data-n="finc"><b>Finansal yetenek</b></div><div class="cl-n cl-ev wide ev" data-n="ev"><b>Ortak kanıt</b><small>Kaynaklarıyla birlikte bulgular</small></div><div class="cl-n cl-eval wide" data-n="eval"><b>Değerlendirme</b><small>Kanıt yeterli ve tutarlı mı?</small></div><div class="cl-n cl-dec wide hum" data-n="dec"><b>İnsan kararı</b><small>Bir kişi onaylar ya da reddeder</small></div>
-    </div>
-    <figcaption class="cl-note">Temsilî bir örnek. Rol adları fikri göstermek içindir; ürünün sabit parçaları değildir.</figcaption>
-  </figure>
-  <ul class="cl-concepts"><li><b>Sorumluluk</b><span>Her rol işin bir parçasının sahibidir.</span></li><li><b>Devretme</b><span>Sorumlu, işi buna yetkisi ve yeteneği olan rollere verir.</span></li><li><b>İş birliği</b><span>Roller birbirinin bulgularının üzerine kurar.</span></li><li><b>Ortak kanıt</b><span>Bulgular, kaynaklarıyla birlikte tek bir vakada toplanır.</span></li><li><b>Değerlendirme</b><span>Sonuç bir kişiye ulaşmadan kontrol edilir.</span></li><li><b>İnsan yetkisi</b><span>Kararı bir kişi verir.</span></li></ul>
-</div>
-  </div>
-</section>
-
-<section class="sec tone" id="governance">
+<section class="sec" id="governance">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Yönetişim</p>
@@ -1338,7 +1417,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec" id="knowledge">
+<section class="sec tone" id="knowledge">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Bilgi ve hafıza</p>
@@ -1359,7 +1438,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec tone" id="evaluation">
+<section class="sec" id="evaluation">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Değerlendirme</p>
@@ -1380,7 +1459,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec" id="observability">
+<section class="sec tone" id="observability">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">İzlenebilirlik</p>
@@ -1398,7 +1477,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec tone dots" id="spaces">
+<section class="sec dots" id="spaces">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow"><span lang="en">Harness</span> ve Space'ler</p>
@@ -1414,7 +1493,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec" id="proof">
+<section class="sec tone" id="proof">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Kullanımda</p>
@@ -1435,7 +1514,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec tone" id="research">
+<section class="sec" id="research">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Ar-Ge</p>
@@ -1815,6 +1894,56 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   }
 })();
 
+
+/* DEEPIN / ORGANISM — Harness. The same organization answers differently when a
+   different event arrives: another role becomes responsible, other capabilities are
+   in reach, other policies apply, and the organization ends in a new state. */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS='http://www.w3.org/2000/svg';
+  // navigation darkens while the dark hero is under it
+  var dark=document.querySelector('[data-dark]');
+  if(dark){var f=function(){var r=dark.getBoundingClientRect();document.body.classList.toggle('on-dark',r.bottom>70)};window.addEventListener('scroll',f,{passive:true});f()}
+
+  document.querySelectorAll('[data-rl]').forEach(function(rl){
+    var evs=JSON.parse(rl.getAttribute('data-rl')),graph=rl.querySelector('.rl-graph'),svg=rl.querySelector('.rl-lines');
+    var btns=[].slice.call(rl.querySelectorAll('.rl-ev')),nodes={},panel=rl.querySelector('.rl-panel');
+    [].slice.call(rl.querySelectorAll('[data-role]')).forEach(function(n){nodes[n.getAttribute('data-role')]=n});
+    var cur=0,timer=null,touched=false,visible=false;
+    function c(n){var g=graph.getBoundingClientRect(),b=n.getBoundingClientRect();return{x:b.left-g.left+b.width/2,y:b.top-g.top+b.height/2,w:b.width,h:b.height}}
+    function add(d,cls){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('pathLength','1');p.setAttribute('class',cls+(reduce?'':' draw'));svg.appendChild(p)}
+    function lines(ev){
+      while(svg.firstChild)svg.removeChild(svg.firstChild);
+      var W=graph.clientWidth;svg.setAttribute('viewBox','0 0 '+W+' '+graph.clientHeight);
+      ev.edges.forEach(function(e){
+        var A=c(nodes[e[0]]);
+        if(e[1]==='edge'){var x2=W-2,y=A.y;add('M'+(A.x+A.w/2+4)+' '+y+' H'+(x2-10),'block');
+          var q=document.createElementNS(NS,'path');q.setAttribute('d','M'+(x2-16)+' '+(y-6)+' l12 12 M'+(x2-4)+' '+(y-6)+' l-12 12');q.setAttribute('class','x');svg.appendChild(q);return}
+        var B=c(nodes[e[1]]),mx=(A.x+B.x)/2,my=(A.y+B.y)/2,dx=B.x-A.x,dy=B.y-A.y,l=Math.hypot(dx,dy)||1,bend=e[2]==='col'?-40:24;
+        add('M'+A.x+' '+A.y+' Q'+(mx-dy/l*bend)+' '+(my+dx/l*bend)+' '+B.x+' '+B.y,e[2]);
+      });
+    }
+    function show(i,user){
+      cur=i;var ev=evs[i],hit={};ev.edges.forEach(function(e){hit[e[1]]=1});
+      btns.forEach(function(b,k){b.classList.toggle('on',k===i);b.setAttribute('aria-pressed',k===i?'true':'false')});
+      Object.keys(nodes).forEach(function(k){var n=nodes[k];n.classList.toggle('on',k===ev.active);n.classList.toggle('hit',!!hit[k]);n.classList.toggle('dim',k!==ev.active&&!hit[k])});
+      lines(ev);
+      panel.classList.add('swap');
+      setTimeout(function(){
+        [].slice.call(panel.querySelectorAll('[data-a]')).forEach(function(d,k){d.textContent=ev.a[k]});
+        panel.querySelector('[data-out]').textContent=ev.out;panel.querySelector('[data-state]').textContent=ev.state;
+        panel.querySelector('[data-state-box]').className='rl-state '+ev.kind;panel.classList.remove('swap');
+      },reduce?0:220);
+      if(user){touched=true;clearTimeout(timer)}
+      else schedule();
+    }
+    function schedule(){clearTimeout(timer);if(reduce||touched||!visible)return;timer=setTimeout(function(){show((cur+1)%evs.length)},6500)}
+    btns.forEach(function(b,k){b.addEventListener('click',function(){show(k,true)})});
+    new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible)schedule();else clearTimeout(timer)},{threshold:.35}).observe(rl);
+    window.addEventListener('resize',function(){clearTimeout(window.__rl);window.__rl=setTimeout(function(){lines(evs[cur])},150)});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){show(cur)});else show(0);
+  });
+})();
 
 </script>
 </body>

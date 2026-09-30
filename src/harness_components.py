@@ -309,6 +309,37 @@ def hx_research(arg, ctx):
     return f'<ol class="rsx">{items}</ol>'
 
 
+# ------------------------------------------------------------------ organizational reasoning, live
+_RL_POS = {"trp": (21, 24), "reg": (13, 60), "dsp": (79, 24), "lead": (50, 50), "ana": (31, 87), "dan": (69, 87), "cmp": (87, 60)}
+
+
+def hx_reason_live(arg, ctx):
+    r, rs = ctx["content"]["reason_live"], ctx["content"]["reasoning"]
+    ev0 = r["events"][0]
+    pair = "".join(f'<div><span class="om-t">{e(t)}</span><p>{e(d)}</p></div>' for t, d in rs["pair"])
+    evs = "".join(
+        f'<li><button type="button" class="rl-ev{" on" if i == 0 else ""}" data-ev="{i}" aria-pressed="{"true" if i == 0 else "false"}">'
+        f'<i aria-hidden="true"></i><span>{e(x["t"])}</span></button></li>' for i, x in enumerate(r["events"]))
+    nodes = "".join(
+        f'<div class="rl-n rl-{kind}{" on" if k == ev0["active"] else ""}" data-role="{k}" style="--x:{_RL_POS[k][0]};--y:{_RL_POS[k][1]}">'
+        f'<b>{e(name)}</b><small>{e(r["kinds"][kind])}</small></div>' for k, (name, kind) in r["roles"].items())
+    ans = "".join(f'<div><dt>{e(q)}</dt><dd data-a="{i}">{e(a)}</dd></div>' for i, (q, a) in enumerate(zip(r["q"], ev0["a"])))
+    return f'''<div class="rs-pair">{pair}</div>
+<div class="rl" data-rl="{_links(r["events"])}">
+  <div class="rl-left">
+    <span class="lab">{e(r["label"])}</span>
+    <ol class="rl-evs">{evs}</ol>
+  </div>
+  <div class="rl-graph"><svg class="rl-lines" aria-hidden="true"></svg><span class="rl-bound lab">{e(r["boundary"])}</span>{nodes}</div>
+  <div class="rl-panel" aria-live="polite">
+    <dl class="rl-ans">{ans}</dl>
+    <div class="rl-out"><span class="lab">{e(r["outcome_k"])}</span><b data-out>{e(ev0["out"])}</b></div>
+    <div class="rl-state {ev0["kind"]}" data-state-box><span class="lab">{e(r["state_k"])}</span><b data-state>{e(ev0["state"])}</b></div>
+  </div>
+</div>
+<p class="rl-note">{e(r["note"])}</p>'''
+
+
 COMPONENTS = {
     "hx_runtime_org": hx_runtime_org,
     "hx_problem": hx_problem,
@@ -322,4 +353,5 @@ COMPONENTS = {
     "hx_trace": hx_trace,
     "hx_spaces": hx_spaces,
     "hx_research": hx_research,
+    "hx_reason_live": hx_reason_live,
 }

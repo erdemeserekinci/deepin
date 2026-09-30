@@ -9,7 +9,6 @@
     "hero_cta": "Explore the architecture",
     "hero_cta2": "See it in action: deepin.risk →",
     "hero_note": "Runs underneath <b>deepin.risk</b> and <b>deepin.finance</b>",
-
     "problem_eyebrow": "The problem",
     "problem_h2": "Agents are easy. <b>Organizations are hard.</b>",
     "problem_lede": "A model with a few tools can already do useful work. The hard part starts when that agent has to work inside a company.",
@@ -17,56 +16,44 @@
     "problem_simple_cap": "An agent can reason and call tools.",
     "problem_q": "What an enterprise asks around it",
     "problem_land": "Enterprise AI is an <b>organization problem.</b>",
-
     "model_eyebrow": "Organization model",
     "model_h2": "Give AI a place <b>in the organization.</b>",
     "model_lede": "An enterprise agent should not be an anonymous model with tools. In Deepin Harness it works inside an explicit organizational context: what it is responsible for, what it may do, and under which rules.",
-
     "rsn_eyebrow": "Organizational Reasoning",
     "rsn_h2": "Reason <b>within the organization.</b>",
     "rsn_lede": "Roles define responsibility. Authority defines delegation and decision rights. Capabilities define what can be done. Policies define the boundaries.",
-
     "rt_eyebrow": "Runtime",
     "rt_h2": "From model call <b>to governed work.</b>",
     "rt_lede": "Work enters the Harness, runs under organizational context and governance, and leaves an auditable trace.",
     "rt_quote": "Models reason. Capabilities act. Policies govern. <b>Harness orchestrates.</b>",
     "rt_side": "A model call answers a prompt. Governed work knows who asked, in which role, with which capability, under which policy, and who approved it.",
-
     "cl_eyebrow": "Collaboration",
     "cl_h2": "Agents <b>don't work alone.</b>",
     "cl_lede": "Real Investigations are shared work. Roles delegate, build on shared evidence and hand the decision to a person.",
-
     "gv_eyebrow": "Governance",
     "gv_h2": "Autonomy <b>needs boundaries.</b>",
     "gv_lede": "Enterprise AI should be able to act. Every action still passes through role, authority, policy and constraints, and ends in one of three outcomes.",
     "gv_controls": "Controls",
     "gv_note": "Controls are configured for each deployment, to the organization's own rules.",
-
     "km_eyebrow": "Knowledge &amp; memory",
     "km_h2": "An organization <b>should remember.</b>",
     "km_lede": "Work should not start from zero every time. What the organization knows, and what it learned in earlier Investigations, is available to the roles doing the work.",
-
     "ev_eyebrow": "Evaluation",
     "ev_h2": "Every action leaves evidence. <b>Every behavior can be evaluated.</b>",
     "ev_lede": "Models change. Prompts change. Tools change. Knowledge and policies change. So enterprise AI needs evaluation that keeps running, not a test at launch.",
-
     "ob_eyebrow": "Observability",
     "ob_h2": "Know what happened. <b>And why.</b>",
     "ob_lede": "Every step of an Investigation is recorded with who acted, in which role, with which capability, on which source and under which policy. It is the same principle as the rest of Deepin: evidence before decision.",
-
     "sp_eyebrow": "Harness and Spaces",
     "sp_h2": "One Harness. <b>Domain-specific Spaces.</b>",
     "sp_lede": "A Space packages reusable roles, capabilities, data sources, knowledge, policies, evaluations and Investigations for a business domain.",
-
     "pf_eyebrow": "In use",
     "pf_h2": "Built underneath <b>real Investigations.</b>",
     "pf_lede": "Harness capabilities are shaped underneath concrete enterprise Investigations, not in an isolated framework experiment. Each reference is shown at the maturity it has actually reached.",
-
     "rs_eyebrow": "R&amp;D",
     "rs_h2": "Research-backed <b>architecture.</b>",
     "rs_lede": "Deepin Harness is continuously developed through R&amp;D in organizational reasoning, governed agent collaboration, constraint-aware planning and continuous evaluation.",
     "rs_support": "TÜBİTAK-supported R&amp;D",
-
     "band_eyebrow": "Deepin Harness",
     "band_h2": "Build AI that can work <b>inside your organization.</b>",
     "band_p": "Start from a real Investigation, or use Deepin Harness to bring governed AI into an existing enterprise workflow.",
@@ -77,22 +64,36 @@
     "band_next": "Don't deploy another agent. <b>Build an organization.</b>",
     "band_links": "See it in a Space:"
   },
-
   "hero_org": {
     "title": "Deepin Harness · runtime",
-    "labels": ["Organization loaded", "Roles assigned", "Agents at work", "Capabilities, knowledge, policies", "Task assembled", "Awaiting human approval", "Action · logged"],
+    "labels": [
+      "Organization loaded",
+      "Roles assigned",
+      "Agents at work",
+      "Capabilities, knowledge, policies",
+      "Task assembled",
+      "Awaiting human approval",
+      "Action · logged"
+    ],
     "org": "Organization",
     "role": "Role",
     "agent": "Agent",
-    "res": ["Capabilities", "Knowledge", "Policies"],
+    "res": [
+      "Capabilities",
+      "Knowledge",
+      "Policies"
+    ],
     "task": "Task",
     "approval": "Human approval",
     "action": "Action",
     "aria": "Deepin Harness runtime: an organization gives roles to agents; agents use capabilities, knowledge and policies to complete a task, which goes to human approval before action."
   },
-
   "problem": {
-    "stack": ["Model", "Agent", "Tools"],
+    "stack": [
+      "Model",
+      "Agent",
+      "Tools"
+    ],
     "questions": [
       "Who is responsible?",
       "What role does it have?",
@@ -107,169 +108,682 @@
       "Can every action be audited?"
     ]
   },
-
   "model": {
     "aria": "Conceptual organization model of Deepin Harness",
-    "org": ["Organization", "The boundary in which roles, authority, knowledge, policies and capabilities exist."],
-    "groups": ["Who, and under which rules", "Doing the work", "What it knows"],
+    "org": [
+      "Organization",
+      "The boundary in which roles, authority, knowledge, policies and capabilities exist."
+    ],
+    "groups": [
+      "Who, and under which rules",
+      "Doing the work",
+      "What it knows"
+    ],
     "nodes": {
-      "role": ["Role", "What is it responsible for?", ""],
-      "auth": ["Authority", "Who may decide, approve, delegate or act?", ""],
-      "pol": ["Policy · Constraint", "Under what conditions may this happen?", ""],
-      "agent": ["Agent", "Does the work, within its role.", ""],
-      "task": ["Task", "What needs to be done?", ""],
-      "cap": ["Capability", "What can it do?", ""],
-      "tool": ["Tool", "A technical way a capability gets done.", "API · MCP tool · query · model · function"],
-      "svc": ["Service", "Internal or external systems exposed to the organization.", "ERP · CRM · core banking · registry service · document system"],
-      "know": ["Knowledge", "Organizational information available to roles and agents.", "Documents · graphs · structured data · previous Investigations · organizational memory"]
+      "role": [
+        "Role",
+        "What is it responsible for?",
+        ""
+      ],
+      "auth": [
+        "Authority",
+        "Who may decide, approve, delegate or act?",
+        ""
+      ],
+      "pol": [
+        "Policy · Constraint",
+        "Under what conditions may this happen?",
+        ""
+      ],
+      "agent": [
+        "Agent",
+        "Does the work, within its role.",
+        ""
+      ],
+      "task": [
+        "Task",
+        "What needs to be done?",
+        ""
+      ],
+      "cap": [
+        "Capability",
+        "What can it do?",
+        ""
+      ],
+      "tool": [
+        "Tool",
+        "A technical way a capability gets done.",
+        "API · MCP tool · query · model · function"
+      ],
+      "svc": [
+        "Service",
+        "Internal or external systems exposed to the organization.",
+        "ERP · CRM · core banking · registry service · document system"
+      ],
+      "know": [
+        "Knowledge",
+        "Organizational information available to roles and agents.",
+        "Documents · graphs · structured data · previous Investigations · organizational memory"
+      ]
     },
     "note": "A conceptual model, not a class diagram. <b>Capability ≠ Tool:</b> a capability is what can be done; a tool is one technical way to do it. <b>Authority ≠ Policy:</b> authority is who may decide, approve, delegate or act; policy is the rules under which it happens."
   },
-
   "reasoning": {
     "pair": [
-      ["Organization", "Structure and state: who exists, what they are responsible for, what they may do."],
-      ["Organizational Reasoning", "Behavior over time: how the organization works out who should do what when something happens."]
+      [
+        "Organization",
+        "Structure and state: who exists, what they are responsible for, what they may do."
+      ],
+      [
+        "Organizational Reasoning",
+        "Behavior over time: how the organization works out who should do what when something happens."
+      ]
     ],
     "state": "Current organizational state",
     "event": "Event or goal",
-    "checks": ["Who is responsible?", "What authority exists?", "Which capabilities are available?", "Which policies constrain the action?"],
-    "outcomes": ["Act", "Delegate", "Collaborate"],
+    "checks": [
+      "Who is responsible?",
+      "What authority exists?",
+      "Which capabilities are available?",
+      "Which policies constrain the action?"
+    ],
+    "outcomes": [
+      "Act",
+      "Delegate",
+      "Collaborate"
+    ],
     "next": "New organizational state",
     "loop": "and again, with the next event",
     "note": "This is more than routing prompts between agents: each step is answered against the organization's own roles, authority and rules.",
     "aria": "Organizational Reasoning flow"
   },
-
   "runtime": {
     "in": "Request or event",
     "box": "Deepin Harness",
     "trace": "Leaves a trace",
     "out": "Enterprise systems",
     "layers": [
-      ["Identity & role", "who"],
-      ["Context & memory", "context"],
-      ["Planning", "plan"],
-      ["Capability selection", "capability"],
-      ["Tool & service execution", "call"],
-      ["Policy enforcement", "policy"],
-      ["Human approval", "approval"],
-      ["State & workflow", "state"],
-      ["Evaluation", "score"],
-      ["Audit & observability", "trace"]
+      [
+        "Identity & role",
+        "who"
+      ],
+      [
+        "Context & memory",
+        "context"
+      ],
+      [
+        "Planning",
+        "plan"
+      ],
+      [
+        "Capability selection",
+        "capability"
+      ],
+      [
+        "Tool & service execution",
+        "call"
+      ],
+      [
+        "Policy enforcement",
+        "policy"
+      ],
+      [
+        "Human approval",
+        "approval"
+      ],
+      [
+        "State & workflow",
+        "state"
+      ],
+      [
+        "Evaluation",
+        "score"
+      ],
+      [
+        "Audit & observability",
+        "trace"
+      ]
     ],
     "human": 6
   },
-
   "collab": {
     "label": "Example · Company Investigation",
     "nodes": {
-      "inv": ["Company Investigation", "Trigger: new signatory registered"],
-      "lead": ["Investigation lead", "Role · plans and delegates"],
-      "reg": ["Registry role", "Checks official filings"],
-      "fin": ["Financial role", "Reads financial statements"],
-      "regc": ["Registry capability", ""],
-      "finc": ["Financial capability", ""],
-      "ev": ["Shared evidence", "Findings with their sources"],
-      "eval": ["Evaluation", "Is the evidence sufficient and consistent?"],
-      "dec": ["Human decision", "A person approves or rejects"]
+      "inv": [
+        "Company Investigation",
+        "Trigger: new signatory registered"
+      ],
+      "lead": [
+        "Investigation lead",
+        "Role · plans and delegates"
+      ],
+      "reg": [
+        "Registry role",
+        "Checks official filings"
+      ],
+      "fin": [
+        "Financial role",
+        "Reads financial statements"
+      ],
+      "regc": [
+        "Registry capability",
+        ""
+      ],
+      "finc": [
+        "Financial capability",
+        ""
+      ],
+      "ev": [
+        "Shared evidence",
+        "Findings with their sources"
+      ],
+      "eval": [
+        "Evaluation",
+        "Is the evidence sufficient and consistent?"
+      ],
+      "dec": [
+        "Human decision",
+        "A person approves or rejects"
+      ]
     },
     "note": "Illustrative. Role names show the idea; they are not fixed product components.",
     "concepts": [
-      ["Responsibility", "Each role owns part of the work."],
-      ["Delegation", "The lead hands work to roles with the authority and capability for it."],
-      ["Collaboration", "Roles build on each other's findings."],
-      ["Shared evidence", "Findings land in one case, each with its source."],
-      ["Evaluation", "The result is checked before it reaches a person."],
-      ["Human authority", "A person makes the decision."]
+      [
+        "Responsibility",
+        "Each role owns part of the work."
+      ],
+      [
+        "Delegation",
+        "The lead hands work to roles with the authority and capability for it."
+      ],
+      [
+        "Collaboration",
+        "Roles build on each other's findings."
+      ],
+      [
+        "Shared evidence",
+        "Findings land in one case, each with its source."
+      ],
+      [
+        "Evaluation",
+        "The result is checked before it reaches a person."
+      ],
+      [
+        "Human authority",
+        "A person makes the decision."
+      ]
     ]
   },
-
   "gate": {
     "try": "Pick a request",
     "request": "Action request",
-    "checks": ["Role", "Authority", "Policy", "Constraint"],
-    "outcomes": ["Execute", "Human approval", "Deny"],
+    "checks": [
+      "Role",
+      "Authority",
+      "Policy",
+      "Constraint"
+    ],
+    "outcomes": [
+      "Execute",
+      "Human approval",
+      "Deny"
+    ],
     "examples": [
-      {"label": "Read the latest registry filing", "res": ["ok", "ok", "ok", "ok"], "out": 0, "why": "Within the role, the authority and the monitoring policy. It runs, and the step is logged."},
-      {"label": "Raise the supplier's risk level", "res": ["ok", "wait", "ok", "ok"], "out": 1, "why": "Changing a risk level is a decision. The agent proposes it with the evidence; a person approves."},
-      {"label": "Send the company file to an outside party", "res": ["ok", "ok", "no", "skip"], "out": 2, "why": "Policy does not allow case files to leave the organization. The request is denied and recorded."}
+      {
+        "label": "Read the latest registry filing",
+        "res": [
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "out": 0,
+        "why": "Within the role, the authority and the monitoring policy. It runs, and the step is logged."
+      },
+      {
+        "label": "Raise the supplier's risk level",
+        "res": [
+          "ok",
+          "wait",
+          "ok",
+          "ok"
+        ],
+        "out": 1,
+        "why": "Changing a risk level is a decision. The agent proposes it with the evidence; a person approves."
+      },
+      {
+        "label": "Send the company file to an outside party",
+        "res": [
+          "ok",
+          "ok",
+          "no",
+          "skip"
+        ],
+        "out": 2,
+        "why": "Policy does not allow case files to leave the organization. The request is denied and recorded."
+      }
     ],
     "chips": [
-      ["user", "Role-based access"],
-      ["key", "Authority boundaries"],
-      ["shield", "Policy enforcement"],
-      ["hand", "Human approval"],
-      ["doc", "Audit trail"],
-      ["net", "Data lineage"],
-      ["lock", "On-premise"],
-      ["air", "Air-gapped deployment"]
+      [
+        "user",
+        "Role-based access"
+      ],
+      [
+        "key",
+        "Authority boundaries"
+      ],
+      [
+        "shield",
+        "Policy enforcement"
+      ],
+      [
+        "hand",
+        "Human approval"
+      ],
+      [
+        "doc",
+        "Audit trail"
+      ],
+      [
+        "net",
+        "Data lineage"
+      ],
+      [
+        "lock",
+        "On-premise"
+      ],
+      [
+        "air",
+        "Air-gapped deployment"
+      ]
     ]
   },
-
   "knowledge": {
-    "sources": ["Documents", "Structured data", "Knowledge graph", "Previous Investigations", "Policies", "Decisions", "Evaluation results"],
+    "sources": [
+      "Documents",
+      "Structured data",
+      "Knowledge graph",
+      "Previous Investigations",
+      "Policies",
+      "Decisions",
+      "Evaluation results"
+    ],
     "hub": "Organizational knowledge",
     "hub_sub": "Shared context for the work",
-    "users": ["Roles", "Agents", "Investigations"],
+    "users": [
+      "Roles",
+      "Agents",
+      "Investigations"
+    ],
     "loop": "Every Investigation can contribute reusable organizational context.",
     "data_h": "It stays yours.",
     "data_p": "This knowledge lives in your deployment and belongs to you. It is not shared between customers. What carries from one deployment to the next is how Investigations are solved, never your records.",
     "aria": "Knowledge sources flow into organizational knowledge, which roles, agents and Investigations use"
   },
-
   "evaluation": {
     "changes_lbl": "Always changing",
-    "changes": ["Models", "Prompts", "Tools", "Knowledge", "Policies"],
-    "flow": ["Task", "Trace", "Outcome"],
+    "changes": [
+      "Models",
+      "Prompts",
+      "Tools",
+      "Knowledge",
+      "Policies"
+    ],
+    "flow": [
+      "Task",
+      "Trace",
+      "Outcome"
+    ],
     "eval": "Evaluation",
     "criteria": [
-      ["Correctness", "Is the finding right?"],
-      ["Evidence quality", "Is every claim sourced?"],
-      ["Policy compliance", "Did it stay inside the rules?"],
-      ["Tool behavior", "Were tools called as expected?"],
-      ["Cost", "What did the run cost?"],
-      ["Latency", "How long did it take?"]
+      [
+        "Correctness",
+        "Is the finding right?"
+      ],
+      [
+        "Evidence quality",
+        "Is every claim sourced?"
+      ],
+      [
+        "Policy compliance",
+        "Did it stay inside the rules?"
+      ],
+      [
+        "Tool behavior",
+        "Were tools called as expected?"
+      ],
+      [
+        "Cost",
+        "What did the run cost?"
+      ],
+      [
+        "Latency",
+        "How long did it take?"
+      ]
     ],
     "result": "Regression or improvement",
     "result_sub": "reviewed and released by people",
     "note": "Evaluation informs improvement. The system does not change itself silently; people review changes and release them."
   },
-
   "trace": {
     "title": "INV-2026-0418 · Northwind Lojistik A.Ş.",
     "hint": "Select a step to see the record behind it.",
     "note": "Sample trace with a fictional company.",
-    "fields": ["Who acted", "Role", "Capability", "Source", "Evidence", "Policy", "Decision", "When"],
+    "fields": [
+      "Who acted",
+      "Role",
+      "Capability",
+      "Source",
+      "Evidence",
+      "Policy",
+      "Decision",
+      "When"
+    ],
     "date": "18 Sep 2026",
     "rows": [
-      ["09:42:01", "Investigation started", ["Investigation lead (agent)", "Investigation lead", "Open case", "Trade Registry Gazette · 18 Sep", "New signatory registered for Northwind Lojistik A.Ş.", "Supplier monitoring policy", "Company Investigation opened"]],
-      ["09:42:03", "Registry capability invoked", ["Registry agent", "Registry role", "Registry lookup", "Trade Registry Gazette", "—", "Read access to official records", "—"]],
-      ["09:42:04", "3 documents retrieved", ["Registry agent", "Registry role", "Registry lookup", "Trade Registry Gazette · 12 and 18 Sep", "3 filings attached to the case", "—", "—"]],
-      ["09:42:09", "Ownership change detected", ["Registry agent", "Registry role", "Change detection", "Filing of 18 Sep", "New shareholder and change of representation authority", "—", "—"]],
-      ["09:42:13", "Related company investigated", ["Investigation lead (agent)", "Investigation lead", "Relationship graph", "Relationship graph", "New signatory is a partner in 2 watched companies", "—", "Related company added to the case"]],
-      ["09:42:18", "Policy check passed", ["Harness policy check", "—", "Policy enforcement", "Supplier risk policy", "Capital reduction and authority change within 30 days", "Elevated supplier risk rule", "Recommendation may proceed"]],
-      ["09:42:21", "Evidence assembled", ["Investigation lead (agent)", "Investigation lead", "Evidence package", "4 sources", "3 findings, each linked to its source", "—", "Recommendation: risk level Medium → High"]],
-      ["09:42:24", "Human approval requested", ["Investigation lead (agent)", "Investigation lead", "Approval request", "Evidence package", "3 findings, 4 sources", "Risk level changes require human approval", "Waiting for the risk analyst"]]
+      [
+        "09:42:01",
+        "Investigation started",
+        [
+          "Investigation lead (agent)",
+          "Investigation lead",
+          "Open case",
+          "Trade Registry Gazette · 18 Sep",
+          "New signatory registered for Northwind Lojistik A.Ş.",
+          "Supplier monitoring policy",
+          "Company Investigation opened"
+        ]
+      ],
+      [
+        "09:42:03",
+        "Registry capability invoked",
+        [
+          "Registry agent",
+          "Registry role",
+          "Registry lookup",
+          "Trade Registry Gazette",
+          "—",
+          "Read access to official records",
+          "—"
+        ]
+      ],
+      [
+        "09:42:04",
+        "3 documents retrieved",
+        [
+          "Registry agent",
+          "Registry role",
+          "Registry lookup",
+          "Trade Registry Gazette · 12 and 18 Sep",
+          "3 filings attached to the case",
+          "—",
+          "—"
+        ]
+      ],
+      [
+        "09:42:09",
+        "Ownership change detected",
+        [
+          "Registry agent",
+          "Registry role",
+          "Change detection",
+          "Filing of 18 Sep",
+          "New shareholder and change of representation authority",
+          "—",
+          "—"
+        ]
+      ],
+      [
+        "09:42:13",
+        "Related company investigated",
+        [
+          "Investigation lead (agent)",
+          "Investigation lead",
+          "Relationship graph",
+          "Relationship graph",
+          "New signatory is a partner in 2 watched companies",
+          "—",
+          "Related company added to the case"
+        ]
+      ],
+      [
+        "09:42:18",
+        "Policy check passed",
+        [
+          "Harness policy check",
+          "—",
+          "Policy enforcement",
+          "Supplier risk policy",
+          "Capital reduction and authority change within 30 days",
+          "Elevated supplier risk rule",
+          "Recommendation may proceed"
+        ]
+      ],
+      [
+        "09:42:21",
+        "Evidence assembled",
+        [
+          "Investigation lead (agent)",
+          "Investigation lead",
+          "Evidence package",
+          "4 sources",
+          "3 findings, each linked to its source",
+          "—",
+          "Recommendation: risk level Medium → High"
+        ]
+      ],
+      [
+        "09:42:24",
+        "Human approval requested",
+        [
+          "Investigation lead (agent)",
+          "Investigation lead",
+          "Approval request",
+          "Evidence package",
+          "3 findings, 4 sources",
+          "Risk level changes require human approval",
+          "Waiting for the risk analyst"
+        ]
+      ]
     ],
     "human": 7
   },
-
   "spaces": {
-    "chips": ["Organization", "Reasoning", "Knowledge", "Governance", "Evaluation"],
-    "risk": ["Company Investigation", "Evidence + findings", "Human decision"],
-    "finance": ["Chargeback Investigation", "Evidence + recommendation", "Human decision"],
+    "chips": [
+      "Organization",
+      "Reasoning",
+      "Knowledge",
+      "Governance",
+      "Evaluation"
+    ],
+    "risk": [
+      "Company Investigation",
+      "Evidence + findings",
+      "Human decision"
+    ],
+    "finance": [
+      "Chargeback Investigation",
+      "Evidence + recommendation",
+      "Human decision"
+    ],
     "legend": [
-      ["Harness", "The reusable enterprise runtime."],
-      ["Space", "The implementation for one business domain."],
-      ["Investigation", "The concrete business work."]
+      [
+        "Harness",
+        "The reusable enterprise runtime."
+      ],
+      [
+        "Space",
+        "The implementation for one business domain."
+      ],
+      [
+        "Investigation",
+        "The concrete business work."
+      ]
     ]
   },
-
   "research": [
-    ["Organizational Reasoning", "Reasoning according to role, authority, organizational state and constraints."],
-    ["Governed Collaboration", "Delegation and collaboration between roles while preserving authority boundaries."],
-    ["Constraint-Aware Planning", "Planning toward goals while respecting policies, authority and operational constraints."],
-    ["Continuous Evaluation", "Evaluating traces, outcomes and behavior as models, tools and organizational context change."]
-  ]
+    [
+      "Organizational Reasoning",
+      "Reasoning according to role, authority, organizational state and constraints."
+    ],
+    [
+      "Governed Collaboration",
+      "Delegation and collaboration between roles while preserving authority boundaries."
+    ],
+    [
+      "Constraint-Aware Planning",
+      "Planning toward goals while respecting policies, authority and operational constraints."
+    ],
+    [
+      "Continuous Evaluation",
+      "Evaluating traces, outcomes and behavior as models, tools and organizational context change."
+    ]
+  ],
+  "reason_live": {
+    "label": "Incoming",
+    "q": [
+      "Who is responsible?",
+      "What authority exists?",
+      "What can be done?",
+      "What is allowed?"
+    ],
+    "outcome_k": "The organization",
+    "state_k": "New state",
+    "note": "Illustrative. Roles, authority and policies are examples; each organization defines its own.",
+    "roles": {
+      "trp": [
+        "Third-party risk",
+        "agent"
+      ],
+      "reg": [
+        "Registry",
+        "agent"
+      ],
+      "dsp": [
+        "Dispute operations",
+        "agent"
+      ],
+      "lead": [
+        "Investigation lead",
+        "agent"
+      ],
+      "ana": [
+        "Risk analyst",
+        "person"
+      ],
+      "dan": [
+        "Dispute analyst",
+        "person"
+      ],
+      "cmp": [
+        "Compliance officer",
+        "person"
+      ]
+    },
+    "kinds": {
+      "agent": "agent",
+      "person": "person"
+    },
+    "boundary": "Organization boundary",
+    "events": [
+      {
+        "t": "New signatory registered at a supplier",
+        "active": "trp",
+        "edges": [
+          [
+            "trp",
+            "reg",
+            "del"
+          ],
+          [
+            "trp",
+            "ana",
+            "up"
+          ]
+        ],
+        "a": [
+          "Third-party risk role",
+          "May investigate and propose. A person changes the risk level.",
+          "Registry lookup · relationship graph · change detection",
+          "Supplier monitoring policy allows it"
+        ],
+        "out": "Delegates the registry check, then acts on the findings",
+        "state": "Case open · recommendation waiting for the risk analyst",
+        "kind": "ok"
+      },
+      {
+        "t": "Chargeback received: goods not received",
+        "active": "dsp",
+        "edges": [
+          [
+            "dsp",
+            "trp",
+            "col"
+          ],
+          [
+            "dsp",
+            "dan",
+            "up"
+          ]
+        ],
+        "a": [
+          "Dispute operations role",
+          "May assemble the case. Accepting liability needs approval.",
+          "Transaction lookup · 3-D Secure log · merchant profile",
+          "Scheme deadline in 6 days; response needs approval"
+        ],
+        "out": "Collaborates with third-party risk on the merchant",
+        "state": "Evidence package ready · waiting for the dispute analyst",
+        "kind": "ok"
+      },
+      {
+        "t": "Request to send a case file to an outside party",
+        "active": "lead",
+        "edges": [
+          [
+            "lead",
+            "edge",
+            "block"
+          ],
+          [
+            "lead",
+            "cmp",
+            "up"
+          ]
+        ],
+        "a": [
+          "Investigation lead",
+          "No role may send case files outside the organization.",
+          "Case file export is not a capability here",
+          "Data policy: case files stay inside"
+        ],
+        "out": "Denies the request and escalates to compliance",
+        "state": "Request denied · recorded in the audit trail",
+        "kind": "no"
+      }
+    ]
+  },
+  "under": {
+    "slab": [
+      "Signal",
+      "Investigation",
+      "Evidence",
+      "Human decision"
+    ],
+    "org": "Organization",
+    "role": "Role",
+    "authority": "Authority",
+    "agent": "Agent",
+    "task": "Task",
+    "capability": "Capability",
+    "tools": "Tool · Service",
+    "strata": [
+      "Knowledge",
+      "Policy",
+      "Memory",
+      "Evaluation"
+    ],
+    "aria": "Deepin Harness: an organization of roles with authority, agents working on a task through capabilities, over shared knowledge, policy, memory and evaluation",
+    "slab_h": "Deepin performs Investigations. <b>Again and again, across domains.</b>"
+  }
 }

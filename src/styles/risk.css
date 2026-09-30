@@ -330,3 +330,9 @@
   .rq-close{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--soft-2);font-size:22px;cursor:pointer;color:var(--ink)}
 }
 .noscroll,.noscroll body{overflow:hidden}
+
+/* ORGANISM: deepin.risk — a company is a web of relationships that keeps changing */
+.pg-risk .hero{background:
+  radial-gradient(circle at 88% 38%,transparent 0 120px,var(--hair-2) 121px,transparent 122px,transparent 190px,var(--hair-2) 191px,transparent 192px,transparent 270px,var(--hair-2) 271px,transparent 272px),
+  radial-gradient(50% 60% at 90% 30%,rgba(40,220,168,.08),transparent 70%),var(--bg)}
+.pg-risk .hero h1 b{color:var(--accent)}

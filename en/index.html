@@ -739,7 +739,7 @@ span[lang="en"]{display:contents}
 .o-link:hover{color:var(--ink)}
 h1,.h2{letter-spacing:-.035em}
 .h2{font-size:clamp(30px,3.8vw,52px);line-height:1.05}
-.hero h1{font-size:clamp(40px,5.8vw,78px);line-height:1;letter-spacing:-.045em}
+.hero h1{font-size:clamp(38px,4.6vw,64px);line-height:1.02;letter-spacing:-.045em}
 .eyebrow{letter-spacing:.12em}
 .lede{line-height:1.6}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -805,6 +805,37 @@ footer .f-about p{max-width:40ch}
 /* ---- motion preference ---- */
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
+/* ---- the organization underneath (Deepin Harness topology, shared) ---- */
+.topo{margin:0;--draw:1}
+.topo-svg{display:block;width:100%;height:auto;overflow:visible}
+.topo-svg text{fill:var(--deep-ink);font-family:var(--font);font-size:13px}
+.topo-svg .t-k,.topo-svg .t-s{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;fill:var(--deep-muted);text-transform:uppercase}
+.topo-svg .t-a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;fill:#E9B45A;text-transform:uppercase}
+.topo-svg .t-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--mint)}
+.t-org{fill:rgba(40,220,168,.03);stroke:var(--deep-line);stroke-dasharray:4 6;opacity:calc(var(--draw) * 1.4)}
+.t-hub{fill:var(--mint)}
+.t-edges path{fill:none;stroke:var(--deep-line);stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
+.t-edges path.tie{stroke:rgba(231,245,240,.14);stroke-dasharray:.012 .02;stroke-dashoffset:0;opacity:var(--draw)}
+.t-node{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
+.t-node circle{fill:var(--deep);stroke:var(--mint);stroke-width:1.6}
+.t-node rect{fill:var(--deep-2);stroke:var(--deep-line)}
+.t-node .t-task{stroke:var(--mint)}
+.t-str{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
+.t-str path{stroke:rgba(231,245,240,.22);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
+.t-signal{fill:var(--mint);opacity:clamp(0,calc((var(--draw) - .9) * 10),1)}
+.topo-m,.topo-ms{display:none}
+@media (max-width:860px){
+  .topo-svg{display:none}
+  .topo-m{display:grid;list-style:none;margin:0;padding:0;gap:0;justify-items:start}
+  .topo-m li{position:relative;padding:9px 16px;border-radius:999px;border:1px solid var(--deep-line);background:var(--deep-2);font-size:14px}
+  .topo-m li:first-child{border-style:dashed;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep-muted)}
+  .topo-m li:not(:last-child){margin-bottom:22px}
+  .topo-m li:not(:last-child)::after{content:"";position:absolute;left:24px;top:100%;width:1px;height:22px;background:var(--deep-line)}
+  .topo-ms{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(231,245,240,.14)}
+  .topo-ms span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.16);color:var(--deep-muted)}
+}
+body.on-dark .brand .sub{color:var(--deep-ink)}
+
 /* =====================================================================
    DEEPIN / ORGANISM — homepage
    ===================================================================== */
@@ -816,7 +847,9 @@ footer .f-about p{max-width:40ch}
   radial-gradient(40% 40% at 10% 90%,rgba(21,136,103,.06),transparent 70%)}
 .o-hero-grid{position:relative;display:grid;gap:34px}
 .o-kicker{margin:0}
-.o-h1{font-size:clamp(46px,7.8vw,122px);font-weight:300;line-height:.96;letter-spacing:-.052em;max-width:13ch}
+.o-h1{font-size:clamp(46px,7.8vw,122px);font-weight:300;line-height:.96;letter-spacing:-.052em;max-width:14ch}
+:lang(tr) .o-h1{font-size:clamp(42px,6.9vw,108px);max-width:15ch}
+@media (min-width:861px){.o-h1 .l3{white-space:nowrap}}
 .o-h1 .l{display:inline}
 .o-h1 .l3{display:block;font-weight:600;color:var(--accent);margin-top:.08em;position:relative;width:max-content;max-width:100%}
 .o-h1 .l3::after{content:"";position:absolute;left:0;right:0;bottom:-.06em;height:.06em;border-radius:1em;background:var(--mint);transform-origin:left;transform:scaleX(0);animation:o-underline 1.1s var(--ease) 1.2s forwards}
@@ -1109,24 +1142,6 @@ details[open] summary .ix-name{color:var(--accent)}
 .under.js-on.is-scroll .under-sticky{position:sticky;top:0;height:100vh;padding-block:0;display:flex;align-items:center}
 .under.js-on.is-scroll .under-grid{width:100%;padding-top:110px}
 .under-copy{opacity:var(--copy,1);transform:translateY(calc((1 - var(--copy,1)) * 18px))}
-.topo{margin:0;--draw:1}
-.topo-svg{display:block;width:100%;height:auto;overflow:visible}
-.topo-svg text{fill:var(--deep-ink);font-family:var(--font);font-size:13px}
-.topo-svg .t-k,.topo-svg .t-s{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;fill:var(--deep-muted);text-transform:uppercase}
-.topo-svg .t-a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;fill:#E9B45A;text-transform:uppercase}
-.topo-svg .t-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--mint)}
-.t-org{fill:rgba(40,220,168,.03);stroke:var(--deep-line);stroke-dasharray:4 6;opacity:calc(var(--draw) * 1.4)}
-.t-hub{fill:var(--mint)}
-.t-edges path{fill:none;stroke:var(--deep-line);stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
-.t-edges path.tie{stroke:rgba(231,245,240,.14);stroke-dasharray:.012 .02;stroke-dashoffset:0;opacity:var(--draw)}
-.t-node{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
-.t-node circle{fill:var(--deep);stroke:var(--mint);stroke-width:1.6}
-.t-node rect{fill:var(--deep-2);stroke:var(--deep-line)}
-.t-node .t-task{stroke:var(--mint)}
-.t-str{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
-.t-str path{stroke:rgba(231,245,240,.22);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
-.t-signal{fill:var(--mint);opacity:clamp(0,calc((var(--draw) - .9) * 10),1)}
-.topo-m,.topo-ms{display:none}
 .under-ent{position:relative;display:grid;gap:14px;padding-block:20px clamp(90px,10vw,130px)}
 .under-ent .ent-chips li{background:rgba(231,245,240,.04);border-color:rgba(231,245,240,.14);color:var(--deep-ink)}
 .under-ent .ent-chips svg{color:var(--mint)}
@@ -1136,14 +1151,6 @@ details[open] summary .ix-name{color:var(--accent)}
 .under-ent .datanote .assets li{background:transparent;border-color:rgba(231,245,240,.16);color:var(--deep-muted)}
 @media (max-width:860px){
   .under-grid{grid-template-columns:minmax(0,1fr);gap:40px}
-  .topo-svg{display:none}
-  .topo-m{display:grid;list-style:none;margin:0;padding:0;gap:0;justify-items:start}
-  .topo-m li{position:relative;padding:9px 16px;border-radius:999px;border:1px solid var(--deep-line);background:var(--deep-2);font-size:14px}
-  .topo-m li:first-child{border-style:dashed;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep-muted)}
-  .topo-m li:not(:last-child){margin-bottom:22px}
-  .topo-m li:not(:last-child)::after{content:"";position:absolute;left:24px;top:100%;width:1px;height:22px;background:var(--deep-line)}
-  .topo-ms{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(231,245,240,.14)}
-  .topo-ms span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.16);color:var(--deep-muted)}
 }
 
 /* ---- §07 start ---- */
@@ -1295,7 +1302,7 @@ details[open] summary .ix-name{color:var(--accent)}
   <g class="t-node" style="--d:0"><circle cx="130" cy="92" r="6"/><text x="130" y="72" text-anchor="middle" class="t-l">Role</text><text x="130" y="118" text-anchor="middle" class="t-a">Authority</text></g><g class="t-node" style="--d:1"><circle cx="320" cy="92" r="6"/><text x="320" y="72" text-anchor="middle" class="t-l">Role</text><text x="320" y="118" text-anchor="middle" class="t-a">Authority</text></g><g class="t-node" style="--d:2"><circle cx="510" cy="92" r="6"/><text x="510" y="72" text-anchor="middle" class="t-l">Role</text><text x="510" y="118" text-anchor="middle" class="t-a">Authority</text></g><g class="t-node" style="--d:3"><rect x="96" y="178" width="68" height="26" rx="13"/><text x="130" y="195" text-anchor="middle">Agent</text></g><g class="t-node" style="--d:4"><rect x="286" y="178" width="68" height="26" rx="13"/><text x="320" y="195" text-anchor="middle">Agent</text></g><g class="t-node" style="--d:5"><rect x="476" y="178" width="68" height="26" rx="13"/><text x="510" y="195" text-anchor="middle">Agent</text></g>
   <g class="t-node" style="--d:6"><rect x="270" y="258" width="100" height="26" rx="13" class="t-task"/><text x="320" y="275" text-anchor="middle">Task</text></g>
   <g class="t-node" style="--d:7"><rect x="262" y="306" width="116" height="26" rx="7"/><text x="320" y="323" text-anchor="middle">Capability</text>
-    <text x="320" y="368" text-anchor="middle" class="t-a">Tool · Service</text></g>
+    <text x="320" y="368" text-anchor="middle" class="t-s">Tool · Service</text></g>
   <g class="t-str" style="--d:8"><text x="24" y="412" class="t-s">Knowledge</text><path pathLength="1" d="M128 408 H616"/></g><g class="t-str" style="--d:9"><text x="24" y="434" class="t-s">Policy</text><path pathLength="1" d="M128 430 H616"/></g><g class="t-str" style="--d:10"><text x="24" y="456" class="t-s">Memory</text><path pathLength="1" d="M128 452 H616"/></g><g class="t-str" style="--d:11"><text x="24" y="478" class="t-s">Evaluation</text><path pathLength="1" d="M128 474 H616"/></g>
   <circle class="t-signal" r="4"><animateMotion dur="7s" repeatCount="indefinite" path="M320 34 C320 60 130 60 130 92 V191 C130 236 320 232 320 271 V319"/></circle>
 </svg><ol class="topo-m"><li>Organization</li><li>Role · Authority</li><li>Agent</li><li>Task</li><li>Capability</li><li>Tool · Service</li></ol><div class="topo-ms"><span>Knowledge</span><span>Policy</span><span>Memory</span><span>Evaluation</span></div></figure></div>

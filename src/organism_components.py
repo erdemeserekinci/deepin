@@ -203,7 +203,7 @@ def org_under(arg, ctx):
   {roles}{agents}
   <g class="t-node" style="--d:6"><rect x="270" y="258" width="100" height="26" rx="13" class="t-task"/><text x="320" y="275" text-anchor="middle">{e(u["task"])}</text></g>
   <g class="t-node" style="--d:7"><rect x="262" y="306" width="116" height="26" rx="7"/><text x="320" y="323" text-anchor="middle">{e(u["capability"])}</text>
-    <text x="320" y="368" text-anchor="middle" class="t-a">{e(u["tools"])}</text></g>
+    <text x="320" y="368" text-anchor="middle" class="t-s">{e(u["tools"])}</text></g>
   {strata}
   <circle class="t-signal" r="4"><animateMotion dur="7s" repeatCount="indefinite" path="M320 34 C320 60 130 60 130 92 V191 C130 236 320 232 320 271 V319"/></circle>
 </svg>'''

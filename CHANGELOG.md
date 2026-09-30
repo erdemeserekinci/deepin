@@ -127,6 +127,16 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Menü tüm sayfalarda 1160 px çerçeveye sığacak şekilde sıkılaştırıldı (bağlantı aralığı ve yazı boyutu biraz küçüldü; menü 1180 px altında gizleniyor). Önceden İngilizce risk ve security sayfalarında menü taşıyordu, o da düzeldi.
 - Türkçe metinde İngilizce terimlerin etrafında düğme ve etiketlerde oluşan fazladan boşluk giderildi ("Bize bir  Investigation  getirin" gibi).
 
+## design/organism dalı (deneysel, main'e birleştirilmedi)
+
+**DEEPIN / ORGANISM** sanat yönetimi denemesi. Ana fikir: "Organizasyon bir fiildir." Yazı tipleri (Poppins, JetBrains Mono) ve renkler aynı; kullanım kuralları sıkılaştırıldı: nane = sinyal, yeşil = sistemin kurduğu yapı, kehribar = yalnızca insan, koyu = altta yatan (Harness).
+
+- **Ana sayfa bir yolculuk:** sinyal (bir olay gelir) → Investigation kendini organize eder (dağınık sistemler kaynaklara, kaynaklar kanıta, kanıt bulguya dönüşür; kaydırmayla ilerler) → karar anı ("Karar sizindir": gerekçe, kanıt fişleri, Onayla / Reddet / Araştırmaya devam et) → Investigation dizini → iki Space, tek dil (deepin.risk ve deepin.finance aynı adımlarla yan yana) → müşteriler → zemin kalkar, altında Deepin Harness → başlangıç.
+- **Harness sayfası:** üst bölüm koyu "altta yatan" katman, canlı organizasyon topolojisi; Organizational Reasoning artık olay seçmeli ve canlı: her olay farklı rolü, yetkiyi, yeteneği, politika sınırını ve yeni durumu gösterir. Ayrı iş birliği bölümü kaldırıldı (canlı akıl yürütme devretme ve iş birliğini zaten gösteriyor).
+- **Risk ve Finance:** aynı evrene alındı (menü, tipografi, ince çizgiler); kardeş ama kopya değil: risk'te ilişki halkaları, finance'te defter çizgileri ve tek aralıklı tutarlar.
+- **Menü:** tüm sayfalarda tek genel menü (Deepin · deepin.risk · deepin.finance · Harness · Müşteriler); dar ekranlarda açılır menü. Ana sayfada geniş ekranlarda sayfanın hangi aşamasında olduğunuzu gösteren ince bir "durum rayı".
+- **Hareket ve erişilebilirlik:** hareket azaltma tercihinde sahneler adım düğmeleriyle, hareketsiz çalışır; JavaScript olmadan son durum görünür. Yeni bağımlılık yok; sahneler DOM + SVG ile, az sayıda öğeyle çiziliyor.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.
