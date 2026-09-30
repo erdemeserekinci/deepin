@@ -69,7 +69,7 @@
     var scrollMode=false;
     function measure(){
       pick();
-      scrollMode=!reduce&&window.innerHeight>=520;
+      scrollMode=!reduce&&window.innerHeight>=520&&window.innerHeight<=1600;
       scene.classList.toggle('is-scroll',scrollMode);
       if(scrollMode){scene.style.setProperty('--len',window.innerWidth<860?5:5.2)}
       onScroll();
@@ -110,11 +110,11 @@
   var under=document.querySelector('[data-under]');
   if(under){
     var slab=under.querySelector('.slab'),topo=under.querySelector('.topo'),copy=under.querySelector('.under-copy'),uScroll=false;
-    function uMeasure(){uScroll=!reduce&&window.innerWidth>860&&window.innerHeight>=600;under.classList.toggle('is-scroll',uScroll);uUpdate()}
+    function uMeasure(){uScroll=!reduce&&window.innerWidth>860&&window.innerHeight>=600&&window.innerHeight<=1600;under.classList.toggle('is-scroll',uScroll);uUpdate()}
     function uUpdate(){
       var q=1;
       if(uScroll){var tr=under.querySelector('.under-track'),r=tr.getBoundingClientRect();q=Math.min(1,Math.max(0,-r.top/(tr.offsetHeight-window.innerHeight)))}
-      else if(!reduce){var r2=under.getBoundingClientRect();q=r2.top<window.innerHeight*.75?1:0}
+      else if(!reduce&&window.innerHeight<=1600){var r2=under.getBoundingClientRect();q=r2.top<window.innerHeight*.75?1:0}
       slab.style.setProperty('--lift',uScroll?sm(q,.06,.4).toFixed(3):1);
       copy.style.setProperty('--copy',uScroll?sm(q,.22,.46).toFixed(3):1);
       topo.style.setProperty('--draw',uScroll?sm(q,.3,.78).toFixed(3):(reduce?1:q));
