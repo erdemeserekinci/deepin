@@ -144,6 +144,14 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Erişilebilirlik: kanıt vurgusu klavyeyle de çalışır; küçük etiketlerin kontrastı 4.0'dan 5.85'e çıktı.
 - Kullanılmayan eski Harness bileşenleri ve stilleri kaldırıldı.
 
+**Önizlemede sayfa geçişleri** (`76ca480`)
+- Önizleme çerçevesinde alt sayfalar her zaman en baştan açılıyor; geri gelince tıklanan bağlantıya dönülüyor.
+
+**deepin.risk revizyonu birleştirildi** (`risk-sayfa-revizyon` dalından, Özge Miroğlu)
+- Risk sayfasının içeriği ve bileşenleri o daldan alındı: "Her şirkete daha derinden bakın." üst bölümü ve katmanlı vaka kartı, KVKK/BDDK güven şeridi, tek kurgusal vaka (Tedarikçi A.Ş.), roller şeridi ve kanıt kartı, sekmeli "Ne değişti?", katma değer zinciri, sektör kartları, müşteri yorumları, "Nasıl başlarsınız" adımları; bu sayfada Investigation yerine İstihbarat/Intelligence, deepin.risk yerine Deepin Risk.
+- ORGANISM tasarımı korundu: genel menü (o daldaki dört öğeli risk menüsü yerine), tipografi, ince çizgiler ve risk üst bölümündeki ilişki halkaları.
+- Önceki hassas geçişteki "Karar verir" / "Make the decision" düzeltmesi korundu.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.

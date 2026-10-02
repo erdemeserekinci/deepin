@@ -343,10 +343,12 @@ def fill(text, content):
 def render(body, ctx):
     body = fill(body, ctx["content"]).replace("%ROOT%", ctx["root"])
 
-    def rep(m):
+    marker = r"<!--@([\w:.-]+)-->"
+
+    def rep(m):  # a component may itself return markers (e.g. risk_customers)
         name, _, arg = m.group(1).partition(":")
-        return COMPONENTS[name](arg, ctx)
-    return re.sub(r"<!--@([\w:.-]+)-->", rep, body)
+        return re.sub(marker, rep, COMPONENTS[name](arg, ctx))
+    return re.sub(marker, rep, body)
 
 
 def page_path(lang_dir, page):
@@ -378,7 +380,10 @@ def build():
 
             meta, body = front_matter(open(src, encoding="utf-8").read())
             meta = {k: fill(v, ctx["content"]) for k, v in meta.items()}
-            body = render(body, ctx).replace('src="assets/', f'src="{ctx["assets"]}assets/').replace('poster="assets/', f'poster="{ctx["assets"]}assets/')
+            body = render(body, ctx)
+            for a, b in ctx["content"].get("terms", {}).items():  # page-level wording over shared data
+                body = body.replace(a, b)
+            body = body.replace('src="assets/', f'src="{ctx["assets"]}assets/').replace('poster="assets/', f'poster="{ctx["assets"]}assets/')
             chrome_nav, chrome_footer = nav(page, ctx), footer(page, ctx)
             if lang == "tr":
                 body, chrome_nav, chrome_footer = (mark_english(x) for x in (body, chrome_nav, chrome_footer))
