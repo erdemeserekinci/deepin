@@ -43,7 +43,10 @@
     "start_h2": "Üç adımda <b>ilk sonuca.</b>",
     "start_cta": "Bir şirketle başlayın",
     "value_tagline": "Olaydan karara: <b>saniyeler içinde, kanıtıyla.</b>",
-    "layer_note": "Mevcut risk yapınızla birlikte çalışır; iş akışınızın yerini almaz, ona karar için hazır bağlam sağlar."
+    "layer_note": "Mevcut risk yapınızla birlikte çalışır; iş akışınızın yerini almaz, ona karar için hazır bağlam sağlar.",
+    "video_src": "assets/video/deepin-risk-tr.mp4",
+    "video_poster": "assets/video/deepin-risk-tr.jpg",
+    "video_label": "Deepin Risk tanıtım videosu"
   },
   "hero_depth": {
     "mode": "Sürekli izleme",

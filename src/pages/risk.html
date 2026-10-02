@@ -99,7 +99,17 @@ description: {{description}}
   </div>
 </section>
 
-<section class="sec" id="start">
+<section class="sec film-sec" id="video">
+  <div class="wrap">
+    <figure class="film">
+      <video controls preload="metadata" playsinline poster="{{video_poster}}" aria-label="{{video_label}}">
+        <source src="{{video_src}}" type="video/mp4">
+      </video>
+    </figure>
+  </div>
+</section>
+
+<section class="sec tone" id="start">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">{{start_eyebrow}}</p>
