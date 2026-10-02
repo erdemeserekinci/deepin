@@ -43,7 +43,10 @@
     "start_h2": "Three steps <b>to your first result.</b>",
     "start_cta": "Start with one company",
     "value_tagline": "From event to decision: <b>in seconds, with evidence.</b>",
-    "layer_note": "Works alongside your existing risk stack; it doesn't replace your workflow, it gives it decision-ready context."
+    "layer_note": "Works alongside your existing risk stack; it doesn't replace your workflow, it gives it decision-ready context.",
+    "video_src": "assets/video/deepin-risk-en.mp4",
+    "video_poster": "assets/video/deepin-risk-en.jpg",
+    "video_label": "Deepin Risk introduction video"
   },
   "hero_depth": {
     "mode": "Continuous monitoring",

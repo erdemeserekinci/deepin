@@ -151,6 +151,7 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Risk sayfasının içeriği ve bileşenleri o daldan alındı: "Her şirkete daha derinden bakın." üst bölümü ve katmanlı vaka kartı, KVKK/BDDK güven şeridi, tek kurgusal vaka (Tedarikçi A.Ş.), roller şeridi ve kanıt kartı, sekmeli "Ne değişti?", katma değer zinciri, sektör kartları, müşteri yorumları, "Nasıl başlarsınız" adımları; bu sayfada Investigation yerine İstihbarat/Intelligence, deepin.risk yerine Deepin Risk.
 - ORGANISM tasarımı korundu: genel menü (o daldaki dört öğeli risk menüsü yerine), tipografi, ince çizgiler ve risk üst bölümündeki ilişki halkaları.
 - Önceki hassas geçişteki "Karar verir" / "Make the decision" düzeltmesi korundu.
+- 2 Ekim: aynı daldan tanıtım videoları da alındı (`f99abff`). "Nasıl başlarsınız"dan önce video bölümü; TR sayfada Türkçe, EN sayfada İngilizce video ve kapak görseli.
 
 ## Alınan kararlar
 
