@@ -171,10 +171,11 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Eski deepin.space/risk ve /en/risk adresleri 301 ile (`.htaccess`) ya da yedek yönlendirme sayfasıyla alt alan adına gidiyor.
 - Google Analytics (GA4) tüm sayfalarda tek kimlikle; her sayfa kendi adını `content_group` olarak gönderiyor. Kod yalnızca canlı alan adlarında yükleniyor.
 - Dil tercihi alt alan adları arasında `.deepin.space` çereziyle korunuyor.
+- Aynı gün geri alındı: risk sayfası yine deepin.space/risk adresinde; risk.deepin.space DNS üzerinden oraya yönlendiriliyor. Alt alan adı altyapısı `build.py` içinde (`SUBDOMAINS`) duruyor, şu an kapalı. Site GitHub Pages'te, `main` dalından yayınlanıyor.
 
 ## Alınan kararlar
 
-- **Adres yapısı:** Space sayfaları yol olarak yayınlanıyor (deepin.space/finance); 19 Ekim'den itibaren deepin.risk kendi alt alan adında: risk.deepin.space. SEO alt alan adları üzerinden yapılacak.
+- **Adres yapısı:** Space sayfaları yol olarak yayınlanıyor (deepin.space/finance); risk.deepin.space DNS üzerinden deepin.space/risk adresine yönlendiriliyor.
 - **Dil:** Türkçe varsayılan dil ve kökte duruyor; İngilizce /en/ altında. Terimlerde karma yaklaşım uygulanıyor.
 - **Tasarım:** Açık renkler kullanılıyor. Ana renk yeşil (#158867), vurgu rengi mint (#28DCA8). Karanlık mod da destekleniyor.
 - **Müşteri referansları:** Her müşteri gerçekte ulaştığı olgunluk seviyesiyle gösteriliyor: sözleşmeli, ürüne gömülü/kurulumda ya da canlı kullanımda.

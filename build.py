@@ -38,7 +38,7 @@ SUB = {"home": "", "harness": " harness"}     # sub-brand after the logo (".risk
 # which is the document root of that subdomain on the server (with its own assets/).
 # Everywhere else on the site, links to the page point at the subdomain.
 SITE = "https://deepin.space/"
-SUBDOMAINS = {"risk": ("https://risk.deepin.space/", "risk.deepin.space/")}
+SUBDOMAINS = {}   # e.g. {"risk": ("https://risk.deepin.space/", "risk.deepin.space/")}; risk.deepin.space now forwards to deepin.space/risk (DNS)
 if os.environ.get("DEEPIN_PATHS") == "1":   # preview build: every page under one folder, no subdomains
     SUBDOMAINS = {}
 OUT_ROOT = os.environ.get("DEEPIN_OUT", ROOT)

@@ -1,6 +1,0 @@
-# deepin.space (Apache)
-# deepin.risk is published on its own subdomain; the old paths send visitors and search engines there.
-<IfModule mod_alias.c>
-  RedirectMatch 301 ^/risk(/.*)?$ https://risk.deepin.space$1
-  RedirectMatch 301 ^/en/risk(/.*)?$ https://risk.deepin.space/en$1
-</IfModule>
