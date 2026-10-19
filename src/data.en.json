@@ -260,20 +260,12 @@
     ],
     "risk": [
       [
-        "Investigation",
-        "#investigation"
-      ],
-      [
         "Continuous Monitoring",
         "#monitoring"
       ],
       [
-        "Evidence",
-        "#evidence"
-      ],
-      [
-        "Use Cases",
-        "#uses"
+        "Intelligence",
+        "#investigation"
       ],
       [
         "Customers",

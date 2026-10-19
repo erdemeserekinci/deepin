@@ -127,6 +127,41 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Menü tüm sayfalarda 1160 px çerçeveye sığacak şekilde sıkılaştırıldı (bağlantı aralığı ve yazı boyutu biraz küçüldü; menü 1180 px altında gizleniyor). Önceden İngilizce risk ve security sayfalarında menü taşıyordu, o da düzeldi.
 - Türkçe metinde İngilizce terimlerin etrafında düğme ve etiketlerde oluşan fazladan boşluk giderildi ("Bize bir  Investigation  getirin" gibi).
 
+## design/organism dalı (19 Ekim'de main'e birleştirildi)
+
+**DEEPIN / ORGANISM** sanat yönetimi denemesi. Ana fikir: "Organizasyon bir fiildir." Yazı tipleri (Poppins, JetBrains Mono) ve renkler aynı; kullanım kuralları sıkılaştırıldı: nane = sinyal, yeşil = sistemin kurduğu yapı, kehribar = yalnızca insan, koyu = altta yatan (Harness).
+
+- **Ana sayfa bir yolculuk:** sinyal (bir olay gelir) → Investigation kendini organize eder (dağınık sistemler kaynaklara, kaynaklar kanıta, kanıt bulguya dönüşür; kaydırmayla ilerler) → karar anı ("Karar sizindir": gerekçe, kanıt fişleri, Onayla / Reddet / Araştırmaya devam et) → Investigation dizini → iki Space, tek dil (deepin.risk ve deepin.finance aynı adımlarla yan yana) → müşteriler → zemin kalkar, altında Deepin Harness → başlangıç.
+- **Harness sayfası:** üst bölüm koyu "altta yatan" katman, canlı organizasyon topolojisi; Organizational Reasoning artık olay seçmeli ve canlı: her olay farklı rolü, yetkiyi, yeteneği, politika sınırını ve yeni durumu gösterir. Ayrı iş birliği bölümü kaldırıldı (canlı akıl yürütme devretme ve iş birliğini zaten gösteriyor).
+- **Risk ve Finance:** aynı evrene alındı (menü, tipografi, ince çizgiler); kardeş ama kopya değil: risk'te ilişki halkaları, finance'te defter çizgileri ve tek aralıklı tutarlar.
+- **Menü:** tüm sayfalarda tek genel menü (Deepin · deepin.risk · deepin.finance · Harness · Müşteriler); dar ekranlarda açılır menü. Ana sayfada geniş ekranlarda sayfanın hangi aşamasında olduğunuzu gösteren ince bir "durum rayı".
+- **Hareket ve erişilebilirlik:** hareket azaltma tercihinde sahneler adım düğmeleriyle, hareketsiz çalışır; JavaScript olmadan son durum görünür. Yeni bağımlılık yok; sahneler DOM + SVG ile, az sayıda öğeyle çiziliyor.
+
+**Son hassas geçiş (yeniden tasarım yok)**
+- Metin: Risk'te "Deepin bir risk skoru üretmekle yetinmez…" ve "Karar verir"; Finance'te kart şeması süreleri, "Vakadan karara.", "insan onayını koruyarak" düzeltmeleri; Harness Ar-Ge metninde "Organizational Reasoning" terimi; "Onayladınız", "Bir örneği izleyin"; Harness referans cümlesi "…Investigation'larla şekilleniyor" (daha temkinli).
+- Görsel: ana sayfadaki müşteri satırı ince bir çizgiyle ayrılıp kanıt gibi okunuyor; Harness'ta Organizasyon, Organizational Reasoning ve yönetilen iş öne çıktı, bilgi/değerlendirme/izlenebilirlik ikincil katman oldu; tabletlerde Investigation sahnesi düzeldi; mobilde başlık satırı ve Finance durum etiketi taşmıyor.
+- Hareket: yalnızca "Deepin onu yürütür" satırı gelir; sinyal daha seyrek atar; kaydırma ipucu üç kez oynar; hareket azaltmada Harness topolojisindeki sinyal de durur.
+- Erişilebilirlik: kanıt vurgusu klavyeyle de çalışır; küçük etiketlerin kontrastı 4.0'dan 5.85'e çıktı.
+- Kullanılmayan eski Harness bileşenleri ve stilleri kaldırıldı.
+
+**Önizlemede sayfa geçişleri** (`76ca480`)
+- Önizleme çerçevesinde alt sayfalar her zaman en baştan açılıyor; geri gelince tıklanan bağlantıya dönülüyor.
+
+**deepin.risk revizyonu birleştirildi** (`risk-sayfa-revizyon` dalından, Özge Miroğlu)
+- Risk sayfasının içeriği ve bileşenleri o daldan alındı: "Her şirkete daha derinden bakın." üst bölümü ve katmanlı vaka kartı, KVKK/BDDK güven şeridi, tek kurgusal vaka (Tedarikçi A.Ş.), roller şeridi ve kanıt kartı, sekmeli "Ne değişti?", katma değer zinciri, sektör kartları, müşteri yorumları, "Nasıl başlarsınız" adımları; bu sayfada Investigation yerine İstihbarat/Intelligence, deepin.risk yerine Deepin Risk.
+- ORGANISM tasarımı korundu: genel menü (o daldaki dört öğeli risk menüsü yerine), tipografi, ince çizgiler ve risk üst bölümündeki ilişki halkaları.
+- Önceki hassas geçişteki "Karar verir" / "Make the decision" düzeltmesi korundu.
+- 2 Ekim: aynı daldan tanıtım videoları da alındı (`f99abff`). "Nasıl başlarsınız"dan önce video bölümü; TR sayfada Türkçe, EN sayfada İngilizce video ve kapak görseli.
+
+**deepin.risk sunum revizyonu** (`af9ded0`, Özge Miroğlu, 19 Ekim)
+- "Demo talep edin" çağrısı; form demo talebine dönüştü (iletişim + ilgi alanı).
+- Renkler Deepin Risk müşteri sunumundaki palete göre: sektör, müşteri ve "Ne değişti?" sekmelerinde kategori renkleri; kanıt kartında bordo gerekçe, sarı öneri.
+- Üst bölümde ekip fotoğrafı ve vaka sonucu kartı; Canlı İstihbarat'ta risk barometresi; "Son karar her zaman ekibinizde." kutusu.
+- Kaldırılanlar: sürekli izleme derinlik kartı, "Nasıl başlarsınız" bölümü, risk üst bölümündeki ilişki halkaları.
+
+**Main'e birleştirme** (19 Ekim)
+- ORGANISM tasarımı ve risk revizyonları main'e alındı; site bu sürümle yayına hazırlanıyor.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.

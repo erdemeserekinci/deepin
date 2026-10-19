@@ -30,3 +30,11 @@
 .entity{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 @media (max-width:700px){.entity{grid-template-columns:1fr 1fr}}
 .entity span{padding:12px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-size:14px}
+
+/* ORGANISM: deepin.finance — a dispute lives on a ledger: amounts, dates, deadlines */
+.pg-finance .hero{background:
+  repeating-linear-gradient(180deg,transparent 0 35px,var(--hair-2) 35px 36px),
+  linear-gradient(90deg,var(--bg) 0 38%,transparent 70%),var(--bg);background-blend-mode:normal}
+.pg-finance .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--bg) 30%,transparent 75%)}
+.pg-finance .hero .wrap{z-index:1}
+.pg-finance .amt strong{font-family:var(--mono);font-weight:500;letter-spacing:-.02em}

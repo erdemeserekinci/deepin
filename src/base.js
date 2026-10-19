@@ -12,21 +12,28 @@
   // Remember the link a visitor leaves through, and on load scroll the frame's own
   // content: back to that link after Back, to the top (or #section) otherwise.
   if(window.top!==window){
-    var POS='deepin-pos:'+location.pathname;
+    var POS='deepin-pos:'+location.pathname,user=false;
+    try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}
     document.addEventListener('click',function(ev){
       var a=ev.target.closest&&ev.target.closest('a[href]');if(!a)return;
       var h=a.getAttribute('href');if(!h||h.charAt(0)==='#'||/^(mailto|tel|javascript):/i.test(h))return;
       try{sessionStorage.setItem(POS,[].indexOf.call(document.querySelectorAll('a[href]'),a))}catch(e){}
     },true);
-    var land=function(back){
+    ['wheel','touchstart','keydown','mousedown'].forEach(function(t){window.addEventListener(t,function(){user=true},{passive:true,once:true})});
+    var nav0=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0],back=!!nav0&&nav0.type==='back_forward';
+    var land=function(){
+      if(user)return;
       var t=null,i=null;
       if(back){try{i=sessionStorage.getItem(POS)}catch(e){}if(i!==null)t=document.querySelectorAll('a[href]')[+i]}
       if(!t&&location.hash){try{t=document.querySelector(location.hash)}catch(e){}}
-      if(t)t.scrollIntoView({block:back?'center':'start'});else document.documentElement.scrollIntoView({block:'start'});
+      if(t)t.scrollIntoView({block:back?'center':'start'});
+      else{window.scrollTo(0,0);document.documentElement.scrollIntoView({block:'start'})}
     };
-    var nav=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];
-    land(!!nav&&nav.type==='back_forward');
-    window.addEventListener('pageshow',function(ev){if(ev.persisted)land(true)});
+    if(!back){try{sessionStorage.removeItem(POS)}catch(e){}}
+    // run now, and again once the page has settled (a preview window may restore its own position late)
+    land();requestAnimationFrame(land);
+    window.addEventListener('load',function(){land();setTimeout(land,150);setTimeout(land,450)});
+    window.addEventListener('pageshow',function(ev){if(ev.persisted){back=true;user=false;land()}});
   }
   // remember the language the visitor picks
   document.querySelectorAll('.langs a[hreflang]').forEach(function(a){
@@ -164,6 +171,24 @@
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawTangles);
 
   // deepin.risk demo interactions
+  document.querySelectorAll('[data-tabs]').forEach(function(box){
+    var tabs=[].slice.call(box.querySelectorAll('[role="tab"]'));if(!tabs.length)return;
+    function sel(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});if(focus)t.focus()}
+    box.classList.add('tabbed');sel(tabs[0]);
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){sel(t)});
+      t.addEventListener('keydown',function(ev){var k=ev.key==='ArrowRight'?1:ev.key==='ArrowLeft'?-1:0;if(k){ev.preventDefault();sel(tabs[(i+k+tabs.length)%tabs.length],true)}});
+    });
+  });
+  // living timeline: the light orb runs from the first ring to the last each time the timeline is scrolled into view
+  document.querySelectorAll('.lt-track').forEach(function(tr){
+    if(!('IntersectionObserver' in window)){tr.classList.add('orb-go');return}
+    new IntersectionObserver(function(en){
+      var e=en[0];
+      if(e.intersectionRatio>=.6&&!tr.classList.contains('orb-go')){void tr.offsetWidth;tr.classList.add('orb-go')}
+      else if(!e.isIntersecting)tr.classList.remove('orb-go');
+    },{threshold:[0,.6]}).observe(tr);
+  });
   document.querySelectorAll('.liv-tl').forEach(function(tl){
     var btns=[].slice.call(tl.querySelectorAll('.lt-btn')),panels=[].slice.call(tl.querySelectorAll('.lt-panel'));
     btns.forEach(function(b){b.addEventListener('click',function(){
@@ -183,6 +208,11 @@
   document.querySelectorAll('details.ev-d').forEach(function(d){
     var s=d.querySelector('summary');
     d.addEventListener('toggle',function(){s.textContent=d.open?s.getAttribute('data-hide'):s.getAttribute('data-view')});
+  });
+  document.querySelectorAll('[data-ev-all]').forEach(function(b){
+    var list=b.parentNode.querySelector('.why3s');if(!list)return;
+    list.classList.add('closed');b.hidden=false;
+    b.addEventListener('click',function(){var c=list.classList.toggle('closed');b.textContent=b.getAttribute(c?'data-show':'data-hide')});
   });
   document.querySelectorAll('[data-decision]').forEach(function(box){
     var res=box.querySelector('.rcx-result'),steps=[].slice.call(box.querySelectorAll('.rcx-further li'));

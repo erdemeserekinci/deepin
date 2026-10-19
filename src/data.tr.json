@@ -260,20 +260,12 @@
     ],
     "risk": [
       [
-        "Investigation",
-        "#investigation"
-      ],
-      [
         "İzleme",
         "#monitoring"
       ],
       [
-        "Kanıt",
-        "#evidence"
-      ],
-      [
-        "Kullanım",
-        "#uses"
+        "İstihbarat",
+        "#investigation"
       ],
       [
         "Müşteriler",

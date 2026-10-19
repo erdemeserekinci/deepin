@@ -1,0 +1,356 @@
+{
+  "copy": {
+    "title": "Deepin · Enterprise Investigation & Decision Automation",
+    "description": "Every decision starts with an Investigation. Deepin investigates business cases across your systems, shows the evidence and waits for a person to approve.",
+    "hero_kicker": "Enterprise Investigation &amp; Decision Automation",
+    "hero_l1": "Every decision starts",
+    "hero_l2": "with an Investigation.",
+    "hero_l3": "Deepin runs it.",
+    "hero_lede": "Before a risk, fraud or compliance decision, your people search systems, read documents and compare records. Deepin does that investigation, shows the evidence behind every finding and waits for a person to approve.",
+    "hero_cta": "Bring us an investigation",
+    "hero_cta2": "Watch one unfold",
+    "hero_proof": "In production at <b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> and <b>GreenChimney</b>",
+    "sig_time": "18.09.2026 · 09:42",
+    "sig_src": "Trade Registry Gazette",
+    "sig_text": "New signatory registered · Northwind Lojistik A.Ş.",
+    "sig_next": "A decision is required.",
+    "sc_kicker": "Investigation",
+    "sc_note": "Sample case with a fictional company.",
+    "sc_steps": "Investigation steps",
+    "dc_kicker": "Deepin stops here.",
+    "dc_h": "The decision <b>is yours.</b>",
+    "dc_p": "Deepin never decides silently. It brings the case to the person with the authority to decide, with every reason and every source attached.",
+    "ix_kicker": "Investigations",
+    "ix_h": "What should Deepin <b>investigate?</b>",
+    "ix_p": "You buy an Investigation, not a platform. Start with the one your team spends the most time on.",
+    "sp_kicker": "Spaces",
+    "sp_h": "Repeated across a domain, <b>an Investigation becomes a Space.</b>",
+    "sp_p": "A Space is earned through repetition: the same kind of Investigation in one domain, leaving reusable capability behind. Two Spaces, one grammar.",
+    "pf_kicker": "Customers",
+    "pf_h": "Proven in real <b>enterprise environments.</b>",
+    "pf_p": "Each reference is shown at the maturity it has actually reached.",
+    "hx_kicker": "Under the Spaces",
+    "hx_h": "Under every Investigation <b>is an organization.</b>",
+    "hx_p": "Deepin Harness gives AI roles, capabilities, knowledge, policies and controls, so agents work as part of an enterprise, not as isolated assistants.",
+    "hx_cta": "Explore Deepin Harness →",
+    "hx_ent": "Built for regulated enterprises",
+    "cl_kicker": "Start here",
+    "cl_h": "Bring us <b>an investigation.</b>",
+    "cl_next": "Then: <b>what should Deepin investigate next?</b>",
+    "rail_label": "On this page"
+  },
+  "rail": [
+    [
+      "signal",
+      "Signal"
+    ],
+    [
+      "investigation",
+      "Investigation"
+    ],
+    [
+      "decision",
+      "Decision"
+    ],
+    [
+      "investigations",
+      "Catalog"
+    ],
+    [
+      "spaces",
+      "Spaces"
+    ],
+    [
+      "customers",
+      "Customers"
+    ],
+    [
+      "enterprise",
+      "Harness"
+    ],
+    [
+      "contact",
+      "Start"
+    ]
+  ],
+  "scene": {
+    "phases": [
+      {
+        "k": "Today",
+        "h": "Before the decision, someone has to investigate.",
+        "p": "Eight systems, scattered records and hours of searching, reading and comparing. The trail lives in someone's head."
+      },
+      {
+        "k": "Deepin",
+        "h": "Deepin organizes around the work.",
+        "p": "The same systems, read in one place. Every source is checked and kept with the case."
+      },
+      {
+        "k": "Evidence",
+        "h": "Sources become evidence.",
+        "p": "Three of eight sources carry something material. Each piece of evidence stays linked to where it came from."
+      },
+      {
+        "k": "Finding",
+        "h": "Evidence becomes a finding.",
+        "p": "The reasoning is written out, with the policy it applies. Nothing has been decided."
+      },
+      {
+        "k": "Decision",
+        "h": "Keep the decision. <b>Lose the investigation work.</b>",
+        "p": "Deepin stops and hands a person the case: the finding, the evidence and a proposed decision."
+      }
+    ],
+    "company": "Northwind Lojistik A.Ş.",
+    "case": "INV-2026-0418",
+    "checked": "checked",
+    "sources": [
+      [
+        "reg1",
+        "Trade Registry",
+        "Search the latest filing",
+        "Filing · 12 Sep",
+        "E1"
+      ],
+      [
+        "reg2",
+        "Trade Registry",
+        "Verify the shareholder",
+        "Filing · 18 Sep",
+        "E2"
+      ],
+      [
+        "graph",
+        "Relationship graph",
+        "Who is connected to whom?",
+        "2 watched companies",
+        "E3"
+      ],
+      [
+        "pdf",
+        "PDF",
+        "Download and read",
+        "Articles of association",
+        ""
+      ],
+      [
+        "crm",
+        "CRM",
+        "Find the company",
+        "Supplier record",
+        ""
+      ],
+      [
+        "mail",
+        "Email",
+        "Ask for a missing document",
+        "Correspondence",
+        ""
+      ],
+      [
+        "sheet",
+        "Spreadsheet",
+        "Compare with the last review",
+        "Last review",
+        ""
+      ],
+      [
+        "web",
+        "News & web",
+        "Search the related company",
+        "Press",
+        ""
+      ]
+    ],
+    "tangle": [
+      [
+        "crm",
+        "reg1",
+        "Different company name"
+      ],
+      [
+        "reg1",
+        "pdf",
+        ""
+      ],
+      [
+        "pdf",
+        "web",
+        ""
+      ],
+      [
+        "web",
+        "graph",
+        "Who is connected to whom?"
+      ],
+      [
+        "graph",
+        "reg2",
+        "Check again"
+      ],
+      [
+        "reg2",
+        "sheet",
+        ""
+      ],
+      [
+        "sheet",
+        "mail",
+        "Missing evidence"
+      ],
+      [
+        "mail",
+        "crm",
+        "Which record is current?"
+      ],
+      [
+        "reg2",
+        "reg1",
+        ""
+      ]
+    ],
+    "evidence": [
+      [
+        "E1",
+        "Share capital reduced by 40%",
+        "Trade Registry Gazette · 12 Sep"
+      ],
+      [
+        "E2",
+        "Representation authority changed",
+        "Trade Registry Gazette · 18 Sep"
+      ],
+      [
+        "E3",
+        "New signatory is a partner in 2 watched companies",
+        "Relationship graph"
+      ]
+    ],
+    "finding_k": "Finding",
+    "finding": "Capital reduction and an authority change within 30 days, linked to watched companies. This matches your elevated supplier risk policy.",
+    "decision_k": "Proposed decision",
+    "decision": "Risk level Medium → High",
+    "decision_sub": "Waiting for a person"
+  },
+  "decision": {
+    "head": "INV-2026-0418 · Northwind Lojistik A.Ş.",
+    "status": "Awaiting your decision",
+    "chain": [
+      "Source",
+      "Evidence",
+      "Reasoning",
+      "Recommendation",
+      "Human decision"
+    ],
+    "rec_k": "Recommendation",
+    "rec": "Raise the company risk level",
+    "rec_sub": "Medium → High",
+    "why_k": "Why",
+    "why": [
+      [
+        "Representation authority changed",
+        "E2"
+      ],
+      [
+        "Share capital reduced by 40%",
+        "E1"
+      ],
+      [
+        "New signatory linked to 2 watched companies",
+        "E3"
+      ]
+    ],
+    "ev_k": "Evidence",
+    "actions": [
+      [
+        "approve",
+        "Approve",
+        "Approved by you. The risk level is updated, and the case, its evidence and your decision are kept together."
+      ],
+      [
+        "reject",
+        "Reject",
+        "Rejected. The risk level stays Medium, and your reason is recorded with the case."
+      ],
+      [
+        "further",
+        "Investigate further",
+        ""
+      ]
+    ],
+    "further": [
+      "Request the latest financial statements",
+      "Check the signatory's other companies",
+      "Run the Investigation again in 7 days"
+    ],
+    "note": "Sample case with a fictional company."
+  },
+  "grammar": {
+    "label": "Shared grammar",
+    "rows": [
+      [
+        "Signal",
+        "A company changes: new signatory, capital reduced",
+        "A dispute arrives: ₺4,850 · goods not received"
+      ],
+      [
+        "Sources",
+        "Trade registry · company records · relationship graph",
+        "Transaction · 3-D Secure log · merchant profile · scheme rules"
+      ],
+      [
+        "Evidence",
+        "Authority changed · capital −40% · linked to watched companies",
+        "Cardholder authenticated · no proof of delivery"
+      ],
+      [
+        "Recommendation",
+        "Raise risk level: Medium → High",
+        "Accept the dispute · flag the merchant"
+      ],
+      [
+        "Human decision",
+        "The risk analyst decides",
+        "The dispute analyst decides"
+      ]
+    ],
+    "note": "Illustrative cases with fictional companies."
+  },
+  "under": {
+    "slab": [
+      "Signal",
+      "Investigation",
+      "Evidence",
+      "Human decision"
+    ],
+    "org": "Organization",
+    "role": "Role",
+    "authority": "Authority",
+    "agent": "Agent",
+    "task": "Task",
+    "capability": "Capability",
+    "tools": "Tool · Service",
+    "strata": [
+      "Knowledge",
+      "Policy",
+      "Memory",
+      "Evaluation"
+    ],
+    "aria": "Deepin Harness: an organization of roles with authority, agents working on a task through capabilities, over shared knowledge, policy, memory and evaluation",
+    "slab_h": "Deepin performs Investigations. <b>Again and again, across domains.</b>"
+  },
+  "close": [
+    [
+      "Show us the work",
+      "Show us what your team investigates today."
+    ],
+    [
+      "Run a real case",
+      "Real case, real systems and measurable success criteria."
+    ],
+    [
+      "Put it into production",
+      "Deploy the investigation into your operational environment."
+    ]
+  ]
+}

@@ -9,12 +9,11 @@ The organization model is conceptual: it names the ideas Harness works with,
 not code-level classes.
 
 Components, in page order:
-  hx_runtime_org      hero: organization -> roles -> agents -> task -> approval -> action
+  (hero)              the organization topology from organism_components (org_under:topo)
   hx_problem          a plain agent vs the questions an enterprise asks
   hx_org_model        Organization, Role, Authority, Policy, Agent, Task, Capability, Tool, Service, Knowledge
-  hx_reasoning        state -> event -> checks -> act / delegate / collaborate -> new state
+  hx_reason_live      Organizational Reasoning: events change role, authority, capabilities, policy and state
   hx_runtime          request -> Harness layers (each leaves a trace) -> enterprise systems
-  hx_collab           illustrative Company Investigation collaboration
   hx_gate             governance gate with three example requests
   hx_knowledge        sources -> organizational knowledge -> roles / agents / Investigations
   hx_evaluation       task -> trace -> outcome -> evaluation criteria -> regression / improvement
@@ -51,30 +50,6 @@ def _wm(space):
 
 
 # ------------------------------------------------------------------ hero
-def hx_runtime_org(arg, ctx):
-    h = _c(ctx, "hero_org")
-    cols = []
-    for n, res in enumerate(h["res"], 1):
-        cols.append(f'''<div class="ho-col">
-        <span class="ho-n ho-role" data-n="r{n}" data-s="1">{e(h["role"])}</span>
-        <span class="ho-n ho-agent" data-n="a{n}" data-s="2">{e(h["agent"])}</span>
-        <span class="ho-n ho-res" data-n="c{n}" data-s="3">{e(res)}</span>
-      </div>''')
-    edges = [["o", f"r{n}", "fl"] for n in (1, 2, 3)]
-    edges += [[f"r{n}", f"a{n}", ""] for n in (1, 2, 3)] + [[f"a{n}", f"c{n}", ""] for n in (1, 2, 3)]
-    edges += [[f"c{n}", "t", "fl"] for n in (1, 2, 3)] + [["t", "h", "w"], ["h", "x", ""]]
-    return f'''<figure class="case ho" data-live data-labels="{_links(h["labels"])}" aria-label="{e(h["aria"])}">
-  <div class="case-top"><span class="case-id">{e(h["title"])}</span><span class="chip st-production" data-live-status>{e(h["labels"][-1])}</span></div>
-  <div class="ho-body" data-links="{_links(edges)}">
-    <div class="ho-org" data-n="o" data-s="0"><span>{e(h["org"])}</span></div>
-    <div class="ho-cols">{"".join(cols)}</div>
-    <span class="ho-n ho-task" data-n="t" data-s="4">{e(h["task"])}</span>
-    <span class="ho-n ho-ap" data-n="h" data-s="5">{e(h["approval"])}</span>
-    <span class="ho-n ho-act" data-n="x" data-s="6">{e(h["action"])}</span>
-  </div>
-</figure>'''
-
-
 # ------------------------------------------------------------------ problem
 def hx_problem(arg, ctx):
     p, c = _c(ctx, "problem"), ctx["content"]["copy"]
@@ -120,25 +95,6 @@ def hx_org_model(arg, ctx):
 
 
 # ------------------------------------------------------------------ organizational reasoning
-def hx_reasoning(arg, ctx):
-    r = _c(ctx, "reasoning")
-    pair = "".join(f'<div><span class="om-t">{e(t)}</span><p>{e(d)}</p></div>' for t, d in r["pair"])
-    checks = "".join(f'<li data-s="{2 + i}">{e(q)}</li>' for i, q in enumerate(r["checks"]))
-    outs = "".join(f"<span>{e(o)}</span>" for o in r["outcomes"])
-    return f'''<div class="rs-pair">{pair}</div>
-<figure class="rs" data-live aria-label="{e(r["aria"])}">
-  <div class="rs-flow">
-    <div class="rs-n rs-state" data-s="0">{e(r["state"])}</div>
-    <div class="rs-n rs-event" data-s="1">{e(r["event"])}</div>
-    <ol class="rs-checks">{checks}</ol>
-    <div class="rs-n rs-out" data-s="6">{outs}</div>
-    <div class="rs-n rs-state next" data-s="7">{e(r["next"])}</div>
-  </div>
-  <div class="rs-loop" aria-hidden="true"><span>↺ {e(r["loop"])}</span></div>
-  <figcaption class="rs-note">{e(r["note"])}</figcaption>
-</figure>'''
-
-
 # ------------------------------------------------------------------ runtime
 def hx_runtime(arg, ctx):
     r, c = _c(ctx, "runtime"), ctx["content"]["copy"]
@@ -163,31 +119,6 @@ def hx_runtime(arg, ctx):
 
 
 # ------------------------------------------------------------------ collaboration
-def hx_collab(arg, ctx):
-    k = _c(ctx, "collab")
-    n = k["nodes"]
-
-    def node(key, cls=""):
-        t, s = n[key]
-        sub = f"<small>{e(s)}</small>" if s else ""
-        return f'<div class="cl-n cl-{key} {cls}" data-n="{key}"><b>{e(t)}</b>{sub}</div>'
-
-    edges = [["inv", "lead", ""], ["lead", "reg", ""], ["lead", "fin", ""], ["reg", "regc", ""], ["fin", "finc", ""],
-             ["regc", "ev", ""], ["finc", "ev", ""], ["ev", "eval", ""], ["eval", "dec", "w"]]
-    concepts = "".join(f'<li><b>{e(t)}</b><span>{e(d)}</span></li>' for t, d in k["concepts"])
-    return f'''<div class="cl-wrap">
-  <figure class="cl">
-    <div class="cl-top"><span class="lbl" style="margin:0">{e(k["label"])}</span></div>
-    <div class="cl-grid" data-links="{_links(edges)}">
-      {node("inv", "wide")}{node("lead", "wide role")}{node("reg", "role")}{node("fin", "role")}
-      {node("regc", "cl-cap")}{node("finc", "cl-cap")}{node("ev", "wide ev")}{node("eval", "wide")}{node("dec", "wide hum")}
-    </div>
-    <figcaption class="cl-note">{e(k["note"])}</figcaption>
-  </figure>
-  <ul class="cl-concepts">{concepts}</ul>
-</div>'''
-
-
 # ------------------------------------------------------------------ governance
 def hx_gate(arg, ctx):
     g, c = _c(ctx, "gate"), ctx["content"]["copy"]
@@ -309,17 +240,46 @@ def hx_research(arg, ctx):
     return f'<ol class="rsx">{items}</ol>'
 
 
+# ------------------------------------------------------------------ organizational reasoning, live
+_RL_POS = {"trp": (21, 24), "reg": (13, 60), "dsp": (79, 24), "lead": (50, 50), "ana": (31, 87), "dan": (69, 87), "cmp": (87, 60)}
+
+
+def hx_reason_live(arg, ctx):
+    r, rs = ctx["content"]["reason_live"], ctx["content"]["reasoning"]
+    ev0 = r["events"][0]
+    pair = "".join(f'<div><span class="om-t">{e(t)}</span><p>{e(d)}</p></div>' for t, d in rs["pair"])
+    evs = "".join(
+        f'<li><button type="button" class="rl-ev{" on" if i == 0 else ""}" data-ev="{i}" aria-pressed="{"true" if i == 0 else "false"}">'
+        f'<i aria-hidden="true"></i><span>{e(x["t"])}</span></button></li>' for i, x in enumerate(r["events"]))
+    nodes = "".join(
+        f'<div class="rl-n rl-{kind}{" on" if k == ev0["active"] else ""}" data-role="{k}" style="--x:{_RL_POS[k][0]};--y:{_RL_POS[k][1]}">'
+        f'<b>{e(name)}</b><small>{e(r["kinds"][kind])}</small></div>' for k, (name, kind) in r["roles"].items())
+    ans = "".join(f'<div><dt>{e(q)}</dt><dd data-a="{i}">{e(a)}</dd></div>' for i, (q, a) in enumerate(zip(r["q"], ev0["a"])))
+    return f'''<div class="rs-pair">{pair}</div>
+<div class="rl" data-rl="{_links(r["events"])}">
+  <div class="rl-left">
+    <span class="lab">{e(r["label"])}</span>
+    <ol class="rl-evs">{evs}</ol>
+  </div>
+  <div class="rl-graph"><svg class="rl-lines" aria-hidden="true"></svg><span class="rl-bound lab">{e(r["boundary"])}</span>{nodes}</div>
+  <div class="rl-panel" aria-live="polite">
+    <dl class="rl-ans">{ans}</dl>
+    <div class="rl-out"><span class="lab">{e(r["outcome_k"])}</span><b data-out>{e(ev0["out"])}</b></div>
+    <div class="rl-state {ev0["kind"]}" data-state-box><span class="lab">{e(r["state_k"])}</span><b data-state>{e(ev0["state"])}</b></div>
+  </div>
+</div>
+<p class="rl-note">{e(r["note"])}</p>'''
+
+
 COMPONENTS = {
-    "hx_runtime_org": hx_runtime_org,
     "hx_problem": hx_problem,
     "hx_org_model": hx_org_model,
-    "hx_reasoning": hx_reasoning,
     "hx_runtime": hx_runtime,
-    "hx_collab": hx_collab,
     "hx_gate": hx_gate,
     "hx_knowledge": hx_knowledge,
     "hx_evaluation": hx_evaluation,
     "hx_trace": hx_trace,
     "hx_spaces": hx_spaces,
     "hx_research": hx_research,
+    "hx_reason_live": hx_reason_live,
 }

@@ -5,18 +5,23 @@ Every component takes (arg, ctx); ctx["content"] is the page content file
 page only needs risk.tr.json.
 
 Components, roughly in page order:
-  company_investigation_card  hero: live investigation (InvestigationActivity, MaterialChange)
+  trust_strip                 hero: compliance badges under the buttons
+  hero_visual                 hero: photo in the deck composition + case result card
   living_investigation        static report vs CompanyTimeline (clickable events)
-  what_changed                OwnershipChange, AuthorityChange, RelationshipGraph, financial timeline
-  monitoring_vs_investigation Detect -> Investigate -> Explain
   evidence_chain              Source -> ... -> Human decision
   roles                       Deepin investigates, your team decides
   risk_context_change         EvidenceCard / ReasoningTrail / RecommendationCard / HumanApproval
-  risk_stack                  corporate intelligence -> deepin.risk -> your risk process
-  one_to_many                 one Company Investigation, multiple decisions
-  request_form                Company Investigation request (inline on desktop, sheet on mobile)
+  what_changed                tabs: RelationshipGraph, OwnershipChange, AuthorityChange, financial timeline
+  value_chain                 company data + deepin.risk = your decision
+  sectors                     one Company Intelligence capability, a decision per sector
+  risk_customers              customer cards with a quote each (draft quotes are tagged)
+  request_form                demo request: contact, then interest (inline on desktop, sheet on mobile)
+
+All company and person names are role names (Tedarikçi A.Ş., Yetkili X ...), never real or
+realistic ones.
 """
 import json
+import os
 from html import escape as e
 
 
@@ -37,44 +42,30 @@ def _risk(level):
     return f'<span class="risk r-{level.lower()}">{e(_u("levels", {}).get(level, level))}</span>'
 
 
-def _ck():
-    return '<svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5 8.2l2 2 4-4.4"/></svg>'
-
-
 def _see_evidence(label, ev):
     return (f'<details class="see-ev"><summary>{e(label)}</summary>'
             f'<div class="see-ev-body"><small>{e(ev["source"])}</small><p>{e(ev["excerpt"])}</p></div></details>')
 
 
 # ------------------------------------------------------------------ hero
-def company_investigation_card(arg, ctx):
-    L, t = ctx["content"]["live"], ctx["content"]["copy"]
-    s = 0
-    event = f'<div class="ci-event" data-s="{s}"><span class="ci-pulse" aria-hidden="true"></span><div><b>{e(L["event"])}</b><small>{e(L["event_meta"])}</small></div></div>'
-    s += 1
-    started = f'<div class="ci-start" data-s="{s}"><span>{e(L["started"])}</span></div>'
-    acts = []
-    for a in L["activity"]:
-        s += 1
-        acts.append(f'<li data-s="{s}">{_ck()}<span>{e(a)}</span></li>')
-    s += 1
-    finds = "".join(f'<li><span class="n">{i+1:02d}</span>{e(f)}</li>' for i, f in enumerate(L["findings"]))
-    labels = e(json.dumps(L["status"], ensure_ascii=False))
-    return f'''<figure class="case ci" data-live data-labels="{labels}" aria-label="{e(_u("aria_live", "Live company investigation (demo)"))}">
-  <div class="case-top ci-top">
-    <div><span class="lbl">{e(L["mode"])}</span><strong>{e(L["company"])}</strong></div>
-    <span class="chip st-wait" data-live-status>{e(L["status"][-1])}</span>
+def _wm(name):
+    return f'deep<b>in</b>.{e(name.split(".", 1)[1])}' if name.startswith("deepin.") else e(name)
+
+
+def hero_visual(arg, ctx):
+    """Hero photo in the deck's composition: mint circle, purple/yellow arcs, the case result on a card."""
+    H, t = ctx["content"]["hero_depth"], ctx["content"]["copy"]
+    return f'''<div class="hv">
+  <span class="hv-a y" aria-hidden="true"></span><span class="hv-a p" aria-hidden="true"></span>
+  <span class="hv-d r" aria-hidden="true"></span><span class="hv-d u" aria-hidden="true"></span>
+  <div class="hv-c"><img src="assets/img/deepin-risk-hero.webp" alt="{e(t["hero_img_alt"])}" width="1000" height="1000" decoding="async"></div>
+  <div class="hv-card">
+    <div class="t"><span>{e(H["company"])}</span><span class="mail" role="img" aria-label="{e(H["mail_label"])}" title="{e(H["mail_label"])}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M4 7.5l8 6 8-6"/></svg><i></i></span></div>
+    <div class="r"><span class="lbl">{e(H["risk_label"])}</span>{_risk(H["risk_from"])}<span aria-hidden="true">→</span>{_risk(H["risk_to"])}</div>
+    <b>{e(H["summary"])}</b>
+    <a href="#monitoring">{e(H["link"])} →</a>
   </div>
-  <ol class="live-bar" aria-hidden="true">{"<li></li>" * (s + 1)}</ol>
-  <div class="case-body">
-    {event}
-    {started}
-    <ul class="ci-activity">{"".join(acts)}</ul>
-    <div class="ci-findings" data-s="{s}"><span class="lbl">{e(L["findings_label"])}</span><ol>{finds}</ol></div>
-    <a class="btn btn-ghost btn-sm ci-link" href="#evidence" data-s="{s}">{e(L["link"])} →</a>
-  </div>
-  <figcaption class="case-note">{e(t["demo_note"])}</figcaption>
-</figure>'''
+</div>'''
 
 
 # ------------------------------------------------------------------ living investigation
@@ -100,21 +91,22 @@ def living_investigation(arg, ctx):
         sel = " sel" if i == len(T["events"]) - 1 else ""
         pts.append(f'''<li class="lt-pt{cls}" style="--x:{pos(ev["tick"])}"><button type="button" class="lt-btn{sel}" data-ev="{i}" aria-pressed="{"true" if sel else "false"}"><span class="lt-dot"></span><span class="lt-lbl"><small>{e(ev["date"])}</small><b>{e(ev["change"])}</b></span></button></li>''')
         change = (f'{_risk(ev["risk_from"])}<span aria-hidden="true">→</span>{_risk(ev["risk_to"])}' if ev["risk_from"] != ev["risk_to"] else _risk(ev["risk_to"]))
-        panels.append(f'''<div class="lt-panel" data-panel="{i}"{"" if sel else " hidden"}>
-  <div class="lt-ba"><div><span class="lbl">{e(T["before_label"])}</span><p>{e(ev["before"])}</p></div><span class="lt-arrow" aria-hidden="true">→</span><div class="after"><span class="lbl">{e(T["after_label"])}</span><p>{e(ev["after"])}</p></div></div>
+        body = (f'<div class="lt-ba"><div><span class="lbl">{e(T["before_label"])}</span><p>{e(ev["before"])}</p></div><span class="lt-arrow" aria-hidden="true">→</span>'
+                f'<div class="after"><span class="lbl">{e(T["after_label"])}</span><p>{e(ev["after"])}</p></div></div>')
+        panels.append(f'''<div class="lt-panel lv-{ev["risk_to"].lower()}" data-panel="{i}"{"" if sel else " hidden"}>
+  {body}
   <div class="lt-meta"><span class="lt-re">↻ {e(T["reopened"])}</span><span class="lt-risk"><span class="lbl">{e(T["risk_label"])}</span>{change}</span><small>{e(ev["source"])}</small></div>
 </div>''')
-    loop = "".join(f"<li>{e(x)}</li>" for x in T["loop"])
     return f'''<div class="liv">
   {report}
   <div class="liv-tl">
     <div class="liv-head"><span class="lbl">{e(_u("living", "Living investigation"))}</span><strong>{e(T["company"])}</strong><small class="liv-hint">{e(t["mon_hint"])}</small></div>
+    <div class="lt-meter" aria-hidden="true"><span class="lbl">{e(T["meter"]["label"])}</span>{_risk(T["meter"]["from"])}<i></i>{_risk(T["meter"]["to"])}</div>
     <div class="lt-axis" aria-hidden="true">{ticks}</div>
     <ol class="lt-track">{"".join(pts)}</ol>
     <div class="lt-panels" aria-live="polite">{"".join(panels)}</div>
   </div>
-</div>
-<ol class="loop" aria-label="{e(_u("aria_loop", "What happens when a material change is detected"))}">{loop}</ol>'''
+</div>'''
 
 
 # ------------------------------------------------------------------ what changed
@@ -139,10 +131,17 @@ def _graph(g):
     edges = []
     for ed in g["edges"]:
         a, b, lbl = N[ed[0]], N[ed[1]], ed[2]
-        new = len(ed) > 3
+        new, risk = len(ed) > 3, "risk" in ed[3:]
         mx, my = (a["x"] + b["x"]) / 2, (a["y"] + b["y"]) / 2
-        edges.append(f'<line class="ge{" new" if new else ""}" x1="{a["x"]}" y1="{a["y"]}" x2="{b["x"]}" y2="{b["y"]}"/>'
-                     f'<text class="gel" x="{mx}" y="{my - 6}" text-anchor="middle">{e(lbl)}</text>')
+        line = f'<line class="ge{" new" if new else ""}" x1="{a["x"]}" y1="{a["y"]}" x2="{b["x"]}" y2="{b["y"]}"/>'
+        if risk:  # risk signal on the edge: red badge on the line, label beside it
+            flag = e(_u("risk_flag", "Risk signal"))
+            body = (line + f'<g class="gflag" role="img" aria-label="{flag}"><title>{flag}</title>'
+                    f'<circle cx="{mx}" cy="{my}" r="9"/><text x="{mx}" y="{my + 4}" text-anchor="middle">!</text></g>'
+                    f'<text class="gel gel-risk" x="{mx + 14}" y="{my + 4}">{e(lbl)}</text>')
+        else:
+            body = line + f'<text class="gel" x="{mx}" y="{my - 6}" text-anchor="middle">{e(lbl)}</text>'
+        edges.append(body)
     nodes = []
     for n in g["nodes"]:
         w = max(96, len(n["label"]) * 7.4 + 22)
@@ -161,28 +160,22 @@ def _financial(f):
 
 
 def what_changed(arg, ctx):
+    """Four dimensions as tabs; without JS every panel stays visible."""
     t = ctx["content"]["copy"]
-    rows = []
-    for d in ctx["content"]["dimensions"]:
+    tabs, panels = [], []
+    for i, d in enumerate(ctx["content"]["dimensions"]):
         items = "".join(f"<li>{e(x)}</li>" for x in d["items"])
         viz = {"ownership": lambda: _ownership(d["ownership"]), "authority": lambda: _authority(d["authority"]),
                "graph": lambda: _graph(d["graph"]), "financial": lambda: _financial(d["financial"])}[d["visual"]]()
         note = f'<p class="dim-note">{e(d["note"])}</p>' if d.get("note") else ""
-        rows.append(f'''<article class="dim">
+        sel = "true" if i == 0 else "false"
+        tabs.append(f'<button type="button" role="tab" id="dt-{i}" aria-controls="dp-{i}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}">{e(d["tab"])}</button>')
+        panels.append(f'''<article class="dim" role="tabpanel" id="dp-{i}" aria-labelledby="dt-{i}">
   <div class="dim-q"><span class="dim-key">{e(d["key"])}</span><h3>{e(d["question"])}</h3><ul class="dim-items">{items}</ul>{note}</div>
   <div class="dim-a">{viz}{_see_evidence(t["see_evidence"], d["evidence"])}</div>
 </article>''')
-    return f'<div class="dims">{"".join(rows)}</div>'
-
-
-# ------------------------------------------------------------------ monitoring vs investigation
-def monitoring_vs_investigation(arg, ctx):
-    out = []
-    for i, s in enumerate(ctx["content"]["stages"]):
-        items = "".join(f"<li>{e(x)}</li>" for x in s["items"])
-        cls = "mon" if i == 0 else "inv"
-        out.append(f'<li class="stage {cls}"><span class="stage-k">{e(s["key"])}</span><b>{e(s["q"])}</b><ul>{items}</ul><span class="stage-who">{e(s["who"])}</span></li>')
-    return f'<ol class="stages">{"".join(out)}</ol>'
+    return (f'<div class="dims" data-tabs><div class="dim-tabs" role="tablist" aria-label="{e(_u("aria_tabs", "Change dimensions"))}">{"".join(tabs)}</div>'
+            f'{"".join(panels)}</div>')
 
 
 # ------------------------------------------------------------------ evidence
@@ -199,7 +192,10 @@ def roles(arg, ctx):
     return f'''<div class="roles">
   <div class="role-d"><span class="lbl">{e(R["deepin"]["label"])}</span><ul>{d}</ul></div>
   <div class="role-arrow" aria-hidden="true"></div>
-  <div class="role-t"><span class="lbl">{e(R["team"]["label"])}</span><ul>{tm}</ul></div>
+  <div class="role-t">
+    <div class="role-who"><span class="avs"><img src="assets/img/deepin-risk-team-a.webp" alt="{e(R["team"].get("alt", ""))}" width="320" height="320"><img src="assets/img/deepin-risk-team-b.webp" alt="" width="320" height="320"></span>
+      <div><span class="lbl">{e(R["team"]["label"])}</span><b>{e(R["team"].get("note", ""))}</b></div></div>
+    <ul>{tm}</ul></div>
 </div>'''
 
 
@@ -211,53 +207,102 @@ def risk_context_change(arg, ctx):
   <span class="n">{i+1:02d}</span>
   <div><b>{e(w["title"])}</b><small>{e(w["date"])}</small>
     <p class="src"><span class="lbl">{e(C["source_label"])}</span>{e(w["source"])}</p>
-    <details class="ev-d"><summary data-hide="{e(C["hide"])}" data-view="{e(C["view"])}">{e(C["view"])}</summary><blockquote>{e(w["excerpt"])}</blockquote></details>
+    <blockquote>{e(w["excerpt"])}</blockquote>
   </div>
 </li>''')
     steps = "".join(f'<li hidden>{e(s)}</li>' for s in C["further_steps"])
     return f'''<figure class="evui rcx2" aria-label="{e(_u("aria_context", "Risk context change with evidence (demo)"))}">
   <div class="evui-top"><span>{e(C["company"])}</span><span class="chip st-wait">{e(C["label"])}</span></div>
   <div class="evui-body">
-    <div class="rcx-bar"><span>{_risk(C["from"])}</span><span class="rcx-line" aria-hidden="true"></span><span>{_risk(C["to"])}</span></div>
-    <div><div class="lbl">{e(C["why_label"])}</div><ol class="why3s">{"".join(why)}</ol></div>
-    <div class="rcx-reason"><div class="lbl">{e(C["reasoning_label"])}</div><p>{e(C["reasoning"])}</p></div>
-    <div class="rcx-rec"><div class="lbl">{e(C["rec_label"])}</div><strong>{e(C["recommendation"])}</strong></div>
-    <div class="rcx-team" data-decision>
-      <div class="rcx-team-h"><span class="lbl">{e(C["team_label"])}</span><span>{e(C["team_task"])}</span></div>
-      <div class="rcx-acts">
-        <button type="button" class="btn btn-primary btn-sm" data-act="approve" data-msg="{e(C["approved"])}">{e(C["approve"])}</button>
-        <button type="button" class="btn btn-ghost btn-sm" data-act="reject" data-msg="{e(C["rejected"])}">{e(C["reject"])}</button>
-        <button type="button" class="btn btn-ghost btn-sm" data-act="further">{e(C["further"])} →</button>
+    <div class="rcx-main">
+      <div class="rcx-bar"><span>{_risk(C["from"])}</span><span class="rcx-line" aria-hidden="true"></span><span>{_risk(C["to"])}</span></div>
+      <div><div class="lbl">{e(C["why_label"])}</div><ol class="why3s">{"".join(why)}</ol>
+        <button type="button" class="btn btn-ghost btn-sm ev-all" data-ev-all data-show="{e(C["view_all"])}" data-hide="{e(C["hide_all"])}" hidden>{e(C["view_all"])}</button></div>
+    </div>
+    <div class="rcx-side">
+      <div class="rcx-reason"><div class="lbl">{e(C["reasoning_label"])}</div><p>{e(C["reasoning"])}</p></div>
+      <div class="rcx-rec"><div class="lbl">{e(C["rec_label"])}</div><strong>{e(C["recommendation"])}</strong></div>
+      <div class="rcx-team" data-decision>
+        <div class="rcx-team-h"><span class="lbl">{e(C["team_label"])}</span><span>{e(C["team_task"])}</span></div>
+        <div class="rcx-acts">
+          <button type="button" class="btn btn-primary btn-sm" data-act="approve" data-msg="{e(C["approved"])}">{e(C["approve"])}</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-act="reject" data-msg="{e(C["rejected"])}">{e(C["reject"])}</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-act="further">{e(C["further"])} →</button>
+        </div>
+        <p class="rcx-result" role="status" hidden></p>
+        <ol class="rcx-further" aria-live="polite">{steps}</ol>
       </div>
-      <p class="rcx-result" role="status" hidden></p>
-      <ol class="rcx-further" aria-live="polite">{steps}</ol>
     </div>
     <p class="rcx-note">{e(t["demo_note"])}</p>
   </div>
 </figure>'''
 
 
-# ------------------------------------------------------------------ stack + uses
-def risk_stack(arg, ctx):
-    S = ctx["content"]["stack"]
-
-    def layer(x, cls):
-        items = "".join(f"<li>{e(i)}</li>" for i in x["items"])
-        name = x["name"]
-        name = f'deep<b>in</b>.{e(name.split(".", 1)[1])}' if name.startswith("deepin.") else e(name)
-        return f'<li class="stk {cls}"><div class="stk-h"><span class="stk-n">{name}</span><small>{e(x["role"])}</small></div><ul>{items}</ul></li>'
-    arrow = '<li class="stk-arrow" aria-hidden="true"></li>'
-    return f'<ol class="stack">{layer(S["top"], "top")}{arrow}{layer(S["mid"], "mid")}{arrow}{layer(S["bottom"], "bot")}</ol>'
+# ------------------------------------------------------------------ hero trust strip
+def trust_strip(arg, ctx):
+    T = ctx["content"]["trust"]
+    li = "".join(f'<li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5.5 2v4.2c0 3.2-2.3 5.7-5.5 6.8-3.2-1.1-5.5-3.6-5.5-6.8V3.5z"/><path d="M5.6 8.1l1.7 1.7 3.2-3.4"/></svg>{e(x)}</li>' for x in T["items"])
+    return f'<ul class="trust-strip" aria-label="{e(T["label"])}">{li}</ul>'
 
 
-def one_to_many(arg, ctx):
-    U = ctx["content"]["uses"]
-    br = "".join(f'<li><span class="u1">{e(b["name"])}</span><span class="u2">{e(b["then"])}</span></li>' for b in U["branches"])
-    return f'''<div class="o2m">
-  <div class="o2m-root">{e(U["root"])}</div>
-  <ol class="o2m-br">{br}</ol>
-  <p class="o2m-foot">{e(U["footer"])} <span class="nm">deep<b>in</b>.risk</span></p>
-</div>'''
+# ------------------------------------------------------------------ value + sectors + customers
+def value_chain(arg, ctx):
+    """Company data + deepin.risk = your decision, one line of the same case in each box."""
+    steps, ops = ctx["content"]["value"]["steps"], ["+", "="]
+    out = []
+    for i, x in enumerate(steps):
+        risk = f'<span class="eq-risk">{_risk(x["risk_from"])}<span aria-hidden="true">→</span>{_risk(x["risk_to"])}</span>' if x.get("risk_from") else ""
+        cls = ["data", "dp", "dec"][i]
+        av = ('<span class="avs sm"><img src="assets/img/deepin-risk-team-a.webp" alt="" width="320" height="320">'
+              '<img src="assets/img/deepin-risk-team-b.webp" alt="" width="320" height="320"></span>') if cls == "dec" else ""
+        out.append(f'<li class="eq-box {cls}">{av}<span class="eq-n">{_wm(x["name"])}</span><b class="eq-q">{e(x["q"])}</b>'
+                   f'<p class="eq-ex">“{e(x["ex"])}”</p>{risk}<small class="eq-by">{e(x["by"])}</small></li>')
+        if i < len(ops):
+            out.append(f'<li class="eq-op" aria-hidden="true">{ops[i]}</li>')
+    return f'<ol class="eq" aria-label="{e(_u("aria_value", "Company data plus Deepin Risk equals a decision"))}">{"".join(out)}</ol>'
+
+
+def sectors(arg, ctx):
+    S = ctx["content"]["sectors"]
+    cards = []
+    for x in S["items"]:
+        who = "".join(f"<li>{e(i)}</li>" for i in x["who"])
+        dec = "".join(f"<li>{e(i)}</li>" for i in x["decisions"])
+        tag = f'<span class="sct-tag">{e(x["tag"])}</span>' if x.get("tag") else ""
+        cards.append(f'''<li class="sct">
+  <div class="sct-h"><h3>{e(x["name"])}</h3>{tag}</div>
+  <div class="sct-b">
+    <div><span class="lbl">{e(S["who"])}</span><ul class="sct-who">{who}</ul></div>
+    <div><span class="lbl">{e(S["decides"])}</span><ul class="sct-dec">{dec}</ul></div>
+  </div>
+</li>''')
+    return f'<ul class="sectors">{"".join(cards)}</ul>'
+
+
+def risk_customers(arg, ctx):
+    """Customer cards (product, context from src/data.<lang>.json) with a quote each; an alias replaces the name when set.
+    Quotes marked draft are hypothetical and carry a visible 'pending approval' tag."""
+    Tm = ctx["content"]["testimonials"]
+    data = json.load(open(os.path.join(os.path.dirname(__file__), f'data.{ctx["lang"]}.json'), encoding="utf-8"))
+    cards = []
+    for c in data["customers"]:
+        q = Tm["quotes"].get(c["name"])
+        if "risk" not in c.get("spaces", []) or not q:
+            continue
+        ctx_line = f'<span class="proof-ctx">{e(c["context"]["risk"])}</span>' if c.get("context", {}).get("risk") else ""
+        draft = f'<span class="tsm-draft">{e(Tm["draft_label"])}</span>' if q.get("draft") else ""
+        cards.append(f'''<li class="proof-card tsm">
+  <strong>{e(q.get("alias") or c["name"])}</strong>
+  <span class="proof-inv">{e(c["investigation"])}</span>{ctx_line}
+  <blockquote>{e(q["quote"])}</blockquote>{draft}
+</li>''')
+    cls = " n4" if len(cards) == 4 else ""
+    return f'''<div class="sec-head">
+  <p class="eyebrow">{e(Tm["eyebrow"])}</p>
+  <h2 class="h2">{Tm["h2"]}</h2>
+  <p class="lede">{e(Tm["lede"])}</p>
+</div>
+<ul class="proof-grid tsms{cls}">{"".join(cards)}</ul>'''
 
 
 # ------------------------------------------------------------------ request form
@@ -282,12 +327,11 @@ def request_form(arg, ctx):
   <div class="rq-top"><b>{e(Fm["title"])}</b><button type="button" class="rq-close" data-close aria-label="{e(Fm["close"])}">×</button></div>
   <ol class="rq-steps" aria-hidden="true"><li class="on">1 · {e(Fm["step1"])}</li><li>2 · {e(Fm["step2"])}</li></ol>
   <fieldset class="rq-page" data-page="1"><legend class="sr">{e(Fm["step1"])}</legend>
-    {group(Fm["group_company"], Fm["fields_company"])}
-    {group(Fm["group_question"], Fm["fields_question"])}
+    {group(Fm["group_contact"], Fm["fields_contact"])}
     <div class="rq-actions"><button class="btn btn-primary" type="button" data-next>{e(Fm["next"])} →</button></div>
   </fieldset>
   <fieldset class="rq-page" data-page="2"><legend class="sr">{e(Fm["step2"])}</legend>
-    {group(Fm["group_contact"], Fm["fields_contact"])}
+    {group(Fm["group_interest"], Fm["fields_interest"])}
     <div class="rq-actions"><button class="btn btn-ghost" type="button" data-back>{e(Fm["back"])}</button><button class="btn btn-primary" type="submit">{e(Fm["submit"])}</button></div>
   </fieldset>
   <p class="rq-done" hidden role="status">{e(Fm["done"])}</p>
@@ -296,14 +340,15 @@ def request_form(arg, ctx):
 
 
 COMPONENTS = {
-    "company_investigation_card": company_investigation_card,
+    "hero_visual": hero_visual,
     "living_investigation": living_investigation,
     "what_changed": what_changed,
-    "monitoring_vs_investigation": monitoring_vs_investigation,
     "evidence_chain": evidence_chain,
     "roles": roles,
     "risk_context_change": risk_context_change,
-    "risk_stack": risk_stack,
-    "one_to_many": one_to_many,
+    "trust_strip": trust_strip,
+    "value_chain": value_chain,
+    "sectors": sectors,
+    "risk_customers": risk_customers,
     "request_form": request_form,
 }

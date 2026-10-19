@@ -11,6 +11,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
 <meta name="theme-color" content="#F7FAF9">
+<meta name="generator" content="deepin/organism">
 <link rel="canonical" href="https://deepin.space/en/harness/">
 <link rel="alternate" hreflang="tr" href="https://deepin.space/harness/">
 <link rel="alternate" hreflang="en" href="https://deepin.space/en/harness/">
@@ -698,6 +699,146 @@ footer .langs{justify-self:start;margin-top:10px}
 /* English terms inside Turkish text stay part of the same text run (no flex gaps around them) */
 span[lang="en"]{display:contents}
 
+/* =====================================================================
+   DEEPIN / ORGANISM — global layer
+   Same typefaces (Poppins, JetBrains Mono), same palette. Rules of use:
+   · mint  (--mint)   = the signal: what is happening right now
+   · green (--accent) = structure the system builds (sources, evidence, links)
+   · amber (--warn)   = a human: approval, judgment, decision rights
+   · deep  (--deep)   = what lies underneath (Harness)
+   ===================================================================== */
+:root{
+  --hair:rgba(var(--dot),.22);
+  --hair-2:rgba(var(--dot),.12);
+  --paper:#FFFFFF;
+  --paper-edge:0 1px 0 rgba(2,45,38,.05),0 10px 24px -14px rgba(2,45,38,.28);
+  --deep:#03130F;--deep-2:#072019;--deep-ink:#E7F5F0;--deep-muted:#8FB3A7;--deep-line:rgba(40,220,168,.28);
+  --nav-h:64px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#0E2A23;--paper-edge:0 1px 0 rgba(0,0,0,.3),0 10px 24px -14px rgba(0,0,0,.6);--hair:rgba(40,220,168,.2);--hair-2:rgba(40,220,168,.1)}}
+:root[data-theme="dark"]{--paper:#0E2A23;--paper-edge:0 1px 0 rgba(0,0,0,.3),0 10px 24px -14px rgba(0,0,0,.6);--hair:rgba(40,220,168,.2);--hair-2:rgba(40,220,168,.1)}
+
+/* calmer surfaces: no particle field, hairline section seams */
+#field{display:none}
+.sec::before{height:1px;background:linear-gradient(90deg,transparent,var(--hair) 20%,var(--hair) 80%,transparent);-webkit-mask-image:none;mask-image:none}
+.sec.dots::after{opacity:.5}
+
+/* ---- type system ---- */
+.lab{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--muted) 70%,var(--ink));line-height:1.4}
+.sec-k{display:flex;align-items:center;gap:14px;margin:0 0 22px}
+.sec-k span{color:var(--accent)}
+.sec-k::after{content:"";flex:0 1 72px;height:1px;background:var(--hair)}
+.o-h2{font-size:clamp(34px,4.8vw,68px);font-weight:300;line-height:1.02;letter-spacing:-.04em;max-width:18ch;text-wrap:balance}
+.o-h2 b{font-weight:600;color:var(--accent)}
+.mega{font-size:clamp(46px,8.6vw,132px);font-weight:300;line-height:.95;letter-spacing:-.05em;text-wrap:balance}
+.mega b{font-weight:600;color:var(--accent)}
+.o-p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--ink-2);max-width:54ch;margin-top:22px}
+.note{font-size:12.5px;color:color-mix(in srgb,var(--muted) 70%,var(--ink))}
+.o-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.o-link:hover{color:var(--ink)}
+h1,.h2{letter-spacing:-.035em}
+.h2{font-size:clamp(30px,3.8vw,52px);line-height:1.05}
+.hero h1{font-size:clamp(38px,4.6vw,64px);line-height:1.02;letter-spacing:-.045em}
+.eyebrow{letter-spacing:.12em}
+.lede{line-height:1.6}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---- navigation: one global map on every page ---- */
+.nav{background:color-mix(in srgb,var(--bg) 82%,transparent)}
+.nav .wrap{height:var(--nav-h);gap:20px}
+.nav-links{gap:4px;font-size:13.5px}
+.nav-links a{position:relative;padding:8px 12px;border-radius:999px;color:var(--ink-2)}
+.nav-links a:hover{background:var(--soft-2);color:var(--ink)}
+.nav-links a[aria-current="page"]{color:var(--ink);font-weight:500}
+.nav-links a[aria-current="page"]::after{content:"";position:absolute;left:50%;bottom:2px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--mint)}
+.nav .btn-sm{padding:9px 16px}
+.menu{display:none;position:relative}
+.menu summary{list-style:none;display:grid;place-items:center;gap:4px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;align-content:center}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary span{display:block;width:14px;height:1.5px;background:var(--ink);transition:transform .2s}
+.menu[open] summary span:first-child{transform:translateY(2.75px) rotate(45deg)}
+.menu[open] summary span:last-child{transform:translateY(-2.75px) rotate(-45deg)}
+.menu-panel{position:absolute;right:0;top:48px;min-width:240px;display:grid;padding:8px;border-radius:16px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);z-index:30}
+.menu-panel a{padding:12px 14px;border-radius:10px;text-decoration:none;font-size:15px}
+.menu-panel a:hover{background:var(--soft-2)}
+.menu-panel a[aria-current="page"]{font-weight:600;color:var(--accent)}
+.menu-panel .menu-cta{margin-top:6px;background:var(--accent);color:var(--accent-ink);font-weight:500}
+@media (max-width:1180px){.menu{display:block}}
+
+/* ---- evidence as material (shared) ---- */
+.slip{position:relative;display:grid;gap:3px;padding:12px 14px 12px 44px;border-radius:10px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--paper-edge);list-style:none}
+.slip .ev-id,.ev-id{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.06em;color:var(--accent)}
+.slip .ev-id{position:absolute;left:12px;top:13px;padding:2px 5px;border-radius:5px;background:var(--soft)}
+.slip b{font-weight:600;font-size:14px;line-height:1.35}
+.slip small{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* ---- state rail (homepage, wide screens) ---- */
+.rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:15;display:none;gap:4px}
+.rail a{display:flex;align-items:center;gap:10px;padding:4px 0;text-decoration:none;color:var(--muted)}
+.rail i{width:7px;height:7px;border-radius:50%;border:1.5px solid var(--hair);transition:all .3s var(--ease)}
+.rail span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateX(-4px);transition:all .3s var(--ease)}
+.rail:hover span,.rail a.on span{opacity:1;transform:none}
+.rail a.on{color:var(--ink)}
+.rail a.on i{background:var(--mint);border-color:var(--mint);box-shadow:0 0 0 4px rgba(40,220,168,.18)}
+.rail a.done i{background:var(--accent);border-color:var(--accent)}
+body.on-dark .rail a{color:var(--deep-muted)}
+body.on-dark .rail a.on{color:var(--deep-ink)}
+@media (min-width:1360px){.rail{display:grid}}
+
+/* the navigation darkens while the page is underneath (Harness) */
+.nav{transition:background .35s,border-color .35s}
+body.on-dark .nav{background:color-mix(in srgb,var(--deep) 86%,transparent);border-bottom-color:rgba(231,245,240,.08)}
+body.on-dark .nav-links a{color:var(--deep-muted)}
+body.on-dark .nav-links a:hover{background:rgba(231,245,240,.06);color:var(--deep-ink)}
+body.on-dark .nav-links a[aria-current="page"]{color:var(--deep-ink)}
+body.on-dark .login{color:var(--deep-muted)}
+body.on-dark .logo-l{display:none}body.on-dark .logo-d{display:block}
+body.on-dark .nav .langs{background:transparent;border-color:rgba(231,245,240,.16)}
+body.on-dark .menu summary{background:transparent;border-color:rgba(231,245,240,.2)}
+body.on-dark .menu summary span{background:var(--deep-ink)}
+
+/* ---- footer ---- */
+footer{padding-block:64px 48px;border-top:1px solid var(--hair)}
+footer .f-about p{max-width:40ch}
+
+/* ---- motion preference ---- */
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+/* ---- the organization underneath (Deepin Harness topology, shared) ---- */
+.topo{margin:0;--draw:1}
+.topo-svg{display:block;width:100%;height:auto;overflow:visible}
+.topo-svg text{fill:var(--deep-ink);font-family:var(--font);font-size:13px}
+.topo-svg .t-k,.topo-svg .t-s{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;fill:var(--deep-muted);text-transform:uppercase}
+.topo-svg .t-a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;fill:#E9B45A;text-transform:uppercase}
+.topo-svg .t-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;fill:var(--mint)}
+.t-org{fill:rgba(40,220,168,.03);stroke:var(--deep-line);stroke-dasharray:4 6;opacity:calc(var(--draw) * 1.4)}
+.t-hub{fill:var(--mint)}
+.t-edges path{fill:none;stroke:var(--deep-line);stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
+.t-edges path.tie{stroke:rgba(231,245,240,.14);stroke-dasharray:.012 .02;stroke-dashoffset:0;opacity:var(--draw)}
+.t-node{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
+.t-node circle{fill:var(--deep);stroke:var(--mint);stroke-width:1.6}
+.t-node rect{fill:var(--deep-2);stroke:var(--deep-line)}
+.t-node .t-task{stroke:var(--mint)}
+.t-str{opacity:clamp(0,calc(var(--draw) * 14 - var(--d)),1)}
+.t-str path{stroke:rgba(231,245,240,.22);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--draw))}
+.t-signal{fill:var(--mint);opacity:clamp(0,calc((var(--draw) - .9) * 10),1)}
+.topo-m,.topo-ms{display:none}
+@media (max-width:860px){
+  .topo-svg{display:none}
+  .topo-m{display:grid;list-style:none;margin:0;padding:0;gap:0;justify-items:start}
+  .topo-m li{position:relative;padding:9px 16px;border-radius:999px;border:1px solid var(--deep-line);background:var(--deep-2);font-size:14px}
+  .topo-m li:first-child{border-style:dashed;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep-muted)}
+  .topo-m li:not(:last-child){margin-bottom:22px}
+  .topo-m li:not(:last-child)::after{content:"";position:absolute;left:24px;top:100%;width:1px;height:22px;background:var(--deep-line)}
+  .topo-ms{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(231,245,240,.14)}
+  .topo-ms span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(231,245,240,.16);color:var(--deep-muted)}
+}
+body.on-dark .brand .sub{color:var(--deep-ink)}
+@media (prefers-reduced-motion: reduce){.t-signal{display:none}}
+
+@media (max-width:420px){.hero .chip.status{white-space:normal;max-width:100%}}
+
 /* =================================================================== deepin harness */
 :root{--deny:#B4432F;--deny-soft:#FBE9E5}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--deny:#F18F80;--deny-soft:#3A1F1A}}
@@ -722,22 +863,6 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
 .mk-a{fill:var(--accent)}
 .mk-w{fill:var(--warn)}
 @media (prefers-reduced-motion: reduce){svg.links path.fl{animation:none}}
-
-/* ---- hero: organization runtime ---- */
-.ho{margin:0}
-.ho .ho-body{padding:18px 18px 22px;display:grid;justify-items:center;gap:30px}
-.ho-org{justify-self:stretch;position:relative;z-index:1;text-align:center;padding:8px 10px;border-radius:12px;border:1.5px dashed rgba(var(--dot),.5);background:var(--soft-2);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.ho-cols{justify-self:stretch;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.ho-col{display:grid;justify-items:center;gap:26px}
-.ho-n{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:500;white-space:nowrap;max-width:100%}
-.ho-role{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--soft);border-color:transparent}
-.ho-agent{border-color:rgba(var(--dot),.5)}
-.ho-agent::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint)}
-.ho-res{font-size:12.5px;color:var(--ink-2);border-style:dashed;border-radius:9px}
-.ho-task{padding:8px 24px;font-weight:600;border-color:var(--accent);box-shadow:0 0 0 4px rgba(var(--dot),.08)}
-.ho-ap{background:var(--warn-soft);color:var(--warn);border-color:rgba(183,121,31,.45)}
-.ho-act{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-@media (max-width:420px){.ho .ho-body{padding:16px 12px 20px}.ho-n{padding:5px 9px;font-size:12px}.ho-res{font-size:11.5px}.ho-role{font-size:10px}}
 
 /* ---- problem ---- */
 .hp{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:24px;align-items:stretch}
@@ -792,30 +917,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
 .rs-pair>div{display:grid;gap:4px;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
 .rs-pair>div:last-child{border-color:var(--accent);background:var(--soft)}
 .rs-pair p{font-size:14px;color:var(--ink-2)}
-.rs{margin:0}
-.rs-flow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,1.5fr) minmax(0,.95fr) minmax(0,1fr);gap:34px;align-items:center}
-.rs-flow>*{position:relative}
-.rs-flow>*:not(:last-child)::after{content:"→";position:absolute;right:-25px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:16px}
-.rs-n{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-size:14.5px;font-weight:500;text-align:center;line-height:1.35}
-.rs-state{background:var(--soft-2)}
-.rs-state.next{background:var(--soft);border-color:var(--accent)}
-.rs-checks{list-style:none;margin:0;padding:10px;border-radius:14px;border:1px dashed rgba(var(--dot),.55);background:var(--surface);display:grid;gap:6px;counter-reset:q}
-.rs-checks li{display:flex;gap:8px;align-items:baseline;font-size:13.5px;padding:7px 10px;border-radius:9px;background:var(--soft-2);line-height:1.35}
-.rs-checks li::before{counter-increment:q;content:counter(q);font-family:var(--mono);font-size:11px;color:var(--accent)}
-.rs-out{display:grid;gap:6px;padding:10px}
-.rs-out>span{padding:6px 10px;border-radius:999px;border:1px solid rgba(var(--dot),.5);font-size:13.5px;background:var(--surface)}
-.rs-loop{margin:14px 9% 0;height:30px;border:1.5px dashed rgba(var(--dot),.45);border-top:0;border-radius:0 0 18px 18px;position:relative}
-.rs-loop>span{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);padding:0 10px;background:var(--sec-bg);font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
-.rs-note{margin-top:30px;font-size:14px;color:var(--ink-2);max-width:72ch}
 .rs [data-s],.rt [data-s]{transition:opacity .45s ease,box-shadow .45s ease,background .45s ease}
-.rs.playing [data-s].later{opacity:.28}
-.rs.playing [data-s].on{box-shadow:0 0 0 2px rgba(var(--dot),.45)}
-@media (max-width:960px){
-  .rs-flow{grid-template-columns:minmax(0,1fr);gap:30px;max-width:460px;margin-inline:auto}
-  .rs-flow>*:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-26px;transform:translateX(-50%)}
-  .rs-loop{border:0;height:auto;margin:22px 0 0;text-align:center}
-  .rs-loop>span{position:static;transform:none;white-space:normal}
-}
 
 /* ---- runtime ---- */
 .rt-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
@@ -842,31 +944,6 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
 .rt.playing [data-s].on .tr::before{background:var(--mint)}
 .rt-side .quote{max-width:24ch}
 .rt-p{margin-top:18px;color:var(--ink-2);max-width:48ch}
-
-/* ---- collaboration ---- */
-.cl-wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:start}
-@media (max-width:900px){.cl-wrap{grid-template-columns:minmax(0,1fr);gap:28px}}
-.cl{margin:0;padding:18px;border-radius:18px;border:1px solid var(--line);background:var(--surface)}
-.cl-top{margin-bottom:18px}
-.cl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 14px}
-.cl-n{position:relative;z-index:1;justify-self:center;display:grid;gap:2px;text-align:center;padding:9px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);max-width:100%}
-.cl-n b{font-size:14px;font-weight:600;line-height:1.3}
-.cl-n small{font-size:12px;color:var(--muted);line-height:1.35}
-.cl-n.wide{grid-column:1/-1}
-.cl-inv{background:var(--soft-2)}
-.cl-n.role{border-color:rgba(var(--dot),.55)}
-.cl-n.cl-cap{border-style:dashed;background:var(--soft-2)}
-.cl-n.cl-cap b{font-weight:500;font-size:13px}
-.cl-n.ev{background:var(--soft);border-color:var(--accent)}
-.cl-n.hum{background:var(--warn-soft);border-color:rgba(183,121,31,.45)}
-.cl-n.hum b{color:var(--warn)}
-.cl-note{margin-top:16px;font-size:12.5px;color:var(--muted)}
-.cl-concepts{list-style:none;margin:0;padding:0;display:grid}
-.cl-concepts li{display:grid;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
-.cl-concepts li:first-child{padding-top:0}
-.cl-concepts b{font-weight:600}
-.cl-concepts li>span{font-size:14px;color:var(--ink-2)}
-@media (max-width:420px){.cl{padding:14px 10px}.cl-n{padding:8px 10px}.cl-n b{font-size:13px}.cl-n small{font-size:11.5px}}
 
 /* ---- governance gate ---- */
 .gt{padding:20px;border-radius:18px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
@@ -1042,14 +1119,102 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
 .band-spaces a{color:#28DCA8;text-decoration:none;margin-left:10px;white-space:nowrap}
 .band-spaces a:hover{text-decoration:underline;text-underline-offset:3px}
 
+/* =================================================================== ORGANISM: Harness */
+/* hero: you are underneath now */
+.hx-dark{background:var(--deep);color:var(--deep-ink);padding-block:clamp(70px,9vw,120px) clamp(80px,10vw,130px)}
+.hx-dark .wrap{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+.hx-dark .eyebrow{color:var(--mint)}
+.hx-dark h1{color:var(--deep-ink);font-size:clamp(42px,5.4vw,82px);font-weight:300;letter-spacing:-.05em;line-height:.98}
+.hx-dark h1 b{color:var(--mint);font-weight:600}
+.hx-dark .lede{color:var(--deep-muted)}
+.hx-dark .hero-line{color:var(--deep-ink)}
+.hx-dark .hero-line b{color:var(--mint)}
+.hx-dark .hero-note{color:var(--deep-muted)}
+.hx-dark .hero-note b{color:var(--deep-ink)}
+.hx-dark .btn-primary{background:var(--mint);color:var(--deep)}
+.hx-dark .btn-ghost{background:transparent;color:var(--deep-ink);border-color:rgba(231,245,240,.25)}
+.hx-dark .btn-ghost:hover{border-color:var(--mint)}
+.hx-topo{min-width:0}
+.hx-topo .topo{--draw:1}
+@media (max-width:960px){.hx-dark .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* organizational reasoning, live: the same organization answers differently */
+.rl{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:stretch;margin-top:6px}
+.rl-left{display:grid;gap:12px;align-content:start}
+.rl-left .lab{margin:0}
+.rl-evs{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rl-ev{position:relative;width:100%;display:flex;gap:12px;align-items:flex-start;text-align:left;padding:14px 14px 14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font:500 14px/1.4 var(--font);color:var(--ink-2);cursor:pointer;transition:all .25s var(--ease)}
+.rl-ev i{flex:none;width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--hair)}
+.rl-ev:hover{border-color:var(--hair);color:var(--ink)}
+.rl-ev.on{border-color:var(--accent);background:var(--soft);color:var(--ink)}
+.rl-ev.on i{background:var(--mint);box-shadow:0 0 0 4px rgba(40,220,168,.2)}
+.rl-ev .rl-bar{position:absolute;left:16px;right:16px;bottom:6px;height:2px;border-radius:2px;background:var(--mint);transform-origin:left;transform:scaleX(0)}
+.rl-graph{position:relative;min-height:400px;border-radius:22px;border:1.5px dashed var(--hair);background:radial-gradient(circle at 1px 1px,var(--hair-2) 1px,transparent 1.5px) 0 0/20px 20px,var(--bg)}
+.rl-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.rl-lines path{fill:none;stroke-width:1.6;stroke-linecap:round}
+.rl-lines .del{stroke:var(--accent)}
+.rl-lines .col{stroke:var(--mint);stroke-dasharray:5 5}
+.rl-lines .up{stroke:var(--warn)}
+.rl-lines .block{stroke:var(--deny);stroke-dasharray:3 4}
+.rl-lines .x{stroke:var(--deny);stroke-width:2.2}
+.rl-lines .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:rl-draw .7s var(--ease) forwards}
+.rl-lines .col.draw,.rl-lines .block.draw{animation:none;stroke-dashoffset:0;opacity:0;animation:rl-fade .6s var(--ease) forwards}
+@keyframes rl-draw{to{stroke-dashoffset:0}}
+@keyframes rl-fade{to{opacity:1}}
+.rl-bound{position:absolute;right:14px;top:10px;font-size:10px}
+.rl-n{position:absolute;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);transform:translate(-50%,-50%);display:grid;gap:1px;text-align:center;padding:8px 13px;border-radius:12px;border:1px solid var(--line);background:var(--surface);white-space:nowrap;transition:all .35s var(--ease);z-index:1}
+.rl-n b{font-size:13px;font-weight:600}
+.rl-n small{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rl-n.rl-person{border-color:rgba(183,121,31,.35)}
+.rl-n.rl-person small{color:var(--warn)}
+.rl-n.on{border-color:var(--accent);background:var(--soft);box-shadow:0 0 0 5px rgba(40,220,168,.16);transform:translate(-50%,-50%) scale(1.06)}
+.rl-n.hit{border-color:var(--accent)}
+.rl-n.rl-person.hit{border-color:var(--warn);background:var(--warn-soft)}
+.rl-n.dim{opacity:.45}
+.rl-panel{display:grid;gap:14px;align-content:start}
+.rl-ans{margin:0;display:grid;border-top:1px solid var(--hair)}
+.rl-ans div{display:grid;gap:3px;padding:11px 0;border-bottom:1px solid var(--hair)}
+.rl-ans dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.rl-ans dd{margin:0;font-size:14px;line-height:1.4;transition:opacity .3s}
+.rl-panel.swap dd,.rl-panel.swap [data-out],.rl-panel.swap [data-state]{opacity:0}
+.rl-out,.rl-state{display:grid;gap:4px}
+.rl-out b{font-size:16px;font-weight:600;line-height:1.35;transition:opacity .3s}
+.rl-state{padding:12px 14px;border-radius:12px;background:var(--soft);border:1px solid rgba(var(--dot),.4)}
+.rl-state b{font-size:14px;font-weight:500;transition:opacity .3s}
+.rl-state.no{background:var(--deny-soft);border-color:var(--deny)}
+.rl-state.no .lab{color:var(--deny)}
+.rl-note{margin-top:18px;font-size:12.5px;color:var(--muted)}
+@media (max-width:1100px){.rl{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}.rl-panel{grid-column:1/-1;grid-template-columns:1.3fr 1fr;align-items:start}.rl-ans{grid-row:span 2}}
+@media (max-width:760px){
+  .rl{grid-template-columns:minmax(0,1fr)}
+  .rl-panel{grid-template-columns:minmax(0,1fr)}
+  .rl-graph{min-height:340px}
+  .rl-n{padding:6px 9px}.rl-n b{font-size:11.5px}.rl-n small{font-size:9px}
+  .rl-bound{display:none}
+}
+.rl-graph{overflow:clip}
+@media (max-width:1100px){.rl-n{left:clamp(19%,calc(var(--x) * 1%),81%)}}
+@media (max-width:760px){.rl-n{left:clamp(23%,calc(var(--x) * 1%),77%);white-space:normal;max-width:44%}}
+
+/* ---- hierarchy: the core architecture leads, operational capabilities support ---- */
+#model .h2,#reasoning .h2,#runtime .h2,#governance .h2{font-size:clamp(34px,4.4vw,60px)}
+.sec.ops{--sec-bg:var(--soft-2);padding-block:clamp(44px,5vw,72px)}
+.sec.ops+.sec.ops::before{opacity:.6}
+.sec.ops .sec-head{margin-bottom:26px}
+.sec.ops .h2{font-size:clamp(24px,2.4vw,34px)}
+.sec.ops .lede{font-size:15.5px}
+.sec.ops .eyebrow{color:var(--muted)}
+
 </style>
 </head>
-<body>
+<body class="pg-harness">
 <header class="nav" id="top">
   <div class="wrap">
     <a class="brand" href="../" aria-label="Deepin home"><img class="logo-l" src="../../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub sub-word">harness</span></a>
-    <nav class="nav-links" aria-label="Main"><a href="#model">Organization</a><a href="#reasoning">Reasoning</a><a href="#governance">Governance</a><a href="#evaluation">Evaluation</a></nav>
-    <div class="nav-cta"><span class="langs" role="group" aria-label="Language"><a href="../../harness/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="../../en/harness/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></span><a class="back" href="../">← deepin.space</a><a class="btn btn-primary btn-sm" href="#contact">Bring us an investigation</a></div>
+    <nav class="nav-links" aria-label="Main"><a href="../">Deepin</a><a href="../risk/">deepin.risk</a><a href="../finance/">deepin.finance</a><a href="../harness/" aria-current="page">Harness</a><a href="../#customers">Customers</a></nav>
+    <div class="nav-cta"><span class="langs" role="group" aria-label="Language"><a href="../../harness/" hreflang="tr" lang="tr" title="Türkçe">TR</a><a href="../../en/harness/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></span><a class="btn btn-primary btn-sm" href="#contact">Bring us an investigation</a>
+      <details class="menu"><summary aria-label="Main"><span></span><span></span></summary><nav class="menu-panel" aria-label="Main"><a href="../">Deepin</a><a href="../risk/">deepin.risk</a><a href="../finance/">deepin.finance</a><a href="../harness/" aria-current="page">Harness</a><a href="../#customers">Customers</a><a class="menu-cta" href="#contact">Bring us an investigation →</a></nav></details>
+    </div>
   </div>
 </header>
 <main>
@@ -1058,7 +1223,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   <marker id="lk-w" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk-w" d="M0 0L8 4L0 8z"/></marker>
 </defs></svg>
 
-<section class="hero">
+<section class="hero hx-dark" data-dark>
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
@@ -1072,28 +1237,18 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
       </div>
       <p class="hero-note"><span>Runs underneath <b>deepin.risk</b> and <b>deepin.finance</b></span></p>
     </div>
-    <figure class="case ho" data-live data-labels="[&quot;Organization loaded&quot;, &quot;Roles assigned&quot;, &quot;Agents at work&quot;, &quot;Capabilities, knowledge, policies&quot;, &quot;Task assembled&quot;, &quot;Awaiting human approval&quot;, &quot;Action \u00b7 logged&quot;]" aria-label="Deepin Harness runtime: an organization gives roles to agents; agents use capabilities, knowledge and policies to complete a task, which goes to human approval before action.">
-  <div class="case-top"><span class="case-id">Deepin Harness · runtime</span><span class="chip st-production" data-live-status>Action · logged</span></div>
-  <div class="ho-body" data-links="[[&quot;o&quot;, &quot;r1&quot;, &quot;fl&quot;], [&quot;o&quot;, &quot;r2&quot;, &quot;fl&quot;], [&quot;o&quot;, &quot;r3&quot;, &quot;fl&quot;], [&quot;r1&quot;, &quot;a1&quot;, &quot;&quot;], [&quot;r2&quot;, &quot;a2&quot;, &quot;&quot;], [&quot;r3&quot;, &quot;a3&quot;, &quot;&quot;], [&quot;a1&quot;, &quot;c1&quot;, &quot;&quot;], [&quot;a2&quot;, &quot;c2&quot;, &quot;&quot;], [&quot;a3&quot;, &quot;c3&quot;, &quot;&quot;], [&quot;c1&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;c2&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;c3&quot;, &quot;t&quot;, &quot;fl&quot;], [&quot;t&quot;, &quot;h&quot;, &quot;w&quot;], [&quot;h&quot;, &quot;x&quot;, &quot;&quot;]]">
-    <div class="ho-org" data-n="o" data-s="0"><span>Organization</span></div>
-    <div class="ho-cols"><div class="ho-col">
-        <span class="ho-n ho-role" data-n="r1" data-s="1">Role</span>
-        <span class="ho-n ho-agent" data-n="a1" data-s="2">Agent</span>
-        <span class="ho-n ho-res" data-n="c1" data-s="3">Capabilities</span>
-      </div><div class="ho-col">
-        <span class="ho-n ho-role" data-n="r2" data-s="1">Role</span>
-        <span class="ho-n ho-agent" data-n="a2" data-s="2">Agent</span>
-        <span class="ho-n ho-res" data-n="c2" data-s="3">Knowledge</span>
-      </div><div class="ho-col">
-        <span class="ho-n ho-role" data-n="r3" data-s="1">Role</span>
-        <span class="ho-n ho-agent" data-n="a3" data-s="2">Agent</span>
-        <span class="ho-n ho-res" data-n="c3" data-s="3">Policies</span>
-      </div></div>
-    <span class="ho-n ho-task" data-n="t" data-s="4">Task</span>
-    <span class="ho-n ho-ap" data-n="h" data-s="5">Human approval</span>
-    <span class="ho-n ho-act" data-n="x" data-s="6">Action</span>
-  </div>
-</figure>
+    <div class="hx-topo"><figure class="topo"><svg viewBox="0 0 640 492" class="topo-svg" role="img" aria-label="Deepin Harness: an organization of roles with authority, agents working on a task through capabilities, over shared knowledge, policy, memory and evaluation">
+  <rect class="t-org" x="6" y="6" width="628" height="380" rx="18"/>
+  <text x="26" y="32" class="t-k">Organization</text>
+  <circle class="t-hub" cx="320" cy="34" r="4"/>
+  <g class="t-edges"><path pathLength="1" d="M320 40 C320 60 130 60 130 86"/><path pathLength="1" d="M320 40 C320 60 320 60 320 86"/><path pathLength="1" d="M320 40 C320 60 510 60 510 86"/><path pathLength="1" d="M130 126 V178"/><path pathLength="1" d="M320 126 V178"/><path pathLength="1" d="M510 126 V178"/><path pathLength="1" d="M130 204 C130 236 320 232 320 258"/><path pathLength="1" d="M320 204 C320 236 320 232 320 258"/><path pathLength="1" d="M510 204 C510 236 320 232 320 258"/><path pathLength="1" d="M320 284 V306"/><path pathLength="1" d="M320 332 V352"/><path pathLength="1" class="tie" d="M130 204 V400"/><path pathLength="1" class="tie" d="M510 204 V400"/><path pathLength="1" class="tie" d="M320 378 V400"/></g>
+  <g class="t-node" style="--d:0"><circle cx="130" cy="92" r="6"/><text x="130" y="72" text-anchor="middle" class="t-l">Role</text><text x="130" y="118" text-anchor="middle" class="t-a">Authority</text></g><g class="t-node" style="--d:1"><circle cx="320" cy="92" r="6"/><text x="320" y="72" text-anchor="middle" class="t-l">Role</text><text x="320" y="118" text-anchor="middle" class="t-a">Authority</text></g><g class="t-node" style="--d:2"><circle cx="510" cy="92" r="6"/><text x="510" y="72" text-anchor="middle" class="t-l">Role</text><text x="510" y="118" text-anchor="middle" class="t-a">Authority</text></g><g class="t-node" style="--d:3"><rect x="96" y="178" width="68" height="26" rx="13"/><text x="130" y="195" text-anchor="middle">Agent</text></g><g class="t-node" style="--d:4"><rect x="286" y="178" width="68" height="26" rx="13"/><text x="320" y="195" text-anchor="middle">Agent</text></g><g class="t-node" style="--d:5"><rect x="476" y="178" width="68" height="26" rx="13"/><text x="510" y="195" text-anchor="middle">Agent</text></g>
+  <g class="t-node" style="--d:6"><rect x="270" y="258" width="100" height="26" rx="13" class="t-task"/><text x="320" y="275" text-anchor="middle">Task</text></g>
+  <g class="t-node" style="--d:7"><rect x="262" y="306" width="116" height="26" rx="7"/><text x="320" y="323" text-anchor="middle">Capability</text>
+    <text x="320" y="368" text-anchor="middle" class="t-s">Tool · Service</text></g>
+  <g class="t-str" style="--d:8"><text x="24" y="412" class="t-s">Knowledge</text><path pathLength="1" d="M128 408 H616"/></g><g class="t-str" style="--d:9"><text x="24" y="434" class="t-s">Policy</text><path pathLength="1" d="M128 430 H616"/></g><g class="t-str" style="--d:10"><text x="24" y="456" class="t-s">Memory</text><path pathLength="1" d="M128 452 H616"/></g><g class="t-str" style="--d:11"><text x="24" y="478" class="t-s">Evaluation</text><path pathLength="1" d="M128 474 H616"/></g>
+  <circle class="t-signal" r="4"><animateMotion dur="7s" repeatCount="indefinite" path="M320 34 C320 60 130 60 130 92 V191 C130 236 320 232 320 271 V319"/></circle>
+</svg><ol class="topo-m"><li>Organization</li><li>Role · Authority</li><li>Agent</li><li>Task</li><li>Capability</li><li>Tool · Service</li></ol><div class="topo-ms"><span>Knowledge</span><span>Policy</span><span>Memory</span><span>Evaluation</span></div></figure></div>
   </div>
 </section>
 
@@ -1146,17 +1301,19 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
       <p class="lede">Roles define responsibility. Authority defines delegation and decision rights. Capabilities define what can be done. Policies define the boundaries.</p>
     </div>
     <div class="rs-pair"><div><span class="om-t">Organization</span><p>Structure and state: who exists, what they are responsible for, what they may do.</p></div><div><span class="om-t">Organizational Reasoning</span><p>Behavior over time: how the organization works out who should do what when something happens.</p></div></div>
-<figure class="rs" data-live aria-label="Organizational Reasoning flow">
-  <div class="rs-flow">
-    <div class="rs-n rs-state" data-s="0">Current organizational state</div>
-    <div class="rs-n rs-event" data-s="1">Event or goal</div>
-    <ol class="rs-checks"><li data-s="2">Who is responsible?</li><li data-s="3">What authority exists?</li><li data-s="4">Which capabilities are available?</li><li data-s="5">Which policies constrain the action?</li></ol>
-    <div class="rs-n rs-out" data-s="6"><span>Act</span><span>Delegate</span><span>Collaborate</span></div>
-    <div class="rs-n rs-state next" data-s="7">New organizational state</div>
+<div class="rl" data-rl="[{&quot;t&quot;: &quot;New signatory registered at a supplier&quot;, &quot;active&quot;: &quot;trp&quot;, &quot;edges&quot;: [[&quot;trp&quot;, &quot;reg&quot;, &quot;del&quot;], [&quot;trp&quot;, &quot;ana&quot;, &quot;up&quot;]], &quot;a&quot;: [&quot;Third-party risk role&quot;, &quot;May investigate and propose. A person changes the risk level.&quot;, &quot;Registry lookup \u00b7 relationship graph \u00b7 change detection&quot;, &quot;Supplier monitoring policy allows it&quot;], &quot;out&quot;: &quot;Delegates the registry check, then acts on the findings&quot;, &quot;state&quot;: &quot;Case open \u00b7 recommendation waiting for the risk analyst&quot;, &quot;kind&quot;: &quot;ok&quot;}, {&quot;t&quot;: &quot;Chargeback received: goods not received&quot;, &quot;active&quot;: &quot;dsp&quot;, &quot;edges&quot;: [[&quot;dsp&quot;, &quot;trp&quot;, &quot;col&quot;], [&quot;dsp&quot;, &quot;dan&quot;, &quot;up&quot;]], &quot;a&quot;: [&quot;Dispute operations role&quot;, &quot;May assemble the case. Accepting liability needs approval.&quot;, &quot;Transaction lookup \u00b7 3-D Secure log \u00b7 merchant profile&quot;, &quot;Scheme deadline in 6 days; response needs approval&quot;], &quot;out&quot;: &quot;Collaborates with third-party risk on the merchant&quot;, &quot;state&quot;: &quot;Evidence package ready \u00b7 waiting for the dispute analyst&quot;, &quot;kind&quot;: &quot;ok&quot;}, {&quot;t&quot;: &quot;Request to send a case file to an outside party&quot;, &quot;active&quot;: &quot;lead&quot;, &quot;edges&quot;: [[&quot;lead&quot;, &quot;edge&quot;, &quot;block&quot;], [&quot;lead&quot;, &quot;cmp&quot;, &quot;up&quot;]], &quot;a&quot;: [&quot;Investigation lead&quot;, &quot;No role may send case files outside the organization.&quot;, &quot;Case file export is not a capability here&quot;, &quot;Data policy: case files stay inside&quot;], &quot;out&quot;: &quot;Denies the request and escalates to compliance&quot;, &quot;state&quot;: &quot;Request denied \u00b7 recorded in the audit trail&quot;, &quot;kind&quot;: &quot;no&quot;}]">
+  <div class="rl-left">
+    <span class="lab">Incoming</span>
+    <ol class="rl-evs"><li><button type="button" class="rl-ev on" data-ev="0" aria-pressed="true"><i aria-hidden="true"></i><span>New signatory registered at a supplier</span></button></li><li><button type="button" class="rl-ev" data-ev="1" aria-pressed="false"><i aria-hidden="true"></i><span>Chargeback received: goods not received</span></button></li><li><button type="button" class="rl-ev" data-ev="2" aria-pressed="false"><i aria-hidden="true"></i><span>Request to send a case file to an outside party</span></button></li></ol>
   </div>
-  <div class="rs-loop" aria-hidden="true"><span>↺ and again, with the next event</span></div>
-  <figcaption class="rs-note">This is more than routing prompts between agents: each step is answered against the organization&#x27;s own roles, authority and rules.</figcaption>
-</figure>
+  <div class="rl-graph"><svg class="rl-lines" aria-hidden="true"></svg><span class="rl-bound lab">Organization boundary</span><div class="rl-n rl-agent on" data-role="trp" style="--x:21;--y:24"><b>Third-party risk</b><small>agent</small></div><div class="rl-n rl-agent" data-role="reg" style="--x:13;--y:60"><b>Registry</b><small>agent</small></div><div class="rl-n rl-agent" data-role="dsp" style="--x:79;--y:24"><b>Dispute operations</b><small>agent</small></div><div class="rl-n rl-agent" data-role="lead" style="--x:50;--y:50"><b>Investigation lead</b><small>agent</small></div><div class="rl-n rl-person" data-role="ana" style="--x:31;--y:87"><b>Risk analyst</b><small>person</small></div><div class="rl-n rl-person" data-role="dan" style="--x:69;--y:87"><b>Dispute analyst</b><small>person</small></div><div class="rl-n rl-person" data-role="cmp" style="--x:87;--y:60"><b>Compliance officer</b><small>person</small></div></div>
+  <div class="rl-panel" aria-live="polite">
+    <dl class="rl-ans"><div><dt>Who is responsible?</dt><dd data-a="0">Third-party risk role</dd></div><div><dt>What authority exists?</dt><dd data-a="1">May investigate and propose. A person changes the risk level.</dd></div><div><dt>What can be done?</dt><dd data-a="2">Registry lookup · relationship graph · change detection</dd></div><div><dt>What is allowed?</dt><dd data-a="3">Supplier monitoring policy allows it</dd></div></dl>
+    <div class="rl-out"><span class="lab">The organization</span><b data-out>Delegates the registry check, then acts on the findings</b></div>
+    <div class="rl-state ok" data-state-box><span class="lab">New state</span><b data-state>Case open · recommendation waiting for the risk analyst</b></div>
+  </div>
+</div>
+<p class="rl-note">Illustrative. Roles, authority and policies are examples; each organization defines its own.</p>
   </div>
 </section>
 
@@ -1184,28 +1341,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec" id="collaboration">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Collaboration</p>
-      <h2 class="h2">Agents <b>don't work alone.</b></h2>
-      <p class="lede">Real Investigations are shared work. Roles delegate, build on shared evidence and hand the decision to a person.</p>
-    </div>
-    <div class="cl-wrap">
-  <figure class="cl">
-    <div class="cl-top"><span class="lbl" style="margin:0">Example · Company Investigation</span></div>
-    <div class="cl-grid" data-links="[[&quot;inv&quot;, &quot;lead&quot;, &quot;&quot;], [&quot;lead&quot;, &quot;reg&quot;, &quot;&quot;], [&quot;lead&quot;, &quot;fin&quot;, &quot;&quot;], [&quot;reg&quot;, &quot;regc&quot;, &quot;&quot;], [&quot;fin&quot;, &quot;finc&quot;, &quot;&quot;], [&quot;regc&quot;, &quot;ev&quot;, &quot;&quot;], [&quot;finc&quot;, &quot;ev&quot;, &quot;&quot;], [&quot;ev&quot;, &quot;eval&quot;, &quot;&quot;], [&quot;eval&quot;, &quot;dec&quot;, &quot;w&quot;]]">
-      <div class="cl-n cl-inv wide" data-n="inv"><b>Company Investigation</b><small>Trigger: new signatory registered</small></div><div class="cl-n cl-lead wide role" data-n="lead"><b>Investigation lead</b><small>Role · plans and delegates</small></div><div class="cl-n cl-reg role" data-n="reg"><b>Registry role</b><small>Checks official filings</small></div><div class="cl-n cl-fin role" data-n="fin"><b>Financial role</b><small>Reads financial statements</small></div>
-      <div class="cl-n cl-regc cl-cap" data-n="regc"><b>Registry capability</b></div><div class="cl-n cl-finc cl-cap" data-n="finc"><b>Financial capability</b></div><div class="cl-n cl-ev wide ev" data-n="ev"><b>Shared evidence</b><small>Findings with their sources</small></div><div class="cl-n cl-eval wide" data-n="eval"><b>Evaluation</b><small>Is the evidence sufficient and consistent?</small></div><div class="cl-n cl-dec wide hum" data-n="dec"><b>Human decision</b><small>A person approves or rejects</small></div>
-    </div>
-    <figcaption class="cl-note">Illustrative. Role names show the idea; they are not fixed product components.</figcaption>
-  </figure>
-  <ul class="cl-concepts"><li><b>Responsibility</b><span>Each role owns part of the work.</span></li><li><b>Delegation</b><span>The lead hands work to roles with the authority and capability for it.</span></li><li><b>Collaboration</b><span>Roles build on each other&#x27;s findings.</span></li><li><b>Shared evidence</b><span>Findings land in one case, each with its source.</span></li><li><b>Evaluation</b><span>The result is checked before it reaches a person.</span></li><li><b>Human authority</b><span>A person makes the decision.</span></li></ul>
-</div>
-  </div>
-</section>
-
-<section class="sec tone" id="governance">
+<section class="sec" id="governance">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Governance</p>
@@ -1229,7 +1365,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec" id="knowledge">
+<section class="sec ops" id="knowledge">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Knowledge &amp; memory</p>
@@ -1250,7 +1386,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec tone" id="evaluation">
+<section class="sec ops" id="evaluation">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Evaluation</p>
@@ -1271,7 +1407,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec" id="observability">
+<section class="sec ops" id="observability">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Observability</p>
@@ -1289,7 +1425,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec tone dots" id="spaces">
+<section class="sec dots" id="spaces">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Harness and Spaces</p>
@@ -1305,12 +1441,12 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec" id="proof">
+<section class="sec tone" id="proof">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">In use</p>
       <h2 class="h2">Built underneath <b>real Investigations.</b></h2>
-      <p class="lede">Harness capabilities are shaped underneath concrete enterprise Investigations, not in an isolated framework experiment. Each reference is shown at the maturity it has actually reached.</p>
+      <p class="lede">Harness capabilities are being shaped by concrete enterprise Investigations, not in an isolated framework experiment. Each reference is shown at the maturity it has actually reached.</p>
     </div>
     <div class="pf">
       <div class="pf-group">
@@ -1326,7 +1462,7 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   </div>
 </section>
 
-<section class="sec tone" id="research">
+<section class="sec" id="research">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">R&amp;D</p>
@@ -1384,21 +1520,28 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   // Remember the link a visitor leaves through, and on load scroll the frame's own
   // content: back to that link after Back, to the top (or #section) otherwise.
   if(window.top!==window){
-    var POS='deepin-pos:'+location.pathname;
+    var POS='deepin-pos:'+location.pathname,user=false;
+    try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}
     document.addEventListener('click',function(ev){
       var a=ev.target.closest&&ev.target.closest('a[href]');if(!a)return;
       var h=a.getAttribute('href');if(!h||h.charAt(0)==='#'||/^(mailto|tel|javascript):/i.test(h))return;
       try{sessionStorage.setItem(POS,[].indexOf.call(document.querySelectorAll('a[href]'),a))}catch(e){}
     },true);
-    var land=function(back){
+    ['wheel','touchstart','keydown','mousedown'].forEach(function(t){window.addEventListener(t,function(){user=true},{passive:true,once:true})});
+    var nav0=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0],back=!!nav0&&nav0.type==='back_forward';
+    var land=function(){
+      if(user)return;
       var t=null,i=null;
       if(back){try{i=sessionStorage.getItem(POS)}catch(e){}if(i!==null)t=document.querySelectorAll('a[href]')[+i]}
       if(!t&&location.hash){try{t=document.querySelector(location.hash)}catch(e){}}
-      if(t)t.scrollIntoView({block:back?'center':'start'});else document.documentElement.scrollIntoView({block:'start'});
+      if(t)t.scrollIntoView({block:back?'center':'start'});
+      else{window.scrollTo(0,0);document.documentElement.scrollIntoView({block:'start'})}
     };
-    var nav=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];
-    land(!!nav&&nav.type==='back_forward');
-    window.addEventListener('pageshow',function(ev){if(ev.persisted)land(true)});
+    if(!back){try{sessionStorage.removeItem(POS)}catch(e){}}
+    // run now, and again once the page has settled (a preview window may restore its own position late)
+    land();requestAnimationFrame(land);
+    window.addEventListener('load',function(){land();setTimeout(land,150);setTimeout(land,450)});
+    window.addEventListener('pageshow',function(ev){if(ev.persisted){back=true;user=false;land()}});
   }
   // remember the language the visitor picks
   document.querySelectorAll('.langs a[hreflang]').forEach(function(a){
@@ -1536,6 +1679,24 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawTangles);
 
   // deepin.risk demo interactions
+  document.querySelectorAll('[data-tabs]').forEach(function(box){
+    var tabs=[].slice.call(box.querySelectorAll('[role="tab"]'));if(!tabs.length)return;
+    function sel(t,focus){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});if(focus)t.focus()}
+    box.classList.add('tabbed');sel(tabs[0]);
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){sel(t)});
+      t.addEventListener('keydown',function(ev){var k=ev.key==='ArrowRight'?1:ev.key==='ArrowLeft'?-1:0;if(k){ev.preventDefault();sel(tabs[(i+k+tabs.length)%tabs.length],true)}});
+    });
+  });
+  // living timeline: the light orb runs from the first ring to the last each time the timeline is scrolled into view
+  document.querySelectorAll('.lt-track').forEach(function(tr){
+    if(!('IntersectionObserver' in window)){tr.classList.add('orb-go');return}
+    new IntersectionObserver(function(en){
+      var e=en[0];
+      if(e.intersectionRatio>=.6&&!tr.classList.contains('orb-go')){void tr.offsetWidth;tr.classList.add('orb-go')}
+      else if(!e.isIntersecting)tr.classList.remove('orb-go');
+    },{threshold:[0,.6]}).observe(tr);
+  });
   document.querySelectorAll('.liv-tl').forEach(function(tl){
     var btns=[].slice.call(tl.querySelectorAll('.lt-btn')),panels=[].slice.call(tl.querySelectorAll('.lt-panel'));
     btns.forEach(function(b){b.addEventListener('click',function(){
@@ -1555,6 +1716,11 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
   document.querySelectorAll('details.ev-d').forEach(function(d){
     var s=d.querySelector('summary');
     d.addEventListener('toggle',function(){s.textContent=d.open?s.getAttribute('data-hide'):s.getAttribute('data-view')});
+  });
+  document.querySelectorAll('[data-ev-all]').forEach(function(b){
+    var list=b.parentNode.querySelector('.why3s');if(!list)return;
+    list.classList.add('closed');b.hidden=false;
+    b.addEventListener('click',function(){var c=list.classList.toggle('closed');b.textContent=b.getAttribute(c?'data-show':'data-hide')});
   });
   document.querySelectorAll('[data-decision]').forEach(function(box){
     var res=box.querySelector('.rcx-result'),steps=[].slice.call(box.querySelectorAll('.rcx-further li'));
@@ -1704,6 +1870,57 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
     var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){if(!raf)loop()}else{cancelAnimationFrame(raf);raf=null}});
     io.observe(c);
   }
+})();
+
+
+/* DEEPIN / ORGANISM — Harness. The same organization answers differently when a
+   different event arrives: another role becomes responsible, other capabilities are
+   in reach, other policies apply, and the organization ends in a new state. */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS='http://www.w3.org/2000/svg';
+  // navigation darkens while the dark hero is under it
+  var dark=document.querySelector('[data-dark]');
+  if(dark){var f=function(){var r=dark.getBoundingClientRect();document.body.classList.toggle('on-dark',r.bottom>70)};window.addEventListener('scroll',f,{passive:true});f()}
+
+  document.querySelectorAll('[data-rl]').forEach(function(rl){
+    var evs=JSON.parse(rl.getAttribute('data-rl')),graph=rl.querySelector('.rl-graph'),svg=rl.querySelector('.rl-lines');
+    var btns=[].slice.call(rl.querySelectorAll('.rl-ev')),nodes={},panel=rl.querySelector('.rl-panel');
+    [].slice.call(rl.querySelectorAll('[data-role]')).forEach(function(n){nodes[n.getAttribute('data-role')]=n});
+    var cur=0,timer=null,touched=false,visible=false;
+    function c(n){var g=graph.getBoundingClientRect(),b=n.getBoundingClientRect();return{x:b.left-g.left+b.width/2,y:b.top-g.top+b.height/2,w:b.width,h:b.height}}
+    function add(d,cls){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('pathLength','1');p.setAttribute('class',cls+(reduce?'':' draw'));svg.appendChild(p)}
+    function lines(ev){
+      while(svg.firstChild)svg.removeChild(svg.firstChild);
+      var W=graph.clientWidth;svg.setAttribute('viewBox','0 0 '+W+' '+graph.clientHeight);
+      ev.edges.forEach(function(e){
+        var A=c(nodes[e[0]]);
+        if(e[1]==='edge'){var x2=W-2,y=A.y;add('M'+(A.x+A.w/2+4)+' '+y+' H'+(x2-10),'block');
+          var q=document.createElementNS(NS,'path');q.setAttribute('d','M'+(x2-16)+' '+(y-6)+' l12 12 M'+(x2-4)+' '+(y-6)+' l-12 12');q.setAttribute('class','x');svg.appendChild(q);return}
+        var B=c(nodes[e[1]]),mx=(A.x+B.x)/2,my=(A.y+B.y)/2,dx=B.x-A.x,dy=B.y-A.y,l=Math.hypot(dx,dy)||1,bend=e[2]==='col'?-40:24;
+        add('M'+A.x+' '+A.y+' Q'+(mx-dy/l*bend)+' '+(my+dx/l*bend)+' '+B.x+' '+B.y,e[2]);
+      });
+    }
+    function show(i,user){
+      cur=i;var ev=evs[i],hit={};ev.edges.forEach(function(e){hit[e[1]]=1});
+      btns.forEach(function(b,k){b.classList.toggle('on',k===i);b.setAttribute('aria-pressed',k===i?'true':'false')});
+      Object.keys(nodes).forEach(function(k){var n=nodes[k];n.classList.toggle('on',k===ev.active);n.classList.toggle('hit',!!hit[k]);n.classList.toggle('dim',k!==ev.active&&!hit[k])});
+      lines(ev);
+      panel.classList.add('swap');
+      setTimeout(function(){
+        [].slice.call(panel.querySelectorAll('[data-a]')).forEach(function(d,k){d.textContent=ev.a[k]});
+        panel.querySelector('[data-out]').textContent=ev.out;panel.querySelector('[data-state]').textContent=ev.state;
+        panel.querySelector('[data-state-box]').className='rl-state '+ev.kind;panel.classList.remove('swap');
+      },reduce?0:220);
+      if(user){touched=true;clearTimeout(timer)}
+      else schedule();
+    }
+    function schedule(){clearTimeout(timer);if(reduce||touched||!visible)return;timer=setTimeout(function(){show((cur+1)%evs.length)},6500)}
+    btns.forEach(function(b,k){b.addEventListener('click',function(){show(k,true)})});
+    new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible)schedule();else clearTimeout(timer)},{threshold:.35}).observe(rl);
+    window.addEventListener('resize',function(){clearTimeout(window.__rl);window.__rl=setTimeout(function(){lines(evs[cur])},150)});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){show(cur)});else show(0);
+  });
 })();
 
 </script>
