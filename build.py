@@ -20,7 +20,7 @@ Pages use <!--@component:arg--> markers; components are defined below and in
 src/risk_components.py and src/harness_components.py. %ROOT% in a page is the
 relative path to that language's home page.
 """
-import html, json, os, re, sys
+import html, json, os, posixpath, re, shutil, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, "src")
@@ -33,6 +33,23 @@ LOCALES = [("tr", ""), ("en", "en/")]          # (language, output folder); firs
 PAGES = ["home", "risk", "finance", "security", "energy", "harness"]
 PAGE_DIR = {"home": ""}                        # output folder per page inside a locale
 SUB = {"home": "", "harness": " harness"}     # sub-brand after the logo (".risk"; a leading space means a word, not a Space)
+
+# Spaces served on their own subdomain. The page is built into the folder on the right,
+# which is the document root of that subdomain on the server (with its own assets/).
+# Everywhere else on the site, links to the page point at the subdomain.
+SITE = "https://deepin.space/"
+SUBDOMAINS = {"risk": ("https://risk.deepin.space/", "risk.deepin.space/")}
+if os.environ.get("DEEPIN_PATHS") == "1":   # preview build: every page under one folder, no subdomains
+    SUBDOMAINS = {}
+OUT_ROOT = os.environ.get("DEEPIN_OUT", ROOT)
+
+# Google Analytics (GA4): one property for deepin.space and all its subdomains.
+# It loads only on the live domains, so local files and previews send nothing.
+GA_ID = "G-ZL2J5R6HCB"
+GA_SNIPPET = ("<!-- Google tag (gtag.js) -->\n<script>(function(){if(!/(^|\\.)deepin\\.space$/.test(location.hostname))return;"
+              "var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=" + GA_ID + "';"
+              "document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};"
+              "gtag('js',new Date());gtag('config','" + GA_ID + "',{content_group:'%PAGE%'})})()</script>")
 
 BASE_CSS = open(os.path.join(SRC, "base.css"), encoding="utf-8").read() + "\n" + open(os.path.join(SRC, "organism.css"), encoding="utf-8").read()
 BASE_JS = open(os.path.join(SRC, "base.js"), encoding="utf-8").read()
@@ -404,8 +421,83 @@ def page_path(lang_dir, page):
     return lang_dir + PAGE_DIR.get(page, page + "/")
 
 
+def public_url(page, lang_dir):
+    """The address a page is published at."""
+    if page in SUBDOMAINS:
+        return SUBDOMAINS[page][0] + lang_dir
+    return SITE + page_path(lang_dir, page)
+
+
+_SKIP = re.compile(r"^(?:[a-z][a-z0-9+.-]*:|//|#|/|\{)", re.I)
+
+
+def place(page, lang_dir):
+    """(folder of the written file, folder its relative links are resolved from inside the docroot)."""
+    if page in SUBDOMAINS:
+        return SUBDOMAINS[page][1] + lang_dir, lang_dir
+    out = page_path(lang_dir, page)
+    return out, out
+
+
+def resolve(url, page, lang_dir, need):
+    """Pages are written as if every page lived on deepin.space; rewrite links that cross a subdomain."""
+    if not SUBDOMAINS or not url or _SKIP.match(url):
+        return url
+    m = re.match(r"([^#?]*)(.*)", url, re.S)
+    path, tail = m.group(1), m.group(2)
+    virt = page_path(lang_dir, page)
+    target = posixpath.normpath(posixpath.join(virt, path)) if path else virt.rstrip("/")
+    if target == ".":
+        target = ""
+    is_dir = path == "" or path.endswith("/") or target == ""
+    tdir = target + "/" if is_dir and target else target
+    _, here = place(page, lang_dir)
+    for sp, (origin, _folder) in SUBDOMAINS.items():
+        for _, ld in LOCALES:
+            v = page_path(ld, sp)
+            if tdir == v or tdir.startswith(v):
+                rest = ld + tdir[len(v):]
+                if page == sp:                       # inside the same subdomain: stay relative
+                    rel = posixpath.relpath(rest or ".", here or ".")
+                    rel = "./" if rel == "." else rel + ("/" if rest.endswith("/") or not rest else "")
+                    return rel + tail
+                return origin + rest + tail
+    if page in SUBDOMAINS:
+        if tdir.startswith("assets/"):               # the subdomain carries its own copy of shared assets
+            need.add(tdir)
+            rel = posixpath.relpath(tdir, here or ".")
+            return rel + tail
+        return SITE + tdir + tail
+    return url
+
+
+def finalize(doc, page, lang_dir, need):
+    fix = lambda u: resolve(u, page, lang_dir, need)
+    doc = re.sub(r'\b(href|src|poster)="([^"]*)"', lambda m: f'{m.group(1)}="{fix(m.group(2))}"', doc)
+    doc = re.sub(r'url\("([^"]*)"\)', lambda m: f'url("{fix(m.group(1))}")', doc)
+    return doc
+
+
+def redirect_stub(target, lang):
+    t = e(target)
+    return f'''<!doctype html>
+<html lang="{lang}">
+<head>
+<meta charset="utf-8">
+<title>Deepin Risk</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{t}">
+<meta http-equiv="refresh" content="0; url={t}">
+<script>location.replace({json.dumps(target)}+location.hash)</script>
+</head>
+<body><p><a href="{t}">{t}</a></p></body>
+</html>
+'''
+
+
 def build():
     written = []
+    need = {sp: set() for sp in SUBDOMAINS}
     for lang, lang_dir in LOCALES:
         set_locale(lang)
         for page in PAGES:
@@ -442,17 +534,20 @@ def build():
             css = BASE_CSS.replace('url("assets/', f'url("{ctx["assets"]}assets/') + "\n" + style
             jpath = os.path.join(SRC, "scripts", f"{page}.js")
             page_js = open(jpath, encoding="utf-8").read() if os.path.exists(jpath) else ""
-            url = f"https://deepin.space/{out}"
-            alternates = "\n".join(f'<link rel="alternate" hreflang="{l}" href="https://deepin.space/{page_path(d, page)}">' for l, d in LOCALES)
-            alternates += f'\n<link rel="alternate" hreflang="x-default" href="https://deepin.space/{page_path(LOCALES[0][1], page)}">'
-            # honour a language the visitor picked with the TR/EN switch (set in base.js)
-            alt_json = json.dumps({l: u for l, u in ctx["alt"].items() if l != lang})
-            alternates += ('\n<script>(function(){try{var s=localStorage.getItem("deepin-lang"),a=' + alt_json +
+            url = public_url(page, lang_dir)
+            alternates = "\n".join(f'<link rel="alternate" hreflang="{l}" href="{public_url(page, d)}">' for l, d in LOCALES)
+            alternates += f'\n<link rel="alternate" hreflang="x-default" href="{public_url(page, LOCALES[0][1])}">'
+            # honour a language the visitor picked with the TR/EN switch (set in base.js; a cookie on
+            # .deepin.space carries it across subdomains, localStorage elsewhere)
+            alt_json = json.dumps({l: resolve(u, page, lang_dir, set()) for l, u in ctx["alt"].items() if l != lang})
+            alternates += ('\n<script>(function(){try{var c=document.cookie.match(/(?:^|; )deepin-lang=(\\w+)/),'
+                           's=c?c[1]:localStorage.getItem("deepin-lang"),a=' + alt_json +
                            ';if(s&&a[s]){var u=a[s];if(!/(^|\\.)deepin\\.space$/.test(location.hostname)&&/\\/$/.test(u))u+="index.html";'
                            'location.replace(u+location.hash)}}catch(e){}})()</script>')
             doc = f'''<!doctype html>
 <html lang="{lang}">
 <head>
+{GA_SNIPPET.replace("%PAGE%", page)}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{e(meta["title"])}</title>
@@ -486,10 +581,28 @@ def build():
 </body>
 </html>
 '''
-            path = os.path.join(ROOT, out, "index.html")
+            folder, _ = place(page, lang_dir)
+            if page in SUBDOMAINS:
+                doc = finalize(doc, page, lang_dir, need[page])
+                stub = os.path.join(OUT_ROOT, out, "index.html")      # the old path sends visitors on
+                os.makedirs(os.path.dirname(stub), exist_ok=True)
+                open(stub, "w", encoding="utf-8").write(redirect_stub(url, lang))
+            else:
+                doc = finalize(doc, page, lang_dir, set())
+            path = os.path.join(OUT_ROOT, folder, "index.html")
             os.makedirs(os.path.dirname(path), exist_ok=True)
             open(path, "w", encoding="utf-8").write(doc)
-            written.append(out + "index.html")
+            written.append(folder + "index.html")
+    # shared assets a subdomain uses are copied into its own assets/ folder
+    for sp, files in need.items():
+        for f in sorted(files):
+            dst = os.path.join(OUT_ROOT, SUBDOMAINS[sp][1], f)
+            src = os.path.join(ROOT, f)
+            if os.path.exists(src) and not os.path.exists(dst):
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
+                shutil.copy2(src, dst)
+            elif not os.path.exists(dst):
+                print("missing asset for", sp, ":", f)
     print("built:", ", ".join(written))
 
 

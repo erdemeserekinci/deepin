@@ -1,13 +1,17 @@
 # deepin.space web sitesi
 
-Statik site. Klasörün tamamı deepin.space kök dizinine yüklenir. Varsayılan dil Türkçe; İngilizce sürüm /en/ altında.
+Statik site. Varsayılan dil Türkçe; İngilizce sürüm /en/ altında.
+
+**Yayın:** `risk.deepin.space/` klasörü risk.deepin.space alt alan adının kök dizinine, geri kalan her şey (o klasör, `src/`, `build.py` ve `.md` dosyaları hariç) deepin.space kök dizinine yüklenir. `.htaccess` (Apache) eski /risk ve /en/risk adreslerini 301 ile alt alan adına yönlendirir.
 
 | Dosya | Adres |
 |---|---|
 | `index.html` | https://deepin.space (Türkçe) |
-| `risk/`, `finance/`, `security/`, `energy/`, `harness/` | https://deepin.space/risk vb. (Türkçe) |
+| `risk.deepin.space/index.html`, `risk.deepin.space/en/` | https://risk.deepin.space (Türkçe), https://risk.deepin.space/en (İngilizce); kendi `assets/` klasörüyle |
+| `finance/`, `security/`, `energy/`, `harness/` | https://deepin.space/finance vb. (Türkçe) |
+| `risk/`, `en/risk/` | Yalnızca risk.deepin.space'e yönlendirme sayfası (sunucu yönlendirmesi çalışmazsa) |
 | `en/index.html` | https://deepin.space/en (İngilizce) |
-| `en/risk/`, `en/finance/`, `en/security/`, `en/energy/`, `en/harness/` | https://deepin.space/en/risk vb. (İngilizce) |
+| `en/finance/`, `en/security/`, `en/energy/`, `en/harness/` | https://deepin.space/en/finance vb. (İngilizce) |
 | `assets/` | Ortak görseller |
 | `security/demo/` | https://deepin.space/security/demo (deepin.security platform demosu, kurgusal veri, arama motorlarına kapalı; İngilizcesi `security/demo/en/`) |
 
@@ -36,7 +40,9 @@ Terminoloji: Türkçe metinlerde Investigation, Space ve ürün adları İngiliz
 Müşteri logoları: `src/data.*.json` içinde `proof.show_logos` true yapılıp her müşteriye `logo` yolu girilirse isimler yerine logolar gösterilir.
 Talep formu şu an e-posta uygulamasını açar. Bir form servisi bağlanırsa `risk.*.json` içindeki `form.endpoint` alanına adresi yazmak yeterli.
 
-Eski risk.deepin.space adresini https://deepin.space/risk adresine 301 ile yönlendirmek önerilir.
+Alt alan adında yayınlanan Space'ler `build.py` içindeki `SUBDOMAINS` ile tanımlanır (şu an yalnızca risk). Sayfalar her şey deepin.space'teymiş gibi yazılır; derleme, alt alan adını geçen bağlantıları tam adrese çevirir ve paylaşılan görselleri alt alan adının `assets/` klasörüne kopyalar. Önizleme için tek klasörlü derleme: `DEEPIN_PATHS=1 DEEPIN_OUT=<klasör> python3 build.py`.
+
+Google Analytics (GA4, `G-ZL2J5R6HCB`) tüm sayfalarda tek kimlikle çalışır ve yalnızca deepin.space ile alt alan adlarında yüklenir. Her sayfa `content_group` olarak kendi adını gönderir (home, risk, finance, security, energy, harness); raporlarda Space'e göre ayırmak için bu boyut kullanılır. Ziyaretçinin dil tercihi alt alan adlarına `.deepin.space` çereziyle taşınır.
 
 ## deepin.security demosu ve ürün videoları
 

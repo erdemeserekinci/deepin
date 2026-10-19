@@ -46,7 +46,12 @@
   }
   // remember the language the visitor picks
   document.querySelectorAll('.langs a[hreflang]').forEach(function(a){
-    a.addEventListener('click',function(){try{localStorage.setItem('deepin-lang',a.getAttribute('hreflang'))}catch(e){}});
+    a.addEventListener('click',function(){
+      var l=a.getAttribute('hreflang');
+      try{localStorage.setItem('deepin-lang',l)}catch(e){}
+      // a cookie on .deepin.space carries the choice to the Space subdomains (risk.deepin.space …)
+      if(/(^|\.)deepin\.space$/.test(location.hostname))document.cookie='deepin-lang='+l+';domain=.deepin.space;path=/;max-age=31536000;SameSite=Lax;Secure';
+    });
   });
   // sticky nav border
   var nav=document.querySelector('.nav');

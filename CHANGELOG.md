@@ -166,9 +166,15 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Üstteki ve alttaki logo artık ana sayfaya gitmiyor; bulunduğunuz sayfanın başına kaydırıyor. Ana sayfaya menüdeki "Deepin" bağlantısıyla gidiliyor.
 - Alt sayfaların (risk, finance, security, energy, Harness) sonuna, footer'dan önce "Deepin teknolojisini tanıyın" bölümü eklendi: koyu marka paneli, nane parıltısı, silik "deepin" yazısı ve ince bağlantı ağı; "Deepin'i keşfedin" düğmesi sayfanın dilindeki ana sayfaya, yandaki liste kardeş sayfalara gidiyor.
 
+**risk.deepin.space yeniden açıldı, Google Analytics** (19 Ekim)
+- deepin.risk artık risk.deepin.space'te (İngilizcesi risk.deepin.space/en). Derleme sayfayı `risk.deepin.space/` klasörüne kendi görselleri ve videolarıyla üretiyor; sitedeki tüm risk bağlantıları bu adrese gidiyor, risk sayfasındaki diğer bağlantılar deepin.space'e.
+- Eski deepin.space/risk ve /en/risk adresleri 301 ile (`.htaccess`) ya da yedek yönlendirme sayfasıyla alt alan adına gidiyor.
+- Google Analytics (GA4) tüm sayfalarda tek kimlikle; her sayfa kendi adını `content_group` olarak gönderiyor. Kod yalnızca canlı alan adlarında yükleniyor.
+- Dil tercihi alt alan adları arasında `.deepin.space` çereziyle korunuyor.
+
 ## Alınan kararlar
 
-- **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.
+- **Adres yapısı:** Space sayfaları yol olarak yayınlanıyor (deepin.space/finance); 19 Ekim'den itibaren deepin.risk kendi alt alan adında: risk.deepin.space. SEO alt alan adları üzerinden yapılacak.
 - **Dil:** Türkçe varsayılan dil ve kökte duruyor; İngilizce /en/ altında. Terimlerde karma yaklaşım uygulanıyor.
 - **Tasarım:** Açık renkler kullanılıyor. Ana renk yeşil (#158867), vurgu rengi mint (#28DCA8). Karanlık mod da destekleniyor.
 - **Müşteri referansları:** Her müşteri gerçekte ulaştığı olgunluk seviyesiyle gösteriliyor: sözleşmeli, ürüne gömülü/kurulumda ya da canlı kullanımda.
@@ -181,6 +187,7 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - **Fontlar:** Eski siteye erişilemediği için Poppins tahmini yapıldı. Eski siteyle karşılaştırılıp doğrulanmalı.
 - **Müşteri logoları:** Şu an isimler gösteriliyor. Logo dosyaları gelirse `proof.show_logos` açılabilir.
 - **Talep formu:** Şu an e-posta uygulamasını açıyor. Bir form servisi bağlanırsa `form.endpoint` alanına adresi yazmak yeterli.
-- **Yönlendirme:** Eski risk.deepin.space adresi deepin.space/risk adresine 301 ile yönlendirilmeli.
+- **Çerez onayı:** Google Analytics için KVKK kapsamında ziyaretçi onayı (çerez şeridi + Consent Mode) henüz yok.
+- **security/demo:** Ayrı duran demo sayfalarında Google Analytics kodu yok.
 - **Harness metinleri:** Türkçe ve İngilizce metinler gözden geçirilmeli; özellikle yönetişim kontrolleri ve Ar-Ge bölümü.
 - **Energy:** Bu sayfa "keşif aşamasında". Somut bir müşteri ya da vaka oluştuğunda içeriği güncellenmeli.
