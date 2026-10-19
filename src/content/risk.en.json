@@ -2,25 +2,25 @@
   "lang": "en",
   "copy": {
     "title": "Deepin Risk · Company Intelligence",
-    "description": "Look deep into every company's history, relationships and risks. Deepin tracks changes at your customers, suppliers, dealers and business partners and explains what they mean, with evidence.",
+    "description": "Look deep into every company's history, relationships and risks. Deepin Risk tracks changes at your customers, suppliers, dealers and business partners and explains what they mean, with evidence.",
     "demo_note": "Demo data with fictional companies.",
     "hero_eyebrow": "Company intelligence & risk monitoring",
     "hero_h1": "Look <b>deeper</b> into every company.",
-    "hero_lede": "Your customers, suppliers, dealers and business partners keep changing. Deepin tracks these changes and explains what they mean, with evidence. Your team makes the call.",
-    "hero_cta": "Look into a company",
+    "hero_lede": "Your customers, suppliers, dealers and business partners keep changing. Deepin Risk tracks these changes and explains what they mean, with evidence. Your team makes the call.",
+    "hero_cta": "Request a demo",
     "hero_cta2": "See how it works",
     "mon_shift_from": "Static Risk Report",
     "mon_shift_to": "Living Intelligence",
     "mon_h2": "Companies don't stay the same. <b>Why should their risk report?</b>",
-    "mon_lede": "Traditional risk assessment is a snapshot. Deepin keeps company intelligence live: a material change causes the company to be looked at again.",
+    "mon_lede": "Traditional risk assessment is a snapshot. Deepin Risk keeps company intelligence live: a material change causes the company to be looked at again.",
     "mon_hint": "Select an event to see what changed.",
     "dim_eyebrow": "Company intelligence",
     "dim_h2": "What <b>changed?</b>",
-    "dim_lede": "Deepin looks at a company from four angles and asks the same questions again every time it changes.",
+    "dim_lede": "Deepin Risk looks at a company from four angles and asks the same questions again every time it changes.",
     "see_evidence": "See the evidence →",
     "ev_eyebrow": "Evidence before decision",
-    "ev_h2": "Don't tell me the score. <b>Show me why.</b>",
-    "ev_lede": "Supplier Co.'s risk moved from Medium to High. Every change comes with its finding, its source and the reasoning; your team makes the call.",
+    "ev_h2": "Deepin Risk gives you more than a risk segment: <b>it gives you the reason.</b>",
+    "ev_lede": "Every change comes with its finding, its source and the reasoning; your team makes the call.",
     "layer_eyebrow": "Added value",
     "layer_h2": "How does Deepin Risk <b>add value?</b>",
     "layer_lede": "Data providers give you company data. Deepin Risk turns it into researched, evidence-backed context and makes your company intelligence complete.",
@@ -33,58 +33,28 @@
     "ent_eyebrow": "Enterprise",
     "ent_h2": "Built for the data <b>you cannot send outside.</b>",
     "ent_data_h": "Your company data stays yours.",
-    "ent_data_p": "Your watchlists, analyses and decisions remain yours. What improves across deployments is how Deepin analyzes, never your records.",
+    "ent_data_p": "Your watchlists, analyses and decisions remain yours. What improves across deployments is how Deepin Risk analyzes, never your records.",
     "cta_eyebrow": "Deepin Risk",
-    "cta_h2": "Give Deepin <b>a company to look into.</b>",
-    "cta_p": "Pick a company your team already knows. See what changed, what Deepin finds and the evidence behind it.",
-    "cta_primary": "Request Company Intelligence",
-    "cta_secondary": "Talk to Deepin",
-    "start_eyebrow": "How to get started",
-    "start_h2": "Three steps <b>to your first result.</b>",
-    "start_cta": "Start with one company",
+    "cta_h2": "See Deepin Risk <b>with your own companies.</b>",
+    "cta_p": "Let's set up a short demo with your team and look together at how Deepin Risk tracks companies and backs your decisions with evidence.",
+    "cta_primary": "Request a demo",
+    "cta_secondary": "Talk to Deepin Risk",
     "value_tagline": "From event to decision: <b>in seconds, with evidence.</b>",
     "layer_note": "Works alongside your existing risk stack; it doesn't replace your workflow, it gives it decision-ready context.",
     "video_src": "assets/video/deepin-risk-en.mp4",
     "video_poster": "assets/video/deepin-risk-en.jpg",
-    "video_label": "Deepin Risk introduction video"
+    "video_label": "Deepin Risk introduction video",
+    "hero_img_alt": "Two professionals reviewing a company analysis together on a laptop"
   },
   "hero_depth": {
-    "mode": "Continuous monitoring",
-    "layers": [
-      {
-        "k": "Surface · monitoring tool",
-        "text": "Investment Holding became a shareholder.",
-        "meta": "18 Sep 2026 · Trade Registry"
-      },
-      {
-        "k": "1 level deep",
-        "text": "The holding was incorporated 4 months ago."
-      },
-      {
-        "k": "2 levels deep",
-        "text": "Its director K.A. became the company's sole signatory 6 days later."
-      },
-      {
-        "k": "3 levels deep",
-        "text": "K.A. also runs Related Company Ltd., now in restructuring."
-      }
-    ],
-    "bottom": "At depth",
-    "risk_label": "Risk",
     "risk_from": "Medium",
     "risk_to": "High",
-    "rec_label": "Recommendation",
     "rec": "Review the open limit.",
-    "ev_meta": "3 findings · 2 official sources · your team decides",
     "link": "See the full case",
-    "status": [
-      "Surface",
-      "1 level deep",
-      "2 levels deep",
-      "3 levels deep",
-      "At depth"
-    ],
-    "company": "Supplier Co."
+    "company": "Supplier Co.",
+    "risk_label": "Risk level",
+    "mail_label": "New alert email",
+    "summary": "New shareholder, new signatory, risky relationship"
   },
   "report": {
     "label": "Traditional",
@@ -146,7 +116,12 @@
     "reopened": "Company re-analyzed",
     "before_label": "Before",
     "after_label": "After",
-    "risk_label": "Risk context"
+    "risk_label": "Risk context",
+    "meter": {
+      "label": "Risk barometer",
+      "from": "Low",
+      "to": "High"
+    }
   },
   "dimensions": [
     {
@@ -223,7 +198,7 @@
             "k",
             "t",
             "same address",
-            "new"
+            "risk"
           ]
         ]
       },
@@ -363,7 +338,7 @@
   ],
   "roles": {
     "deepin": {
-      "label": "Deepin",
+      "label": "Deepin Risk",
       "items": [
         "Detect",
         "Research",
@@ -379,7 +354,9 @@
         "Review evidence",
         "Make the decision",
         "Approve or reject"
-      ]
+      ],
+      "note": "The final call is always your team's.",
+      "alt": "Team members making the decision"
     }
   },
   "context": {
@@ -411,7 +388,7 @@
         "excerpt": "Restructuring application accepted for Related Company Ltd., whose director is K.A.."
       }
     ],
-    "reasoning_label": "Deepin reasoning",
+    "reasoning_label": "Deepin Risk reasoning",
     "reasoning": "Three material changes occurred within 13 days across ownership, authority and related-company structure.",
     "rec_label": "Recommendation",
     "recommendation": "Review the open limit.",
@@ -424,8 +401,8 @@
     "rejected": "Rejected by your team · recorded in the audit trail",
     "further_steps": [
       "Follow-up analysis opened: Related Company Ltd.",
-      "Guarantees and shared obligations checked",
-      "Finding: Supplier Co. guarantees two loans of Related Company Ltd."
+      "Trade Registry Gazette and official notices scanned",
+      "Finding: 6 more companies are registered at Investment Holding's address, 4 of them set up in the last year"
     ],
     "view_all": "Show all evidence",
     "hide_all": "Hide evidence"
@@ -573,39 +550,11 @@
   ],
   "form": {
     "endpoint": "",
-    "title": "New Company Intelligence request",
+    "title": "Demo request",
     "close": "Close",
-    "step1": "Company & question",
-    "step2": "Contact",
-    "group_company": "Company",
-    "group_question": "Your question",
+    "step1": "Contact",
+    "step2": "Your interest",
     "group_contact": "Contact",
-    "fields_company": [
-      {
-        "id": "company",
-        "label": "Company name",
-        "required": true,
-        "placeholder": "Registered company name"
-      },
-      {
-        "id": "website",
-        "label": "Website, if known",
-        "placeholder": "example.com"
-      },
-      {
-        "id": "country",
-        "label": "Country",
-        "placeholder": "Türkiye"
-      }
-    ],
-    "fields_question": [
-      {
-        "id": "question",
-        "label": "What are you trying to understand?",
-        "type": "textarea",
-        "placeholder": "Ownership changes, representation authority, related companies, financial context..."
-      }
-    ],
     "fields_contact": [
       {
         "id": "name",
@@ -622,13 +571,32 @@
         "label": "Business email",
         "required": true,
         "type": "email"
+      },
+      {
+        "id": "phone",
+        "label": "Phone (optional)",
+        "type": "tel"
       }
     ],
     "next": "Continue",
     "back": "Back",
-    "submit": "Look into this company",
-    "done": "Your email app should open with the request filled in. If it doesn't, write to info@deepin.space and we will take it from there.",
-    "email_subject": "Company Intelligence request"
+    "submit": "Request a demo",
+    "done": "Your email app should open with your demo request filled in. If it doesn't, write to info@deepin.space and we will get back to you.",
+    "email_subject": "Deepin Risk demo request",
+    "group_interest": "Your interest",
+    "fields_interest": [
+      {
+        "id": "usecase",
+        "label": "Your use case",
+        "placeholder": "Credit risk, merchants, supplier assessment..."
+      },
+      {
+        "id": "message",
+        "label": "What would you like to see in the demo?",
+        "type": "textarea",
+        "placeholder": "Optionally mention a type of company you track or your question."
+      }
+    ]
   },
   "ui": {
     "levels": {
@@ -637,9 +605,9 @@
       "High": "High"
     },
     "living": "Living intelligence",
-    "aria_depth": "One case, from the surface to depth (demo)",
     "aria_tabs": "Change dimensions",
-    "aria_value": "Company data plus Deepin Risk equals a decision"
+    "aria_value": "Company data plus Deepin Risk equals a decision",
+    "risk_flag": "Risk signal: shared registered address"
   },
   "terms": {
     "Company + Financial Investigation": "Company + Financial Intelligence",
@@ -651,19 +619,5 @@
       "KVKK compliant",
       "Aligned with BDDK outsourcing rules"
     ]
-  },
-  "start": [
-    {
-      "t": "Share your company list",
-      "p": "Send the customers, suppliers or dealers you want to track. You can also start with a single company."
-    },
-    {
-      "t": "See the first analysis",
-      "p": "Deepin lays out each company's history, relationships and material changes, with the evidence."
-    },
-    {
-      "t": "Switch to continuous monitoring",
-      "p": "When something material changes, you see what it means and the recommendation right away; your team makes the call."
-    }
-  ]
+  }
 }

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Deepin Risk · Şirket İstihbaratı</title>
-<meta name="description" content="Şirketlerin geçmişine, ilişkilerine ve risklerine derinlemesine bakış. Deepin müşteri, tedarikçi, bayi ve iş ortaklarınızdaki değişiklikleri takip eder ve ne anlama geldiğini kanıtıyla açıklar.">
+<meta name="description" content="Şirketlerin geçmişine, ilişkilerine ve risklerine derinlemesine bakış. Deepin Risk müşteri, tedarikçi, bayi ve iş ortaklarınızdaki değişiklikleri takip eder ve ne anlama geldiğini kanıtıyla açıklar.">
 <meta property="og:title" content="Deepin Risk · Şirket İstihbaratı">
-<meta property="og:description" content="Şirketlerin geçmişine, ilişkilerine ve risklerine derinlemesine bakış. Deepin müşteri, tedarikçi, bayi ve iş ortaklarınızdaki değişiklikleri takip eder ve ne anlama geldiğini kanıtıyla açıklar.">
+<meta property="og:description" content="Şirketlerin geçmişine, ilişkilerine ve risklerine derinlemesine bakış. Deepin Risk müşteri, tedarikçi, bayi ve iş ortaklarınızdaki değişiklikleri takip eder ve ne anlama geldiğini kanıtıyla açıklar.">
 <meta property="og:url" content="https://deepin.space/risk/">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:image" content="https://deepin.space/assets/waves.jpg">
@@ -855,37 +855,10 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 :root[data-theme="dark"] .r-high{background:#3A1F19;color:#F2A08C}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .r-high{background:#3A1F19;color:#F2A08C}}
 
-/* ================= 1. hero: surface -> depth ================= */
-.hd{margin:0}
-.hd .hd-top{align-items:flex-start}
-.hd-top strong{display:block;font-size:17px;font-weight:600;margin-top:2px}
-.hd .case-body{gap:0;padding-bottom:18px}
-.dls{list-style:none;margin:0;padding:0;display:grid;gap:0}
-.dl{position:relative;display:grid;gap:3px;padding:12px 16px;border-radius:12px;
-  background:color-mix(in srgb,var(--accent) calc(var(--d) * 7% + 4%),var(--surface));border:1px solid color-mix(in srgb,var(--accent) calc(var(--d) * 12% + 10%),var(--surface))}
-.dl + .dl{margin-top:18px}
-.dl + .dl::before,.dl-bottom::before{content:"↓";position:absolute;left:14px;top:-19px;font-size:16px;font-weight:600;color:var(--accent);line-height:18px}
-.dl.top{background:transparent;border-style:dashed;border-color:var(--line)}
-.dl-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.dl.top .dl-k{color:var(--muted)}
-.dl p{font-size:14px;font-weight:500}
-.dl.top p{font-weight:400;color:var(--ink-2)}
-.dl small{font-size:12px;color:var(--muted)}
-.dl-bottom{position:relative;margin-top:18px;padding:16px 18px;border-radius:14px;background:var(--accent);color:var(--accent-ink);display:grid;gap:10px}
-.dl-bottom .dl-k,.dl-bottom .lbl{color:inherit;opacity:.75}
-.dl-bottom .lbl{margin:0}
-.dl-risk{display:flex;align-items:center;gap:10px}
-.dl-risk .lbl{min-width:40px}
-.dl-risk>span[aria-hidden]{opacity:.8}
-.dl-rec{display:grid;gap:2px}
-.dl-rec strong{font-size:16px;font-weight:600}
-.dl-rec small{font-size:12px;opacity:.8}
-.dl-link{justify-self:start;color:inherit;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-.case.playing .dl-bottom[data-s].on{box-shadow:0 0 0 3px rgba(var(--dot),.35)}
 
-.trust{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--ink-2)}
-.trust li{display:inline-flex;align-items:center;gap:7px}
-.trust svg{flex:none;width:16px;height:16px;fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
+.trust-strip{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--ink-2)}
+.trust-strip li{display:inline-flex;align-items:center;gap:7px}
+.trust-strip svg{flex:none;width:16px;height:16px;fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
 
 /* ================= 2. living investigation ================= */
 #monitoring{padding-block:clamp(64px,7vw,104px)}
@@ -1140,17 +1113,6 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 .film{margin:0 auto;max-width:1000px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#0d2126}
 .film video{display:block;width:100%;height:100%;background:#0d2126}
 
-/* ================= get started ================= */
-.gs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
-@media (max-width:860px){.gs{grid-template-columns:1fr}}
-.gs li{position:relative;padding:22px;border-radius:16px;border:1px solid var(--line);background:var(--surface);display:grid;gap:8px;align-content:start}
-.gs li + li::before{content:"→";position:absolute;left:-25px;font-size:18px;top:50%;transform:translateY(-50%);color:var(--accent)}
-@media (max-width:860px){.gs li + li::before{content:"↓";left:24px;top:-17px;transform:none}}
-.gs .n{font-family:var(--mono);font-size:12px;color:var(--accent)}
-.gs h3{font-size:18px;font-weight:600}
-.gs p{font-size:14px;color:var(--ink-2)}
-.gs-cta{margin-top:28px}
-
 /* ================= 9. enterprise ================= */
 .ent-row{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
 @media (max-width:900px){.ent-row{grid-template-columns:1fr;gap:24px}}
@@ -1193,14 +1155,169 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 .tone .ent-row .datanote{background:var(--surface);border:1px solid var(--line)}
 
 /* dark theme: the filled mint boxes one tone deeper */
-:root[data-theme="dark"] .eq-box.dp,:root[data-theme="dark"] .dl-bottom{background:color-mix(in srgb,var(--accent) 78%,#000);border-color:transparent}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .eq-box.dp,:root:not([data-theme="light"]) .dl-bottom{background:color-mix(in srgb,var(--accent) 78%,#000);border-color:transparent}}
+:root[data-theme="dark"] .eq-box.dp{background:color-mix(in srgb,var(--accent) 78%,#000);border-color:transparent}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .eq-box.dp{background:color-mix(in srgb,var(--accent) 78%,#000);border-color:transparent}}
 
 /* ORGANISM: deepin.risk — a company is a web of relationships that keeps changing */
 .pg-risk .hero{background:
   radial-gradient(circle at 88% 38%,transparent 0 120px,var(--hair-2) 121px,transparent 122px,transparent 190px,var(--hair-2) 191px,transparent 192px,transparent 270px,var(--hair-2) 271px,transparent 272px),
   radial-gradient(50% 60% at 90% 30%,rgba(40,220,168,.08),transparent 70%),var(--bg)}
 .pg-risk .hero h1 b{color:var(--accent)}
+
+/* ================= sunum paleti (Deepin Risk müşteri sunumu v10) =================
+   Zemin + beyaz kartlar, baskın dolgu yeşil, dört kategori rengi (yeşil, mor, sarı, kırmızı:
+   küçük dolgulu kare + aynı rengin açık tonu), bordo "derinde" bandı, nane vurgu paneli. */
+:root{--c1:#158867;--c1t:#E6F4EF;--c1x:#158867;--c2:#6E5296;--c2t:#EFECF4;--c2x:#6E5296;
+  --c3:#FCAD33;--c3t:#FEF5D6;--c3x:#A86A00;--c4:#D13255;--c4t:#FDECEF;--c4x:#C02A4B;--bord:#8A283A}
+:root[data-theme="dark"]{--c1t:color-mix(in srgb,#28DCA8 14%,#0B241E);--c1x:#5FE6BE;--c2t:color-mix(in srgb,#9B82C6 18%,#0B241E);--c2x:#C2B2E2;
+  --c3t:color-mix(in srgb,#FCAD33 14%,#0B241E);--c3x:#F7C66E;--c4t:color-mix(in srgb,#E35F72 16%,#0B241E);--c4x:#F59AA9}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--c1t:color-mix(in srgb,#28DCA8 14%,#0B241E);--c1x:#5FE6BE;--c2t:color-mix(in srgb,#9B82C6 18%,#0B241E);--c2x:#C2B2E2;
+  --c3t:color-mix(in srgb,#FCAD33 14%,#0B241E);--c3x:#F7C66E;--c4t:color-mix(in srgb,#E35F72 16%,#0B241E);--c4x:#F59AA9}}
+.sct:nth-child(4n+1),.tsms .tsm:nth-child(4n+1){--c:var(--c1);--ct:var(--c1t);--cx:var(--c1x)}
+.sct:nth-child(4n+2),.tsms .tsm:nth-child(4n+2){--c:var(--c2);--ct:var(--c2t);--cx:var(--c2x)}
+.sct:nth-child(4n+3),.tsms .tsm:nth-child(4n+3){--c:var(--c3);--ct:var(--c3t);--cx:var(--c3x)}
+.sct:nth-child(4n+4),.tsms .tsm:nth-child(4n+4){--c:var(--c4);--ct:var(--c4t);--cx:var(--c4x)}
+
+/* hero: kapaktaki iç içe kareler, kartın etrafında derinlik halkaları */
+.pg-risk .hero{background:var(--bg)}
+
+/* hero: sunumdaki kompozisyon — nane daire içinde fotoğraf, mor/sarı yaylar, vaka sonucu kartı */
+.hv{position:relative;width:100%;max-width:540px;aspect-ratio:1/1;justify-self:end}
+.hv-c{position:absolute;inset:8%;border-radius:50%;background:#28DCA8;padding:14px}
+.hv-c img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.hv-a{position:absolute;border-radius:50%;border:4px solid transparent;pointer-events:none}
+.hv-a.p{inset:3%;border-top-color:var(--c2);border-left-color:var(--c2);transform:rotate(-22deg)}
+.hv-a.y{inset:0;border-right-color:var(--c3);border-bottom-color:var(--c3);transform:rotate(-28deg)}
+.hv-d{position:absolute;border-radius:50%}
+.hv-d.r{width:16px;height:16px;background:var(--c4);left:5%;top:28%}
+.hv-d.u{width:12px;height:12px;background:var(--c2);right:4%;top:18%}
+.hv-card{position:absolute;right:-4%;bottom:2%;width:min(290px,60%);background:var(--surface);border-radius:16px;box-shadow:0 18px 40px -16px rgba(2,45,38,.35);padding:14px 16px;display:grid;gap:8px;font-size:13px}
+.hv-card .t{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.hv-card .t small{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--c4x);background:var(--c4t);padding:2px 7px;border-radius:6px;font-weight:500}
+.hv-card .r{display:flex;align-items:center;gap:8px}
+.hv-card b{font-size:14.5px}
+.hv-card a{color:var(--accent);font-weight:600;text-decoration:none}
+.hv-card a:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:960px){.hv{justify-self:center;max-width:440px}.hv-card{right:0}}
+
+.lt-track .lt-pt:nth-child(2) .lt-dot,.lt-track .lt-pt:nth-child(3) .lt-dot{background:var(--c3);border-color:var(--c3);box-shadow:0 0 0 5px rgba(252,173,51,.25)}
+.lt-track .lt-pt:nth-child(4) .lt-dot{background:var(--c4);border-color:var(--c4);box-shadow:0 0 0 5px rgba(209,50,85,.22)}
+.lt-btn.sel .lt-lbl b{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.lt-panel{background:var(--c2t)}
+.lt-re{color:var(--c2x)}
+.rep-doc{background:var(--surface)}
+
+/* ne değişti: her sekme bir kategori rengi */
+.dims>.dim:nth-of-type(1){--c:var(--c1);--ct:var(--c1t);--cx:var(--c1x)}
+.dims>.dim:nth-of-type(2){--c:var(--c2);--ct:var(--c2t);--cx:var(--c2x)}
+.dims>.dim:nth-of-type(3){--c:var(--c3);--ct:var(--c3t);--cx:var(--c3x)}
+.dims>.dim:nth-of-type(4){--c:var(--c4);--ct:var(--c4t);--cx:var(--c4x)}
+.dim .dim-key{color:var(--cx)}
+.dim .dim-items li::before{background:var(--c)}
+.dim .viz{background:var(--ct);border:1.5px solid color-mix(in srgb,var(--c) 45%,transparent);box-shadow:none}
+.dims>.dim:nth-of-type(1) .viz{background:var(--surface)}
+.dim .see-ev summary{color:var(--cx)}
+.dim .see-ev-body{border-left-color:var(--c)}
+.dim-tabs button:nth-child(1)[aria-selected="true"]{background:var(--c1);color:#fff}
+.dim-tabs button:nth-child(2)[aria-selected="true"]{background:var(--c2);color:#fff}
+.dim-tabs button:nth-child(3)[aria-selected="true"]{background:var(--c3);color:#022D26}
+.dim-tabs button:nth-child(4)[aria-selected="true"]{background:var(--c4);color:#fff}
+.dim .own-seg{background:var(--surface)}
+.dim .auth-card.was{background:var(--surface)}
+.dim .fin{background:var(--ct)}
+.trust-strip li:nth-child(2) svg{stroke:var(--c2)}
+
+/* kanıt: gerekçe, senaryo slaytındaki bordo bant gibi */
+.rcx-reason{background:var(--bord);border-color:var(--bord)}
+.rcx-reason .lbl{color:#FEF5D6}.rcx-reason p{color:#fff}
+
+
+/* sektörler: kategori renkleri */
+.sct{background:var(--ct);border-color:transparent}
+.sct-h{background:transparent;border-bottom:1px solid color-mix(in srgb,var(--c) 28%,transparent)}
+.sct h3{display:flex;align-items:center;gap:10px}
+.sct h3::before{content:"";flex:none;width:14px;height:14px;border-radius:4px;background:var(--c)}
+.sct-who li::before{background:var(--c)}
+.sct-dec li::before{color:var(--cx)}
+
+/* müşteriler: aynı kategori renkleri */
+.tsms{background:transparent;border:0;gap:16px;overflow:visible}
+.tsms .tsm{background:var(--ct);border-radius:16px}
+.tsms .tsm strong{color:var(--cx)}
+.tsm blockquote{border-top-color:color-mix(in srgb,var(--c) 30%,transparent)}
+.tsm blockquote::before{color:var(--c)}
+
+/* derinlik: önemli kartların arkasında kaydırılmış renk plakası (sunumdaki renk blokları) */
+.liv-tl{box-shadow:14px 14px 0 var(--c3t),var(--shadow)}
+.rcx2{box-shadow:14px 14px 0 color-mix(in srgb,var(--c1) 22%,var(--bg)),var(--shadow)}
+.eq-box.dp{box-shadow:12px 12px 0 var(--c2t)}
+.hv-card{box-shadow:10px 10px 0 var(--c3t),0 18px 40px -16px rgba(2,45,38,.35)}
+
+/* ================= vurgu turu: hero mesajı, derine inme, insan kararı ================= */
+/* hero: vurgu kelimeleri naneden koyu yeşile koyulaşır (derinleşme), başlık üstü etiket çip */
+.pg-risk .hero h1 b{background:linear-gradient(90deg,#28DCA8,#158867 45%,#0B5A43);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+:root[data-theme="dark"] .pg-risk .hero h1 b{background-image:linear-gradient(90deg,#B4F5E0,#28DCA8)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pg-risk .hero h1 b{background-image:linear-gradient(90deg,#B4F5E0,#28DCA8)}}
+.pg-risk .hero .eyebrow{display:inline-block;padding:5px 11px;border-radius:999px;background:var(--c1t);color:#0B5A43}
+
+
+/* önemli bilgi: yüksek risk ve öneri öne çıkar */
+.hv-card .risk.r-high,.rcx-bar .risk.r-high{background:var(--c4);color:#fff}
+.rcx-rec{background:var(--c3t);border:1.5px solid var(--c3)}
+.rcx-rec .lbl{color:var(--c3x)}
+
+/* insan kararı: ekip fotoğrafları */
+.avs{display:inline-flex;flex:none}
+.avs img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--c3)}
+.avs img + img{margin-left:-14px}
+.avs.sm img{width:36px;height:36px;border-width:2px}
+.role-who{display:flex;align-items:center;gap:14px}
+.role-who .lbl{display:block;margin:0 0 2px}
+.role-who b{font-size:16px;font-weight:600;color:var(--ink)}
+#evidence .role-t{gap:14px}
+.eq-box.dec{background:var(--c3t);border:1.5px solid var(--c3)}
+.eq-box.dec .avs{margin-bottom:4px}
+
+/* ilişki grafiği: risk sinyali olan bağlantı */
+.gflag circle{fill:var(--c4);stroke:var(--surface);stroke-width:2.5}
+.gflag text{fill:#fff;font-family:var(--font);font-size:12px;font-weight:700}
+.gel.gel-risk{fill:var(--c4x);font-weight:600}
+
+
+/* canlı istihbarat: yükselen risk barometresi — çizgi soldan sağa kalınlaşır, yeşil → sarı → kırmızı */
+.lt-meter{display:flex;align-items:center;gap:10px;margin:2px 0 4px}
+.lt-meter .lbl{margin:0 4px 0 0}
+.lt-meter i{flex:1;max-width:220px;height:10px;background:linear-gradient(90deg,var(--c1),var(--c3) 50%,var(--c4));clip-path:polygon(0 70%,100% 0,100% 100%,0 100%);border-radius:2px}
+.lt-meter .risk.r-high{background:var(--c4);color:#fff}
+.lt-track::before{top:1px;height:15px;border-radius:0 4px 4px 0;background:linear-gradient(90deg,var(--c1) 0%,var(--c3) 38%,var(--c3) 64%,var(--c4) 100%);clip-path:polygon(0 72%,100% 0,100% 100%,0 100%)}
+.lt-panel.lv-low{background:var(--c1t)}
+.lt-panel.lv-medium{background:var(--c3t)}
+.lt-panel.lv-high{background:var(--c4t)}
+.lt-panel .lt-re{color:var(--ink)}
+.lt-panel.lv-high .lt-ba .after p{color:var(--c4x)}
+.liv-tl{box-shadow:14px 14px 0 var(--c4t),var(--shadow)}
+@media (max-width:760px){.lt-track::before{clip-path:none;width:4px;left:6px;background:linear-gradient(180deg,var(--c1),var(--c3) 40%,var(--c4))}}
+.lt-track .lt-pt:nth-child(n+2) .lt-dot{border:3px solid var(--surface);width:20px;height:20px;margin-top:-2px}
+.lt-panel .risk.r-high{background:var(--c4);color:#fff}
+.hv-card .r .lbl{margin:0 4px 0 0;color:var(--ink-2)}
+
+
+/* hero kartı: yeni uyarı e-postası simgesi */
+.hv-card .mail{position:relative;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--c1t);flex:none}
+.hv-card .mail svg{width:18px;height:18px;fill:none;stroke:var(--c1);stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
+.hv-card .mail i{position:absolute;top:3px;right:3px;width:9px;height:9px;border-radius:50%;background:var(--c4);border:2px solid var(--surface)}
+
+/* canlı istihbarat: ilk rapordan çıkan ışık topu, bulunduğu yerin rengini alarak son halkaya gelir ve orada kalır */
+.lt-track::after{content:"";position:absolute;top:2px;left:8px;width:12px;height:12px;margin-left:-6px;border-radius:50%;pointer-events:none;z-index:2;
+  background:var(--c1);box-shadow:0 0 10px 4px rgba(21,136,103,.55)}
+.lt-track.orb-go::after{animation:lt-orb 4.2s linear .3s both}
+@keyframes lt-orb{
+  0%{left:8px;background:var(--c1);box-shadow:0 0 10px 4px rgba(21,136,103,.55)}
+  38%{left:calc((100% - 22px) * .38 + 8px);background:var(--c3);box-shadow:0 0 12px 5px rgba(252,173,51,.6)}
+  64%{left:calc((100% - 22px) * .64 + 8px);background:var(--c3);box-shadow:0 0 12px 5px rgba(252,173,51,.6)}
+  100%{left:calc(100% - 14px);background:var(--c4);box-shadow:0 0 16px 7px rgba(209,50,85,.55)}}
+@media (prefers-reduced-motion: reduce){.lt-track::after{animation:none;left:calc(100% - 14px);background:var(--c4);box-shadow:0 0 14px 6px rgba(209,50,85,.5)}}
+@media (max-width:760px){.lt-track::after{display:none}}
 
 </style>
 </head>
@@ -1209,8 +1326,8 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
   <div class="wrap">
     <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.risk</span></a>
     <nav class="nav-links" aria-label="Ana menü"><a href="../"><span lang="en">Deepin</span></a><a href="../risk/" aria-current="page"><span lang="en">deepin.risk</span></a><a href="../finance/"><span lang="en">deepin.finance</span></a><a href="../harness/"><span lang="en">Harness</span></a><a href="../#customers">Müşteriler</a></nav>
-    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="../risk/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/risk/" hreflang="en" lang="en" title="English">EN</a></span><a class="btn btn-primary btn-sm" href="#request">İstihbarat talep edin</a>
-      <details class="menu"><summary aria-label="Ana menü"><span></span><span></span></summary><nav class="menu-panel" aria-label="Ana menü"><a href="../"><span lang="en">Deepin</span></a><a href="../risk/" aria-current="page"><span lang="en">deepin.risk</span></a><a href="../finance/"><span lang="en">deepin.finance</span></a><a href="../harness/"><span lang="en">Harness</span></a><a href="../#customers">Müşteriler</a><a class="menu-cta" href="#request">İstihbarat talep edin →</a></nav></details>
+    <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="../risk/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/risk/" hreflang="en" lang="en" title="English">EN</a></span><a class="btn btn-primary btn-sm" href="#request">Demo talep edin</a>
+      <details class="menu"><summary aria-label="Ana menü"><span></span><span></span></summary><nav class="menu-panel" aria-label="Ana menü"><a href="../"><span lang="en">Deepin</span></a><a href="../risk/" aria-current="page"><span lang="en">deepin.risk</span></a><a href="../finance/"><span lang="en">deepin.finance</span></a><a href="../harness/"><span lang="en">Harness</span></a><a href="../#customers">Müşteriler</a><a class="menu-cta" href="#request">Demo talep edin →</a></nav></details>
     </div>
   </div>
 </header>
@@ -1221,29 +1338,24 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     <div>
       <p class="eyebrow">Şirket istihbaratı ve risk takibi</p>
       <h1>Her şirkete <b>daha derinden bakın.</b></h1>
-      <p class="lede">Müşterileriniz, tedarikçileriniz, bayileriniz ve iş ortaklarınız sürekli değişir. <span lang="en">Deepin</span> bu değişiklikleri takip eder, ne anlama geldiğini kanıtıyla açıklar; kararı ekibiniz verir.</p>
+      <p class="lede">Müşterileriniz, tedarikçileriniz, bayileriniz ve iş ortaklarınız sürekli değişir. <span lang="en">Deepin</span> Risk bu değişiklikleri takip eder, ne anlama geldiğini kanıtıyla açıklar, kararı ekibiniz verir.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#request">Bir şirketi araştırın <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-primary" href="#request">Demo talep edin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a class="btn btn-ghost" href="#monitoring">Nasıl çalıştığını görün</a>
       </div>
-      <ul class="trust" aria-label="Uyum ve kurulum"><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5.5 2v4.2c0 3.2-2.3 5.7-5.5 6.8-3.2-1.1-5.5-3.6-5.5-6.8V3.5z"/><path d="M5.6 8.1l1.7 1.7 3.2-3.4"/></svg>KVKK uyumlu</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5.5 2v4.2c0 3.2-2.3 5.7-5.5 6.8-3.2-1.1-5.5-3.6-5.5-6.8V3.5z"/><path d="M5.6 8.1l1.7 1.7 3.2-3.4"/></svg>BDDK dış hizmet düzenlemelerine uygun</li></ul>
+      <ul class="trust-strip" aria-label="Uyum ve kurulum"><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5.5 2v4.2c0 3.2-2.3 5.7-5.5 6.8-3.2-1.1-5.5-3.6-5.5-6.8V3.5z"/><path d="M5.6 8.1l1.7 1.7 3.2-3.4"/></svg>KVKK uyumlu</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l5.5 2v4.2c0 3.2-2.3 5.7-5.5 6.8-3.2-1.1-5.5-3.6-5.5-6.8V3.5z"/><path d="M5.6 8.1l1.7 1.7 3.2-3.4"/></svg>BDDK dış hizmet düzenlemelerine uygun</li></ul>
     </div>
-    <figure class="case hd" data-live data-labels="[&quot;Yüzey&quot;, &quot;1 kat derin&quot;, &quot;2 kat derin&quot;, &quot;3 kat derin&quot;, &quot;Derinde&quot;]" aria-label="Yüzeyden derine tek vaka (demo)">
-  <div class="case-top hd-top">
-    <div><span class="lbl">Sürekli izleme</span><strong>Tedarikçi A.Ş.</strong></div>
-    <span class="chip st-wait" data-live-status>Derinde</span>
+    <div class="hv">
+  <span class="hv-a y" aria-hidden="true"></span><span class="hv-a p" aria-hidden="true"></span>
+  <span class="hv-d r" aria-hidden="true"></span><span class="hv-d u" aria-hidden="true"></span>
+  <div class="hv-c"><img src="../assets/img/deepin-risk-hero.webp" alt="Dizüstü bilgisayarda birlikte şirket analizine bakan iki iş insanı" width="1000" height="1000" decoding="async"></div>
+  <div class="hv-card">
+    <div class="t"><span>Tedarikçi A.Ş.</span><span class="mail" role="img" aria-label="Yeni uyarı e-postası" title="Yeni uyarı e-postası"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M4 7.5l8 6 8-6"/></svg><i></i></span></div>
+    <div class="r"><span class="lbl">Risk seviyesi</span><span class="risk r-medium">Orta</span><span aria-hidden="true">→</span><span class="risk r-high">Yüksek</span></div>
+    <b>Yeni ortak, yeni yetkili, riskli ilişki</b>
+    <a href="#monitoring">Vakanın tamamını görün →</a>
   </div>
-  <div class="case-body">
-    <ol class="dls"><li class="dl top" style="--d:0" data-s="0"><span class="dl-k">Yüzey · izleme aracı</span><p>Yatırım Holding ortak oldu.</p><small>18 Eyl 2026 · Ticaret Sicili</small></li><li class="dl" style="--d:1" data-s="1"><span class="dl-k">1 kat derin</span><p>Holding 4 ay önce kurulmuş.</p></li><li class="dl" style="--d:2" data-s="2"><span class="dl-k">2 kat derin</span><p>Yöneticisi K.A. 6 gün sonra şirketin tek imza yetkilisi oldu.</p></li><li class="dl" style="--d:3" data-s="3"><span class="dl-k">3 kat derin</span><p>K.A. yeniden yapılandırmadaki İlişkili Şirket Ltd.&#x27;nin de yöneticisi.</p></li></ol>
-    <div class="dl-bottom" data-s="4">
-      <span class="dl-k">Derinde</span>
-      <div class="dl-risk"><span class="lbl">Risk</span><span class="risk r-medium">Orta</span><span aria-hidden="true">→</span><span class="risk r-high">Yüksek</span></div>
-      <div class="dl-rec"><span class="lbl">Öneri</span><strong>Açık limiti gözden geçirin.</strong><small>3 bulgu · 2 resmî kaynak · karar ekibinizde</small></div>
-      <a class="dl-link" href="#evidence">Vakanın tamamını görün →</a>
-    </div>
-  </div>
-  <figcaption class="case-note">Kurgusal şirketlerle hazırlanmış demo verisi.</figcaption>
-</figure>
+</div>
   </div>
 </section>
 
@@ -1252,7 +1364,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     <div class="sec-head">
       <p class="shift"><s>Statik Risk Raporu</s><i aria-hidden="true">→</i><b>Canlı İstihbarat</b></p>
       <h2 class="h2">Şirketler aynı kalmıyor. <b>Risk raporu neden aynı kalsın?</b></h2>
-      <p class="lede">Geleneksel risk değerlendirmesi bir anlık görüntüdür. <span lang="en">Deepin</span> şirket istihbaratını canlı tutar: önemli bir değişiklik, şirketin yeniden araştırılmasını başlatır.</p>
+      <p class="lede">Geleneksel risk değerlendirmesi bir anlık görüntüdür. <span lang="en">Deepin</span> Risk şirket istihbaratını canlı tutar: önemli bir değişiklik, şirketin yeniden araştırılmasını başlatır.</p>
     </div>
     <div class="liv">
   <div class="rep">
@@ -1266,15 +1378,16 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 </div>
   <div class="liv-tl">
     <div class="liv-head"><span class="lbl">Canlı istihbarat</span><strong>Tedarikçi A.Ş.</strong><small class="liv-hint">Neyin değiştiğini görmek için bir olay seçin.</small></div>
+    <div class="lt-meter" aria-hidden="true"><span class="lbl">Risk barometresi</span><span class="risk r-low">Düşük</span><i></i><span class="risk r-high">Yüksek</span></div>
     <div class="lt-axis" aria-hidden="true"><span style="--x:0%">Oca</span><span style="--x:33.33%">Tem</span><span style="--x:66.67%">Ağu</span><span style="--x:100%">Eyl</span></div>
     <ol class="lt-track"><li class="lt-pt start" style="--x:0%"><span class="lt-dot"></span><span class="lt-lbl"><b>İlk rapor</b><span class="risk r-low">Düşük</span></span></li><li class="lt-pt" style="--x:33.33%"><button type="button" class="lt-btn" data-ev="0" aria-pressed="false"><span class="lt-dot"></span><span class="lt-lbl"><small>15 Tem</small><b>Sermaye azaltıldı</b></span></button></li><li class="lt-pt" style="--x:66.67%"><button type="button" class="lt-btn" data-ev="1" aria-pressed="false"><span class="lt-dot"></span><span class="lt-lbl"><small>28 Ağu</small><b>Şubeler kapandı</b></span></button></li><li class="lt-pt end" style="--x:100%"><button type="button" class="lt-btn sel" data-ev="2" aria-pressed="true"><span class="lt-dot"></span><span class="lt-lbl"><small>24 Eyl</small><b>3 değişiklik</b></span></button></li></ol>
-    <div class="lt-panels" aria-live="polite"><div class="lt-panel" data-panel="0" hidden>
+    <div class="lt-panels" aria-live="polite"><div class="lt-panel lv-medium" data-panel="0" hidden>
   <div class="lt-ba"><div><span class="lbl">Önce</span><p>Sermaye 50 milyon TL</p></div><span class="lt-arrow" aria-hidden="true">→</span><div class="after"><span class="lbl">Sonra</span><p>Sermaye %40 azaltılarak 30 milyon TL&#x27;ye indirildi</p></div></div>
   <div class="lt-meta"><span class="lt-re">↻ Şirket yeniden araştırıldı</span><span class="lt-risk"><span class="lbl">Risk bağlamı</span><span class="risk r-low">Düşük</span><span aria-hidden="true">→</span><span class="risk r-medium">Orta</span></span><small>Ticaret Sicili Gazetesi · 15 Tem 2026</small></div>
-</div><div class="lt-panel" data-panel="1" hidden>
+</div><div class="lt-panel lv-medium" data-panel="1" hidden>
   <div class="lt-ba"><div><span class="lbl">Önce</span><p>12 şube faaliyette</p></div><span class="lt-arrow" aria-hidden="true">→</span><div class="after"><span class="lbl">Sonra</span><p>60 gün içinde 3 şube kapandı</p></div></div>
   <div class="lt-meta"><span class="lt-re">↻ Şirket yeniden araştırıldı</span><span class="lt-risk"><span class="lbl">Risk bağlamı</span><span class="risk r-medium">Orta</span></span><small>Ticaret Sicili Gazetesi · 28 Ağu 2026</small></div>
-</div><div class="lt-panel" data-panel="2">
+</div><div class="lt-panel lv-high" data-panel="2">
   <div class="lt-ba"><div><span class="lbl">Önce</span><p>Kurucu aile %60 · müşterek imza · ilişkili şirketler olağan faaliyette</p></div><span class="lt-arrow" aria-hidden="true">→</span><div class="after"><span class="lbl">Sonra</span><p>Yatırım Holding %31,4 · K.A. tek başına imza yetkili · İlişkili Şirket yeniden yapılandırmada</p></div></div>
   <div class="lt-meta"><span class="lt-re">↻ Şirket yeniden araştırıldı</span><span class="lt-risk"><span class="lbl">Risk bağlamı</span><span class="risk r-medium">Orta</span><span aria-hidden="true">→</span><span class="risk r-high">Yüksek</span></span><small>Ticaret Sicili Gazetesi · Resmî mahkeme kaydı · Eyl 2026</small></div>
 </div></div>
@@ -1287,15 +1400,18 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Önce kanıt, sonra karar</p>
-      <h2 class="h2"><span lang="en">Deepin</span> Risk yalnızca skoru değil, <b>nedenini de verir.</b></h2>
-      <p class="lede">Tedarikçi A.Ş.'nin riski Orta'dan Yüksek'e çıktı. Her değişiklik bulgusu, kaynağı ve gerekçesiyle gelir; kararı ekibiniz verir.</p>
+      <h2 class="h2"><span lang="en">Deepin</span> Risk yalnızca risk segmentini değil, <b>nedenini de verir.</b></h2>
+      <p class="lede">Her değişiklik bulgusu, kaynağı ve gerekçesiyle gelir, kararı ekibiniz verir.</p>
     </div>
     <ol class="chain2" aria-label="Kaynaktan insan kararına"><li class="">Kaynak</li><li class="">Kanıt</li><li class="">Bulgu</li><li class="">Bağlam</li><li class="">Gerekçe</li><li class="">Öneri</li><li class="hd">İnsan kararı</li></ol>
     <div class="ev2">
       <div class="roles">
-  <div class="role-d"><span class="lbl"><span lang="en">Deepin</span></span><ul><li>Algılar</li><li>Araştırır</li><li>Kanıt toplar</li><li>Karşılaştırır</li><li>Gerekçelendirir</li><li>Öneri sunar</li></ul></div>
+  <div class="role-d"><span class="lbl"><span lang="en">Deepin</span> Risk</span><ul><li>Algılar</li><li>Araştırır</li><li>Kanıt toplar</li><li>Karşılaştırır</li><li>Gerekçelendirir</li><li>Öneri sunar</li></ul></div>
   <div class="role-arrow" aria-hidden="true"></div>
-  <div class="role-t"><span class="lbl">Ekibiniz</span><ul><li>Kanıtı inceler</li><li>Karar verir</li><li>Onaylar ya da reddeder</li></ul></div>
+  <div class="role-t">
+    <div class="role-who"><span class="avs"><img src="../assets/img/deepin-risk-team-a.webp" alt="Kararı veren ekip üyeleri" width="320" height="320"><img src="../assets/img/deepin-risk-team-b.webp" alt="" width="320" height="320"></span>
+      <div><span class="lbl">Ekibiniz</span><b>Son karar her zaman ekibinizde.</b></div></div>
+    <ul><li>Kanıtı inceler</li><li>Karar verir</li><li>Onaylar ya da reddeder</li></ul></div>
 </div>
       <figure class="evui rcx2" aria-label="Kanıtlarıyla risk bağlamı değişikliği (demo)">
   <div class="evui-top"><span>Tedarikçi A.Ş.</span><span class="chip st-wait">Risk bağlamı güncellendi</span></div>
@@ -1306,7 +1422,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
   <span class="n">01</span>
   <div><b>Temsil yetkisi değişti</b><small>24 Eyl 2026</small>
     <p class="src"><span class="lbl">Kaynak</span>Ticaret Sicili Gazetesi</p>
-    <blockquote>Yönetim kurulu kararı tescil edildi: müşterek imza yetkisi kaldırıldı; K.A. şirketi tek başına ve sınırsız temsil edebiliyor.</blockquote>
+    <blockquote>Yönetim kurulu kararı tescil edildi: müşterek imza yetkisi kaldırıldı, K.A. şirketi tek başına ve sınırsız temsil edebiliyor.</blockquote>
   </div>
 </li><li class="why3">
   <span class="n">02</span>
@@ -1324,7 +1440,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
         <button type="button" class="btn btn-ghost btn-sm ev-all" data-ev-all data-show="Tüm kanıtları göster" data-hide="Kanıtları gizle" hidden>Tüm kanıtları göster</button></div>
     </div>
     <div class="rcx-side">
-      <div class="rcx-reason"><div class="lbl"><span lang="en">Deepin</span> gerekçesi</div><p>13 gün içinde sahiplik, yetki ve ilişkili şirket yapısında üç önemli değişiklik gerçekleşti.</p></div>
+      <div class="rcx-reason"><div class="lbl"><span lang="en">Deepin</span> Risk gerekçesi</div><p>13 gün içinde sahiplik, yetki ve ilişkili şirket yapısında üç önemli değişiklik gerçekleşti.</p></div>
       <div class="rcx-rec"><div class="lbl">Öneri</div><strong>Açık limiti gözden geçirin.</strong></div>
       <div class="rcx-team" data-decision>
         <div class="rcx-team-h"><span class="lbl">Ekibiniz</span><span>Kanıtı inceleyin</span></div>
@@ -1334,7 +1450,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
           <button type="button" class="btn btn-ghost btn-sm" data-act="further">Daha fazla araştır →</button>
         </div>
         <p class="rcx-result" role="status" hidden></p>
-        <ol class="rcx-further" aria-live="polite"><li hidden>Takip araştırması açıldı: İlişkili Şirket Ltd.</li><li hidden>Kefaletler ve ortak yükümlülükler kontrol edildi</li><li hidden>Bulgu: Tedarikçi A.Ş., İlişkili Şirket&#x27;in iki kredisine kefil</li></ol>
+        <ol class="rcx-further" aria-live="polite"><li hidden>Takip araştırması açıldı: İlişkili Şirket Ltd.</li><li hidden>Ticaret Sicili Gazetesi ve resmî ilanlar tarandı</li><li hidden>Bulgu: Yatırım Holding&#x27;in kayıtlı adresinde 6 şirket daha kayıtlı, 4&#x27;ü son 1 yılda kuruldu</li></ol>
       </div>
     </div>
     <p class="rcx-note">Kurgusal şirketlerle hazırlanmış demo verisi.</p>
@@ -1349,31 +1465,31 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     <div class="sec-head">
       <p class="eyebrow">Şirket istihbaratı</p>
       <h2 class="h2">Ne <b>değişti?</b></h2>
-      <p class="lede"><span lang="en">Deepin</span> şirkete dört açıdan bakar ve şirket her değiştiğinde aynı soruları yeniden sorar.</p>
+      <p class="lede"><span lang="en">Deepin</span> Risk şirkete dört açıdan bakar ve şirket her değiştiğinde aynı soruları yeniden sorar.</p>
     </div>
     <div class="dims" data-tabs><div class="dim-tabs" role="tablist" aria-label="Değişiklik boyutları"><button type="button" role="tab" id="dt-0" aria-controls="dp-0" aria-selected="true" tabindex="0">İlişkiler</button><button type="button" role="tab" id="dt-1" aria-controls="dp-1" aria-selected="false" tabindex="-1">Sahiplik</button><button type="button" role="tab" id="dt-2" aria-controls="dp-2" aria-selected="false" tabindex="-1">Yetki</button><button type="button" role="tab" id="dt-3" aria-controls="dp-3" aria-selected="false" tabindex="-1">Finansal</button></div><article class="dim" role="tabpanel" id="dp-0" aria-labelledby="dt-0">
   <div class="dim-q"><span class="dim-key">İlişkiler değişti</span><h3>Şirket artık kimlerle bağlantılı?</h3><ul class="dim-items"><li>İlişkili şirketler</li><li>Ortak yöneticiler</li><li>Ortak hissedarlar</li><li>Ortak adresler</li><li>Şirket grupları</li><li>Çok katmanlı ilişkiler</li></ul></div>
   <div class="dim-a"><div class="viz rgraph">
-  <svg viewBox="0 0 360 250" role="group" aria-label="İlişki grafiği"><line class="ge" x1="180" y1="55" x2="60" y2="140"/><text class="gel" x="120.0" y="91.5" text-anchor="middle">imza yetkilisi</text><line class="ge" x1="180" y1="55" x2="272" y2="140"/><text class="gel" x="226.0" y="91.5" text-anchor="middle">%31,4</text><line class="ge new" x1="60" y1="140" x2="272" y2="140"/><text class="gel" x="166.0" y="134.0" text-anchor="middle">yönetici</text><line class="ge" x1="60" y1="140" x2="180" y2="222"/><text class="gel" x="120.0" y="175.0" text-anchor="middle">yönetici</text><line class="ge new" x1="272" y1="140" x2="180" y2="222"/><text class="gel" x="226.0" y="175.0" text-anchor="middle">aynı adres</text><g class="gn subject" tabindex="0" role="button" data-info="Araştırılan şirket." aria-label="Tedarikçi A.Ş.">
+  <svg viewBox="0 0 360 250" role="group" aria-label="İlişki grafiği"><line class="ge" x1="180" y1="55" x2="60" y2="140"/><text class="gel" x="120.0" y="91.5" text-anchor="middle">imza yetkilisi</text><line class="ge" x1="180" y1="55" x2="272" y2="140"/><text class="gel" x="226.0" y="91.5" text-anchor="middle">%31,4</text><line class="ge new" x1="60" y1="140" x2="272" y2="140"/><text class="gel" x="166.0" y="134.0" text-anchor="middle">yönetici</text><line class="ge" x1="60" y1="140" x2="180" y2="222"/><text class="gel" x="120.0" y="175.0" text-anchor="middle">yönetici</text><line class="ge new" x1="272" y1="140" x2="180" y2="222"/><g class="gflag" role="img" aria-label="Risk sinyali: aynı kayıtlı adres"><title>Risk sinyali: aynı kayıtlı adres</title><circle cx="226.0" cy="181.0" r="9"/><text x="226.0" y="185.0" text-anchor="middle">!</text></g><text class="gel gel-risk" x="240.0" y="185.0">aynı adres</text><g class="gn subject" tabindex="0" role="button" data-info="Araştırılan şirket." aria-label="Tedarikçi A.Ş.">
   <rect x="117" y="40" width="126" height="30" rx="15"/>
   <text x="180" y="59" text-anchor="middle">Tedarikçi A.Ş.</text></g><g class="gn person" tabindex="0" role="button" data-info="24 Eyl&#x27;den beri Tedarikçi A.Ş.&#x27;nin tek imza yetkilisi. Aynı zamanda Yatırım Holding ve İlişkili Şirket&#x27;in yöneticisi." aria-label="K.A.">
   <rect x="12" y="125" width="96" height="30" rx="15"/>
-  <text x="60" y="144" text-anchor="middle">K.A.</text></g><g class="gn entity" tabindex="0" role="button" data-info="18 Eyl&#x27;de Tedarikçi A.Ş.&#x27;nin %31,4&#x27;ünü aldı. 4 ay önce kuruldu; İlişkili Şirket ile aynı adreste kayıtlı." aria-label="Yatırım Holding">
+  <text x="60" y="144" text-anchor="middle">K.A.</text></g><g class="gn entity" tabindex="0" role="button" data-info="18 Eyl&#x27;de Tedarikçi A.Ş.&#x27;nin %31,4&#x27;ünü aldı. 4 ay önce kuruldu, İlişkili Şirket ile aynı adreste kayıtlı." aria-label="Yatırım Holding">
   <rect x="206" y="125" width="133" height="30" rx="15"/>
-  <text x="272" y="144" text-anchor="middle">Yatırım Holding</text></g><g class="gn new" tabindex="0" role="button" data-info="Yeni keşfedilen ilişki: yöneticisi K.A.; 11 Eyl&#x27;de yeniden yapılandırmaya girdi." aria-label="İlişkili Şirket Ltd.">
+  <text x="272" y="144" text-anchor="middle">Yatırım Holding</text></g><g class="gn new" tabindex="0" role="button" data-info="Yeni keşfedilen ilişki: yöneticisi K.A., 11 Eyl&#x27;de yeniden yapılandırmaya girdi." aria-label="İlişkili Şirket Ltd.">
   <rect x="95" y="207" width="170" height="30" rx="15"/>
   <text x="180" y="226" text-anchor="middle">İlişkili Şirket Ltd.</text></g></svg>
   <p class="rg-info" aria-live="polite"><span class="lbl">Bir kuruma dokunun</span></p>
-</div><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret sicili kayıtları · İlişki analizi</small><p>K.A. üç şirkette görev alıyor; Yatırım Holding ile İlişkili Şirket aynı kayıtlı adresi paylaşıyor.</p></div></details></div>
+</div><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret sicili kayıtları · İlişki analizi</small><p>K.A. üç şirkette görev alıyor, Yatırım Holding ile İlişkili Şirket aynı kayıtlı adresi paylaşıyor.</p></div></details></div>
 </article><article class="dim" role="tabpanel" id="dp-1" aria-labelledby="dt-1">
   <div class="dim-q"><span class="dim-key">Sahiplik değişti</span><h3>Şirketin sahibi artık kim?</h3><ul class="dim-items"><li>Ortaklık değişiklikleri</li><li>Pay oranları</li><li>Sahiplik zincirleri</li><li>Sermaye artırımları</li><li>Sermaye azaltımları</li><li>Pay devirleri</li></ul></div>
   <div class="dim-a"><div class="viz own"><div class="own-row"><span class="lbl">Önce</span><div class="own-bar"><span class="own-seg" style="flex:60"><b>60%</b><small>Kurucu aile</small></span><span class="own-seg" style="flex:40"><b>40%</b><small>Diğer ortaklar</small></span></div></div><div class="own-row"><span class="lbl">Sonra</span><div class="own-bar"><span class="own-seg" style="flex:28.6"><b>28.6%</b><small>Kurucu aile</small></span><span class="own-seg new" style="flex:31.4"><b>31.4%</b><small>Yatırım Holding</small></span><span class="own-seg" style="flex:40"><b>40%</b><small>Diğer ortaklar</small></span></div></div></div><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret Sicili Gazetesi · 18 Eyl 2026</small><p>Pay devri tescil edildi: payların %31,4&#x27;ü kurucu aileden, dört ay önce kurulan Yatırım Holding A.Ş.&#x27;ye devredildi.</p></div></details></div>
 </article><article class="dim" role="tabpanel" id="dp-2" aria-labelledby="dt-2">
   <div class="dim-q"><span class="dim-key">Yetki değişti</span><h3>Şirket adına artık kim hareket edebiliyor?</h3><ul class="dim-items"><li>Yetkili temsilciler</li><li>Temsil hakları</li><li>İmza grupları</li><li>İç yönergeler</li><li>Yetki değişiklikleri</li><li>Yönetim değişiklikleri</li></ul></div>
-  <div class="dim-a"><div class="viz auth"><div class="auth-card was"><span class="lbl">Önceki</span><b>Müşterek imza, üç kişiden ikisi</b><ul><li>S.T.</li><li>E.D.</li><li>H.Y.</li></ul></div><span class="auth-arrow" aria-hidden="true">→</span><div class="auth-card now"><span class="lbl">Güncel</span><b>Tek imza, sınırsız</b><ul><li>K.A. (yeni)</li></ul></div></div><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret Sicili Gazetesi · 24 Eyl 2026</small><p>Yönetim kurulu kararı tescil edildi: müşterek imza yetkisi kaldırıldı; K.A. şirketi tek başına temsile yetkili olarak atandı.</p></div></details></div>
+  <div class="dim-a"><div class="viz auth"><div class="auth-card was"><span class="lbl">Önceki</span><b>Müşterek imza, üç kişiden ikisi</b><ul><li>S.T.</li><li>E.D.</li><li>H.Y.</li></ul></div><span class="auth-arrow" aria-hidden="true">→</span><div class="auth-card now"><span class="lbl">Güncel</span><b>Tek imza, sınırsız</b><ul><li>K.A. (yeni)</li></ul></div></div><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret Sicili Gazetesi · 24 Eyl 2026</small><p>Yönetim kurulu kararı tescil edildi: müşterek imza yetkisi kaldırıldı, K.A. şirketi tek başına temsile yetkili olarak atandı.</p></div></details></div>
 </article><article class="dim" role="tabpanel" id="dp-3" aria-labelledby="dt-3">
   <div class="dim-q"><span class="dim-key">Finansal bağlam değişti</span><h3>Şirketin finansal bağlamı önemli ölçüde değişti mi?</h3><ul class="dim-items"><li>Finansal tablolar</li><li>Sermaye yapısı</li><li>Yeniden yapılandırma sinyalleri</li><li>Önemli finansal olaylar</li><li>Şirkete özgü göstergeler</li></ul><p class="dim-note">Finansal verinin erişilebilir olduğu durumlarda.</p></div>
-  <div class="dim-a"><ol class="viz fin"><li class=""><small>Tem</small><span>Sermaye %40 azaltıldı</span></li><li class=""><small>Ağu</small><span>60 gün içinde üç şube kapandı</span></li><li class=""><small>Eyl</small><span>İlişkili şirket yeniden yapılandırmaya girdi</span></li><li class="hot"><small>Eyl</small><span>Finansal olay istihbarata ekleniyor</span></li></ol><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret Sicili Gazetesi · Resmî mahkeme kaydı</small><p>Temmuz&#x27;da sermaye azaltımı, Ağustos&#x27;ta şube kapanışları tescil edildi; Eylül&#x27;de ilişkili bir şirketin yeniden yapılandırma başvurusu kabul edildi.</p></div></details></div>
+  <div class="dim-a"><ol class="viz fin"><li class=""><small>Tem</small><span>Sermaye %40 azaltıldı</span></li><li class=""><small>Ağu</small><span>60 gün içinde üç şube kapandı</span></li><li class=""><small>Eyl</small><span>İlişkili şirket yeniden yapılandırmaya girdi</span></li><li class="hot"><small>Eyl</small><span>Finansal olay istihbarata ekleniyor</span></li></ol><details class="see-ev"><summary>Kanıtı gör →</summary><div class="see-ev-body"><small>Ticaret Sicili Gazetesi · Resmî mahkeme kaydı</small><p>Temmuz&#x27;da sermaye azaltımı, Ağustos&#x27;ta şube kapanışları tescil edildi, Eylül&#x27;de ilişkili bir şirketin yeniden yapılandırma başvurusu kabul edildi.</p></div></details></div>
 </article></div>
   </div>
 </section>
@@ -1385,9 +1501,9 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
       <h2 class="h2"><span lang="en">Deepin</span> Risk <b>nasıl katma değer sağlar?</b></h2>
       <p class="lede">Veri sağlayıcılar size şirket verisini verir. <span lang="en">Deepin</span> Risk bu veriyi araştırılmış, kanıta dayalı bağlama dönüştürür ve şirket istihbaratını eksiksiz hale getirir.</p>
     </div>
-    <ol class="eq" aria-label="Şirket verisi artı Deepin Risk eşittir karar"><li class="eq-box data"><span class="eq-n">Şirket verisi</span><b class="eq-q">Ne oldu?</b><p class="eq-ex">“Yatırım Holding ortak oldu.”</p><small class="eq-by">Sicil ve veri sağlayıcılar</small></li><li class="eq-op" aria-hidden="true">+</li><li class="eq-box dp"><span class="eq-n"><span lang="en">Deepin</span> Risk</span><b class="eq-q">Ne anlama geliyor?</b><p class="eq-ex">“Holding 4 ay önce kuruldu; yöneticisi yeniden yapılandırmadaki bir şirketi de yönetiyor.”</p><span class="eq-risk"><span class="risk r-medium">Orta</span><span aria-hidden="true">→</span><span class="risk r-high">Yüksek</span></span><small class="eq-by">Araştırılmış, kanıtlı bağlam</small></li><li class="eq-op" aria-hidden="true">=</li><li class="eq-box dec"><span class="eq-n">Kararınız</span><b class="eq-q">Ne yapmalı?</b><p class="eq-ex">“Açık limiti gözden geçirin.”</p><small class="eq-by">Kararı ekibiniz verir</small></li></ol>
+    <ol class="eq" aria-label="Şirket verisi artı Deepin Risk eşittir karar"><li class="eq-box data"><span class="eq-n">Şirket verisi</span><b class="eq-q">Ne oldu?</b><p class="eq-ex">“Yatırım Holding ortak oldu.”</p><small class="eq-by">Sicil ve veri sağlayıcılar</small></li><li class="eq-op" aria-hidden="true">+</li><li class="eq-box dp"><span class="eq-n"><span lang="en">Deepin</span> Risk</span><b class="eq-q">Ne anlama geliyor?</b><p class="eq-ex">“Holding 4 ay önce kuruldu, yöneticisi yeniden yapılandırmadaki bir şirketi de yönetiyor.”</p><span class="eq-risk"><span class="risk r-medium">Orta</span><span aria-hidden="true">→</span><span class="risk r-high">Yüksek</span></span><small class="eq-by">Araştırılmış, kanıtlı bağlam</small></li><li class="eq-op" aria-hidden="true">=</li><li class="eq-box dec"><span class="avs sm"><img src="../assets/img/deepin-risk-team-a.webp" alt="" width="320" height="320"><img src="../assets/img/deepin-risk-team-b.webp" alt="" width="320" height="320"></span><span class="eq-n">Kararınız</span><b class="eq-q">Ne yapmalı?</b><p class="eq-ex">“Açık limiti gözden geçirin.”</p><small class="eq-by">Kararı ekibiniz verir</small></li></ol>
     <p class="value-tag">Olaydan karara: <b>saniyeler içinde, kanıtıyla.</b></p>
-    <p class="value-note">Mevcut risk yapınızla birlikte çalışır; iş akışınızın yerini almaz, ona karar için hazır bağlam sağlar.</p>
+    <p class="value-note">Mevcut risk yapınızla birlikte çalışır, iş akışınızın yerini almaz, ona karar için hazır bağlam sağlar.</p>
   </div>
 </section>
 
@@ -1396,7 +1512,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     <div class="sec-head">
       <p class="eyebrow">Kullanım alanları</p>
       <h2 class="h2">Tek şirket istihbaratı. <b>Her sektörde farklı bir karar.</b></h2>
-      <p class="lede">Aynı yetenek; bankacılıkta kredi, <span lang="en">fintech</span>'te üye işyeri, sanayide tedarikçi kararlarına hizmet eder.</p>
+      <p class="lede">Aynı yetenek, bankacılıkta kredi, <span lang="en">fintech</span>'te üye işyeri, sanayide tedarikçi kararlarına hizmet eder.</p>
     </div>
     <ul class="sectors"><li class="sct">
   <div class="sct-h"><h3>Bankacılık ve kredi</h3></div>
@@ -1461,7 +1577,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     </div>
     <div class="ent-row">
       <ul class="ent-chips"><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="8" width="12" height="8" rx="2"/><path d="M6 8V6a3 3 0 016 0v2"/></svg><span lang="en">On-premise</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h9a2 2 0 100-4M3 12h11a2 2 0 110 4M3 9h6"/></svg><span lang="en">Air-gapped</span></li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="6" r="3"/><path d="M3 16c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/></svg>RBAC</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h10v12H4z"/><path d="M7 7h4M7 10h4"/></svg>Denetim izi</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="4" cy="9" r="2"/><circle cx="14" cy="4" r="2"/><circle cx="14" cy="14" r="2"/><path d="M6 8l6-3M6 10l6 3"/></svg>Veri soy ağacı</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5z"/></svg>Politika uygulama</li><li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9V4a1.2 1.2 0 012.4 0v4M8.4 8V3a1.2 1.2 0 012.4 0v5M10.8 8V4.5a1.2 1.2 0 012.4 0V11c0 3-2 5-4.5 5S4 14.5 3.5 12L2.8 9.6a1.1 1.1 0 012-.8L6 11"/></svg>İnsan onayı</li></ul>
-      <div class="datanote"><strong>Şirket verileriniz sizde kalır.</strong><p>İzleme listeleriniz, araştırmalarınız ve kararlarınız her zaman sizindir. Kurulumlar arasında gelişen şey, <span lang="en">Deepin</span>'in nasıl araştırdığıdır; kayıtlarınız asla.</p></div>
+      <div class="datanote"><strong>Şirket verileriniz sizde kalır.</strong><p>İzleme listeleriniz, araştırmalarınız ve kararlarınız her zaman sizindir. Kurulumlar arasında gelişen şey, <span lang="en">Deepin</span> Risk'in nasıl araştırdığıdır, kayıtlarınız asla.</p></div>
     </div>
   </div>
 </section>
@@ -1476,40 +1592,28 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
   </div>
 </section>
 
-<section class="sec tone" id="start">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Nasıl başlarsınız</p>
-      <h2 class="h2">Üç adımda <b>ilk sonuca.</b></h2>
-    </div>
-    <ol class="gs"><li><span class="n">01</span><h3>Şirket listenizi paylaşın</h3><p>Takip etmek istediğiniz müşteri, tedarikçi ya da bayileri iletin. Tek bir şirketle de başlayabilirsiniz.</p></li><li><span class="n">02</span><h3>İlk analizi görün</h3><p><span lang="en">Deepin</span> her şirketin geçmişini, ilişkilerini ve önemli değişikliklerini kanıtıyla birlikte önünüze koyar.</p></li><li><span class="n">03</span><h3>Sürekli izlemeye geçin</h3><p>Önemli bir değişiklik olduğunda ne anlama geldiğini ve öneriyi hemen görürsünüz; kararı ekibiniz verir.</p></li></ol>
-    <a class="btn btn-primary gs-cta" href="#request">Bir şirketle başlayın →</a>
-  </div>
-</section>
-
 <section class="band" id="contact">
   <div class="wrap cta-grid">
     <div class="cta-copy">
       <p class="eyebrow"><span lang="en">Deepin</span> Risk</p>
-      <h2><span lang="en">Deepin</span>'e <b>araştıracağı bir şirket verin.</b></h2>
-      <p>Ekibinizin zaten tanıdığı bir şirket seçin. Neyin değiştiğini, <span lang="en">Deepin</span>'in ne bulduğunu ve arkasındaki kanıtı görün.</p>
-      <div class="cta-btns"><a class="btn btn-primary cta-mobile" href="#request">Şirket istihbaratı talep edin →</a></div>
-      <div class="cta-alt"><span><span lang="en">Deepin</span> ile konuşun:</span><div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div></div>
+      <h2><span lang="en">Deepin</span> Risk'i <b>kendi şirketlerinizle görün.</b></h2>
+      <p>Ekibinizle kısa bir demo planlayalım. <span lang="en">Deepin</span> Risk'in şirketleri nasıl takip ettiğini ve kararlarınıza nasıl kanıt sunduğunu birlikte görelim.</p>
+      <div class="cta-btns"><a class="btn btn-primary cta-mobile" href="#request">Demo talep edin →</a></div>
+      <div class="cta-alt"><span><span lang="en">Deepin</span> Risk ile konuşun:</span><div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div></div>
     </div>
     <div class="rq-wrap" id="request-sheet">
-<form class="rq" id="request" data-endpoint="" data-subject="Şirket istihbaratı talebi" novalidate>
-  <div class="rq-top"><b>Yeni şirket istihbaratı talebi</b><button type="button" class="rq-close" data-close aria-label="Kapat">×</button></div>
-  <ol class="rq-steps" aria-hidden="true"><li class="on">1 · Şirket ve soru</li><li>2 · İletişim</li></ol>
-  <fieldset class="rq-page" data-page="1"><legend class="sr">Şirket ve soru</legend>
-    <div class="rq-group"><span class="lbl">Şirket</span><label for="rq-company"><span>Şirket adı <span aria-hidden="true">*</span></span><input id="rq-company" name="company" type="text" placeholder="Şirketin ticari unvanı" required></label><label for="rq-website"><span>Web sitesi (biliniyorsa)</span><input id="rq-website" name="website" type="text" placeholder="ornek.com"></label><label for="rq-country"><span>Ülke</span><input id="rq-country" name="country" type="text" placeholder="Türkiye"></label></div>
-    <div class="rq-group"><span class="lbl">Sorunuz</span><label for="rq-question"><span>Neyi anlamaya çalışıyorsunuz?</span><textarea id="rq-question" name="question" rows="3" placeholder="Ortaklık değişiklikleri, temsil yetkisi, ilişkili şirketler, finansal bağlam..."></textarea></label></div>
+<form class="rq" id="request" data-endpoint="" data-subject="Deepin Risk demo talebi" novalidate>
+  <div class="rq-top"><b>Demo talebi</b><button type="button" class="rq-close" data-close aria-label="Kapat">×</button></div>
+  <ol class="rq-steps" aria-hidden="true"><li class="on">1 · İletişim</li><li>2 · İlgi alanı</li></ol>
+  <fieldset class="rq-page" data-page="1"><legend class="sr">İletişim</legend>
+    <div class="rq-group"><span class="lbl">İletişim</span><label for="rq-name"><span>Ad soyad <span aria-hidden="true">*</span></span><input id="rq-name" name="name" type="text" required></label><label for="rq-org"><span>Kurum <span aria-hidden="true">*</span></span><input id="rq-org" name="org" type="text" required></label><label for="rq-email"><span>Kurumsal e-posta <span aria-hidden="true">*</span></span><input id="rq-email" name="email" type="email" required></label><label for="rq-phone"><span>Telefon (isteğe bağlı)</span><input id="rq-phone" name="phone" type="tel"></label></div>
     <div class="rq-actions"><button class="btn btn-primary" type="button" data-next>Devam →</button></div>
   </fieldset>
-  <fieldset class="rq-page" data-page="2"><legend class="sr">İletişim</legend>
-    <div class="rq-group"><span class="lbl">İletişim</span><label for="rq-name"><span>Ad soyad <span aria-hidden="true">*</span></span><input id="rq-name" name="name" type="text" required></label><label for="rq-org"><span>Kurum <span aria-hidden="true">*</span></span><input id="rq-org" name="org" type="text" required></label><label for="rq-email"><span>Kurumsal e-posta <span aria-hidden="true">*</span></span><input id="rq-email" name="email" type="email" required></label></div>
-    <div class="rq-actions"><button class="btn btn-ghost" type="button" data-back>Geri</button><button class="btn btn-primary" type="submit">Bu şirketi araştırın</button></div>
+  <fieldset class="rq-page" data-page="2"><legend class="sr">İlgi alanı</legend>
+    <div class="rq-group"><span class="lbl">İlgi alanı</span><label for="rq-usecase"><span>Kullanım alanınız</span><input id="rq-usecase" name="usecase" type="text" placeholder="Kredi riski, üye işyeri, tedarikçi değerlendirme..."></label><label for="rq-message"><span>Demoda neyi görmek istersiniz?</span><textarea id="rq-message" name="message" rows="3" placeholder="İsterseniz takip ettiğiniz bir şirket türünü ya da sorunuzu yazın."></textarea></label></div>
+    <div class="rq-actions"><button class="btn btn-ghost" type="button" data-back>Geri</button><button class="btn btn-primary" type="submit">Demo talep edin</button></div>
   </fieldset>
-  <p class="rq-done" hidden role="status">E-posta uygulamanız talep bilgileri dolu şekilde açılmalı. Açılmazsa info@deepin.space adresine yazın, gerisini biz hallederiz.</p>
+  <p class="rq-done" hidden role="status">E-posta uygulamanız demo talebiniz dolu şekilde açılmalı. Açılmazsa info@deepin.space adresine yazın, size dönüş yapalım.</p>
 </form>
 </div>
   </div>
@@ -1713,6 +1817,15 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
       t.addEventListener('click',function(){sel(t)});
       t.addEventListener('keydown',function(ev){var k=ev.key==='ArrowRight'?1:ev.key==='ArrowLeft'?-1:0;if(k){ev.preventDefault();sel(tabs[(i+k+tabs.length)%tabs.length],true)}});
     });
+  });
+  // living timeline: the light orb runs from the first ring to the last each time the timeline is scrolled into view
+  document.querySelectorAll('.lt-track').forEach(function(tr){
+    if(!('IntersectionObserver' in window)){tr.classList.add('orb-go');return}
+    new IntersectionObserver(function(en){
+      var e=en[0];
+      if(e.intersectionRatio>=.6&&!tr.classList.contains('orb-go')){void tr.offsetWidth;tr.classList.add('orb-go')}
+      else if(!e.isIntersecting)tr.classList.remove('orb-go');
+    },{threshold:[0,.6]}).observe(tr);
   });
   document.querySelectorAll('.liv-tl').forEach(function(tl){
     var btns=[].slice.call(tl.querySelectorAll('.lt-btn')),panels=[].slice.call(tl.querySelectorAll('.lt-panel'));

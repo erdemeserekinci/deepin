@@ -14,37 +14,10 @@
 :root[data-theme="dark"] .r-high{background:#3A1F19;color:#F2A08C}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .r-high{background:#3A1F19;color:#F2A08C}}
 
-/* ================= 1. hero: surface -> depth ================= */
-.hd{margin:0}
-.hd .hd-top{align-items:flex-start}
-.hd-top strong{display:block;font-size:17px;font-weight:600;margin-top:2px}
-.hd .case-body{gap:0;padding-bottom:18px}
-.dls{list-style:none;margin:0;padding:0;display:grid;gap:0}
-.dl{position:relative;display:grid;gap:3px;padding:12px 16px;border-radius:12px;
-  background:color-mix(in srgb,var(--accent) calc(var(--d) * 7% + 4%),var(--surface));border:1px solid color-mix(in srgb,var(--accent) calc(var(--d) * 12% + 10%),var(--surface))}
-.dl + .dl{margin-top:18px}
-.dl + .dl::before,.dl-bottom::before{content:"↓";position:absolute;left:14px;top:-19px;font-size:16px;font-weight:600;color:var(--accent);line-height:18px}
-.dl.top{background:transparent;border-style:dashed;border-color:var(--line)}
-.dl-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.dl.top .dl-k{color:var(--muted)}
-.dl p{font-size:14px;font-weight:500}
-.dl.top p{font-weight:400;color:var(--ink-2)}
-.dl small{font-size:12px;color:var(--muted)}
-.dl-bottom{position:relative;margin-top:18px;padding:16px 18px;border-radius:14px;background:var(--accent);color:var(--accent-ink);display:grid;gap:10px}
-.dl-bottom .dl-k,.dl-bottom .lbl{color:inherit;opacity:.75}
-.dl-bottom .lbl{margin:0}
-.dl-risk{display:flex;align-items:center;gap:10px}
-.dl-risk .lbl{min-width:40px}
-.dl-risk>span[aria-hidden]{opacity:.8}
-.dl-rec{display:grid;gap:2px}
-.dl-rec strong{font-size:16px;font-weight:600}
-.dl-rec small{font-size:12px;opacity:.8}
-.dl-link{justify-self:start;color:inherit;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-.case.playing .dl-bottom[data-s].on{box-shadow:0 0 0 3px rgba(var(--dot),.35)}
 
-.trust{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--ink-2)}
-.trust li{display:inline-flex;align-items:center;gap:7px}
-.trust svg{flex:none;width:16px;height:16px;fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
+.trust-strip{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--ink-2)}
+.trust-strip li{display:inline-flex;align-items:center;gap:7px}
+.trust-strip svg{flex:none;width:16px;height:16px;fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
 
 /* ================= 2. living investigation ================= */
 #monitoring{padding-block:clamp(64px,7vw,104px)}
@@ -299,17 +272,6 @@
 .film{margin:0 auto;max-width:1000px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#0d2126}
 .film video{display:block;width:100%;height:100%;background:#0d2126}
 
-/* ================= get started ================= */
-.gs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
-@media (max-width:860px){.gs{grid-template-columns:1fr}}
-.gs li{position:relative;padding:22px;border-radius:16px;border:1px solid var(--line);background:var(--surface);display:grid;gap:8px;align-content:start}
-.gs li + li::before{content:"→";position:absolute;left:-25px;font-size:18px;top:50%;transform:translateY(-50%);color:var(--accent)}
-@media (max-width:860px){.gs li + li::before{content:"↓";left:24px;top:-17px;transform:none}}
-.gs .n{font-family:var(--mono);font-size:12px;color:var(--accent)}
-.gs h3{font-size:18px;font-weight:600}
-.gs p{font-size:14px;color:var(--ink-2)}
-.gs-cta{margin-top:28px}
-
 /* ================= 9. enterprise ================= */
 .ent-row{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
 @media (max-width:900px){.ent-row{grid-template-columns:1fr;gap:24px}}
@@ -352,11 +314,166 @@
 .tone .ent-row .datanote{background:var(--surface);border:1px solid var(--line)}
 
 /* dark theme: the filled mint boxes one tone deeper */
-:root[data-theme="dark"] .eq-box.dp,:root[data-theme="dark"] .dl-bottom{background:color-mix(in srgb,var(--accent) 78%,#000);border-color:transparent}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .eq-box.dp,:root:not([data-theme="light"]) .dl-bottom{background:color-mix(in srgb,var(--accent) 78%,#000);border-color:transparent}}
+:root[data-theme="dark"] .eq-box.dp{background:color-mix(in srgb,var(--accent) 78%,#000);border-color:transparent}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .eq-box.dp{background:color-mix(in srgb,var(--accent) 78%,#000);border-color:transparent}}
 
 /* ORGANISM: deepin.risk — a company is a web of relationships that keeps changing */
 .pg-risk .hero{background:
   radial-gradient(circle at 88% 38%,transparent 0 120px,var(--hair-2) 121px,transparent 122px,transparent 190px,var(--hair-2) 191px,transparent 192px,transparent 270px,var(--hair-2) 271px,transparent 272px),
   radial-gradient(50% 60% at 90% 30%,rgba(40,220,168,.08),transparent 70%),var(--bg)}
 .pg-risk .hero h1 b{color:var(--accent)}
+
+/* ================= sunum paleti (Deepin Risk müşteri sunumu v10) =================
+   Zemin + beyaz kartlar, baskın dolgu yeşil, dört kategori rengi (yeşil, mor, sarı, kırmızı:
+   küçük dolgulu kare + aynı rengin açık tonu), bordo "derinde" bandı, nane vurgu paneli. */
+:root{--c1:#158867;--c1t:#E6F4EF;--c1x:#158867;--c2:#6E5296;--c2t:#EFECF4;--c2x:#6E5296;
+  --c3:#FCAD33;--c3t:#FEF5D6;--c3x:#A86A00;--c4:#D13255;--c4t:#FDECEF;--c4x:#C02A4B;--bord:#8A283A}
+:root[data-theme="dark"]{--c1t:color-mix(in srgb,#28DCA8 14%,#0B241E);--c1x:#5FE6BE;--c2t:color-mix(in srgb,#9B82C6 18%,#0B241E);--c2x:#C2B2E2;
+  --c3t:color-mix(in srgb,#FCAD33 14%,#0B241E);--c3x:#F7C66E;--c4t:color-mix(in srgb,#E35F72 16%,#0B241E);--c4x:#F59AA9}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--c1t:color-mix(in srgb,#28DCA8 14%,#0B241E);--c1x:#5FE6BE;--c2t:color-mix(in srgb,#9B82C6 18%,#0B241E);--c2x:#C2B2E2;
+  --c3t:color-mix(in srgb,#FCAD33 14%,#0B241E);--c3x:#F7C66E;--c4t:color-mix(in srgb,#E35F72 16%,#0B241E);--c4x:#F59AA9}}
+.sct:nth-child(4n+1),.tsms .tsm:nth-child(4n+1){--c:var(--c1);--ct:var(--c1t);--cx:var(--c1x)}
+.sct:nth-child(4n+2),.tsms .tsm:nth-child(4n+2){--c:var(--c2);--ct:var(--c2t);--cx:var(--c2x)}
+.sct:nth-child(4n+3),.tsms .tsm:nth-child(4n+3){--c:var(--c3);--ct:var(--c3t);--cx:var(--c3x)}
+.sct:nth-child(4n+4),.tsms .tsm:nth-child(4n+4){--c:var(--c4);--ct:var(--c4t);--cx:var(--c4x)}
+
+/* hero: kapaktaki iç içe kareler, kartın etrafında derinlik halkaları */
+.pg-risk .hero{background:var(--bg)}
+
+/* hero: sunumdaki kompozisyon — nane daire içinde fotoğraf, mor/sarı yaylar, vaka sonucu kartı */
+.hv{position:relative;width:100%;max-width:540px;aspect-ratio:1/1;justify-self:end}
+.hv-c{position:absolute;inset:8%;border-radius:50%;background:#28DCA8;padding:14px}
+.hv-c img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.hv-a{position:absolute;border-radius:50%;border:4px solid transparent;pointer-events:none}
+.hv-a.p{inset:3%;border-top-color:var(--c2);border-left-color:var(--c2);transform:rotate(-22deg)}
+.hv-a.y{inset:0;border-right-color:var(--c3);border-bottom-color:var(--c3);transform:rotate(-28deg)}
+.hv-d{position:absolute;border-radius:50%}
+.hv-d.r{width:16px;height:16px;background:var(--c4);left:5%;top:28%}
+.hv-d.u{width:12px;height:12px;background:var(--c2);right:4%;top:18%}
+.hv-card{position:absolute;right:-4%;bottom:2%;width:min(290px,60%);background:var(--surface);border-radius:16px;box-shadow:0 18px 40px -16px rgba(2,45,38,.35);padding:14px 16px;display:grid;gap:8px;font-size:13px}
+.hv-card .t{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.hv-card .t small{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--c4x);background:var(--c4t);padding:2px 7px;border-radius:6px;font-weight:500}
+.hv-card .r{display:flex;align-items:center;gap:8px}
+.hv-card b{font-size:14.5px}
+.hv-card a{color:var(--accent);font-weight:600;text-decoration:none}
+.hv-card a:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:960px){.hv{justify-self:center;max-width:440px}.hv-card{right:0}}
+
+.lt-track .lt-pt:nth-child(2) .lt-dot,.lt-track .lt-pt:nth-child(3) .lt-dot{background:var(--c3);border-color:var(--c3);box-shadow:0 0 0 5px rgba(252,173,51,.25)}
+.lt-track .lt-pt:nth-child(4) .lt-dot{background:var(--c4);border-color:var(--c4);box-shadow:0 0 0 5px rgba(209,50,85,.22)}
+.lt-btn.sel .lt-lbl b{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.lt-panel{background:var(--c2t)}
+.lt-re{color:var(--c2x)}
+.rep-doc{background:var(--surface)}
+
+/* ne değişti: her sekme bir kategori rengi */
+.dims>.dim:nth-of-type(1){--c:var(--c1);--ct:var(--c1t);--cx:var(--c1x)}
+.dims>.dim:nth-of-type(2){--c:var(--c2);--ct:var(--c2t);--cx:var(--c2x)}
+.dims>.dim:nth-of-type(3){--c:var(--c3);--ct:var(--c3t);--cx:var(--c3x)}
+.dims>.dim:nth-of-type(4){--c:var(--c4);--ct:var(--c4t);--cx:var(--c4x)}
+.dim .dim-key{color:var(--cx)}
+.dim .dim-items li::before{background:var(--c)}
+.dim .viz{background:var(--ct);border:1.5px solid color-mix(in srgb,var(--c) 45%,transparent);box-shadow:none}
+.dims>.dim:nth-of-type(1) .viz{background:var(--surface)}
+.dim .see-ev summary{color:var(--cx)}
+.dim .see-ev-body{border-left-color:var(--c)}
+.dim-tabs button:nth-child(1)[aria-selected="true"]{background:var(--c1);color:#fff}
+.dim-tabs button:nth-child(2)[aria-selected="true"]{background:var(--c2);color:#fff}
+.dim-tabs button:nth-child(3)[aria-selected="true"]{background:var(--c3);color:#022D26}
+.dim-tabs button:nth-child(4)[aria-selected="true"]{background:var(--c4);color:#fff}
+.dim .own-seg{background:var(--surface)}
+.dim .auth-card.was{background:var(--surface)}
+.dim .fin{background:var(--ct)}
+.trust-strip li:nth-child(2) svg{stroke:var(--c2)}
+
+/* kanıt: gerekçe, senaryo slaytındaki bordo bant gibi */
+.rcx-reason{background:var(--bord);border-color:var(--bord)}
+.rcx-reason .lbl{color:#FEF5D6}.rcx-reason p{color:#fff}
+
+
+/* sektörler: kategori renkleri */
+.sct{background:var(--ct);border-color:transparent}
+.sct-h{background:transparent;border-bottom:1px solid color-mix(in srgb,var(--c) 28%,transparent)}
+.sct h3{display:flex;align-items:center;gap:10px}
+.sct h3::before{content:"";flex:none;width:14px;height:14px;border-radius:4px;background:var(--c)}
+.sct-who li::before{background:var(--c)}
+.sct-dec li::before{color:var(--cx)}
+
+/* müşteriler: aynı kategori renkleri */
+.tsms{background:transparent;border:0;gap:16px;overflow:visible}
+.tsms .tsm{background:var(--ct);border-radius:16px}
+.tsms .tsm strong{color:var(--cx)}
+.tsm blockquote{border-top-color:color-mix(in srgb,var(--c) 30%,transparent)}
+.tsm blockquote::before{color:var(--c)}
+
+/* derinlik: önemli kartların arkasında kaydırılmış renk plakası (sunumdaki renk blokları) */
+.liv-tl{box-shadow:14px 14px 0 var(--c3t),var(--shadow)}
+.rcx2{box-shadow:14px 14px 0 color-mix(in srgb,var(--c1) 22%,var(--bg)),var(--shadow)}
+.eq-box.dp{box-shadow:12px 12px 0 var(--c2t)}
+.hv-card{box-shadow:10px 10px 0 var(--c3t),0 18px 40px -16px rgba(2,45,38,.35)}
+
+/* ================= vurgu turu: hero mesajı, derine inme, insan kararı ================= */
+/* hero: vurgu kelimeleri naneden koyu yeşile koyulaşır (derinleşme), başlık üstü etiket çip */
+.pg-risk .hero h1 b{background:linear-gradient(90deg,#28DCA8,#158867 45%,#0B5A43);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+:root[data-theme="dark"] .pg-risk .hero h1 b{background-image:linear-gradient(90deg,#B4F5E0,#28DCA8)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pg-risk .hero h1 b{background-image:linear-gradient(90deg,#B4F5E0,#28DCA8)}}
+.pg-risk .hero .eyebrow{display:inline-block;padding:5px 11px;border-radius:999px;background:var(--c1t);color:#0B5A43}
+
+
+/* önemli bilgi: yüksek risk ve öneri öne çıkar */
+.hv-card .risk.r-high,.rcx-bar .risk.r-high{background:var(--c4);color:#fff}
+.rcx-rec{background:var(--c3t);border:1.5px solid var(--c3)}
+.rcx-rec .lbl{color:var(--c3x)}
+
+/* insan kararı: ekip fotoğrafları */
+.avs{display:inline-flex;flex:none}
+.avs img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--c3)}
+.avs img + img{margin-left:-14px}
+.avs.sm img{width:36px;height:36px;border-width:2px}
+.role-who{display:flex;align-items:center;gap:14px}
+.role-who .lbl{display:block;margin:0 0 2px}
+.role-who b{font-size:16px;font-weight:600;color:var(--ink)}
+#evidence .role-t{gap:14px}
+.eq-box.dec{background:var(--c3t);border:1.5px solid var(--c3)}
+.eq-box.dec .avs{margin-bottom:4px}
+
+/* ilişki grafiği: risk sinyali olan bağlantı */
+.gflag circle{fill:var(--c4);stroke:var(--surface);stroke-width:2.5}
+.gflag text{fill:#fff;font-family:var(--font);font-size:12px;font-weight:700}
+.gel.gel-risk{fill:var(--c4x);font-weight:600}
+
+
+/* canlı istihbarat: yükselen risk barometresi — çizgi soldan sağa kalınlaşır, yeşil → sarı → kırmızı */
+.lt-meter{display:flex;align-items:center;gap:10px;margin:2px 0 4px}
+.lt-meter .lbl{margin:0 4px 0 0}
+.lt-meter i{flex:1;max-width:220px;height:10px;background:linear-gradient(90deg,var(--c1),var(--c3) 50%,var(--c4));clip-path:polygon(0 70%,100% 0,100% 100%,0 100%);border-radius:2px}
+.lt-meter .risk.r-high{background:var(--c4);color:#fff}
+.lt-track::before{top:1px;height:15px;border-radius:0 4px 4px 0;background:linear-gradient(90deg,var(--c1) 0%,var(--c3) 38%,var(--c3) 64%,var(--c4) 100%);clip-path:polygon(0 72%,100% 0,100% 100%,0 100%)}
+.lt-panel.lv-low{background:var(--c1t)}
+.lt-panel.lv-medium{background:var(--c3t)}
+.lt-panel.lv-high{background:var(--c4t)}
+.lt-panel .lt-re{color:var(--ink)}
+.lt-panel.lv-high .lt-ba .after p{color:var(--c4x)}
+.liv-tl{box-shadow:14px 14px 0 var(--c4t),var(--shadow)}
+@media (max-width:760px){.lt-track::before{clip-path:none;width:4px;left:6px;background:linear-gradient(180deg,var(--c1),var(--c3) 40%,var(--c4))}}
+.lt-track .lt-pt:nth-child(n+2) .lt-dot{border:3px solid var(--surface);width:20px;height:20px;margin-top:-2px}
+.lt-panel .risk.r-high{background:var(--c4);color:#fff}
+.hv-card .r .lbl{margin:0 4px 0 0;color:var(--ink-2)}
+
+
+/* hero kartı: yeni uyarı e-postası simgesi */
+.hv-card .mail{position:relative;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--c1t);flex:none}
+.hv-card .mail svg{width:18px;height:18px;fill:none;stroke:var(--c1);stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
+.hv-card .mail i{position:absolute;top:3px;right:3px;width:9px;height:9px;border-radius:50%;background:var(--c4);border:2px solid var(--surface)}
+
+/* canlı istihbarat: ilk rapordan çıkan ışık topu, bulunduğu yerin rengini alarak son halkaya gelir ve orada kalır */
+.lt-track::after{content:"";position:absolute;top:2px;left:8px;width:12px;height:12px;margin-left:-6px;border-radius:50%;pointer-events:none;z-index:2;
+  background:var(--c1);box-shadow:0 0 10px 4px rgba(21,136,103,.55)}
+.lt-track.orb-go::after{animation:lt-orb 4.2s linear .3s both}
+@keyframes lt-orb{
+  0%{left:8px;background:var(--c1);box-shadow:0 0 10px 4px rgba(21,136,103,.55)}
+  38%{left:calc((100% - 22px) * .38 + 8px);background:var(--c3);box-shadow:0 0 12px 5px rgba(252,173,51,.6)}
+  64%{left:calc((100% - 22px) * .64 + 8px);background:var(--c3);box-shadow:0 0 12px 5px rgba(252,173,51,.6)}
+  100%{left:calc(100% - 14px);background:var(--c4);box-shadow:0 0 16px 7px rgba(209,50,85,.55)}}
+@media (prefers-reduced-motion: reduce){.lt-track::after{animation:none;left:calc(100% - 14px);background:var(--c4);box-shadow:0 0 14px 6px rgba(209,50,85,.5)}}
+@media (max-width:760px){.lt-track::after{display:none}}

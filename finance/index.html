@@ -1290,6 +1290,15 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
       t.addEventListener('keydown',function(ev){var k=ev.key==='ArrowRight'?1:ev.key==='ArrowLeft'?-1:0;if(k){ev.preventDefault();sel(tabs[(i+k+tabs.length)%tabs.length],true)}});
     });
   });
+  // living timeline: the light orb runs from the first ring to the last each time the timeline is scrolled into view
+  document.querySelectorAll('.lt-track').forEach(function(tr){
+    if(!('IntersectionObserver' in window)){tr.classList.add('orb-go');return}
+    new IntersectionObserver(function(en){
+      var e=en[0];
+      if(e.intersectionRatio>=.6&&!tr.classList.contains('orb-go')){void tr.offsetWidth;tr.classList.add('orb-go')}
+      else if(!e.isIntersecting)tr.classList.remove('orb-go');
+    },{threshold:[0,.6]}).observe(tr);
+  });
   document.querySelectorAll('.liv-tl').forEach(function(tl){
     var btns=[].slice.call(tl.querySelectorAll('.lt-btn')),panels=[].slice.call(tl.querySelectorAll('.lt-panel'));
     btns.forEach(function(b){b.addEventListener('click',function(){
