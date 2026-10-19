@@ -180,3 +180,6 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 .dx-fam a:hover em b{transform:translateX(3px);color:var(--mint)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dx-panel{border:1px solid var(--deep-line)}}
 :root[data-theme="dark"] .dx-panel{border:1px solid var(--deep-line)}
+
+/* ---- confidential customer names: neutral placeholder text, blurred (the real name is not in the page) ---- */
+.redact{display:inline-block;filter:blur(.34em);-webkit-user-select:none;user-select:none;cursor:default;transform:translateZ(0);padding:0 .08em}

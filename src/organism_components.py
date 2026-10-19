@@ -19,6 +19,7 @@ Components:
   org_close       closing steps
 """
 import json
+import redact
 from html import escape as e
 
 DATA, STATUS = {}, {}
@@ -165,7 +166,7 @@ def org_grammar(arg, ctx):
 # ------------------------------------------------------------------ customers
 def org_proof(arg, ctx):
     rows = "".join(
-        f'<li><span class="pf-name">{e(c["name"])}</span><span class="pf-inv">{e(c["investigation"])}</span>'
+        f'<li><span class="pf-name">{redact.name(c["name"])}</span><span class="pf-inv">{e(c["investigation"])}</span>'
         f'<span class="pf-st">{_pips(c["status"])}{_chip(c["status"])}</span></li>'
         for c in DATA["customers"])
     a, b, c3 = (e(x) for x in ctx["ui"]["legend"])

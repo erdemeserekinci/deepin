@@ -884,6 +884,9 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dx-panel{border:1px solid var(--deep-line)}}
 :root[data-theme="dark"] .dx-panel{border:1px solid var(--deep-line)}
 
+/* ---- confidential customer names: neutral placeholder text, blurred (the real name is not in the page) ---- */
+.redact{display:inline-block;filter:blur(.34em);-webkit-user-select:none;user-select:none;cursor:default;transform:translateZ(0);padding:0 .08em}
+
 .amt{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
 .amt strong{font-size:26px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .amt span{font-size:13px;color:var(--muted)}
@@ -950,7 +953,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a class="btn btn-ghost" href="#how">See the case path</a>
       </div>
-      <span class="chip st-contracted status">Visa / Ziraat Bankası · contracted, in development</span>
+      <span class="chip st-contracted status"><span class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxx Xxxxxx</span></span> · contracted, in development</span>
     </div>
 
     <figure class="case" style="margin:0" aria-label="Sample chargeback case">

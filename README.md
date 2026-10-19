@@ -35,6 +35,7 @@ python3 build.py
 
 Terminoloji: Türkçe metinlerde Investigation, Space ve ürün adları İngilizce bırakılır.
 
+Müşteri isimleri şimdilik gizli: `proof.hide_names` true iken sayfalara gerçek isim yazılmaz, yerine bulanık bir yer tutucu konur (`src/redact.py`). Metin içinde isim gerekiyorsa `<!--@redact:PayTR-->` gibi bir işaret kullanılır. İsimleri açmak için `hide_names` false yapılıp derlenir.
 Müşteri logoları: `src/data.*.json` içinde `proof.show_logos` true yapılıp her müşteriye `logo` yolu girilirse isimler yerine logolar gösterilir.
 Talep formu şu an e-posta uygulamasını açar. Bir form servisi bağlanırsa `risk.*.json` içindeki `form.endpoint` alanına adresi yazmak yeterli.
 

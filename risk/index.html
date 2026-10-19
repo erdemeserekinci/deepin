@@ -884,6 +884,9 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dx-panel{border:1px solid var(--deep-line)}}
 :root[data-theme="dark"] .dx-panel{border:1px solid var(--deep-line)}
 
+/* ---- confidential customer names: neutral placeholder text, blurred (the real name is not in the page) ---- */
+.redact{display:inline-block;filter:blur(.34em);-webkit-user-select:none;user-select:none;cursor:default;transform:translateZ(0);padding:0 .08em}
+
 /* ================= readability: darker small-text tokens (light theme, this page only) ================= */
 :root{--muted:#566B63;--warn:#8A5A14}
 .lbl{font-size:12px}
@@ -1595,19 +1598,19 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
   <p class="lede">Finanstan enerjiye, <span lang="en">Deepin</span> Risk ile karar veren ekiplerin kendi sözleriyle.</p>
 </div>
 <ul class="proof-grid tsms n4"><li class="proof-card tsm">
-  <strong>Türkiye’nin İlk Dijital Bankası</strong>
+  <strong class="redact" role="img" aria-label="Gizli referans" title="Gizli referans"><span aria-hidden="true">Xxxxx Xxxxxx</span></strong>
   <span class="proof-inv">Şirket İstihbaratı</span><span class="proof-ctx">Finansal / şirket riski</span>
   <blockquote>Bir müşterimizin ortaklık yapısı değiştiğinde bunu artık haftalar sonra değil, aynı gün ve kanıtıyla öğreniyoruz. Kredi komitesine giden dosya çok daha net.</blockquote>
 </li><li class="proof-card tsm">
-  <strong>Türkiye’nin Önde Gelen Ödeme Teknolojileri Şirketi</strong>
+  <strong class="redact" role="img" aria-label="Gizli referans" title="Gizli referans"><span aria-hidden="true">Xxxxxxx</span></strong>
   <span class="proof-inv">Şirket İstihbaratı</span><span class="proof-ctx">Üye işyeri / şirket riski</span>
   <blockquote>Üye işyeri kabulünde en çok zorlandığımız şey, şirketin arkasındaki ilişkileri görmekti. <span lang="en">Deepin</span> Risk bu bağlantıları tek ekranda önümüze koyuyor.</blockquote>
 </li><li class="proof-card tsm">
-  <strong>Türkiye’nin En Büyük Entegre Enerji Şirketi</strong>
+  <strong class="redact" role="img" aria-label="Gizli referans" title="Gizli referans"><span aria-hidden="true">Xxxxx</span></strong>
   <span class="proof-inv">Şirket İstihbaratı</span><span class="proof-ctx">Üçüncü taraf / şirket riski</span>
   <blockquote>Tedarikçi değerlendirmesinde yalnızca bir skor değil, o skorun nedenini görüyoruz. Satın alma ekibimiz kararını artık kaynağıyla savunabiliyor.</blockquote>
 </li><li class="proof-card tsm">
-  <strong>Üç Kıtada Faaliyet Gösteren Finansal Teknoloji Şirketi</strong>
+  <strong class="redact" role="img" aria-label="Gizli referans" title="Gizli referans"><span aria-hidden="true">Xxxxxx Xxxxx Xxx</span></strong>
   <span class="proof-inv">Şirket + Finansal İstihbarat</span><span class="proof-ctx">Ürüne gömülü çözüm</span>
   <blockquote>Şirket ve finansal istihbaratı kendi ürünümüzün içine yerleştirdik. Müşterilerimiz değişiklikleri, ne anlama geldiğiyle birlikte görüyor.</blockquote>
 </li></ul>

@@ -21,6 +21,7 @@ All company and person names are role names (Tedarikçi A.Ş., Yetkili X ...), n
 realistic ones.
 """
 import json
+import redact
 import os
 from html import escape as e
 
@@ -292,7 +293,7 @@ def risk_customers(arg, ctx):
         ctx_line = f'<span class="proof-ctx">{e(c["context"]["risk"])}</span>' if c.get("context", {}).get("risk") else ""
         draft = f'<span class="tsm-draft">{e(Tm["draft_label"])}</span>' if q.get("draft") else ""
         cards.append(f'''<li class="proof-card tsm">
-  <strong>{e(q.get("alias") or c["name"])}</strong>
+  {redact.name(q.get("alias") or c["name"], "strong")}
   <span class="proof-inv">{e(c["investigation"])}</span>{ctx_line}
   <blockquote>{e(q["quote"])}</blockquote>{draft}
 </li>''')

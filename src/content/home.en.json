@@ -9,7 +9,7 @@
     "hero_lede": "Before a risk, fraud or compliance decision, your people search systems, read documents and compare records. Deepin does that investigation, shows the evidence behind every finding and waits for a person to approve.",
     "hero_cta": "Bring us an investigation",
     "hero_cta2": "Watch one unfold",
-    "hero_proof": "In production at <b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> and <b>GreenChimney</b>",
+    "hero_proof": "In production at <!--@redact:Hayat_Finans-->, <!--@redact:PayTR-->, <!--@redact:SOCAR--> and <!--@redact:GreenChimney-->",
     "sig_time": "18.09.2026 · 09:42",
     "sig_src": "Trade Registry Gazette",
     "sig_text": "New signatory registered · Northwind Lojistik A.Ş.",

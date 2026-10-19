@@ -28,6 +28,7 @@ sys.path.insert(0, SRC)
 import risk_components  # noqa: E402
 import harness_components  # noqa: E402
 import organism_components  # noqa: E402
+import redact  # noqa: E402
 
 LOCALES = [("tr", ""), ("en", "en/")]          # (language, output folder); first is the default
 PAGES = ["home", "risk", "finance", "security", "energy", "harness"]
@@ -145,7 +146,7 @@ def c_proof_grid(arg, ctx):
         if arg and arg not in c.get("spaces", []):
             continue
         name = (f'<img class="proof-logo" src="{ctx["assets"]}{c["logo"]}" alt="{e(c["name"])}">'
-                if show_logos and c.get("logo") else f'<strong>{e(c["name"])}</strong>')
+                if show_logos and c.get("logo") and not redact.HIDE else redact.name(c["name"], "strong"))
         extra = f'<span class="proof-ctx">{e(c["context"][arg])}</span>' if arg and c.get("context", {}).get(arg) else ""
         cards.append(f'''<li class="proof-card">
   {name}
@@ -160,7 +161,7 @@ def c_proof_space(space_id, ctx):
     """Customers whose first Space is space_id, grouped under that Space and its primary Investigation."""
     s = SPACE[space_id]
     rows = "".join(
-        f'<li><strong>{e(c["name"])}</strong><span class="proof-st">{maturity(c["status"])}{status_chip(c["status"])}</span></li>'
+        f'<li>{redact.name(c["name"], "strong")}<span class="proof-st">{maturity(c["status"])}{status_chip(c["status"])}</span></li>'
         for c in DATA["customers"] if c.get("spaces", [None])[0] == space_id)
     return f'''<div class="pf-group">
   <a class="pf-h" href="{ctx["root"]}{s["href"]}">{wordmark(space_id)}<span>{e(s["primary"])}</span></a>
@@ -246,6 +247,14 @@ COMPONENTS = {
     "data_note": c_data_note,
     "copy_email": c_copy_email,
 }
+def _redact(arg, ctx):
+    """<!--@redact:Slug_Of_Name--> in templates and content: a customer name (blurred while names are hidden)."""
+    slug = lambda n: re.sub(r"\W+", "_", n).strip("_")
+    real = next((c["name"] for c in DATA["customers"] if slug(c["name"]) == arg), arg.replace("_", " "))
+    return redact.name(real)
+
+
+COMPONENTS["redact"] = _redact
 COMPONENTS.update(risk_components.COMPONENTS)
 COMPONENTS.update(harness_components.COMPONENTS)
 COMPONENTS.update(organism_components.COMPONENTS)
@@ -517,6 +526,8 @@ def build():
             cpath = os.path.join(SRC, "content", f"{page}.{lang}.json")
             ctx["content"] = json.load(open(cpath, encoding="utf-8")) if os.path.exists(cpath) else {}
             risk_components.set_locale(ctx["content"])
+            redact.HIDE = DATA.get("proof", {}).get("hide_names", True)
+            redact.set_lang(lang)
             organism_components.set_data(DATA, STATUS)
 
             meta, body = front_matter(open(src, encoding="utf-8").read())

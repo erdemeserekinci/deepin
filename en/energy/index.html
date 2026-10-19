@@ -884,6 +884,9 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dx-panel{border:1px solid var(--deep-line)}}
 :root[data-theme="dark"] .dx-panel{border:1px solid var(--deep-line)}
 
+/* ---- confidential customer names: neutral placeholder text, blurred (the real name is not in the page) ---- */
+.redact{display:inline-block;filter:blur(.34em);-webkit-user-select:none;user-select:none;cursor:default;transform:translateZ(0);padding:0 .08em}
+
 .statusbox{display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:start;padding:28px;border-radius:18px;border:1px dashed var(--line);background:var(--surface)}
 @media (max-width:620px){.statusbox{grid-template-columns:1fr}}
 .statusbox p{color:var(--ink-2);max-width:62ch}
@@ -953,7 +956,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     </div>
     <div class="statusbox">
       <span class="chip st-exploring">Exploring</span>
-      <div><p>Our operational work started with SEÖS, a vertical solution in production at GreenChimney and approaching its second year. It shows that an operational investigation can run beyond the pilot stage.</p><p>deepin.energy is not a Space yet. We are looking for the investigation that repeats across energy and industrial operators.</p>
+      <div><p>Our operational work started with SEÖS, a vertical solution in production at <span class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxx Xxxxxx</span></span> and approaching its second year. It shows that an operational investigation can run beyond the pilot stage.</p><p>deepin.energy is not a Space yet. We are looking for the investigation that repeats across energy and industrial operators.</p>
         <p><a class="go" href="../#spaces">How a Space is earned →</a></p>
       </div>
     </div>

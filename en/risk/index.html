@@ -884,6 +884,9 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dx-panel{border:1px solid var(--deep-line)}}
 :root[data-theme="dark"] .dx-panel{border:1px solid var(--deep-line)}
 
+/* ---- confidential customer names: neutral placeholder text, blurred (the real name is not in the page) ---- */
+.redact{display:inline-block;filter:blur(.34em);-webkit-user-select:none;user-select:none;cursor:default;transform:translateZ(0);padding:0 .08em}
+
 /* ================= readability: darker small-text tokens (light theme, this page only) ================= */
 :root{--muted:#566B63;--warn:#8A5A14}
 .lbl{font-size:12px}
@@ -1595,19 +1598,19 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
   <p class="lede">From finance to energy, teams that decide with Deepin Risk, in their own words.</p>
 </div>
 <ul class="proof-grid tsms n4"><li class="proof-card tsm">
-  <strong>Türkiye’s First Digital Bank</strong>
+  <strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxx Xxxxxx</span></strong>
   <span class="proof-inv">Company Intelligence</span><span class="proof-ctx">Financial / company risk</span>
   <blockquote>When a customer&#x27;s ownership changes, we now learn it the same day, with evidence, not weeks later. The file that goes to our credit committee is far clearer.</blockquote>
 </li><li class="proof-card tsm">
-  <strong>Türkiye’s Leading Payment Technology Company</strong>
+  <strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxxxx</span></strong>
   <span class="proof-inv">Company Intelligence</span><span class="proof-ctx">Merchant / company risk</span>
   <blockquote>The hardest part of merchant onboarding was seeing the relationships behind a company. Deepin Risk puts those connections in front of us on one screen.</blockquote>
 </li><li class="proof-card tsm">
-  <strong>Türkiye’s Largest Integrated Energy Company</strong>
+  <strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxx</span></strong>
   <span class="proof-inv">Company Intelligence</span><span class="proof-ctx">Third-party / company risk</span>
   <blockquote>In supplier assessment we see not just a score but the reason behind it. Our procurement team can now defend its decisions with the source.</blockquote>
 </li><li class="proof-card tsm">
-  <strong>A Fintech Company Operating on Three Continents</strong>
+  <strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxxx Xxxxx Xxx</span></strong>
   <span class="proof-inv">Company + Financial Intelligence</span><span class="proof-ctx">Embedded solution</span>
   <blockquote>We embedded company and financial intelligence into our own product. Our customers see changes together with what they mean.</blockquote>
 </li></ul>

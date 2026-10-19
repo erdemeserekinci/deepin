@@ -173,6 +173,9 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Dil tercihi alt alan adları arasında `.deepin.space` çereziyle korunuyor.
 - Aynı gün geri alındı: risk sayfası yine deepin.space/risk adresinde; risk.deepin.space DNS üzerinden oraya yönlendiriliyor. Alt alan adı altyapısı `build.py` içinde (`SUBDOMAINS`) duruyor, şu an kapalı. Site GitHub Pages'te, `main` dalından yayınlanıyor.
 
+**Referanslar gizlendi** (19 Ekim)
+- Müşteri isimleri ve risk sayfasındaki tanımlayıcı unvanlar ("Türkiye'nin İlk Dijital Bankası" gibi) tüm sayfalarda bulanık yer tutucuyla değiştirildi; gerçek isimler sayfa kaynağında yok. Açmak için `proof.hide_names: false`.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Space sayfaları yol olarak yayınlanıyor (deepin.space/finance); risk.deepin.space DNS üzerinden deepin.space/risk adresine yönlendiriliyor.

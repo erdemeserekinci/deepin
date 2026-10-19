@@ -9,7 +9,7 @@
     "hero_lede": "Bir risk, fraud ya da uyum kararından önce ekibiniz sistemlerde arama yapar, belgeleri okur ve kayıtları karşılaştırır. Deepin bu araştırmayı yapar, her bulgunun arkasındaki kanıtı gösterir ve karar için bir kişinin onayını bekler.",
     "hero_cta": "Bize bir Investigation getirin",
     "hero_cta2": "Bir örneği izleyin",
-    "hero_proof": "<b>Hayat Finans</b>, <b>PayTR</b>, <b>SOCAR</b> ve <b>GreenChimney</b> bünyesinde canlı kullanımda",
+    "hero_proof": "<!--@redact:Hayat_Finans-->, <!--@redact:PayTR-->, <!--@redact:SOCAR--> ve <!--@redact:GreenChimney--> bünyesinde canlı kullanımda",
     "sig_time": "18.09.2026 · 09:42",
     "sig_src": "Ticaret Sicili Gazetesi",
     "sig_text": "Yeni imza yetkilisi tescil edildi · Northwind Lojistik A.Ş.",

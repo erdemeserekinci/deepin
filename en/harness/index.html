@@ -884,6 +884,9 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dx-panel{border:1px solid var(--deep-line)}}
 :root[data-theme="dark"] .dx-panel{border:1px solid var(--deep-line)}
 
+/* ---- confidential customer names: neutral placeholder text, blurred (the real name is not in the page) ---- */
+.redact{display:inline-block;filter:blur(.34em);-webkit-user-select:none;user-select:none;cursor:default;transform:translateZ(0);padding:0 .08em}
+
 /* =================================================================== deepin harness */
 :root{--deny:#B4432F;--deny-soft:#FBE9E5}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--deny:#F18F80;--deny-soft:#3A1F1A}}
@@ -1496,11 +1499,11 @@ svg.links path.fl{stroke-dasharray:3 5;animation:lk-flow 1.4s linear infinite}
     <div class="pf">
       <div class="pf-group">
   <a class="pf-h" href="../risk/"><span class="nm">deep<b>in</b>.risk</span><span>Company Investigation</span></a>
-  <ul><li><strong>Hayat Finans</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong>PayTR</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong>SOCAR</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong>DGPays</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Embedded</span></span></li></ul>
+  <ul><li><strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxx Xxxxxx</span></strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxxxx</span></strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxx</span></strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="chip st-production">Production</span></span></li><li><strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxxx Xxxxx Xxx</span></strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="chip st-embedded">Embedded</span></span></li></ul>
 </div>
       <div class="pf-group">
   <a class="pf-h" href="../finance/"><span class="nm">deep<b>in</b>.finance</span><span>Chargeback Investigation</span></a>
-  <ul><li><strong>Visa / Ziraat Bankası</strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="chip st-contracted">Contracted · In development</span></span></li></ul>
+  <ul><li><strong class="redact" role="img" aria-label="Confidential reference" title="Confidential reference"><span aria-hidden="true">Xxxxxxxxx</span></strong><span class="proof-st"><span class="pips" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="chip st-contracted">Contracted · In development</span></span></li></ul>
 </div>
     </div>
     <div class="proof-legend"><span><span class="pips"><i class="on"></i><i></i><i></i></span>Contracted</span><span><span class="pips"><i class="on"></i><i class="on"></i><i></i></span>Embedded or deploying</span><span><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i></span>In production</span></div>

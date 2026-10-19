@@ -351,6 +351,7 @@
   },
   "proof": {
     "show_logos": false,
+    "hide_names": true,
     "_note": "Set show_logos to true and fill each customer logo path (e.g. assets/logos/paytr.svg) once logo use is approved."
   }
 }
