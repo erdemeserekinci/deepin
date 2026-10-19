@@ -162,6 +162,10 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 **Main'e birleştirme** (19 Ekim)
 - ORGANISM tasarımı ve risk revizyonları main'e alındı; site bu sürümle yayına hazırlanıyor.
 
+**Logo yerinde kalır, "Deepin teknolojisini tanıyın"** (19 Ekim)
+- Üstteki ve alttaki logo artık ana sayfaya gitmiyor; bulunduğunuz sayfanın başına kaydırıyor. Ana sayfaya menüdeki "Deepin" bağlantısıyla gidiliyor.
+- Alt sayfaların (risk, finance, security, energy, Harness) sonuna, footer'dan önce "Deepin teknolojisini tanıyın" bölümü eklendi: koyu marka paneli, nane parıltısı, silik "deepin" yazısı ve ince bağlantı ağı; "Deepin'i keşfedin" düğmesi sayfanın dilindeki ana sayfaya, yandaki liste kardeş sayfalara gidiyor.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Alt sayfalar alt alan adı değil yol olarak yayınlanıyor, örneğin deepin.space/risk.

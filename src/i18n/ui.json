@@ -92,6 +92,16 @@
     "back_space": "Home",
     "login": "Log in",
     "home_label": "Deepin home",
+    "top_label": "Back to the top of this page",
+    "dx": {
+      "lab": "Deepin",
+      "h": "Get to know <b>Deepin technology.</b>",
+      "p": "{name} is part of Deepin. Deepin builds agents that investigate business cases, show the evidence and wait for a person to approve the decision.",
+      "p2": "See the other Spaces, the Harness underneath and how it all works on the Deepin home page.",
+      "cta": "Explore Deepin",
+      "family": "Built on the same technology",
+      "here": "This page"
+    },
     "footer_about": "Deepin builds Enterprise Investigation & Decision Automation: agents that investigate business cases, show the evidence and wait for a person to approve.",
     "footer_spaces": "Spaces",
     "footer_company": "Company",
@@ -202,6 +212,16 @@
     "back_space": "Ana sayfa",
     "login": "Giriş",
     "home_label": "Deepin ana sayfa",
+    "top_label": "Sayfanın başına dön",
+    "dx": {
+      "lab": "Deepin",
+      "h": "Deepin teknolojisini <b>tanıyın.</b>",
+      "p": "{name}, Deepin'in bir parçası. Deepin, iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent'lar kurar.",
+      "p2": "Diğer Space'leri, altta çalışan Harness'ı ve her şeyin nasıl işlediğini Deepin ana sayfasında görün.",
+      "cta": "Deepin'i keşfedin",
+      "family": "Aynı teknoloji üzerinde",
+      "here": "Bu sayfa"
+    },
     "footer_about": "Deepin, Enterprise Investigation & Decision Automation alanında çalışır: iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent'lar.",
     "footer_spaces": "Space'ler",
     "footer_company": "Şirket",

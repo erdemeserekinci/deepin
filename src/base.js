@@ -7,6 +7,15 @@
       if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
     });
   }
+  // The logo never leaves the page: it brings the visitor back to the top of the page they are on.
+  // (#top is the sticky header itself, so the browser alone would not move.)
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a.brand[href="#top"]');if(!a)return;
+    ev.preventDefault();
+    var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:still?'auto':'smooth'});
+    if(window.top!==window){try{document.documentElement.scrollIntoView({block:'start',behavior:still?'auto':'smooth'})}catch(e){}}
+  });
   // Inside a frame (e.g. a preview window) the scroll position belongs to the outer page,
   // so the browser neither starts a new page at its top nor restores the spot on Back.
   // Remember the link a visitor leaves through, and on load scroll the frame's own

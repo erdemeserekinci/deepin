@@ -839,6 +839,49 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 
 @media (max-width:420px){.hero .chip.status{white-space:normal;max-width:100%}}
 
+/* ---- "Deepin teknolojisini tanıyın": closing panel on every sub-page, the way back to the home page ---- */
+.dx{padding:clamp(56px,7vw,104px) 0;background:var(--bg)}
+.dx-panel{position:relative;overflow:hidden;isolation:isolate;border-radius:28px;padding:clamp(32px,5.2vw,76px);
+  display:grid;grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);gap:clamp(32px,5vw,72px);align-items:end;color:var(--deep-ink);
+  background:radial-gradient(70% 90% at 92% 6%,rgba(40,220,168,.22),transparent 60%),
+             radial-gradient(55% 75% at 0% 100%,rgba(40,220,168,.10),transparent 70%),
+             linear-gradient(155deg,#0B3A30 0%,#072019 46%,var(--deep) 100%);
+  box-shadow:0 30px 60px -32px rgba(2,45,38,.6)}
+.dx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(40,220,168,.22) 1px,transparent 1.3px);background-size:22px 22px;
+  -webkit-mask-image:linear-gradient(100deg,transparent 35%,#000 90%);mask-image:linear-gradient(100deg,transparent 35%,#000 90%);opacity:.55}
+.dx-mark{position:absolute;z-index:-1;right:-3%;bottom:-15%;width:min(80%,860px);height:auto;opacity:.07;pointer-events:none;user-select:none}
+.dx-net{position:absolute;z-index:-1;top:0;right:0;width:64%;height:60%}
+.dx-l line{stroke:rgba(40,220,168,.32);stroke-width:1}
+.dx-n circle{fill:var(--deep);stroke:rgba(40,220,168,.75);stroke-width:1.3}
+.dx-sig{fill:var(--mint);filter:drop-shadow(0 0 6px rgba(40,220,168,.9))}
+.dx-copy .o-h2{color:#fff;max-width:14ch}
+.dx-copy .o-h2 b{color:var(--mint)}
+.dx-lab{display:flex;align-items:center;gap:10px;margin:0 0 22px;color:var(--deep-muted)}
+.dx-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(40,220,168,.18)}
+.dx-p{font-size:clamp(16px,1.25vw,18px);line-height:1.6;color:var(--deep-ink);max-width:52ch;margin:22px 0 0}
+.dx-p2{color:var(--deep-muted);margin-top:10px}
+.dx-btn{margin-top:32px;background:var(--mint);color:var(--deep);font-weight:600}
+.dx-btn:hover{background:#fff;transform:translateY(-1px)}
+.dx-btn:focus-visible,.dx-fam a:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.dx-fam{background:rgba(3,19,15,.6);border:1px solid var(--deep-line);border-radius:18px;padding:20px 22px 8px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.dx-fam .lab{color:var(--deep-muted);margin:0 0 6px}
+.dx-fam ul{list-style:none;margin:0;padding:0}
+.dx-fam li+li{border-top:1px solid rgba(40,220,168,.14)}
+.dx-fam a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;color:var(--deep-ink);text-decoration:none;font-weight:500}
+.dx-fam a em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep-muted)}
+.dx-fam a:hover span{color:var(--mint)}
+.dx-fam .here a,.dx-fam .here a em{color:var(--mint)}
+@media (max-width:860px){
+  .dx-panel{grid-template-columns:1fr;border-radius:22px;align-items:start}
+  .dx-net{width:100%;height:38%;opacity:.6}
+  .dx-mark{width:130%;right:-38%;bottom:-5%}
+}
+@media (prefers-reduced-motion: reduce){.dx-sig{display:none}}
+.dx-fam a em b{font-family:var(--font);font-size:17px;font-weight:400;letter-spacing:0;transition:transform .15s}
+.dx-fam a:hover em b{transform:translateX(3px);color:var(--mint)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dx-panel{border:1px solid var(--deep-line)}}
+:root[data-theme="dark"] .dx-panel{border:1px solid var(--deep-line)}
+
 .statusbox{display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:start;padding:28px;border-radius:18px;border:1px dashed var(--line);background:var(--surface)}
 @media (max-width:620px){.statusbox{grid-template-columns:1fr}}
 .statusbox p{color:var(--ink-2);max-width:62ch}
@@ -965,7 +1008,7 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
 <body class="pg-security">
 <header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.security</span></a>
+    <a class="brand" href="#top" aria-label="Sayfanın başına dön"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.security</span></a>
     <nav class="nav-links" aria-label="Ana menü"><a href="../"><span lang="en">Deepin</span></a><a href="../risk/"><span lang="en">deepin.risk</span></a><a href="../finance/"><span lang="en">deepin.finance</span></a><a href="../harness/"><span lang="en">Harness</span></a><a href="../#customers">Müşteriler</a></nav>
     <div class="nav-cta"><span class="langs" role="group" aria-label="Dil"><a href="../security/" hreflang="tr" lang="tr" aria-current="true" title="Türkçe">TR</a><a href="../en/security/" hreflang="en" lang="en" title="English">EN</a></span><a class="btn btn-primary btn-sm" href="#contact">Bize bir vaka getirin</a>
       <details class="menu"><summary aria-label="Ana menü"><span></span><span></span></summary><nav class="menu-panel" aria-label="Ana menü"><a href="../"><span lang="en">Deepin</span></a><a href="../risk/"><span lang="en">deepin.risk</span></a><a href="../finance/"><span lang="en">deepin.finance</span></a><a href="../harness/"><span lang="en">Harness</span></a><a href="../#customers">Müşteriler</a><a class="menu-cta" href="#contact">Bize bir vaka getirin →</a></nav></details>
@@ -1220,11 +1263,34 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
     <div class="mail"><code id="email">info@<span lang="en">deepin.space</span></code><button class="copy" id="copyBtn" type="button" data-copied="Kopyalandı" data-selected="Seçildi">E-postayı kopyala</button></div>
   </div>
 </section>
+
+<section class="dx" id="deepin" aria-labelledby="dx-h">
+  <div class="wrap">
+    <div class="dx-panel">
+      <img class="dx-mark" src="../assets/deepin-logo-mint.png" alt="" width="652" height="194" loading="lazy">
+      <svg class="dx-net" viewBox="0 0 700 320" aria-hidden="true" preserveAspectRatio="xMaxYMid slice">
+        <g class="dx-l"><line x1="70" y1="230" x2="190" y2="120"/><line x1="190" y1="120" x2="300" y2="210"/><line x1="190" y1="120" x2="420" y2="90"/><line x1="300" y1="210" x2="520" y2="190"/><line x1="420" y1="90" x2="520" y2="190"/><line x1="420" y1="90" x2="610" y2="60"/><line x1="520" y1="190" x2="640" y2="260"/><line x1="300" y1="210" x2="640" y2="260"/></g><g class="dx-n"><circle cx="70" cy="230" r="3.5"/><circle cx="190" cy="120" r="5"/><circle cx="300" cy="210" r="3.5"/><circle cx="420" cy="90" r="3.5"/><circle cx="520" cy="190" r="5"/><circle cx="610" cy="60" r="3.5"/><circle cx="640" cy="260" r="3.5"/></g>
+        <circle class="dx-sig" r="4"><animateMotion dur="9s" repeatCount="indefinite" path="M70 230 L190 120 L420 90 L520 190 L640 260"/></circle>
+      </svg>
+      <div class="dx-copy">
+        <p class="lab dx-lab" lang="en"><span class="dx-dot" aria-hidden="true"></span><span lang="en">Deepin</span></p>
+        <h2 class="o-h2" id="dx-h"><span lang="en">Deepin</span> teknolojisini <b>tanıyın.</b></h2>
+        <p class="dx-p"><span lang="en">deepin.security</span>, <span lang="en">Deepin</span>&#x27;in bir parçası. <span lang="en">Deepin</span>, iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent&#x27;lar kurar.</p>
+        <p class="dx-p dx-p2">Diğer Space&#x27;leri, altta çalışan <span lang="en">Harness</span>&#x27;ı ve her şeyin nasıl işlediğini <span lang="en">Deepin</span> ana sayfasında görün.</p>
+        <a class="btn dx-btn" href="../"><span lang="en">Deepin</span>&#x27;i keşfedin <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <nav class="dx-fam" aria-label="Aynı teknoloji üzerinde">
+        <p class="lab">Aynı teknoloji üzerinde</p>
+        <ul><li><a href="../risk/"><span><span lang="en">deepin.risk</span></span><em><b aria-hidden="true">→</b></em></a></li><li><a href="../finance/"><span><span lang="en">deepin.finance</span></span><em><b aria-hidden="true">→</b></em></a></li><li class="here"><a href="../security/" aria-current="page"><span><span lang="en">deepin.security</span></span><em>Bu sayfa</em></a></li><li><a href="../energy/"><span><span lang="en">deepin.energy</span></span><em><b aria-hidden="true">→</b></em></a></li><li><a href="../harness/"><span><span lang="en">Deepin</span> <span lang="en">Harness</span></span><em><b aria-hidden="true">→</b></em></a></li></ul>
+      </nav>
+    </div>
+  </div>
+</section>
 </main>
 <footer id="company">
   <div class="wrap">
     <div class="f-about">
-      <a class="brand" href="../" aria-label="Deepin ana sayfa"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.security</span></a>
+      <a class="brand" href="#top" aria-label="Sayfanın başına dön"><img class="logo-l" src="../assets/deepin-logo.png" alt="deepin" width="632" height="190"><img class="logo-d" src="../assets/deepin-logo-mint.png" alt="deepin" width="652" height="194"><span class="sub">.security</span></a>
       <p><span lang="en">Deepin</span>, <span lang="en">Enterprise</span> <span lang="en">Investigation</span> &amp; <span lang="en">Decision</span> <span lang="en">Automation</span> alanında çalışır: iş vakalarını araştıran, kanıtı gösteren ve karar için bir kişinin onayını bekleyen agent&#x27;lar.</p>
       <span class="addr">Erzene Mah. Ankara Cad. EBİLTEM No: 172/14, Bornova / İzmir</span>
     </div>
@@ -1247,6 +1313,15 @@ body.on-dark .brand .sub{color:var(--deep-ink)}
       if(h&&!/^([a-z]+:|#|\/)/i.test(h)&&/\/$/.test(h))a.setAttribute('href',h+'index.html');
     });
   }
+  // The logo never leaves the page: it brings the visitor back to the top of the page they are on.
+  // (#top is the sticky header itself, so the browser alone would not move.)
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a.brand[href="#top"]');if(!a)return;
+    ev.preventDefault();
+    var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:still?'auto':'smooth'});
+    if(window.top!==window){try{document.documentElement.scrollIntoView({block:'start',behavior:still?'auto':'smooth'})}catch(e){}}
+  });
   // Inside a frame (e.g. a preview window) the scroll position belongs to the outer page,
   // so the browser neither starts a new page at its top nor restores the spot on Back.
   // Remember the link a visitor leaves through, and on load scroll the frame's own

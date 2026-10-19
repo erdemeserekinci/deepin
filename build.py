@@ -261,7 +261,8 @@ def lang_switch(ctx):
 def nav(page, ctx):
     """One global navigation on every page: Deepin, the two Spaces, Harness, customers."""
     root = ctx["root"]
-    home = "#top" if page == "home" else root
+    home = "#top"                                  # the logo never leaves the page
+    brand_label = UI["home_label"] if page == "home" else UI["top_label"]
     items = [("home", "Deepin", root or "./"), ("risk", "deepin.risk", f"{root}risk/"),
              ("finance", "deepin.finance", f"{root}finance/"), ("harness", "Harness", f"{root}harness/"),
              ("customers", UI["customers"], f"{root}#customers" if root else "#customers")]
@@ -271,7 +272,7 @@ def nav(page, ctx):
     cta_href = "#request" if page == "risk" else "#contact"
     return f'''<header class="nav" id="top">
   <div class="wrap">
-    <a class="brand" href="{home}" aria-label="{e(UI["home_label"])}">{logo_imgs(ctx["assets"])}{sub_brand(page)}</a>
+    <a class="brand" href="{home}" aria-label="{e(brand_label)}">{logo_imgs(ctx["assets"])}{sub_brand(page)}</a>
     <nav class="nav-links" aria-label="{e(UI["aria_main"])}">{links}</nav>
     <div class="nav-cta">{lang_switch(ctx)}{login}<a class="btn btn-primary btn-sm" href="{cta_href}">{e(UI["cta"][page])}</a>
       <details class="menu"><summary aria-label="{e(UI["aria_main"])}"><span></span><span></span></summary><nav class="menu-panel" aria-label="{e(UI["aria_main"])}">{links}<a class="menu-cta" href="{cta_href}">{e(UI["cta"][page])} →</a></nav></details>
@@ -282,13 +283,14 @@ def nav(page, ctx):
 
 def footer(page, ctx):
     root = ctx["root"]
-    home = "#top" if page == "home" else root
+    home = "#top"                                  # the logo never leaves the page
+    brand_label = UI["home_label"] if page == "home" else UI["top_label"]
     subspan = sub_brand(page)
     spaces = "".join(f'<a href="{root}{s["href"]}">deepin.{s["id"]}</a>' for s in DATA["spaces"])
     return f'''<footer id="company">
   <div class="wrap">
     <div class="f-about">
-      <a class="brand" href="{home}" aria-label="{e(UI["home_label"])}">{logo_imgs(ctx["assets"])}{subspan}</a>
+      <a class="brand" href="{home}" aria-label="{e(brand_label)}">{logo_imgs(ctx["assets"])}{subspan}</a>
       <p>{e(UI["footer_about"])}</p>
       <span class="addr">{ADDRESS}</span>
     </div>
@@ -302,6 +304,53 @@ def footer(page, ctx):
   </div>
 </footer>'''
 
+
+
+# ---------------------------------------------------------------- "get to know Deepin"
+DX_NAME = {"risk": "Deepin Risk", "finance": "deepin.finance", "security": "deepin.security",
+           "energy": "deepin.energy", "harness": "Deepin Harness"}
+DX_FAMILY = [("risk", "deepin.risk"), ("finance", "deepin.finance"), ("security", "deepin.security"),
+             ("energy", "deepin.energy"), ("harness", "Deepin Harness")]
+# a small organisation: nodes (x, y) and the links between them, drawn in hairlines
+DX_NODES = [(70, 230), (190, 120), (300, 210), (420, 90), (520, 190), (610, 60), (640, 260)]
+DX_EDGES = [(0, 1), (1, 2), (1, 3), (2, 4), (3, 4), (3, 5), (4, 6), (2, 6)]
+
+
+def deepin_intro(page, ctx):
+    """Closing section of every sub-page: the one way back to the Deepin home page."""
+    d, root = UI["dx"], ctx["root"] or "./"
+    lines = "".join(f'<line x1="{DX_NODES[a][0]}" y1="{DX_NODES[a][1]}" x2="{DX_NODES[b][0]}" y2="{DX_NODES[b][1]}"/>' for a, b in DX_EDGES)
+    dots = "".join(f'<circle cx="{x}" cy="{y}" r="{5 if i in (1, 4) else 3.5}"/>' for i, (x, y) in enumerate(DX_NODES))
+    path = " ".join(f'{"M" if i == 0 else "L"}{DX_NODES[n][0]} {DX_NODES[n][1]}' for i, n in enumerate((0, 1, 3, 4, 6)))
+    fam = ""
+    for k, t in DX_FAMILY:
+        here = k == page
+        li, cur = (' class="here"', ' aria-current="page"') if here else ("", "")
+        tail = e(d["here"]) if here else '<b aria-hidden="true">→</b>'
+        fam += f'<li{li}><a href="{ctx["root"]}{k}/"{cur}><span>{e(t)}</span><em>{tail}</em></a></li>'
+    return f'''
+<section class="dx" id="deepin" aria-labelledby="dx-h">
+  <div class="wrap">
+    <div class="dx-panel">
+      <img class="dx-mark" src="{ctx["assets"]}assets/deepin-logo-mint.png" alt="" width="652" height="194" loading="lazy">
+      <svg class="dx-net" viewBox="0 0 700 320" aria-hidden="true" preserveAspectRatio="xMaxYMid slice">
+        <g class="dx-l">{lines}</g><g class="dx-n">{dots}</g>
+        <circle class="dx-sig" r="4"><animateMotion dur="9s" repeatCount="indefinite" path="{path}"/></circle>
+      </svg>
+      <div class="dx-copy">
+        <p class="lab dx-lab" lang="en"><span class="dx-dot" aria-hidden="true"></span>{e(d["lab"])}</p>
+        <h2 class="o-h2" id="dx-h">{d["h"]}</h2>
+        <p class="dx-p">{e(d["p"].format(name=DX_NAME.get(page, "Deepin")))}</p>
+        <p class="dx-p dx-p2">{e(d["p2"])}</p>
+        <a class="btn dx-btn" href="{root}">{e(d["cta"])} <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <nav class="dx-fam" aria-label="{e(d["family"])}">
+        <p class="lab">{e(d["family"])}</p>
+        <ul>{fam}</ul>
+      </nav>
+    </div>
+  </div>
+</section>'''
 
 
 # English product terms inside Turkish pages are marked lang="en", so uppercase
@@ -383,6 +432,8 @@ def build():
             body = render(body, ctx)
             for a, b in ctx["content"].get("terms", {}).items():  # page-level wording over shared data
                 body = body.replace(a, b)
+            if page != "home":
+                body += deepin_intro(page, ctx)
             body = body.replace('src="assets/', f'src="{ctx["assets"]}assets/').replace('poster="assets/', f'poster="{ctx["assets"]}assets/')
             chrome_nav, chrome_footer = nav(page, ctx), footer(page, ctx)
             if lang == "tr":
