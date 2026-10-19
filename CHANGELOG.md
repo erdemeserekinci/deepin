@@ -127,7 +127,7 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - Menü tüm sayfalarda 1160 px çerçeveye sığacak şekilde sıkılaştırıldı (bağlantı aralığı ve yazı boyutu biraz küçüldü; menü 1180 px altında gizleniyor). Önceden İngilizce risk ve security sayfalarında menü taşıyordu, o da düzeldi.
 - Türkçe metinde İngilizce terimlerin etrafında düğme ve etiketlerde oluşan fazladan boşluk giderildi ("Bize bir  Investigation  getirin" gibi).
 
-## design/organism dalı (deneysel, main'e birleştirilmedi)
+## design/organism dalı (19 Ekim'de main'e birleştirildi)
 
 **DEEPIN / ORGANISM** sanat yönetimi denemesi. Ana fikir: "Organizasyon bir fiildir." Yazı tipleri (Poppins, JetBrains Mono) ve renkler aynı; kullanım kuralları sıkılaştırıldı: nane = sinyal, yeşil = sistemin kurduğu yapı, kehribar = yalnızca insan, koyu = altta yatan (Harness).
 
@@ -152,6 +152,15 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 - ORGANISM tasarımı korundu: genel menü (o daldaki dört öğeli risk menüsü yerine), tipografi, ince çizgiler ve risk üst bölümündeki ilişki halkaları.
 - Önceki hassas geçişteki "Karar verir" / "Make the decision" düzeltmesi korundu.
 - 2 Ekim: aynı daldan tanıtım videoları da alındı (`f99abff`). "Nasıl başlarsınız"dan önce video bölümü; TR sayfada Türkçe, EN sayfada İngilizce video ve kapak görseli.
+
+**deepin.risk sunum revizyonu** (`af9ded0`, Özge Miroğlu, 19 Ekim)
+- "Demo talep edin" çağrısı; form demo talebine dönüştü (iletişim + ilgi alanı).
+- Renkler Deepin Risk müşteri sunumundaki palete göre: sektör, müşteri ve "Ne değişti?" sekmelerinde kategori renkleri; kanıt kartında bordo gerekçe, sarı öneri.
+- Üst bölümde ekip fotoğrafı ve vaka sonucu kartı; Canlı İstihbarat'ta risk barometresi; "Son karar her zaman ekibinizde." kutusu.
+- Kaldırılanlar: sürekli izleme derinlik kartı, "Nasıl başlarsınız" bölümü, risk üst bölümündeki ilişki halkaları.
+
+**Main'e birleştirme** (19 Ekim)
+- ORGANISM tasarımı ve risk revizyonları main'e alındı; site bu sürümle yayına hazırlanıyor.
 
 ## Alınan kararlar
 
