@@ -176,6 +176,9 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 **Referanslar gizlendi** (19 Ekim)
 - Müşteri isimleri ve risk sayfasındaki tanımlayıcı unvanlar ("Türkiye'nin İlk Dijital Bankası" gibi) tüm sayfalarda bulanık yer tutucuyla değiştirildi; gerçek isimler sayfa kaynağında yok. Açmak için `proof.hide_names: false`.
 
+**deepin.finance tanıtım videoları** (21 Ekim)
+- Finance sayfasına, üst bölümün hemen altına deepin dispute tanıtım videosu eklendi: TR sayfada Türkçe, EN sayfada İngilizce; kapak görseli videonun kapanış karesi. Çerçeve security ve risk sayfalarındakiyle aynı.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Space sayfaları yol olarak yayınlanıyor (deepin.space/finance); risk.deepin.space DNS üzerinden deepin.space/risk adresine yönlendiriliyor.
