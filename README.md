@@ -11,6 +11,7 @@ Statik site. Varsayılan dil Türkçe; İngilizce sürüm /en/ altında.
 | `en/index.html` | https://deepin.space/en (İngilizce) |
 | `en/risk/`, `en/finance/`, `en/security/`, `en/energy/`, `en/harness/` | https://deepin.space/en/risk vb. (İngilizce) |
 | `assets/` | Ortak görseller |
+| `presentations/` | https://deepin.space/presentations/<ad>.html (müşteriye link ile gönderilen tek dosyalık sunumlar; menüde yok, arama motorlarına kapalı, `build.py` dokunmaz) |
 | `security/demo/` | https://deepin.space/security/demo (deepin.security platform demosu, kurgusal veri, arama motorlarına kapalı; İngilizcesi `security/demo/en/`) |
 
 Her sayfanın sağ üstünde TR / EN geçişi var; aynı sayfanın diğer dildeki karşılığına gider. Sayfalarda `hreflang` bağlantıları tanımlı.
