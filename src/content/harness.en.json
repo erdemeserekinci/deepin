@@ -8,7 +8,7 @@
     "hero_line": "Models reason. Capabilities act. Policies govern. <b>Harness orchestrates.</b>",
     "hero_cta": "Explore the architecture",
     "hero_cta2": "See it in action: deepin.risk →",
-    "hero_note": "Runs underneath <b>deepin.risk</b> and <b>deepin.finance</b>",
+    "hero_note": "Runs underneath <b>deepin.risk</b> and <b>deepin.dispute</b>",
     "problem_eyebrow": "The problem",
     "problem_h2": "Agents are easy. <b>Organizations are hard.</b>",
     "problem_lede": "A model with a few tools can already do useful work. The hard part starts when that agent has to work inside a company.",
@@ -601,7 +601,7 @@
       "Evidence + findings",
       "Human decision"
     ],
-    "finance": [
+    "dispute": [
       "Chargeback Investigation",
       "Evidence + recommendation",
       "Human decision"

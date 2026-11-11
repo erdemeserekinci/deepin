@@ -31,15 +31,22 @@
 @media (max-width:700px){.entity{grid-template-columns:1fr 1fr}}
 .entity span{padding:12px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--line);font-size:14px}
 
-/* ORGANISM: deepin.finance — a dispute lives on a ledger: amounts, dates, deadlines */
-.pg-finance .hero{background:
+/* ORGANISM: deepin.dispute — a dispute lives on a ledger: amounts, dates, deadlines */
+.pg-dispute .hero{background:
   repeating-linear-gradient(180deg,transparent 0 35px,var(--hair-2) 35px 36px),
   linear-gradient(90deg,var(--bg) 0 38%,transparent 70%),var(--bg);background-blend-mode:normal}
-.pg-finance .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--bg) 30%,transparent 75%)}
-.pg-finance .hero .wrap{z-index:1}
-.pg-finance .amt strong{font-family:var(--mono);font-weight:500;letter-spacing:-.02em}
+.pg-dispute .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--bg) 30%,transparent 75%)}
+.pg-dispute .hero .wrap{z-index:1}
+.pg-dispute .amt strong{font-family:var(--mono);font-weight:500;letter-spacing:-.02em}
 
 /* ================= intro video (same frame as deepin.security and deepin.risk) ================= */
 .film-sec{padding-block:clamp(8px,2vw,24px) clamp(40px,5vw,72px)}
 .film{margin:0 auto;max-width:1000px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#0d2126}
 .film video{display:block;width:100%;height:100%;background:#0d2126}
+
+/* ================= what the dispute agent does (five capabilities, shown in the intro video) ================= */
+.caps{grid-template-columns:repeat(5,1fr)}
+.caps li{border-style:solid}
+.caps .n{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;color:var(--accent)}
+@media (max-width:1000px){.caps{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.caps{grid-template-columns:1fr}}

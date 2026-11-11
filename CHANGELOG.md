@@ -179,6 +179,11 @@ Bu belge 26–30 Eylül 2026 arasında deepin.space sitesinde yapılan işleri, 
 **deepin.finance tanıtım videoları** (21 Ekim)
 - Finance sayfasına, üst bölümün hemen altına deepin dispute tanıtım videosu eklendi: TR sayfada Türkçe, EN sayfada İngilizce; kapak görseli videonun kapanış karesi. Çerçeve security ve risk sayfalarındakiyle aynı.
 
+**deepin.finance → deepin.dispute** (11 Kasım)
+- Space'in adı deepin.dispute oldu; sayfa artık deepin.space/dispute (İngilizcesi /en/dispute). Eski /finance ve /en/finance adresleri yeni adrese yönlendiriyor.
+- Menü, ana sayfa, Harness, risk sayfası ve "Deepin teknolojisini tanıyın" bölümündeki tüm bağlantılar ve adlar güncellendi; video dosyaları da deepin-dispute-* adını aldı.
+- İçerik daraltıldı: üst etiket "Kart itirazı operasyonları"; genel finans yol haritası (Fraud, KYC/KYB, AML…) yerine tanıtım videosunda gösterilen beş yetenek: itiraz sorgulama, vaka detayı, analiz ve görselleştirme, itiraz kapatma, kart işlemi kontrolü.
+
 ## Alınan kararlar
 
 - **Adres yapısı:** Space sayfaları yol olarak yayınlanıyor (deepin.space/finance); risk.deepin.space DNS üzerinden deepin.space/risk adresine yönlendiriliyor.

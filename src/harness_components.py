@@ -228,7 +228,7 @@ def hx_spaces(arg, ctx):
     return f'''<figure class="hs">
   <div class="hs-harness"><span class="hs-name">Deepin Harness</span><span class="hs-chips">{chips}</span></div>
   <svg class="hs-split" viewBox="0 0 400 44" preserveAspectRatio="none" aria-hidden="true"><path d="M200 0 V14 C200 30 100 22 100 44 M200 14 C200 30 300 22 300 44"/></svg>
-  <div class="hs-cards">{card("risk", s["risk"])}{card("finance", s["finance"])}</div>
+  <div class="hs-cards">{card("risk", s["risk"])}{card("dispute", s["dispute"])}</div>
 </figure>
 <div class="hs-legend">{legend}</div>'''
 

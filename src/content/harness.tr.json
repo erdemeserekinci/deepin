@@ -8,7 +8,7 @@
     "hero_line": "Modeller akıl yürütür. Yetenekler iş yapar. Politikalar sınırı çizer. <b>Harness hepsini birlikte yürütür.</b>",
     "hero_cta": "Mimariyi inceleyin",
     "hero_cta2": "Çalışırken görün: deepin.risk →",
-    "hero_note": "<b>deepin.risk</b> ve <b>deepin.finance</b> bunun üzerinde çalışır",
+    "hero_note": "<b>deepin.risk</b> ve <b>deepin.dispute</b> bunun üzerinde çalışır",
     "problem_eyebrow": "Sorun",
     "problem_h2": "Agent kurmak kolay. <b>Organizasyon kurmak zor.</b>",
     "problem_lede": "Bir model ve birkaç araçla çalışan bir agent bugün işe yarar işler yapabiliyor. Zor kısım, o agent'ın bir kurumun içinde çalışması gerektiğinde başlıyor.",
@@ -601,7 +601,7 @@
       "Kanıt + bulgular",
       "İnsan kararı"
     ],
-    "finance": [
+    "dispute": [
       "Chargeback Investigation",
       "Kanıt + öneri",
       "İnsan kararı"

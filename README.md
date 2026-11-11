@@ -7,9 +7,9 @@ Statik site. Varsayılan dil Türkçe; İngilizce sürüm /en/ altında.
 | Dosya | Adres |
 |---|---|
 | `index.html` | https://deepin.space (Türkçe) |
-| `risk/`, `finance/`, `security/`, `energy/`, `harness/` | https://deepin.space/risk vb. (Türkçe) |
+| `risk/`, `dispute/`, `security/`, `energy/`, `harness/` | https://deepin.space/risk vb. (Türkçe) |
 | `en/index.html` | https://deepin.space/en (İngilizce) |
-| `en/risk/`, `en/finance/`, `en/security/`, `en/energy/`, `en/harness/` | https://deepin.space/en/risk vb. (İngilizce) |
+| `en/risk/`, `en/dispute/`, `en/security/`, `en/energy/`, `en/harness/` | https://deepin.space/en/risk vb. (İngilizce) |
 | `assets/` | Ortak görseller |
 | `presentations/` | https://deepin.space/presentations/<ad>.html (müşteriye link ile gönderilen tek dosyalık sunumlar; menüde yok, arama motorlarına kapalı, `build.py` dokunmaz) |
 | `security/demo/` | https://deepin.space/security/demo (deepin.security platform demosu, kurgusal veri, arama motorlarına kapalı; İngilizcesi `security/demo/en/`) |
@@ -26,7 +26,7 @@ python3 build.py
 
 - `src/data.tr.json`, `src/data.en.json`: Investigation, Space ve müşteri bilgileri, durum etiketleri, menüler.
 - `src/i18n/ui.json`: Bileşenlerde, menüde ve alt bilgide kullanılan ortak metinler (tr ve en).
-- `src/pages/tr/*.html`, `src/pages/en/*.html`: Ana sayfa, finance, security ve energy sayfalarının dile özel içerikleri.
+- `src/pages/tr/*.html`, `src/pages/en/*.html`: Ana sayfa, dispute, security ve energy sayfalarının dile özel içerikleri.
 - `src/content/security.tr.json` / `security.en.json`: deepin.security sayfasının güven adımları ve kurumsal özellikleri.
 - `src/pages/risk.html` + `src/content/risk.tr.json` / `risk.en.json`: deepin.risk sayfası tek şablon; tüm metinler ve demo verisi JSON dosyalarında.
 - `src/styles/*.css`: Sayfa stilleri (iki dil için ortak). `src/base.css`, `src/base.js`: Ortak tasarım sistemi ve etkileşimler.
@@ -42,7 +42,7 @@ Talep formu şu an e-posta uygulamasını açar. Bir form servisi bağlanırsa `
 
 Bir Space ileride kendi alt alan adında yayınlanacaksa `build.py` içindeki `SUBDOMAINS` ile tanımlanır (şu an boş). Sayfalar her şey deepin.space'teymiş gibi yazılır; derleme, alt alan adını geçen bağlantıları tam adrese çevirir ve paylaşılan görselleri alt alan adının `assets/` klasörüne kopyalar. Önizleme için tek klasörlü derleme: `DEEPIN_PATHS=1 DEEPIN_OUT=<klasör> python3 build.py`.
 
-Google Analytics (GA4, `G-ZL2J5R6HCB`) tüm sayfalarda tek kimlikle çalışır ve yalnızca deepin.space ile alt alan adlarında yüklenir. Her sayfa `content_group` olarak kendi adını gönderir (home, risk, finance, security, energy, harness); raporlarda Space'e göre ayırmak için bu boyut kullanılır. Ziyaretçinin dil tercihi alt alan adlarına `.deepin.space` çereziyle taşınır.
+Google Analytics (GA4, `G-ZL2J5R6HCB`) tüm sayfalarda tek kimlikle çalışır ve yalnızca deepin.space ile alt alan adlarında yüklenir. Her sayfa `content_group` olarak kendi adını gönderir (home, risk, dispute, security, energy, harness); raporlarda Space'e göre ayırmak için bu boyut kullanılır. Ziyaretçinin dil tercihi alt alan adlarına `.deepin.space` çereziyle taşınır.
 
 ## deepin.security demosu ve ürün videoları
 

@@ -13,7 +13,7 @@ Components:
   org_scene       the Investigation transformation (fragments -> sources -> evidence -> finding -> decision)
   org_decision    the human moment: recommendation, provenance, approve / reject / investigate further
   org_index       Investigation catalog as an editorial index
-  org_grammar     two Spaces, one grammar (deepin.risk and deepin.finance side by side)
+  org_grammar     two Spaces, one grammar (deepin.risk and deepin.dispute side by side)
   org_proof       customers at the maturity they have reached
   org_under       Deepin Harness revealed underneath the Investigation surface
   org_close       closing steps
@@ -156,7 +156,7 @@ def org_grammar(arg, ctx):
         for n, (k, a, b) in enumerate(g["rows"]))
     explore = "".join(f'<a href="{root}{s["href"]}">{_wm(s["id"])}<span>{e(s["title"])}</span></a>' for s in DATA["spaces"] if s["status"] == "exploring")
     return f'''<div class="gm">
-  <div class="gm-head">{head("risk", "a")}<span class="gm-lbl lab">{e(g["label"])}</span>{head("finance", "b")}</div>
+  <div class="gm-head">{head("risk", "a")}<span class="gm-lbl lab">{e(g["label"])}</span>{head("dispute", "b")}</div>
   <ol class="gm-rows">{rows}</ol>
 </div>
 <p class="note gm-note">{e(g["note"])}</p>

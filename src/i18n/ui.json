@@ -111,7 +111,7 @@
     "cta": {
       "home": "Bring us an investigation",
       "risk": "Request a demo",
-      "finance": "Request a demo",
+      "dispute": "Request a demo",
       "security": "Bring us a case",
       "energy": "Bring us a case",
       "harness": "Bring us an investigation"
@@ -231,7 +231,7 @@
     "cta": {
       "home": "Bize bir Investigation getirin",
       "risk": "Demo talep edin",
-      "finance": "Demo talep edin",
+      "dispute": "Demo talep edin",
       "security": "Bize bir vaka getirin",
       "energy": "Bize bir vaka getirin",
       "harness": "Bize bir Investigation getirin"

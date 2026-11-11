@@ -4,8 +4,8 @@
     python3 build.py
 
 Output
-  Turkish (default)  index.html, risk/, finance/, security/, energy/, harness/
-  English            en/index.html, en/risk/, en/finance/, en/security/, en/energy/, en/harness/
+  Turkish (default)  index.html, risk/, dispute/, security/, energy/, harness/
+  English            en/index.html, en/risk/, en/dispute/, en/security/, en/energy/, en/harness/
 
 Sources (src/)
   data.<lang>.json         investigations, spaces, customers, status labels, navigation
@@ -31,7 +31,9 @@ import organism_components  # noqa: E402
 import redact  # noqa: E402
 
 LOCALES = [("tr", ""), ("en", "en/")]          # (language, output folder); first is the default
-PAGES = ["home", "risk", "finance", "security", "energy", "harness"]
+PAGES = ["home", "risk", "dispute", "security", "energy", "harness"]
+# old addresses that now live elsewhere: a redirect page is written at the old path
+MOVED = {"finance": "dispute"}
 PAGE_DIR = {"home": ""}                        # output folder per page inside a locale
 SUB = {"home": "", "harness": " harness"}     # sub-brand after the logo (".risk"; a leading space means a word, not a Space)
 
@@ -290,7 +292,7 @@ def nav(page, ctx):
     home = "#top"                                  # the logo never leaves the page
     brand_label = UI["home_label"] if page == "home" else UI["top_label"]
     items = [("home", "Deepin", root or "./"), ("risk", "deepin.risk", f"{root}risk/"),
-             ("finance", "deepin.finance", f"{root}finance/"), ("harness", "Harness", f"{root}harness/"),
+             ("dispute", "deepin.dispute", f"{root}dispute/"), ("harness", "Harness", f"{root}harness/"),
              ("customers", UI["customers"], f"{root}#customers" if root else "#customers")]
     cur = ' aria-current="page"'
     links = "".join(f'<a href="{h}"{cur if k == page else ""}>{e(t)}</a>' for k, t, h in items)
@@ -333,9 +335,9 @@ def footer(page, ctx):
 
 
 # ---------------------------------------------------------------- "get to know Deepin"
-DX_NAME = {"risk": "Deepin Risk", "finance": "deepin.finance", "security": "deepin.security",
+DX_NAME = {"risk": "Deepin Risk", "dispute": "deepin.dispute", "security": "deepin.security",
            "energy": "deepin.energy", "harness": "Deepin Harness"}
-DX_FAMILY = [("risk", "deepin.risk"), ("finance", "deepin.finance"), ("security", "deepin.security"),
+DX_FAMILY = [("risk", "deepin.risk"), ("dispute", "deepin.dispute"), ("security", "deepin.security"),
              ("energy", "deepin.energy"), ("harness", "Deepin Harness")]
 # a small organisation: nodes (x, y) and the links between them, drawn in hairlines
 DX_NODES = [(70, 230), (190, 120), (300, 210), (420, 90), (520, 190), (610, 60), (640, 260)]
@@ -487,13 +489,13 @@ def finalize(doc, page, lang_dir, need):
     return doc
 
 
-def redirect_stub(target, lang):
+def redirect_stub(target, lang, title="Deepin"):
     t = e(target)
     return f'''<!doctype html>
 <html lang="{lang}">
 <head>
 <meta charset="utf-8">
-<title>Deepin Risk</title>
+<title>{e(title)}</title>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="{t}">
 <meta http-equiv="refresh" content="0; url={t}">
@@ -604,6 +606,13 @@ def build():
             os.makedirs(os.path.dirname(path), exist_ok=True)
             open(path, "w", encoding="utf-8").write(doc)
             written.append(folder + "index.html")
+    # moved pages: the old address sends visitors (and search engines) to the new one
+    for old, new in MOVED.items():
+        for lang, lang_dir in LOCALES:
+            stub = os.path.join(OUT_ROOT, page_path(lang_dir, old), "index.html")
+            os.makedirs(os.path.dirname(stub), exist_ok=True)
+            open(stub, "w", encoding="utf-8").write(redirect_stub(public_url(new, lang_dir), lang, "deepin." + new))
+            written.append(page_path(lang_dir, old) + "index.html → " + new)
     # shared assets a subdomain uses are copied into its own assets/ folder
     for sp, files in need.items():
         for f in sorted(files):

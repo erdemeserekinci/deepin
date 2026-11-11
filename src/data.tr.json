@@ -28,7 +28,7 @@
     {
       "id": "chargeback",
       "name": "Chargeback Investigation",
-      "space": "finance",
+      "space": "dispute",
       "status": "deploying",
       "headline": "Her kart itirazı, kanıtları hazır bir vaka olarak gelir.",
       "sources": [
@@ -48,7 +48,7 @@
         "Aksiyon hazırlığı"
       ],
       "cta": "Chargeback Investigation'ı inceleyin",
-      "href": "finance/",
+      "href": "dispute/",
       "weight": "primary"
     },
     {
@@ -98,28 +98,22 @@
       "href": "risk/"
     },
     {
-      "id": "finance",
-      "name": "finance",
-      "title": "Finansal operasyonlar ve Investigation",
+      "id": "dispute",
+      "name": "dispute",
+      "title": "Kart itirazı Investigation'ı",
       "status": "deploying",
       "primary": "Chargeback Investigation",
-      "note": "Kart itirazlarıyla başlar, ardından yakın finansal Investigation'lara genişler.",
+      "note": "Kart itirazının tüm akışı: vakanın açılmasından onaylı kapanışa.",
       "growth": [
         [
           "Chargeback"
         ],
         [
           "Chargeback",
-          "Fraud"
-        ],
-        [
-          "Chargeback",
-          "Fraud",
-          "Merchant Risk",
-          "KYC / KYB"
+          "Representment"
         ]
       ],
-      "href": "finance/"
+      "href": "dispute/"
     },
     {
       "id": "security",
@@ -179,7 +173,7 @@
       "status": "embedded",
       "spaces": [
         "risk",
-        "finance"
+        "dispute"
       ],
       "logo": "",
       "context": {
@@ -191,7 +185,7 @@
       "investigation": "Chargeback Investigation",
       "status": "contracted",
       "spaces": [
-        "finance"
+        "dispute"
       ],
       "logo": ""
     },
@@ -276,7 +270,7 @@
         "#enterprise"
       ]
     ],
-    "finance": [
+    "dispute": [
       [
         "Chargeback Investigation",
         "#chargeback"

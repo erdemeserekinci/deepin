@@ -266,7 +266,7 @@ details[open] summary .ix-name{color:var(--accent)}
   .gm-head,.gm-row{grid-template-columns:minmax(0,1fr)}
   .gm-a::before,.gm-b::before{display:block;margin-bottom:2px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--muted)}
   .gm-a::before{content:"deepin.risk"}
-  .gm-b::before{content:"deepin.finance"}
+  .gm-b::before{content:"deepin.dispute"}
   .gm-b{margin-top:10px}
 }
 
